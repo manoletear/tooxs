@@ -248,6 +248,29 @@ function HoverRevealCards({
                 transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)",
               }}
             />
+            {/* Color tint overlay for specific cards */}
+            {svc.slug === "automatizacion" && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  zIndex: 1,
+                  background: "rgba(23, 127, 198, 0.45)",
+                  mixBlendMode: "multiply",
+                  pointerEvents: "none",
+                }}
+              />
+            )}
+            {svc.slug === "data-analytics" && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  zIndex: 1,
+                  background: "rgba(224, 120, 30, 0.45)",
+                  mixBlendMode: "multiply",
+                  pointerEvents: "none",
+                }}
+              />
+            )}
             {/* Overlay */}
             <div
               className="absolute inset-0"
