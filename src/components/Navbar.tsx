@@ -1,6 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import tooxsLogo from "@/assets/tooxs-logo.png";
 
 const navLinks = [
   { to: "/" as const, label: "Home" },
@@ -31,16 +32,8 @@ export function Navbar() {
         } w-full`}
       >
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
-          <div className="w-7 h-7 bg-navy rounded-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <span className="text-white font-bold text-xs" style={{ fontFamily: 'var(--font-heading)' }}>S</span>
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="text-navy font-semibold text-sm tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
-              Stratwell
-            </span>
-            <span className="text-navy/60 text-[9px] tracking-[0.15em] uppercase font-medium">Consulting</span>
-          </div>
+        <Link to="/" className="flex items-center group flex-shrink-0">
+          <img src={tooxsLogo} alt="Tooxs" className="h-8 w-auto group-hover:scale-105 transition-transform duration-300" />
         </Link>
 
         {/* Desktop nav */}
