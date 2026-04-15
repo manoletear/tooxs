@@ -207,13 +207,13 @@ function NewsletterPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-7">
             {quarterlyArticles.map((a, i) => (
-              <div key={i}>
+              <Link key={i} to="/newsletter/$slug" params={{ slug: a.slug }} className="group block">
                 <img src={a.image} alt={a.title} className="w-full aspect-[16/10] object-cover rounded mb-4" loading="lazy" />
-                <h3 className="text-base font-bold leading-snug mb-2 cursor-pointer hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <h3 className="text-base font-bold leading-snug mb-2 group-hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
                   {a.title} <ChevronRight className="inline w-4 h-4 text-primary" />
                 </h3>
                 <p className="text-sm text-foreground/60 leading-relaxed">{a.excerpt}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
