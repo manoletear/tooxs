@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <img src={tooxsLogo} alt="TOOXS" className="h-8 w-auto mb-4 brightness-0 invert" />
+            <img src={tooxsLogo} alt="TOOXS" className="h-8 w-auto mb-4" />
             <p className="text-sm leading-relaxed">
               Automatización inteligente para empresas chilenas. RPA, IA y soluciones a medida.
             </p>
@@ -40,16 +40,16 @@ export function Footer() {
             <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white">Contacto</h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2">
-                <Phone size={14} className="text-mint" />
-                <span>+56 9 XXXX XXXX</span>
-              </div>
-              <div className="flex items-center gap-2">
                 <Mail size={14} className="text-mint" />
                 <span>contacto@tooxs.com</span>
               </div>
+              <div className="flex items-center gap-2">
+                <Phone size={14} className="text-mint" />
+                <span>+56 2 2435 6262</span>
+              </div>
               <div className="flex items-start gap-2">
                 <MapPin size={14} className="text-mint mt-0.5" />
-                <span>Santiago, Chile</span>
+                <span>Av. Manquehue Nte. 958, 7561271 Las Condes, Región Metropolitana</span>
               </div>
             </div>
           </div>
