@@ -365,11 +365,8 @@ function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () =>
       className="overflow-hidden"
     >
       <div
-        className="rounded-[24px] border mt-6 overflow-hidden"
-        style={{
-          background: "linear-gradient(to bottom, #111834, #0d1328)",
-          borderColor: `${svc.accentColor}30`,
-        }}
+        className="rounded-[24px] border mt-6 overflow-hidden bg-card shadow-lg"
+        style={{ borderColor: `${svc.accentColor}25` }}
       >
         <div className="p-8 md:p-10 space-y-10">
           {/* Header */}
@@ -377,21 +374,20 @@ function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () =>
             <div>
               <span
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3"
-                style={{ background: `${svc.accentColor}20`, color: svc.accentColor, border: `1px solid ${svc.accentColor}40` }}
+                style={{ background: `${svc.accentColor}15`, color: svc.accentColor, border: `1px solid ${svc.accentColor}30` }}
               >
                 <svc.icon size={14} />
                 {svc.title}
               </span>
               {svc.statement.map((p, i) => (
-                <p key={i} className="text-base md:text-lg leading-relaxed mb-3 last:mb-0" style={{ color: "#c8d0e4", fontFamily: "var(--font-emphasis)" }}>
+                <p key={i} className="text-base md:text-lg leading-relaxed text-muted-foreground mb-3 last:mb-0" style={{ fontFamily: "var(--font-emphasis)" }}>
                   {p}
                 </p>
               ))}
             </div>
             <button
               onClick={onClose}
-              className="shrink-0 w-10 h-10 rounded-full border flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors"
-              style={{ borderColor: "rgba(255,255,255,0.12)" }}
+              className="shrink-0 w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
             >
               ✕
             </button>
@@ -406,19 +402,18 @@ function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () =>
               {svc.values.map((val, i) => (
                 <div
                   key={val.title}
-                  className="p-5 rounded-[18px] border"
-                  style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.07)" }}
+                  className="p-5 rounded-[18px] border border-border bg-section-bg"
                 >
                   <div className="flex items-center gap-3 mb-2">
                     <span
-                      className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold text-white"
-                      style={{ background: `${svc.accentColor}30` }}
+                      className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold text-primary-foreground"
+                      style={{ background: svc.accentColor }}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h4 className="text-white font-semibold text-sm">{val.title}</h4>
+                    <h4 className="text-foreground font-semibold text-sm">{val.title}</h4>
                   </div>
-                  <p className="text-sm leading-relaxed pl-10" style={{ color: "#a7b0c5" }}>{val.description}</p>
+                  <p className="text-sm leading-relaxed pl-10 text-muted-foreground">{val.description}</p>
                 </div>
               ))}
             </div>
@@ -433,11 +428,11 @@ function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () =>
               {svc.metrics.map((m, i) => (
                 <div key={i} className="text-center">
                   <p className="text-2xl md:text-3xl font-bold mb-1" style={{ color: svc.accentColor }}>{m.value}</p>
-                  <p className="text-xs" style={{ color: "#a7b0c5" }}>{m.label}</p>
+                  <p className="text-xs text-muted-foreground">{m.label}</p>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-center italic" style={{ color: "rgba(167,176,197,0.5)" }}>{svc.metricsSource}</p>
+            <p className="text-xs text-center italic text-muted-foreground/50">{svc.metricsSource}</p>
           </div>
 
           {/* Capabilities */}
@@ -449,8 +444,7 @@ function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () =>
               {svc.capabilities.map((cap) => (
                 <span
                   key={cap}
-                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl border text-sm font-medium"
-                  style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)", color: "#d4ddf4" }}
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl border border-border bg-section-bg text-sm font-medium text-foreground"
                 >
                   <CheckCircle size={14} style={{ color: svc.accentColor }} />
                   {cap}
@@ -461,11 +455,11 @@ function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () =>
 
           {/* CTA */}
           <div className="text-center pt-2">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">{svc.cta.title}</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">{svc.cta.title}</h3>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-white text-sm font-bold hover:-translate-y-0.5 transition-transform"
-              style={{ background: svc.accentColor, boxShadow: `0 10px 30px ${svc.accentColor}40` }}
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-primary-foreground text-sm font-bold hover:-translate-y-0.5 transition-transform"
+              style={{ background: svc.accentColor, boxShadow: `0 10px 30px ${svc.accentColor}30` }}
             >
               {svc.cta.buttonText} <ArrowRight size={16} />
             </Link>
