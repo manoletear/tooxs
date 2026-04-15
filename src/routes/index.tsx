@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BarChart3, Cog, Monitor, DollarSign, Quote } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { CTASection } from "../components/CTASection";
+import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -49,7 +50,7 @@ function Counter({ end, suffix = "", prefix = "" }: { end: number; suffix?: stri
 
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
+      <div className="text-4xl md:text-5xl font-bold text-navy animate-count-up" style={{ fontFamily: 'var(--font-heading)' }}>
         {prefix}{count}{suffix}
       </div>
     </div>
@@ -119,70 +120,75 @@ const steps = [
   { num: "04", title: "Measure", description: "We track performance metrics and refine approaches to ensure lasting results." },
 ];
 
+/* ── Hero text animation ── */
+function HeroContent() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 200);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <div className={`max-w-3xl transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy-foreground leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>
+        Strategy That Powers{" "}
+        <em className="text-gold">Your Next Level</em>{" "}
+        of Growth
+      </h1>
+      <p className={`mt-6 text-lg md:text-xl text-navy-foreground/80 max-w-xl leading-relaxed transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+        We partner with ambitious businesses to develop and execute strategies that deliver lasting, measurable results.
+      </p>
+      <div className={`mt-8 flex flex-wrap gap-4 transition-all duration-1000 delay-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-2 bg-gold text-navy px-7 py-3.5 rounded-lg font-semibold hover:bg-gold/90 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5 transition-all duration-300"
+        >
+          Book a Consultation <ArrowRight size={18} />
+        </Link>
+        <Link
+          to="/services"
+          className="inline-flex items-center gap-2 border-2 border-navy-foreground/30 text-navy-foreground px-7 py-3.5 rounded-lg font-semibold hover:bg-navy-foreground/10 hover:border-navy-foreground/50 transition-all duration-300"
+        >
+          Our Services
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 function Index() {
   return (
     <div>
       {/* ── Hero ── */}
-      <section
-        className="relative min-h-screen flex items-center"
-        style={{ backgroundImage: "url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80)" }}
-      >
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80)" }} />
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center scale-105" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80)" }} />
         <div className="absolute inset-0 bg-navy/70" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy-foreground leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>
-              Strategy That Powers{" "}
-              <em className="text-gold">Your Next Level</em>{" "}
-              of Growth
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-navy-foreground/80 max-w-xl leading-relaxed">
-              We partner with ambitious businesses to develop and execute strategies that deliver lasting, measurable results.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 bg-gold text-navy px-7 py-3.5 rounded-lg font-semibold hover:opacity-90 transition-opacity"
-              >
-                Book a Consultation <ArrowRight size={18} />
-              </Link>
-              <Link
-                to="/services"
-                className="inline-flex items-center gap-2 border-2 border-navy-foreground/30 text-navy-foreground px-7 py-3.5 rounded-lg font-semibold hover:bg-navy-foreground/10 transition-colors"
-              >
-                Our Services
-              </Link>
-            </div>
-          </div>
+          <HeroContent />
         </div>
       </section>
 
       {/* ── Stats ── */}
       <section className="py-20 bg-section-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <ScrollReveal className="text-center mb-12">
             <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Who We Are</p>
             <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
               Trusted by Businesses Worldwide
             </h2>
-          </div>
+          </ScrollReveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <Counter end={92} suffix="%" />
-              <p className="mt-2 text-sm text-muted-foreground">Client Retention</p>
-            </div>
-            <div className="text-center">
-              <Counter end={48} prefix="$" suffix="M" />
-              <p className="mt-2 text-sm text-muted-foreground">Revenue Generated</p>
-            </div>
-            <div className="text-center">
-              <Counter end={200} suffix="+" />
-              <p className="mt-2 text-sm text-muted-foreground">Businesses Served</p>
-            </div>
-            <div className="text-center">
-              <Counter end={15} suffix="+" />
-              <p className="mt-2 text-sm text-muted-foreground">Years Experience</p>
-            </div>
+            {[
+              { end: 92, suffix: "%", label: "Client Retention" },
+              { end: 48, prefix: "$", suffix: "M", label: "Revenue Generated" },
+              { end: 200, suffix: "+", label: "Businesses Served" },
+              { end: 15, suffix: "+", label: "Years Experience" },
+            ].map((stat, i) => (
+              <ScrollReveal key={stat.label} delay={i * 100}>
+                <Counter end={stat.end} suffix={stat.suffix} prefix={stat.prefix} />
+                <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
@@ -190,36 +196,41 @@ function Index() {
       {/* ── Services ── */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <ScrollReveal className="text-center mb-14">
             <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">What We Do</p>
             <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
               Our Services
             </h2>
-          </div>
+          </ScrollReveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <div key={service.title} className="group bg-card rounded-xl p-8 border hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 bg-navy/5 rounded-lg flex items-center justify-center mb-5 group-hover:bg-gold/10 transition-colors">
-                  <service.icon className="text-navy" size={24} />
+            {services.map((service, i) => (
+              <ScrollReveal key={service.title} delay={i * 100}>
+                <div className="group bg-card rounded-xl p-8 border hover:shadow-xl hover:-translate-y-1 transition-all duration-400">
+                  <div className="w-12 h-12 bg-navy/5 rounded-lg flex items-center justify-center mb-5 group-hover:bg-gold/10 group-hover:scale-110 transition-all duration-300">
+                    <service.icon className="text-navy group-hover:text-gold transition-colors duration-300" size={24} />
+                  </div>
+                  <h3 className="text-xl font-semibold text-navy mb-3" style={{ fontFamily: 'var(--font-heading)' }}>{service.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold text-navy mb-3" style={{ fontFamily: 'var(--font-heading)' }}>{service.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
-              </div>
+              </ScrollReveal>
             ))}
             {/* CTA Card */}
-            <Link
-              to="/services"
-              className="relative rounded-xl overflow-hidden flex items-end p-8 min-h-[280px] group"
-              style={{ backgroundImage: "url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop)" }}
-            >
-              <div className="absolute inset-0 bg-navy/70 group-hover:bg-navy/60 transition-colors" />
-              <div className="relative z-10">
-                <h3 className="text-xl font-bold text-navy-foreground mb-2" style={{ fontFamily: 'var(--font-heading)' }}>Start Your Growth Journey</h3>
-                <span className="inline-flex items-center gap-1 text-gold text-sm font-semibold">
-                  Explore All Services <ArrowRight size={14} />
-                </span>
-              </div>
-            </Link>
+            <ScrollReveal delay={400}>
+              <Link
+                to="/services"
+                className="relative rounded-xl overflow-hidden flex items-end p-8 min-h-[280px] group"
+                style={{ backgroundImage: "url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop)" }}
+              >
+                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop)" }} />
+                <div className="absolute inset-0 bg-navy/70 group-hover:bg-navy/55 transition-all duration-500" />
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-navy-foreground mb-2" style={{ fontFamily: 'var(--font-heading)' }}>Start Your Growth Journey</h3>
+                  <span className="inline-flex items-center gap-1 text-gold text-sm font-semibold group-hover:gap-2 transition-all duration-300">
+                    Explore All Services <ArrowRight size={14} />
+                  </span>
+                </div>
+              </Link>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -227,29 +238,33 @@ function Index() {
       {/* ── Case Studies ── */}
       <section className="py-20 bg-section-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-14">
-            <div>
-              <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Results</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
-                Featured Case Studies
-              </h2>
-            </div>
-            <Link to="/case-studies" className="hidden md:inline-flex items-center gap-1 text-navy font-semibold text-sm hover:text-gold transition-colors">
-              View All <ArrowRight size={14} />
-            </Link>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {caseStudies.map((cs) => (
-              <div key={cs.title} className="bg-card rounded-xl overflow-hidden border hover:shadow-lg transition-shadow group">
-                <div className="aspect-[3/2] overflow-hidden">
-                  <img src={cs.image} alt={cs.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                </div>
-                <div className="p-6">
-                  <span className="inline-block bg-gold/10 text-gold text-xs font-semibold px-3 py-1 rounded-full mb-3">{cs.category}</span>
-                  <h3 className="text-lg font-semibold text-navy mb-2" style={{ fontFamily: 'var(--font-heading)' }}>{cs.title}</h3>
-                  <p className="text-muted-foreground text-sm">{cs.description}</p>
-                </div>
+          <ScrollReveal>
+            <div className="flex items-end justify-between mb-14">
+              <div>
+                <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Results</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
+                  Featured Case Studies
+                </h2>
               </div>
+              <Link to="/case-studies" className="hidden md:inline-flex items-center gap-1 text-navy font-semibold text-sm hover:text-gold hover:gap-2 transition-all duration-300">
+                View All <ArrowRight size={14} />
+              </Link>
+            </div>
+          </ScrollReveal>
+          <div className="grid md:grid-cols-3 gap-6">
+            {caseStudies.map((cs, i) => (
+              <ScrollReveal key={cs.title} delay={i * 150}>
+                <div className="bg-card rounded-xl overflow-hidden border hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
+                  <div className="aspect-[3/2] overflow-hidden">
+                    <img src={cs.image} alt={cs.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                  </div>
+                  <div className="p-6">
+                    <span className="inline-block bg-gold/10 text-gold text-xs font-semibold px-3 py-1 rounded-full mb-3">{cs.category}</span>
+                    <h3 className="text-lg font-semibold text-navy mb-2" style={{ fontFamily: 'var(--font-heading)' }}>{cs.title}</h3>
+                    <p className="text-muted-foreground text-sm">{cs.description}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
           <Link to="/case-studies" className="md:hidden mt-8 inline-flex items-center gap-1 text-navy font-semibold text-sm hover:text-gold transition-colors">
@@ -260,25 +275,27 @@ function Index() {
 
       {/* ── Testimonials ── */}
       <section className="py-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
           <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Testimonials</p>
           <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
             What Our Clients Say
           </h2>
-        </div>
+        </ScrollReveal>
         <div className="flex gap-6 px-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
-          {testimonials.map((t) => (
-            <div key={t.name} className="min-w-[340px] max-w-[400px] snap-start bg-card rounded-xl p-8 border flex-shrink-0">
-              <Quote className="text-gold/40 mb-4" size={32} />
-              <p className="text-foreground/80 text-sm leading-relaxed mb-6">"{t.quote}"</p>
-              <div className="flex items-center gap-3">
-                <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
-                <div>
-                  <p className="font-semibold text-sm text-navy">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.title}</p>
+          {testimonials.map((t, i) => (
+            <ScrollReveal key={t.name} delay={i * 100} className="min-w-[340px] max-w-[400px] snap-start flex-shrink-0">
+              <div className="bg-card rounded-xl p-8 border h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-400">
+                <Quote className="text-gold/40 mb-4" size={32} />
+                <p className="text-foreground/80 text-sm leading-relaxed mb-6">"{t.quote}"</p>
+                <div className="flex items-center gap-3">
+                  <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
+                  <div>
+                    <p className="font-semibold text-sm text-navy">{t.name}</p>
+                    <p className="text-xs text-muted-foreground">{t.title}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -287,7 +304,7 @@ function Index() {
       <section className="py-20 bg-section-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <ScrollReveal>
               <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Our Goal</p>
               <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
                 Transforming Strategy into Results
@@ -298,18 +315,20 @@ function Index() {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 We combine decades of industry expertise with innovative methodologies to deliver strategies that don't just look good on paper — they deliver real-world results.
               </p>
-              <Link to="/about" className="inline-flex items-center gap-2 text-navy font-semibold hover:text-gold transition-colors">
+              <Link to="/about" className="inline-flex items-center gap-2 text-navy font-semibold hover:text-gold hover:gap-3 transition-all duration-300">
                 Learn More About Us <ArrowRight size={16} />
               </Link>
-            </div>
-            <div className="rounded-xl overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&h=500&fit=crop"
-                alt="Team collaboration"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <div className="rounded-xl overflow-hidden group">
+                <img
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&h=500&fit=crop"
+                  alt="Team collaboration"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -317,21 +336,23 @@ function Index() {
       {/* ── Our Approach ── */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <ScrollReveal className="text-center mb-14">
             <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">How We Work</p>
             <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
               Our Approach
             </h2>
-          </div>
+          </ScrollReveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((step) => (
-              <div key={step.num} className="text-center">
-                <div className="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-5">
-                  <span className="text-gold font-bold text-lg">{step.num}</span>
+            {steps.map((step, i) => (
+              <ScrollReveal key={step.num} delay={i * 150}>
+                <div className="text-center group">
+                  <div className="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-gold group-hover:scale-110 transition-all duration-400">
+                    <span className="text-gold font-bold text-lg group-hover:text-navy transition-colors duration-300">{step.num}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-navy mb-2" style={{ fontFamily: 'var(--font-heading)' }}>{step.title}</h3>
+                  <p className="text-muted-foreground text-sm">{step.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-navy mb-2" style={{ fontFamily: 'var(--font-heading)' }}>{step.title}</h3>
-                <p className="text-muted-foreground text-sm">{step.description}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -339,14 +360,14 @@ function Index() {
 
       {/* ── Trusted By ── */}
       <section className="py-16 bg-section-bg overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
+        <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
           <p className="text-sm font-semibold tracking-widest uppercase text-muted-foreground">Trusted By Industry Leaders</p>
-        </div>
+        </ScrollReveal>
         <div className="relative">
           <div className="flex animate-marquee items-center gap-16">
             {[...Array(2)].flatMap((_, i) =>
               ["Acme Corp", "GlobalTech", "Pinnacle", "Vertex", "Horizon", "Summit", "Apex", "Zenith"].map((name) => (
-                <div key={`${name}-${i}`} className="flex-shrink-0 text-2xl font-bold text-muted-foreground/30 tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
+                <div key={`${name}-${i}`} className="flex-shrink-0 text-2xl font-bold text-muted-foreground/30 tracking-wider hover:text-muted-foreground/60 transition-colors duration-500" style={{ fontFamily: 'var(--font-heading)' }}>
                   {name}
                 </div>
               ))
