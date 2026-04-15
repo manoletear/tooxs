@@ -98,7 +98,7 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div
-                className="w-full h-full rounded-3xl overflow-hidden shadow-2xl"
+                className="w-full h-full rounded-3xl overflow-hidden shadow-2xl flex flex-col"
                 style={{
                   background: "linear-gradient(145deg, rgba(23,127,198,0.15) 0%, rgba(29,29,27,0.97) 40%)",
                   border: isHovered
@@ -141,8 +141,8 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
                     {card.title}
                   </h3>
                 </div>
-                <div className="px-7 pb-8">
-                  <p className="text-sm leading-relaxed text-white/70">
+                <div className="px-7 pb-6 flex-1 overflow-hidden">
+                  <p className="text-xs leading-relaxed text-white/70">
                     {card.description}
                   </p>
                 </div>
