@@ -60,13 +60,13 @@ function IndustriesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
             {industries.map((ind, i) => (
               <ScrollReveal key={ind.title} delay={Math.min(i * 40, 300)}>
-                <div className="group cursor-pointer rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white border border-transparent hover:border-gray-100">
+                <Link to={ind.link as any} className="group block cursor-pointer rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card border border-transparent hover:border-border">
                   <h3 className="text-lg font-bold text-navy mb-2 flex items-center gap-1 group-hover:text-primary transition-colors">
                     {ind.title}
                     <ChevronRight size={16} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{ind.description}</p>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
