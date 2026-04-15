@@ -54,8 +54,8 @@ export function Navbar() {
             : "bg-white h-14 max-w-4xl"
         } w-full`}
       >
-        <Link to="/" className="flex items-center group flex-shrink-0">
-          <img src={tooxsLogo} alt="Tooxs" className="h-[46px] w-auto group-hover:scale-105 transition-transform duration-300" />
+        <Link to="/" className="flex items-center justify-center group flex-shrink-0 self-stretch">
+          <img src={tooxsLogo} alt="Tooxs" className="h-[46px] w-auto object-contain group-hover:scale-105 transition-transform duration-300" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
