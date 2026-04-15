@@ -86,8 +86,7 @@ function ContactPage() {
             </div>
 
             {/* Right — HubSpot Form */}
-            <div className={`bg-card rounded-2xl p-8 md:p-10 shadow-xl transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-              <h2 className="text-2xl font-bold text-navy mb-6" style={{ fontFamily: 'var(--font-heading)' }}>Agenda una consulta</h2>
+            <div className={`transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
               <HubSpotForm />
             </div>
           </div>
