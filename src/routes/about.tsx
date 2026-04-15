@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight, ArrowRight, Mail } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
+import { ARTICLES } from "@/data/articles";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -27,24 +28,9 @@ const industries = [
 ];
 
 const featured = [
-  {
-    title: "Casos de Éxito",
-    description: "Explora casos de estudio de clientes de TOOXS sobre cómo nos asociamos con empresas para definir estrategias audaces, integrar tecnología e IA, y crear crecimiento sostenible.",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&h=320&fit=crop",
-    link: "/case-studies",
-  },
-  {
-    title: "Nuestro Ecosistema de Alianzas",
-    description: "Para ayudar a nuestros clientes en un mundo que cambia rápidamente, innovamos continuamente y extendemos nuestras capacidades. Desde la nube e inteligencia artificial hasta sostenibilidad y más.",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500&h=320&fit=crop",
-    link: "/services",
-  },
-  {
-    title: "Soluciones",
-    description: "Descubre el software propietario, datos y soluciones de talento que TOOXS combina con capacidades de consultoría para entregar insights más rápidos e impacto medible.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=320&fit=crop",
-    link: "/services",
-  },
+  ARTICLES[2],  // Estado alimentos y bebidas
+  ARTICLES[3],  // IA Soberana
+  ARTICLES[8],  // Rewired 2da edición
 ];
 
 function IndustriesPage() {
@@ -111,12 +97,13 @@ function IndustriesPage() {
       <section className="py-16 border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-8">DESTACADOS</p>
+            <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">NEWSLETTER</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Artículos destacados</h2>
           </ScrollReveal>
           <div className="grid md:grid-cols-3 gap-8">
             {featured.map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 100}>
-                <Link to={item.link} className="group block">
+              <ScrollReveal key={item.slug} delay={i * 100}>
+                <Link to="/newsletter/$slug" params={{ slug: item.slug }} className="group block">
                   <div className="rounded-xl overflow-hidden mb-4 aspect-[5/3]">
                     <img
                       src={item.image}
@@ -125,10 +112,11 @@ function IndustriesPage() {
                       loading="lazy"
                     />
                   </div>
-                  <h3 className="font-bold text-navy text-lg flex items-center gap-1 mb-2 group-hover:text-primary transition-colors">
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">{item.category}</span>
+                  <h3 className="font-bold text-navy text-lg flex items-center gap-1 mb-2 mt-1 group-hover:text-primary transition-colors">
                     {item.title} <ChevronRight size={16} />
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{item.excerpt}</p>
                 </Link>
               </ScrollReveal>
             ))}
