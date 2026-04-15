@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight, Search, Lightbulb, Rocket } from "lucide-react";
+import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight, Search, Lightbulb, Rocket, Car } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 import CardDeckSpread from "../components/CardDeckSpread";
@@ -260,6 +260,7 @@ const industryImages = [
   "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=560&fit=crop", // Agro
   "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=560&fit=crop", // Telecom
   "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=560&fit=crop", // Salud
+  automotiveImg, // Automotriz
 ];
 
 const industries = [
@@ -298,6 +299,12 @@ const industries = [
     problem: "Procesamiento de licencias médicas toma 15 días por revisión manual.",
     solution: "OCR extrae datos del formulario. IA valida coherencia con diagnósticos. RPA ingresa a sistema de isapre/fonasa.",
     impact: "Licencias liquidadas en 3 días, 40% menos tiempo.",
+  },
+  {
+    icon: Car, name: "Automotriz", tagline: "Postventa y garantías sin fricción",
+    problem: "Concesionarios y talleres procesan garantías, repuestos y órdenes de trabajo de forma manual, generando demoras y errores.",
+    solution: "OCR lee órdenes y documentos de garantía. IA clasifica fallas y predice demanda de repuestos. RPA actualiza DMS/ERP y notifica al cliente.",
+    impact: "40–60% menos tiempo administrativo, garantías en 1–2 días, mejor experiencia cliente.",
   },
 ];
 
