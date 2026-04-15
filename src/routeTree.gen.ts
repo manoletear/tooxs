@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as IndustriasRouteImport } from './routes/industrias'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -27,6 +28,11 @@ import { Route as IndustriasAgroindustriaRouteImport } from './routes/industrias
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsletterRoute = NewsletterRouteImport.update({
+  id: '/newsletter',
+  path: '/newsletter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriasRoute = IndustriasRouteImport.update({
@@ -105,6 +111,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
+  '/newsletter': typeof NewsletterRoute
   '/services': typeof ServicesRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
@@ -121,6 +128,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
+  '/newsletter': typeof NewsletterRoute
   '/services': typeof ServicesRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
@@ -138,6 +146,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
+  '/newsletter': typeof NewsletterRoute
   '/services': typeof ServicesRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
@@ -156,6 +165,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faqs'
     | '/industrias'
+    | '/newsletter'
     | '/services'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
@@ -172,6 +182,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faqs'
     | '/industrias'
+    | '/newsletter'
     | '/services'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
@@ -188,6 +199,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faqs'
     | '/industrias'
+    | '/newsletter'
     | '/services'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
@@ -205,6 +217,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   FaqsRoute: typeof FaqsRoute
   IndustriasRoute: typeof IndustriasRouteWithChildren
+  NewsletterRoute: typeof NewsletterRoute
   ServicesRoute: typeof ServicesRoute
 }
 
@@ -215,6 +228,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/newsletter': {
+      id: '/newsletter'
+      path: '/newsletter'
+      fullPath: '/newsletter'
+      preLoaderRoute: typeof NewsletterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industrias': {
@@ -342,6 +362,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   FaqsRoute: FaqsRoute,
   IndustriasRoute: IndustriasRouteWithChildren,
+  NewsletterRoute: NewsletterRoute,
   ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport
