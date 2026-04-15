@@ -53,7 +53,7 @@ export function Navbar() {
 
         <Link
           to="/contact"
-          className="hidden lg:inline-flex items-center gap-1.5 bg-mint text-white px-5 py-2 rounded-full text-sm font-medium hover:opacity-90 hover:scale-[1.02] transition-all duration-300"
+          className="hidden lg:inline-flex items-center gap-1.5 border border-navy text-navy px-5 py-2 rounded-full text-sm font-medium hover:bg-navy hover:text-white transition-all duration-300"
         >
           Contacto
         </Link>

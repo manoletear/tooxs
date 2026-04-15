@@ -61,23 +61,35 @@ function HeroStrategic() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-end overflow-hidden">
       <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" src="/hero-bg.mp4" />
       <div className="absolute inset-0 bg-black/40" />
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-center py-32">
-        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          No es tecnología. Es cómo operan mejor las organizaciones.
-        </h1>
-        <p className={`text-base md:text-lg text-white/80 max-w-2xl mx-auto lg:mx-auto mb-10 transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa.
-        </p>
-        <div className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-center transition-all duration-1000 delay-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <button onClick={scrollToCapabilities} className="inline-flex items-center justify-center gap-2 bg-mint text-white px-8 py-3.5 rounded-full font-semibold hover:opacity-90 hover:scale-[1.02] transition-all duration-300 text-sm">
-            Explorar capacidades
-          </button>
-          <button onClick={scrollToForm} className="inline-flex items-center justify-center gap-2 border border-white text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white hover:text-navy transition-all duration-300 text-sm">
-            Hablar con TOOXS
-          </button>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-16 md:pb-24">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
+          {/* Left: Heading */}
+          <div className="lg:max-w-[55%]">
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ fontFamily: "var(--font-heading)" }}>
+              No es tecnología.{" "}
+              <br className="hidden sm:block" />
+              Es cómo operan{" "}
+              <em className="not-italic" style={{ fontFamily: "var(--font-emphasis)", fontWeight: 400, fontStyle: "italic" }}>mejor</em>{" "}
+              <br className="hidden sm:block" />
+              las{" "}
+              <em className="not-italic" style={{ fontFamily: "var(--font-emphasis)", fontWeight: 400, fontStyle: "italic" }}>organizaciones.</em>
+            </h1>
+          </div>
+          {/* Right: Subtitle + CTA */}
+          <div className={`lg:max-w-[35%] transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+            <p className="text-sm md:text-base text-white/80 leading-relaxed mb-6">
+              TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa.
+            </p>
+            <button onClick={scrollToCapabilities} className="inline-flex items-center gap-2 bg-white text-navy px-6 py-3 rounded-full font-medium hover:bg-white/90 transition-all duration-300 text-sm group">
+              Explorar capacidades
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-mint text-white group-hover:scale-110 transition-transform">
+                <ArrowRight size={14} />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
