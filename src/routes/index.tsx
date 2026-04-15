@@ -297,21 +297,14 @@ function TrustBarDynamic() {
         {/* Metrics + Map */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-start">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {metrics.slice(0, 4).map((m, i) => (
-              <ScrollReveal key={m.label} delay={i * 100}>
+            {metrics.map((m, i) => (
+              <ScrollReveal key={m.label} delay={i * 80}>
                 <div className="bg-card rounded-xl p-6 shadow-sm text-center border border-border/50">
                   <Counter end={m.value} suffix={m.suffix} />
                   <p className="mt-2 text-sm text-muted-foreground leading-snug">{m.label}</p>
                 </div>
               </ScrollReveal>
             ))}
-            {/* 5th KPI spans full width on small, single col on sm+ */}
-            <ScrollReveal delay={400} className="col-span-2 sm:col-span-1">
-              <div className="bg-card rounded-xl p-6 shadow-sm text-center border border-border/50">
-                <Counter end={metrics[4].value} suffix={metrics[4].suffix} />
-                <p className="mt-2 text-sm text-muted-foreground leading-snug">{metrics[4].label}</p>
-              </div>
-            </ScrollReveal>
           </div>
 
           {/* Map */}
