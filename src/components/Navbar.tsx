@@ -27,8 +27,8 @@ export function Navbar() {
       <div
         className={`flex items-center justify-between rounded-full px-6 transition-all duration-500 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-xl shadow-lg h-14 max-w-4xl"
-            : "bg-white/90 backdrop-blur-md h-14 max-w-4xl"
+            ? "bg-navy/90 backdrop-blur-xl shadow-lg h-14 max-w-4xl"
+            : "bg-navy/90 backdrop-blur-md h-14 max-w-4xl"
         } w-full`}
       >
         <Link to="/" className="flex items-center group flex-shrink-0">
@@ -42,8 +42,8 @@ export function Navbar() {
               to={link.to}
               className={`text-sm font-medium transition-all duration-300 ${
                 location.pathname === link.to
-                  ? "text-navy"
-                  : "text-navy/60 hover:text-navy"
+                  ? "text-white"
+                  : "text-white/60 hover:text-white"
               }`}
             >
               {link.label}
@@ -53,14 +53,14 @@ export function Navbar() {
 
         <Link
           to="/contact"
-          className="hidden lg:inline-flex items-center gap-1.5 border border-navy text-navy px-5 py-2 rounded-full text-sm font-medium hover:bg-navy hover:text-white transition-all duration-300"
+          className="hidden lg:inline-flex items-center gap-1.5 bg-primary text-white px-5 py-2 rounded-full text-sm font-medium hover:brightness-110 transition-all duration-300"
         >
           Contacto
         </Link>
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-navy hover:text-navy/70 transition-colors duration-300"
+          className="lg:hidden text-white hover:text-white/70 transition-colors duration-300"
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
