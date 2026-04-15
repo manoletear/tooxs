@@ -3,6 +3,7 @@ import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pick
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 import CardDeckSpread from "../components/CardDeckSpread";
+import IndustryCarousel from "../components/IndustryCarousel";
 import FluidCardStack from "../components/FluidCardStack";
 
 export const Route = createFileRoute("/")({
@@ -299,75 +300,25 @@ const industries = [
 ];
 
 function IndustryExplorer() {
-  const [selected, setSelected] = useState<number | null>(null);
-
-  const industryCards = industries.map((ind, i) => ({
+  const carouselCards = industries.map((ind, i) => ({
     image: industryImages[i % industryImages.length],
-    alt: ind.name,
     title: ind.name,
     subtitle: ind.tagline,
-    onClick: () => setSelected(selected === i ? null : i),
+    problem: ind.problem,
+    solution: ind.solution,
+    impact: ind.impact,
+    icon: ind.icon,
   }));
 
   return (
-    <section className="py-20">
+    <section className="py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Industrias que transformamos</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">Soluciones de automatización adaptadas a los desafíos únicos de cada sector en Chile.</p>
         </ScrollReveal>
 
-        <CardDeckSpread
-          cards={industryCards}
-          cardWidth={240}
-          cardHeight={320}
-          overlap={120}
-          cardRadius={18}
-          hoverBorderColor="var(--mint)"
-          blurIntensity={3}
-          animationIntensity={1.2}
-          titleBackgroundColor="linear-gradient(to top, rgba(10,38,71,0.9), rgba(10,38,71,0.4), transparent)"
-          renderOverlay={(card, index, isHovered) => (
-            <div
-              style={{
-                position: "absolute",
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: "linear-gradient(to top, rgba(10,38,71,0.95), rgba(10,38,71,0.5) 60%, transparent)",
-                padding: "48px 16px 18px",
-                borderBottomLeftRadius: 18,
-                borderBottomRightRadius: 18,
-                pointerEvents: "none",
-                opacity: isHovered ? 1 : 0.85,
-                transition: "opacity 0.4s ease-in-out",
-              }}
-            >
-              <div style={{ color: "#fff", fontSize: "18px", fontWeight: 800, letterSpacing: "0.02em" }}>{card.title}</div>
-              <div style={{ color: "var(--mint)", fontSize: "14px", fontWeight: 500, marginTop: 4 }}>{card.subtitle}</div>
-            </div>
-          )}
-        />
-
-        {/* Expanded detail panel */}
-        {selected !== null && (
-          <ScrollReveal className="mt-8">
-            <div className="bg-card rounded-xl border p-6 shadow-lg max-w-2xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                {(() => { const Icon = industries[selected].icon; return <Icon className="text-mint" size={28} />; })()}
-                <div>
-                  <h3 className="text-lg font-bold text-navy">{industries[selected].name}</h3>
-                  <p className="text-sm text-mint italic">{industries[selected].tagline}</p>
-                </div>
-              </div>
-              <div className="space-y-3 text-sm">
-                <div><span className="font-semibold text-navy">Problema típico:</span> <span className="text-muted-foreground">{industries[selected].problem}</span></div>
-                <div><span className="font-semibold text-navy">Qué hace TOOXS:</span> <span className="text-muted-foreground">{industries[selected].solution}</span></div>
-                <div><span className="font-semibold text-mint">Impacto:</span> <span className="text-foreground font-medium">{industries[selected].impact}</span></div>
-              </div>
-            </div>
-          </ScrollReveal>
-        )}
+        <IndustryCarousel cards={carouselCards} />
       </div>
     </section>
   );
