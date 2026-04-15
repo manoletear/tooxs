@@ -78,12 +78,12 @@ function HeroStrategic() {
           {/* Left: Heading */}
           <div className="lg:max-w-[55%]">
             <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ fontFamily: "var(--font-heading)" }}>
-              No es tecnología.{" "}
+              No es la tecnología.{" "}
               <br className="hidden sm:block" />
-              Es cómo operan{" "}
-              <em className="not-italic" style={{ fontFamily: "var(--font-emphasis)", fontWeight: 400, fontStyle: "italic" }}>mejor</em>{" "}
+              Es cómo{" "}
+              <em className="not-italic" style={{ fontFamily: "var(--font-emphasis)", fontWeight: 400, fontStyle: "italic" }}>incorporarla</em>{" "}
               <br className="hidden sm:block" />
-              las{" "}
+              correctamente en las{" "}
               <em className="not-italic" style={{ fontFamily: "var(--font-emphasis)", fontWeight: 400, fontStyle: "italic" }}>organizaciones.</em>
             </h1>
           </div>
