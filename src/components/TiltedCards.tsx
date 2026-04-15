@@ -28,11 +28,18 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
   }, []);
 
   // Base tilts for each card
-  const baseTilts = [
-    { rotate: -8, translateY: 0, zIndex: 1 },
-    { rotate: 0, translateY: -20, zIndex: 2 },
-    { rotate: 8, translateY: 0, zIndex: 1 },
-  ];
+  const baseTilts = cards.length === 4
+    ? [
+        { rotate: -10, translateY: 10, zIndex: 1 },
+        { rotate: -3, translateY: -15, zIndex: 2 },
+        { rotate: 3, translateY: -15, zIndex: 2 },
+        { rotate: 10, translateY: 10, zIndex: 1 },
+      ]
+    : [
+        { rotate: -8, translateY: 0, zIndex: 1 },
+        { rotate: 0, translateY: -20, zIndex: 2 },
+        { rotate: 8, translateY: 0, zIndex: 1 },
+      ];
 
   const getCardTransform = (i: number) => {
     const tilt = baseTilts[i] || baseTilts[0];
@@ -78,8 +85,8 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
               key={i}
               className="relative cursor-pointer"
               style={{
-                width: 320,
-                height: 420,
+                width: cards.length === 4 ? 270 : 320,
+                height: cards.length === 4 ? 380 : 420,
                 transform: getCardTransform(i),
                 opacity: isVisible ? 1 : 0,
                 zIndex: isHovered ? 10 : tilt.zIndex,
