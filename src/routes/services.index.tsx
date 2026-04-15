@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Brain, Cog, BarChart3, FileText, Factory, ArrowRight, ChevronRight, CheckCircle } from "lucide-react";
+import { Brain, Cog, BarChart3, FileText, Factory, ArrowRight, CheckCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PrismBackground } from "@/components/PrismBackground";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
@@ -23,20 +23,14 @@ export const Route = createFileRoute("/services/")({
   component: ServicesIndexPage,
 });
 
-interface ServiceValue {
-  title: string;
-  description: string;
-}
-
-interface ServiceMetric {
-  value: string;
-  label: string;
-}
+interface ServiceValue { title: string; description: string }
+interface ServiceMetric { value: string; label: string }
 
 interface ServiceData {
   icon: typeof Brain;
   slug: string;
   title: string;
+  shortTitle: string;
   subtitle: string;
   image: string;
   accentColor: string;
@@ -53,6 +47,7 @@ const services: ServiceData[] = [
     icon: Brain,
     slug: "ia-aplicada",
     title: "IA Aplicada al Negocio",
+    shortTitle: "IA Aplicada",
     subtitle: "Convierte datos en decisiones. Automatiza lo que hoy depende de personas.",
     image: heroIa,
     accentColor: "#177FC6",
@@ -79,6 +74,7 @@ const services: ServiceData[] = [
     icon: Cog,
     slug: "automatizacion",
     title: "Automatización de Procesos",
+    shortTitle: "Automatización",
     subtitle: "Elimina tareas manuales. Acelera tu operación.",
     image: heroAuto,
     accentColor: "#20B2AA",
@@ -105,6 +101,7 @@ const services: ServiceData[] = [
     icon: BarChart3,
     slug: "data-analytics",
     title: "Data & Analytics",
+    shortTitle: "Data & Analytics",
     subtitle: "Convierte datos dispersos en decisiones accionables.",
     image: heroData,
     accentColor: "#17A86A",
@@ -131,6 +128,7 @@ const services: ServiceData[] = [
     icon: FileText,
     slug: "automatizacion-documental",
     title: "Automatización Documental",
+    shortTitle: "Documental",
     subtitle: "De documentos a datos en segundos.",
     image: heroDoc,
     accentColor: "#C6961A",
@@ -157,6 +155,7 @@ const services: ServiceData[] = [
     icon: Factory,
     slug: "optimizacion-operacional",
     title: "Optimización Operacional",
+    shortTitle: "Optimización",
     subtitle: "Más eficiencia. Menos pérdida operativa.",
     image: heroOpt,
     accentColor: "#C62D2D",
@@ -180,9 +179,311 @@ const services: ServiceData[] = [
   },
 ];
 
+/* ── Hover Reveal Grid ── */
+function HoverRevealCards({
+  onSelect,
+  activeHover,
+  setActiveHover,
+}: {
+  onSelect: (index: number) => void;
+  activeHover: number;
+  setActiveHover: (i: number) => void;
+}) {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const gridStyle = isDesktop
+    ? { gridTemplateColumns: services.map((_, i) => (i === activeHover ? "5fr" : "1fr")).join(" "), gridTemplateRows: "1fr" }
+    : { gridTemplateColumns: "1fr", gridTemplateRows: services.map((_, i) => (i === activeHover ? "5fr" : "1fr")).join(" ") };
+
+  return (
+    <ul
+      className="w-full list-none p-0 m-0 grid"
+      style={{
+        maxWidth: 1200,
+        height: isDesktop ? 480 : 600,
+        gap: 12,
+        ...gridStyle,
+        transition: "grid-template-columns 0.5s cubic-bezier(0.4,0,0.2,1), grid-template-rows 0.5s cubic-bezier(0.4,0,0.2,1)",
+      }}
+    >
+      {services.map((svc, idx) => {
+        const isActive = idx === activeHover;
+        const Icon = svc.icon;
+        return (
+          <li
+            key={svc.slug}
+            className="relative overflow-hidden cursor-pointer"
+            style={{
+              borderRadius: 20,
+              minWidth: 0,
+              minHeight: 0,
+              boxShadow: isActive
+                ? `0 12px 40px ${svc.accentColor}30`
+                : "0 4px 12px rgba(0,0,0,0.15)",
+              border: isActive
+                ? `2px solid ${svc.accentColor}60`
+                : "1px solid rgba(255,255,255,0.08)",
+              transition: "box-shadow 0.4s, border 0.4s",
+            }}
+            onMouseEnter={() => setActiveHover(idx)}
+            onClick={() => onSelect(idx)}
+          >
+            {/* Image */}
+            <img
+              src={svc.image}
+              alt={svc.title}
+              draggable={false}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                zIndex: 1,
+                filter: isActive ? "grayscale(0%) brightness(1)" : "grayscale(70%) brightness(0.6)",
+                transform: isActive ? "scale(1)" : "scale(1.06)",
+                transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)",
+              }}
+            />
+            {/* Overlay */}
+            <div
+              className="absolute inset-0"
+              style={{
+                zIndex: 2,
+                background: isActive
+                  ? `linear-gradient(to top, ${svc.accentColor}CC 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.2) 100%)`
+                  : "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.2) 100%)",
+                transition: "background 0.5s",
+              }}
+            />
+
+            {/* Collapsed: rotated title (desktop only) */}
+            {isDesktop && (
+              <span
+                className="absolute font-bold text-white whitespace-nowrap uppercase tracking-wider"
+                style={{
+                  zIndex: 3,
+                  fontSize: 14,
+                  letterSpacing: "0.08em",
+                  left: "50%",
+                  bottom: "45%",
+                  transform: "translateX(-50%) rotate(-90deg)",
+                  transformOrigin: "center center",
+                  opacity: isActive ? 0 : 0.75,
+                  transition: "opacity 0.4s ease",
+                }}
+              >
+                {svc.shortTitle}
+              </span>
+            )}
+
+            {/* Expanded content */}
+            <article
+              className="absolute inset-0 flex flex-col justify-end p-6"
+              style={{
+                zIndex: 3,
+                opacity: isActive ? 1 : isDesktop ? 0 : 0.6,
+                transform: isActive ? "translateY(0)" : "translateY(10px)",
+                transition: "all 0.4s cubic-bezier(0.4,0,0.2,1) 0.08s",
+              }}
+            >
+              <div className="flex items-center gap-2.5 mb-2">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ background: `${svc.accentColor}30`, border: `1px solid ${svc.accentColor}50` }}
+                >
+                  <Icon size={20} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-white font-bold text-lg leading-tight">{svc.title}</h3>
+                </div>
+              </div>
+              <p
+                className="text-white/80 text-sm leading-relaxed mb-3 max-w-md"
+                style={{
+                  opacity: isActive ? 1 : 0,
+                  transform: isActive ? "translateY(0)" : "translateY(12px)",
+                  transition: "all 0.4s 0.15s cubic-bezier(0.4,0,0.2,1)",
+                }}
+              >
+                {svc.subtitle}
+              </p>
+              <div
+                className="flex flex-wrap gap-2"
+                style={{
+                  opacity: isActive ? 1 : 0,
+                  transition: "opacity 0.3s 0.2s",
+                }}
+              >
+                {svc.metrics.map((m) => (
+                  <span key={m.label} className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: `${svc.accentColor}25`, color: "#fff", border: `1px solid ${svc.accentColor}40` }}>
+                    {m.value} {m.label.toLowerCase()}
+                  </span>
+                ))}
+              </div>
+              <button
+                className="self-start mt-3 px-4 py-2 rounded-full text-white text-xs font-bold hover:-translate-y-0.5 transition-transform"
+                style={{
+                  background: svc.accentColor,
+                  boxShadow: `0 8px 20px ${svc.accentColor}40`,
+                  opacity: isActive ? 1 : 0,
+                  transition: "opacity 0.3s 0.25s, transform 0.2s",
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelect(idx);
+                }}
+              >
+                Ver detalle completo →
+              </button>
+            </article>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+/* ── Detail Panel ── */
+function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () => void }) {
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    panelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [svc.slug]);
+
+  return (
+    <motion.div
+      ref={panelRef}
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: "auto" }}
+      exit={{ opacity: 0, height: 0 }}
+      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+      className="overflow-hidden"
+    >
+      <div
+        className="rounded-[24px] border mt-6 overflow-hidden"
+        style={{
+          background: "linear-gradient(to bottom, #111834, #0d1328)",
+          borderColor: `${svc.accentColor}30`,
+        }}
+      >
+        <div className="p-8 md:p-10 space-y-10">
+          {/* Header */}
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <span
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3"
+                style={{ background: `${svc.accentColor}20`, color: svc.accentColor, border: `1px solid ${svc.accentColor}40` }}
+              >
+                <svc.icon size={14} />
+                {svc.title}
+              </span>
+              {svc.statement.map((p, i) => (
+                <p key={i} className="text-base md:text-lg leading-relaxed mb-3 last:mb-0" style={{ color: "#c8d0e4", fontFamily: "var(--font-emphasis)" }}>
+                  {p}
+                </p>
+              ))}
+            </div>
+            <button
+              onClick={onClose}
+              className="shrink-0 w-10 h-10 rounded-full border flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+              style={{ borderColor: "rgba(255,255,255,0.12)" }}
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* How we generate value */}
+          <div>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-5" style={{ color: svc.accentColor }}>
+              CÓMO GENERAMOS VALOR
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              {svc.values.map((val, i) => (
+                <div
+                  key={val.title}
+                  className="p-5 rounded-[18px] border"
+                  style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.07)" }}
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <span
+                      className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold text-white"
+                      style={{ background: `${svc.accentColor}30` }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h4 className="text-white font-semibold text-sm">{val.title}</h4>
+                  </div>
+                  <p className="text-sm leading-relaxed pl-10" style={{ color: "#a7b0c5" }}>{val.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Metrics */}
+          <div>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-5 text-center" style={{ color: svc.accentColor }}>
+              IMPACTO MEDIBLE
+            </p>
+            <div className="grid grid-cols-3 gap-6 mb-3">
+              {svc.metrics.map((m, i) => (
+                <div key={i} className="text-center">
+                  <p className="text-2xl md:text-3xl font-bold mb-1" style={{ color: svc.accentColor }}>{m.value}</p>
+                  <p className="text-xs" style={{ color: "#a7b0c5" }}>{m.label}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-center italic" style={{ color: "rgba(167,176,197,0.5)" }}>{svc.metricsSource}</p>
+          </div>
+
+          {/* Capabilities */}
+          <div>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: svc.accentColor }}>
+              CAPACIDADES CLAVE
+            </p>
+            <div className="flex flex-wrap gap-2.5">
+              {svc.capabilities.map((cap) => (
+                <span
+                  key={cap}
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl border text-sm font-medium"
+                  style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)", color: "#d4ddf4" }}
+                >
+                  <CheckCircle size={14} style={{ color: svc.accentColor }} />
+                  {cap}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center pt-2">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">{svc.cta.title}</h3>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-white text-sm font-bold hover:-translate-y-0.5 transition-transform"
+              style={{ background: svc.accentColor, boxShadow: `0 10px 30px ${svc.accentColor}40` }}
+            >
+              {svc.cta.buttonText} <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ── Main Page ── */
 function ServicesIndexPage() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const active = services[activeIndex];
+  const [activeHover, setActiveHover] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const handleSelect = useCallback((index: number) => {
+    setSelectedIndex((prev) => (prev === index ? null : index));
+  }, []);
 
   return (
     <div>
@@ -205,180 +506,42 @@ function ServicesIndexPage() {
         </div>
       </section>
 
-      {/* ══════ SERVICE SELECTOR + DETAIL ══════ */}
+      {/* ══════ HOVER REVEAL CARDS + DETAIL ══════ */}
       <section
         className="py-16 md:py-24 relative overflow-hidden"
         style={{
-          background: "radial-gradient(circle at top left, rgba(58,111,247,0.12), transparent 30%), radial-gradient(circle at bottom right, rgba(34,160,138,0.10), transparent 25%), linear-gradient(180deg, #09101f 0%, #0b1020 100%)",
+          background: "radial-gradient(circle at top left, rgba(58,111,247,0.10), transparent 30%), radial-gradient(circle at bottom right, rgba(34,160,138,0.08), transparent 25%), linear-gradient(180deg, #09101f 0%, #0b1020 100%)",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* ── Tab Labels ── */}
-          <ScrollReveal>
-            <div className="flex flex-wrap gap-3 mb-10">
-              {services.map((svc, i) => {
-                const isActive = activeIndex === i;
-                const Icon = svc.icon;
-                return (
-                  <button
-                    key={svc.slug}
-                    onClick={() => setActiveIndex(i)}
-                    className="flex items-center gap-2.5 px-5 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 cursor-pointer border"
-                    style={{
-                      background: isActive ? `${svc.accentColor}20` : "rgba(255,255,255,0.04)",
-                      borderColor: isActive ? `${svc.accentColor}60` : "rgba(255,255,255,0.08)",
-                      color: isActive ? "#fff" : "#a7b0c5",
-                      boxShadow: isActive ? `0 8px 24px ${svc.accentColor}25` : "none",
-                    }}
-                  >
-                    <Icon size={18} style={{ color: isActive ? svc.accentColor : "#a7b0c5" }} />
-                    <span className="hidden sm:inline">{svc.title}</span>
-                    <span className="sm:hidden">{svc.title.split(" ")[0]}</span>
-                  </button>
-                );
-              })}
+          <ScrollReveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-2" style={{ color: "#20B2AA" }}>
+                EXPLORA NUESTROS SERVICIOS
+              </p>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                Selecciona un servicio para ver el detalle
+              </h2>
             </div>
           </ScrollReveal>
 
-          {/* ── Expanded Detail Panel ── */}
+          <ScrollReveal>
+            <HoverRevealCards
+              onSelect={handleSelect}
+              activeHover={activeHover}
+              setActiveHover={setActiveHover}
+            />
+          </ScrollReveal>
+
+          {/* Detail panel */}
           <AnimatePresence mode="wait">
-            <motion.div
-              key={active.slug}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-              className="rounded-[28px] border overflow-hidden"
-              style={{
-                background: "linear-gradient(to bottom, #111834, #0d1328)",
-                borderColor: "rgba(255,255,255,0.1)",
-              }}
-            >
-              {/* Hero image + title */}
-              <div className="relative h-[280px] md:h-[340px] overflow-hidden">
-                <img
-                  src={active.image}
-                  alt={active.title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background: `linear-gradient(to top, #111834 0%, ${active.accentColor}40 40%, rgba(0,0,0,0.3) 100%)`,
-                  }}
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-10">
-                  <span
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3"
-                    style={{
-                      background: `${active.accentColor}30`,
-                      color: "#fff",
-                      border: `1px solid ${active.accentColor}50`,
-                    }}
-                  >
-                    <active.icon size={14} />
-                    Servicios TOOXS
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight mb-2">
-                    {active.title}
-                  </h2>
-                  <p className="text-white/80 text-lg max-w-2xl">{active.subtitle}</p>
-                </div>
-              </div>
-
-              {/* Content body */}
-              <div className="p-8 md:p-10 space-y-10">
-                {/* Statement */}
-                <div className="max-w-3xl">
-                  {active.statement.map((p, i) => (
-                    <p key={i} className="text-base md:text-lg leading-relaxed mb-4 last:mb-0" style={{ color: "#c8d0e4", fontFamily: "var(--font-emphasis)" }}>
-                      {p}
-                    </p>
-                  ))}
-                </div>
-
-                {/* How we generate value */}
-                <div>
-                  <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-6" style={{ color: active.accentColor }}>
-                    CÓMO GENERAMOS VALOR
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {active.values.map((val, i) => (
-                      <div
-                        key={val.title}
-                        className="p-5 rounded-[20px] border"
-                        style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}
-                      >
-                        <div className="flex items-center gap-3 mb-2">
-                          <span
-                            className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold text-white"
-                            style={{ background: `${active.accentColor}30` }}
-                          >
-                            {String(i + 1).padStart(2, "0")}
-                          </span>
-                          <h4 className="text-white font-semibold text-sm">{val.title}</h4>
-                        </div>
-                        <p className="text-sm leading-relaxed pl-11" style={{ color: "#a7b0c5" }}>{val.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Metrics */}
-                <div>
-                  <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-6 text-center" style={{ color: active.accentColor }}>
-                    IMPACTO MEDIBLE
-                  </p>
-                  <div className="grid grid-cols-3 gap-6 mb-4">
-                    {active.metrics.map((m, i) => (
-                      <div key={i} className="text-center">
-                        <p className="text-2xl md:text-3xl font-bold mb-1" style={{ color: active.accentColor }}>{m.value}</p>
-                        <p className="text-xs" style={{ color: "#a7b0c5" }}>{m.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-xs text-center italic" style={{ color: "rgba(167,176,197,0.5)" }}>{active.metricsSource}</p>
-                </div>
-
-                {/* Capabilities */}
-                <div>
-                  <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: active.accentColor }}>
-                    CAPACIDADES CLAVE
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    {active.capabilities.map((cap) => (
-                      <span
-                        key={cap}
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-medium"
-                        style={{
-                          background: "rgba(255,255,255,0.04)",
-                          borderColor: "rgba(255,255,255,0.08)",
-                          color: "#d4ddf4",
-                        }}
-                      >
-                        <CheckCircle size={14} style={{ color: active.accentColor }} />
-                        {cap}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <div className="text-center pt-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-5">{active.cta.title}</h3>
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-white text-sm font-bold hover:-translate-y-0.5 transition-transform"
-                    style={{
-                      background: active.accentColor,
-                      boxShadow: `0 10px 30px ${active.accentColor}40`,
-                    }}
-                  >
-                    {active.cta.buttonText} <ArrowRight size={16} />
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
+            {selectedIndex !== null && (
+              <ServiceDetailPanel
+                key={services[selectedIndex].slug}
+                svc={services[selectedIndex]}
+                onClose={() => setSelectedIndex(null)}
+              />
+            )}
           </AnimatePresence>
         </div>
       </section>
