@@ -11,10 +11,17 @@ import heroAiAgents from "@/assets/newsletter/hero-ai-agents.jpg";
 export const Route = createFileRoute("/newsletter/")({
   head: () => ({
     meta: [
-      { title: "Newsletter — TOOXS Insights" },
-      { name: "description", content: "Tendencias, datos y perspectivas sobre tecnología, automatización e IA aplicada a la industria y los negocios en Latinoamérica." },
+      { title: "Newsletter — TOOXS Insights | Tendencias IA y Tecnología" },
+      { name: "description", content: "Tendencias, datos y perspectivas sobre tecnología, automatización e IA aplicada a la industria y los negocios en Latinoamérica. Artículos semanales para líderes." },
       { property: "og:title", content: "Newsletter — TOOXS Insights" },
-      { property: "og:description", content: "Tendencias, datos y perspectivas sobre tecnología, automatización e IA aplicada a la industria y los negocios en Latinoamérica." },
+      { property: "og:description", content: "Tendencias, datos y perspectivas sobre tecnología, automatización e IA aplicada a la industria." },
+      { property: "og:url", content: "https://www.tooxs.com/newsletter" },
+      { name: "twitter:title", content: "TOOXS Insights — Newsletter" },
+      { name: "twitter:description", content: "Artículos semanales sobre IA, automatización y transformación digital para líderes de industria." },
+      { name: "keywords", content: "newsletter IA, tendencias tecnología, automatización industrial, insights negocio, TOOXS" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.tooxs.com/newsletter" },
     ],
   }),
   component: NewsletterPage,

@@ -7,10 +7,17 @@ import { ARTICLES } from "@/data/articles";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Industrias — TOOXS" },
-      { name: "description", content: "Descubre cómo TOOXS aplica inteligencia en más de 25 industrias para transformar operaciones y decisiones." },
-      { property: "og:title", content: "Industrias — TOOXS" },
-      { property: "og:description", content: "Descubre cómo TOOXS aplica inteligencia en más de 25 industrias." },
+      { title: "Industrias — TOOXS | IA y Automatización por Sector" },
+      { name: "description", content: "Descubre cómo TOOXS aplica inteligencia artificial en minería, retail, banca, salud, telecomunicaciones, agroindustria, automotriz y real estate." },
+      { property: "og:title", content: "Industrias — TOOXS | IA y Automatización por Sector" },
+      { property: "og:description", content: "Soluciones de IA aplicada para más de 8 industrias clave en Chile y Latinoamérica." },
+      { property: "og:url", content: "https://www.tooxs.com/about" },
+      { name: "twitter:title", content: "Industrias — TOOXS" },
+      { name: "twitter:description", content: "IA aplicada para minería, retail, banca, salud y más sectores industriales." },
+      { name: "keywords", content: "industrias, IA por sector, automatización minería, retail analytics, banca digital, salud IA, TOOXS" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.tooxs.com/about" },
     ],
   }),
   component: IndustriesPage,
