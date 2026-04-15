@@ -25,20 +25,13 @@ export default function FluidCardStack({ cards, className = "" }: FluidCardStack
     const handleScroll = () => {
       const rect = container.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-      const containerTop = rect.top;
-      const containerHeight = rect.height;
-
-      // Calculate progress through the container (0 to 1)
       const scrollStart = viewportHeight * 0.3;
-      const totalScroll = containerHeight - viewportHeight * 0.4;
-      const currentScroll = scrollStart - containerTop;
+      const totalScroll = rect.height - viewportHeight * 0.4;
+      const currentScroll = scrollStart - rect.top;
       const progress = Math.max(0, Math.min(1, currentScroll / totalScroll));
 
       setScrollProgress(progress);
-
-      // Determine active card based on progress
-      const cardProgress = progress * cards.length;
-      const newIndex = Math.min(Math.floor(cardProgress), cards.length - 1);
+      const newIndex = Math.min(Math.floor(progress * cards.length), cards.length - 1);
       setActiveIndex(newIndex);
     };
 
@@ -58,33 +51,26 @@ export default function FluidCardStack({ cards, className = "" }: FluidCardStack
           {cards.map((card, i) => {
             const cardProgress = scrollProgress * cards.length;
             const relativeProgress = cardProgress - i;
-
-            // Card states: upcoming (below), active (visible), passed (stacked above)
             const isActive = i === activeIndex;
             const isPassed = i < activeIndex;
-            const isUpcoming = i > activeIndex;
 
-            // Calculate transforms
             let translateY = 0;
             let scale = 1;
             let opacity = 1;
             let rotateX = 0;
 
             if (isPassed) {
-              // Cards that have been scrolled past: stack up and shrink
               const passedOffset = activeIndex - i;
               translateY = -passedOffset * 20;
               scale = 1 - passedOffset * 0.04;
               opacity = Math.max(0.3, 1 - passedOffset * 0.25);
             } else if (isActive) {
-              // Active card: smoothly animate in
               const activeProgress = Math.max(0, Math.min(1, relativeProgress));
               translateY = (1 - activeProgress) * 60;
               scale = 0.95 + activeProgress * 0.05;
               opacity = 0.6 + activeProgress * 0.4;
               rotateX = (1 - activeProgress) * 5;
-            } else if (isUpcoming) {
-              // Cards yet to come: below, slightly visible
+            } else {
               const upcomingOffset = i - activeIndex;
               translateY = 60 + upcomingOffset * 30;
               scale = 0.9 - upcomingOffset * 0.03;
@@ -112,26 +98,20 @@ export default function FluidCardStack({ cards, className = "" }: FluidCardStack
               >
                 <div
                   className="rounded-2xl p-8 md:p-10 shadow-2xl border border-white/10"
-                  style={{
-                    background: card.color || "rgba(10, 38, 71, 0.95)",
-                    minHeight: "220px",
-                  }}
+                  style={{ background: card.color || "rgba(10, 38, 71, 0.95)", minHeight: "220px" }}
                 >
                   <div className="flex items-start gap-5">
                     {card.icon && (
                       <div
                         className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center"
-                        style={{ background: card.accentColor || "rgba(32, 178, 170, 0.15)" }}
+                        style={{ background: card.accentColor ? `${card.accentColor}26` : "rgba(32,178,170,0.15)" }}
                       >
                         {card.icon}
                       </div>
                     )}
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-1">
-                        <span
-                          className="text-xs font-bold uppercase tracking-widest"
-                          style={{ color: card.accentColor || "var(--mint)" }}
-                        >
+                        <span className="text-xs font-bold uppercase tracking-widest" style={{ color: card.accentColor || "var(--mint)" }}>
                           Paso {i + 1}
                         </span>
                         <div className="h-px flex-1" style={{ background: card.accentColor || "var(--mint)", opacity: 0.3 }} />
