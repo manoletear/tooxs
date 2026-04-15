@@ -219,13 +219,24 @@ function TesisStatement() {
   }, []);
 
   return (
-    <section className="py-24">
-      <div className="max-w-3xl mx-auto px-4 text-center">
+    <section className="relative py-24 overflow-hidden">
+      {/* Video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/tesis-bg.mp4"
+      />
+      {/* Overlay azul-claro-gris al 20% */}
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(180, 200, 220, 0.20)" }} />
+      <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
         <ScrollReveal>
-          <p className="text-2xl md:text-3xl leading-relaxed text-foreground mb-2" style={{ fontFamily: "var(--font-emphasis)" }}>
+          <p className="text-2xl md:text-3xl leading-relaxed text-white mb-2" style={{ fontFamily: "var(--font-emphasis)" }}>
             Hay tecnología.
           </p>
-          <p className="text-2xl md:text-3xl leading-relaxed text-foreground mb-6" style={{ fontFamily: "var(--font-emphasis)" }}>
+          <p className="text-2xl md:text-3xl leading-relaxed text-white mb-6" style={{ fontFamily: "var(--font-emphasis)" }}>
             Y hay tecnología que cambia cómo funcionan las organizaciones.
           </p>
           <p className="text-xl md:text-2xl font-bold text-mint">TOOXS está en la segunda.</p>
