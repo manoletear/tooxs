@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight, Search, Lightbulb, Rocket, Car, Star, Building2 } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
@@ -8,6 +8,7 @@ import FluidCardStack from "../components/FluidCardStack";
 import { KineticTypography } from "../components/KineticTypography";
 import automotiveImg from "../assets/industry-automotive.jpg";
 import mapLatamPresence from "../assets/map-latam-presence.png";
+import { ARTICLES } from "../data/articles";
 import TiltedCards from "../components/TiltedCards";
 import SolutionShowcase from "../components/SolutionShowcase";
 import monkeySeeImg from "../assets/monkey-see.png";
@@ -668,33 +669,88 @@ function ServiceSystem() {
    ══════════════════════════════════════════ */
 
 /* ══════════════════════════════════════════
-   9. INSIGHTS
+   9. INSIGHTS — Article Carousel
    ══════════════════════════════════════════ */
-const insights = [
-  { title: "Por qué el RPA solo no es suficiente en minería", excerpt: "La combinación de RPA con IA predictiva reduce fallas no planificadas en un 35%." },
-  { title: "IA agentic: el próximo salto para el retail chileno", excerpt: "Los agentes autónomos pueden gestionar inventarios y promociones sin supervisión humana." },
-  { title: "Cómo medir el ROI de la automatización en 4 pasos", excerpt: "Una guía práctica para justificar tu inversión en RPA e IA." },
-];
-
 function InsightLayer() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = 340;
+    el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
+  };
+
+  const articles = ARTICLES.slice(0, 10);
+
   return (
     <section className="py-20 bg-section-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Insights para la nueva era operacional</h2>
-          <p className="text-muted-foreground">Artículos y puntos de vista de nuestro equipo.</p>
+        <ScrollReveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-2">Insights para la nueva era operacional</h2>
+            <p className="text-muted-foreground">Artículos y puntos de vista de nuestro equipo.</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <button onClick={() => scroll("left")} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors" aria-label="Anterior">
+              <ArrowLeft size={18} />
+            </button>
+            <button onClick={() => scroll("right")} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors" aria-label="Siguiente">
+              <ArrowRight size={18} />
+            </button>
+          </div>
         </ScrollReveal>
-        <div className="grid md:grid-cols-3 gap-6">
-          {insights.map((ins, i) => (
-            <ScrollReveal key={ins.title} delay={i * 100}>
-              <div className="bg-card rounded-xl p-7 border-l-4 border-l-mint hover:shadow-lg transition-all duration-400">
-                <h3 className="text-base font-bold text-navy mb-2" style={{ fontFamily: "var(--font-emphasis)" }}>{ins.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{ins.excerpt}</p>
-                <a href="#" className="text-sm font-semibold text-mint hover:underline inline-flex items-center gap-1">Leer más <ArrowRight size={14} /></a>
+
+        <div
+          ref={scrollRef}
+          className="flex gap-5 overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4 snap-x snap-mandatory"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {articles.map((article: any, i: number) => (
+            <Link
+              key={article.slug}
+              to="/newsletter/$slug"
+              params={{ slug: article.slug }}
+              className="group shrink-0 w-[300px] snap-start"
+            >
+              <div className="bg-card rounded-xl overflow-hidden border border-border/50 shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                <div className="relative h-[180px] overflow-hidden">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <span className="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-wider bg-primary/90 text-primary-foreground px-2.5 py-1 rounded-full">
+                    {article.category}
+                  </span>
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <p className="text-[11px] text-muted-foreground mb-2">{article.date} · {article.readTime}</p>
+                  <h3
+                    className="text-sm font-bold text-foreground leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2"
+                    style={{ fontFamily: "var(--font-emphasis)" }}
+                  >
+                    {article.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3 flex-1">{article.excerpt}</p>
+                  <span className="mt-3 text-xs font-semibold text-primary inline-flex items-center gap-1">
+                    Leer más <ArrowRight size={12} />
+                  </span>
+                </div>
               </div>
-            </ScrollReveal>
+            </Link>
           ))}
         </div>
+
+        <ScrollReveal className="text-center mt-8">
+          <Link
+            to="/newsletter"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+          >
+            Ver todos los insights <ArrowRight size={16} />
+          </Link>
+        </ScrollReveal>
       </div>
     </section>
   );
