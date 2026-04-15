@@ -98,9 +98,9 @@
   --section-bg: #F3F4F6;
   --footer-bg: #1D1D1B;
 
-  --font-heading: 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-emphasis: 'Cormorant Garamond', serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-emphasis: 'Montserrat', sans-serif;
 }
 
 .dark {
