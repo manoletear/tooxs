@@ -6,6 +6,15 @@ import articleAutomation from "@/assets/newsletter/article-automation.jpg";
 import articleSovereignAi from "@/assets/newsletter/article-sovereign-ai.jpg";
 import podcastInterview from "@/assets/newsletter/podcast-interview.jpg";
 import articleHealthcareAi from "@/assets/newsletter/article-healthcare-ai.jpg";
+import articleAgentesIa from "@/assets/newsletter/article-agentes-ia.jpg";
+import articleCeoCambio from "@/assets/newsletter/article-ceo-cambio.jpg";
+import articleAltaDireccion from "@/assets/newsletter/article-alta-direccion.jpg";
+import articleDilemasCeo from "@/assets/newsletter/article-dilemas-ceo.jpg";
+import articleEquiposMundial from "@/assets/newsletter/article-equipos-mundial.jpg";
+import articleLiderazgoSiglo from "@/assets/newsletter/article-liderazgo-siglo.jpg";
+import articleManufacturaIa from "@/assets/newsletter/article-manufactura-ia.jpg";
+import articleGanarCurvas from "@/assets/newsletter/article-ganar-curvas.jpg";
+import articleRedisenoOrg from "@/assets/newsletter/article-rediseno-org.jpg";
 
 export interface Article {
   id: number;
