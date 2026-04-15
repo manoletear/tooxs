@@ -17,6 +17,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NewsletterIndexRouteImport } from './routes/newsletter.index'
 import { Route as NewsletterSlugRouteImport } from './routes/newsletter.$slug'
 import { Route as IndustriasTelecomunicacionesRouteImport } from './routes/industrias.telecomunicaciones'
 import { Route as IndustriasSaludRouteImport } from './routes/industrias.salud'
@@ -65,6 +66,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const NewsletterIndexRoute = NewsletterIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => NewsletterRoute,
 } as any)
 const NewsletterSlugRoute = NewsletterSlugRouteImport.update({
   id: '/$slug',
@@ -127,6 +133,7 @@ export interface FileRoutesByFullPath {
   '/industrias/salud': typeof IndustriasSaludRoute
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
   '/newsletter/$slug': typeof NewsletterSlugRoute
+  '/newsletter/': typeof NewsletterIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -135,7 +142,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
-  '/newsletter': typeof NewsletterRouteWithChildren
   '/services': typeof ServicesRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
@@ -145,6 +151,7 @@ export interface FileRoutesByTo {
   '/industrias/salud': typeof IndustriasSaludRoute
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
   '/newsletter/$slug': typeof NewsletterSlugRoute
+  '/newsletter': typeof NewsletterIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -164,6 +171,7 @@ export interface FileRoutesById {
   '/industrias/salud': typeof IndustriasSaludRoute
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
   '/newsletter/$slug': typeof NewsletterSlugRoute
+  '/newsletter/': typeof NewsletterIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -184,6 +192,7 @@ export interface FileRouteTypes {
     | '/industrias/salud'
     | '/industrias/telecomunicaciones'
     | '/newsletter/$slug'
+    | '/newsletter/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -192,7 +201,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faqs'
     | '/industrias'
-    | '/newsletter'
     | '/services'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
@@ -202,6 +210,7 @@ export interface FileRouteTypes {
     | '/industrias/salud'
     | '/industrias/telecomunicaciones'
     | '/newsletter/$slug'
+    | '/newsletter'
   id:
     | '__root__'
     | '/'
@@ -220,6 +229,7 @@ export interface FileRouteTypes {
     | '/industrias/salud'
     | '/industrias/telecomunicaciones'
     | '/newsletter/$slug'
+    | '/newsletter/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -290,6 +300,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/newsletter/': {
+      id: '/newsletter/'
+      path: '/'
+      fullPath: '/newsletter/'
+      preLoaderRoute: typeof NewsletterIndexRouteImport
+      parentRoute: typeof NewsletterRoute
     }
     '/newsletter/$slug': {
       id: '/newsletter/$slug'
@@ -376,10 +393,12 @@ const IndustriasRouteWithChildren = IndustriasRoute._addFileChildren(
 
 interface NewsletterRouteChildren {
   NewsletterSlugRoute: typeof NewsletterSlugRoute
+  NewsletterIndexRoute: typeof NewsletterIndexRoute
 }
 
 const NewsletterRouteChildren: NewsletterRouteChildren = {
   NewsletterSlugRoute: NewsletterSlugRoute,
+  NewsletterIndexRoute: NewsletterIndexRoute,
 }
 
 const NewsletterRouteWithChildren = NewsletterRoute._addFileChildren(
