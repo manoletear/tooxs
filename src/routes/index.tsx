@@ -625,10 +625,34 @@ function InsightLayer() {
    10. TESTIMONIOS
    ══════════════════════════════════════════ */
 const testimonials = [
-  { quote: "El equipo de TOOXS no solo implementó bots, nos ayudó a rediseñar nuestra operación financiera. Ahorramos 200 horas mensuales.", name: "Juan Pérez", title: "Gerente de Operaciones, Banco X" },
-  { quote: "La solución de mantenimiento predictivo evitó dos fallas mayores en seis meses. Un socio confiable.", name: "María González", title: "Jefa de Planta, Minera Regional" },
-  { quote: "El chatbot con IA resolvió el 70% de las consultas sin intervención humana. Excelente equipo.", name: "Andrés López", title: "CTO, Retail Nacional" },
-  { quote: "La implementación fue ágil y el soporte 24/7 nos da tranquilidad.", name: "Claudia Rojas", title: "Directora de Logística, Agroexportadora" },
+  {
+    company: "Trek Rental",
+    quote: "TOOXS nos ayudó a fortalecer la gestión documental en procesos operacionales vinculados a garantías y mantenimiento, donde el orden y la disponibilidad de la información son claves. La solución permitió dar mayor trazabilidad a los documentos, reducir tareas manuales y facilitar el seguimiento de antecedentes relevantes para la operación. Eso nos permitió avanzar hacia un proceso más ágil, claro y controlado.",
+    initials: "JV",
+    name: "Jean Vogth",
+    title: "Gerente de Desarrollo Corporativo",
+  },
+  {
+    company: "Kaufmann",
+    quote: "El motor de gestión documental inteligente implementado junto a Tooxs aportó valor en un proceso comercial relevante, permitiendo gestionar documentos e ingresar información a SAP de manera más ágil, ordenada, integrada y trazable. La solución ayudó a reducir revisión manual y a mejorar la disponibilidad de información, fortaleciendo la eficiencia del proceso.",
+    initials: "CL",
+    name: "Carlos Lillo",
+    title: "Jefe de Proyectos",
+  },
+  {
+    company: "GPS7000",
+    quote: "En una industria como la nuestra, donde la trazabilidad de la información, la rapidez de respuesta y el control operativo son fundamentales, TOOXS nos permitió mejorar de manera concreta la gestión documental en procesos administrativos y comerciales. La solución nos ayudó a ordenar información, reducir trabajo manual e interpretar documentos de forma más ágil y confiable. Para GPS7000, eso se traduce en una mejor capacidad de gestión interna y en una operación más consistente de cara a nuestros clientes.",
+    initials: "AM",
+    name: "Angelo Mosso",
+    title: "Gerente General",
+  },
+  {
+    company: "Empresas Volcan",
+    quote: "Trabajar con Tooxs ha sido una experiencia positiva en nuestra modernización industrial. Su enfoque práctico, su experiencia en soluciones Microsoft y su compromiso con la mejora continua han optimizado nuestros procesos, alineándolos mejor con la estrategia de la compañía. Aprecio su soporte y flexibilidad para adaptarse a nuestras necesidades. Recomiendo a Tooxs por su cercanía y atención personalizada. Han estado a nuestro lado en cada paso, asegurando resultados óptimos y haciendo que la colaboración sea confiable y satisfactoria.",
+    initials: "PS",
+    name: "Pablo Sepulveda",
+    title: "Jefe de Modernización de Procesos Industriales",
+  },
 ];
 
 function TestimonialFlow() {
@@ -641,12 +665,23 @@ function TestimonialFlow() {
         <div className="grid md:grid-cols-2 gap-6">
           {testimonials.map((t, i) => (
             <ScrollReveal key={t.name} delay={i * 100}>
-              <div className="bg-card rounded-3xl p-8 shadow-lg hover:-translate-y-1 transition-all duration-400">
-                <Quote className="text-mint/40 mb-4" size={28} />
-                <p className="text-foreground/80 text-sm leading-relaxed mb-6 italic">"{t.quote}"</p>
-                <div>
-                  <p className="font-semibold text-sm text-navy">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.title}</p>
+              <div className="bg-card rounded-3xl p-8 shadow-lg hover:-translate-y-1 transition-all duration-400 h-full flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-semibold text-mint tracking-wide uppercase">{t.company}</span>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, s) => (
+                      <Star key={s} size={14} className="text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                </div>
+                <Quote className="text-mint/40 mb-3" size={24} />
+                <p className="text-foreground/80 text-sm leading-relaxed mb-6 italic flex-1">"{t.quote}"</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-border/50">
+                  <div className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center text-xs font-bold">{t.initials}</div>
+                  <div>
+                    <p className="font-semibold text-sm text-navy">{t.name}</p>
+                    <p className="text-xs text-muted-foreground">{t.title}</p>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
