@@ -160,6 +160,7 @@ const metrics = [
   { value: 8, suffix: "+", label: "Años desarrollando soluciones digitales" },
   { value: 120, suffix: "+", label: "Proyectos implementados" },
   { value: 30, suffix: "+", label: "Clientes corporativos regionales" },
+  { value: 100, suffix: "+", label: "Automatizaciones y RPAs" },
   { value: 10, suffix: "+", label: "Soluciones tecnológicas propias" },
   { value: 5, suffix: "", label: "Países con presencia regional" },
 ];
