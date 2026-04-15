@@ -133,6 +133,16 @@ const metrics = [
   { value: 24, suffix: "/7", label: "soporte local" },
 ];
 
+const partnerLogos = [
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/logos_webtooxs_empresas_path.png", alt: "Path" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/logos_webtooxs_empresas_aws.png", alt: "AWS" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/logos_webtooxs_empresas_microsoft.png", alt: "Microsoft" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/logos_webtooxs_empresas_googlecloud.png", alt: "Google Cloud" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-AUTOMATION.png", alt: "Automation Anywhere" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-SONDA.png", alt: "Sonda" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-IBM.png", alt: "IBM" },
+];
+
 function TrustBarDynamic() {
   return (
     <section className="py-16 bg-section-bg">
@@ -166,6 +176,28 @@ function TrustBarDynamic() {
               </div>
             </ScrollReveal>
           ))}
+        </div>
+
+        {/* Partners marquee */}
+        <div className="mt-16">
+          <div className="relative overflow-hidden mb-6">
+            <div className="flex animate-marquee items-center gap-12" style={{ animationDuration: '20s' }}>
+              {[...Array(4)].flatMap((_, i) =>
+                partnerLogos.map((logo) => (
+                  <div key={`${logo.alt}-partner-${i}`} className="flex-shrink-0 w-[160px] h-[60px] flex items-center justify-center">
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="max-h-[50px] max-w-[150px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+                    />
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+          <ScrollReveal className="text-center">
+            <h3 className="text-xl md:text-2xl font-bold text-navy">Nuestros Partners</h3>
+          </ScrollReveal>
         </div>
       </div>
     </section>
