@@ -146,7 +146,6 @@ function IndustriesPage() {
           </ScrollReveal>
         </div>
       </section>
-      </section>
 
       {/* Connect */}
       <section className="py-16">
