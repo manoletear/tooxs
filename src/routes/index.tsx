@@ -327,7 +327,11 @@ function TesisStatement() {
         </ScrollReveal>
 
         {/* KPI Carousel */}
-        <div className="mt-16">
+        <div className="mt-16 relative">
+          {/* Left fade */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #0b1a2e, transparent)" }} />
+          {/* Right fade */}
+          <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #0b1a2e, transparent)" }} />
           <div
             ref={scrollRef}
             className="flex gap-5 overflow-hidden"
