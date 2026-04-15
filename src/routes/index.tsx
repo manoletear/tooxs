@@ -656,16 +656,65 @@ const testimonials = [
 ];
 
 function TestimonialFlow() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const animRef = useRef<number>(0);
+  const isPaused = useRef(false);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    let pos = 0;
+    const speed = 0.5;
+
+    const animate = () => {
+      if (!isPaused.current && el) {
+        pos += speed;
+        if (pos >= el.scrollWidth / 2) pos = 0;
+        el.scrollLeft = pos;
+      }
+      animRef.current = requestAnimationFrame(animate);
+    };
+    animRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animRef.current);
+  }, []);
+
+  const scroll = (dir: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    isPaused.current = true;
+    el.scrollBy({ left: dir * 400, behavior: "smooth" });
+    setTimeout(() => { isPaused.current = false; }, 2000);
+  };
+
+  const doubled = [...testimonials, ...testimonials];
+
   return (
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-navy">Lo que dicen nuestros clientes</h2>
         </ScrollReveal>
-        <div className="grid md:grid-cols-2 gap-6">
-          {testimonials.map((t, i) => (
-            <ScrollReveal key={t.name} delay={i * 100}>
-              <div className="bg-card rounded-3xl p-8 shadow-lg hover:-translate-y-1 transition-all duration-400 h-full flex flex-col">
+        <div className="relative">
+          {/* Left arrow */}
+          <button
+            onClick={() => scroll(-1)}
+            className="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-border/50 flex items-center justify-center hover:bg-muted transition-colors"
+          >
+            <ArrowLeft size={18} className="text-navy" />
+          </button>
+
+          {/* Carousel */}
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-hidden"
+            onMouseEnter={() => { isPaused.current = true; }}
+            onMouseLeave={() => { isPaused.current = false; }}
+          >
+            {doubled.map((t, i) => (
+              <div
+                key={`${t.name}-${i}`}
+                className="bg-card rounded-3xl p-8 shadow-lg hover:-translate-y-1 transition-all duration-400 flex flex-col min-w-[340px] md:min-w-[420px] shrink-0"
+              >
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs font-semibold text-mint tracking-wide uppercase">{t.company}</span>
                   <div className="flex gap-0.5">
@@ -684,8 +733,16 @@ function TestimonialFlow() {
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
-          ))}
+            ))}
+          </div>
+
+          {/* Right arrow */}
+          <button
+            onClick={() => scroll(1)}
+            className="absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-border/50 flex items-center justify-center hover:bg-muted transition-colors"
+          >
+            <ArrowRight size={18} className="text-navy" />
+          </button>
         </div>
       </div>
     </section>
