@@ -1,7 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, Clock, ChevronRight, Linkedin, Twitter, Share2 } from "lucide-react";
+import { ArrowLeft, Clock, ChevronRight, Linkedin, Instagram, Share2 } from "lucide-react";
 import { getArticleBySlug, getRelatedArticles } from "@/data/articles";
 import { PrismBackground } from "@/components/PrismBackground";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/newsletter/$slug")({
   component: ArticlePage,
@@ -62,6 +63,38 @@ function ArticlePage() {
 
   const related = getRelatedArticles(slug, 5);
 
+  const articleUrl = `https://tooxs.lovable.app/newsletter/${slug}`;
+  const shareText = `${article.title} — TOOXS Insights`;
+
+  const shareLinkedIn = () => {
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`,
+      "_blank",
+      "noopener,noreferrer,width=600,height=500"
+    );
+  };
+
+  const shareInstagram = () => {
+    window.open("https://www.instagram.com/tooxs_digital/", "_blank", "noopener,noreferrer");
+  };
+
+  const shareGeneral = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: article.title,
+          text: article.excerpt,
+          url: articleUrl,
+        });
+      } catch {
+        // user cancelled
+      }
+    } else {
+      await navigator.clipboard.writeText(articleUrl);
+      toast.success("Enlace copiado al portapapeles");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background" style={{ fontFamily: "'Inter', var(--font-body)" }}>
       {/* Sticky back button */}
@@ -115,13 +148,13 @@ function ArticlePage() {
               {article.readTime}
             </span>
             <div className="ml-auto flex items-center gap-3">
-              <button className="p-2 rounded-full hover:bg-muted transition-colors" aria-label="Compartir en LinkedIn">
+              <button onClick={shareLinkedIn} className="p-2 rounded-full hover:bg-muted transition-colors" aria-label="Compartir en LinkedIn">
                 <Linkedin size={16} />
               </button>
-              <button className="p-2 rounded-full hover:bg-muted transition-colors" aria-label="Compartir en X">
-                <Twitter size={16} />
+              <button onClick={shareInstagram} className="p-2 rounded-full hover:bg-muted transition-colors" aria-label="Ver en Instagram">
+                <Instagram size={16} />
               </button>
-              <button className="p-2 rounded-full hover:bg-muted transition-colors" aria-label="Compartir">
+              <button onClick={shareGeneral} className="p-2 rounded-full hover:bg-muted transition-colors" aria-label="Compartir">
                 <Share2 size={16} />
               </button>
             </div>
