@@ -50,10 +50,43 @@ const featured = [
 function IndustriesPage() {
   return (
     <div>
-      <PageHero
-        title="Industrias"
-        backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
-      />
+      {/* Custom Hero with subtle earth rotation + light pulse */}
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        {/* Animated background image — very slow rotation + scale breathe */}
+        <div
+          className="absolute inset-[-20%] bg-cover bg-center"
+          style={{
+            backgroundImage: "url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80)",
+            animation: "heroEarthDrift 120s linear infinite",
+          }}
+        />
+        {/* Light pulse overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "radial-gradient(ellipse at 40% 50%, rgba(23,127,198,0.15) 0%, transparent 60%)",
+            animation: "heroPulseGlow 6s ease-in-out infinite",
+          }}
+        />
+        <div className="absolute inset-0 bg-navy/70" />
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-foreground leading-tight" style={{ fontFamily: "var(--font-heading)" }}>
+            Industrias
+          </h1>
+        </div>
+
+        <style>{`
+          @keyframes heroEarthDrift {
+            0%   { transform: scale(1.15) rotate(0deg); }
+            50%  { transform: scale(1.18) rotate(1.5deg); }
+            100% { transform: scale(1.15) rotate(0deg); }
+          }
+          @keyframes heroPulseGlow {
+            0%, 100% { opacity: 0.3; }
+            50%      { opacity: 0.7; }
+          }
+        `}</style>
+      </section>
 
       {/* Industries Grid */}
       <section className="py-20">
