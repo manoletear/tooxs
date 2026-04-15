@@ -747,7 +747,7 @@ function TestimonialFlow() {
         {/* Carousel track */}
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-hidden"
+          className="flex gap-6 overflow-hidden py-4 -my-4"
           onMouseEnter={() => { isPaused.current = true; }}
           onMouseLeave={() => { isPaused.current = false; }}
         >
