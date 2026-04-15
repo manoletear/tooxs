@@ -9,7 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as IndustriasRouteImport } from './routes/industrias'
 import { Route as FaqsRouteImport } from './routes/faqs'
@@ -30,9 +32,19 @@ import { Route as IndustriasBancaFinanzasRouteImport } from './routes/industrias
 import { Route as IndustriasAutomotrizRouteImport } from './routes/industrias.automotriz'
 import { Route as IndustriasAgroindustriaRouteImport } from './routes/industrias.agroindustria'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewsletterRoute = NewsletterRouteImport.update({
@@ -142,7 +154,9 @@ export interface FileRoutesByFullPath {
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
   '/newsletter': typeof NewsletterRouteWithChildren
+  '/robots.txt': typeof RobotsDottxtRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
@@ -163,6 +177,8 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
@@ -185,7 +201,9 @@ export interface FileRoutesById {
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
   '/newsletter': typeof NewsletterRouteWithChildren
+  '/robots.txt': typeof RobotsDottxtRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
@@ -209,7 +227,9 @@ export interface FileRouteTypes {
     | '/faqs'
     | '/industrias'
     | '/newsletter'
+    | '/robots.txt'
     | '/services'
+    | '/sitemap.xml'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
     | '/industrias/banca-finanzas'
@@ -230,6 +250,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faqs'
     | '/industrias'
+    | '/robots.txt'
+    | '/sitemap.xml'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
     | '/industrias/banca-finanzas'
@@ -251,7 +273,9 @@ export interface FileRouteTypes {
     | '/faqs'
     | '/industrias'
     | '/newsletter'
+    | '/robots.txt'
     | '/services'
+    | '/sitemap.xml'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
     | '/industrias/banca-finanzas'
@@ -274,16 +298,32 @@ export interface RootRouteChildren {
   FaqsRoute: typeof FaqsRoute
   IndustriasRoute: typeof IndustriasRouteWithChildren
   NewsletterRoute: typeof NewsletterRouteWithChildren
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/newsletter': {
@@ -484,7 +524,9 @@ const rootRouteChildren: RootRouteChildren = {
   FaqsRoute: FaqsRoute,
   IndustriasRoute: IndustriasRouteWithChildren,
   NewsletterRoute: NewsletterRouteWithChildren,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
