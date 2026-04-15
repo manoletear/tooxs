@@ -99,33 +99,33 @@ function HeroStrategic() {
 /* ══════════════════════════════════════════
    2. TRUST BAR
    ══════════════════════════════════════════ */
-const logos = ["Microsoft", "UiPath", "Google Cloud", "Rocketbot", "SAP", "Oracle", "AWS", "Salesforce"];
-const metrics = [
-  { value: 98, suffix: "%", label: "reducción de errores" },
-  { value: 30, suffix: "+", label: "empresas chilenas" },
-  { value: 4, suffix: "", label: "semanas piloto" },
-  { value: 24, suffix: "/7", label: "soporte local" },
+const trustLogos = [
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-KAUFMANN.png", alt: "Kaufmann" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-CANDELARIA.png", alt: "Candelaria" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-VOLCAN.png", alt: "Volcán" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-TRANSELEC-1.png", alt: "Transelec" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-DIVEMOTOR.png", alt: "Divemotor" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-SANTANDER-2.png", alt: "Santander" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-PUC-1.png", alt: "PUC" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-GPS7000-1.png", alt: "GPS7000" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BCI.png", alt: "BCI" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-TREKRENTAL-1.png", alt: "TrekRental" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BESITER.png", alt: "Besiter" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-AGUAS-ANTOFAGASTA.png", alt: "Aguas Antofagasta" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-CApital-advisors.png", alt: "Capital Advisors" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-PATRIA.png", alt: "Patria" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-UNIFRUTTI.png", alt: "Unifrutti" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-ITALFRENOS.png", alt: "Italfrenos" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-SAESA.png", alt: "Saesa" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-ROMA.png", alt: "Roma" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Loho-FINNING.png", alt: "Finning" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-AUTOSTAR.png", alt: "Autostar" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-HENKEL.png", alt: "Henkel" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-LAPOLAR.png", alt: "La Polar" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BUPA-1.png", alt: "Bupa" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-DIVEMOTOR-1.png", alt: "Divemotor" },
+  { src: "https://tooxs.com/wp-content/uploads/2025/08/logo-vik.png", alt: "Vik" },
 ];
-
-function TrustBarDynamic() {
-  return (
-    <section className="py-16 bg-section-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-navy">Empresas que confían en TOOXS</h2>
-        </ScrollReveal>
-        {/* Logo marquee */}
-        <div className="relative overflow-hidden mb-12">
-          <div className="flex animate-marquee items-center gap-16">
-            {[...Array(2)].flatMap((_, i) =>
-              logos.map((name) => (
-                <div key={`${name}-${i}`} className="flex-shrink-0 text-xl font-bold text-[#9CA3AF] hover:text-navy tracking-wider transition-colors duration-500 cursor-default">
-                  {name}
-                </div>
-              ))
-            )}
-          </div>
-        </div>
         {/* Metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {metrics.map((m, i) => (
