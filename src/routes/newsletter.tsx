@@ -1,5 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Linkedin, Twitter, ArrowRight, Play, Mail, BookOpen, Briefcase, BarChart3, Mic, TrendingUp, FileText, Lightbulb, Users } from "lucide-react";
+import { Linkedin, Twitter, Mail, ChevronRight } from "lucide-react";
+import { PrismBackground } from "@/components/PrismBackground";
+
+// Images
+import heroAiAgents from "@/assets/newsletter/hero-ai-agents.jpg";
+import articleDigitalTransform from "@/assets/newsletter/article-digital-transform.jpg";
+import articleDataReport from "@/assets/newsletter/article-data-report.jpg";
+import articleAutomation from "@/assets/newsletter/article-automation.jpg";
+import articleSovereignAi from "@/assets/newsletter/article-sovereign-ai.jpg";
+import podcastInterview from "@/assets/newsletter/podcast-interview.jpg";
+import articleHealthcareAi from "@/assets/newsletter/article-healthcare-ai.jpg";
+import quarterlyCover from "@/assets/newsletter/quarterly-cover.jpg";
+import quarterlyArchive from "@/assets/newsletter/quarterly-archive.jpg";
 
 export const Route = createFileRoute("/newsletter")({
   head: () => ({
@@ -20,38 +32,40 @@ const highlightMain = {
   title: "Agentes de IA en 2026: del piloto a la producción — y por qué el 40% de los proyectos van a fracasar",
   date: "Abril 15, 2026",
   excerpt: "La automatización inteligente dejó de ser un experimento. Pero sin gobernanza, estrategia y visión operativa, la inversión se pierde. Lo que los ejecutivos industriales en Latam necesitan saber ahora.",
-  color: "from-[#1e3a5f] to-primary",
+  image: heroAiAgents,
 };
 
 const secondaryArticles = [
   {
     tag: "Newsletter",
-    title: "Título del segundo artículo destacado de la semana",
+    title: "McKinsey y ALICE colaboran para transformar la entrega de proyectos con scheduling generativo",
     date: "Abril 14, 2026",
-    excerpt: "Breve descripción del artículo. Dos o tres líneas máximo para dar contexto al lector sobre el contenido.",
-    color: "from-teal-700 to-teal-400",
+    excerpt: "La alianza trae IA y analítica avanzada a la entrega de proyectos, permitiendo a propietarios y contratistas cerrar antes, gestionar riesgos y desbloquear valor medible.",
+    image: articleDigitalTransform,
   },
   {
     tag: "Reporte",
-    title: "Título del tercer artículo destacado de la semana",
+    title: "Estado de Alimentos y Bebidas: Las decisiones que los líderes CPG necesitan para renovar el crecimiento",
     date: "Abril 8, 2026",
-    excerpt: "Breve descripción del artículo. Dos o tres líneas máximo para dar contexto al lector sobre el contenido.",
-    color: "from-purple-800 to-purple-500",
+    excerpt: "La lenta erosión de valor en la industria de bienes de consumo se está acelerando. Los líderes necesitan reformular sus portfolios y aprovechar tech e IA.",
+    image: articleDataReport,
   },
 ];
 
 const miniArticles = [
-  { tag: "Explainers", title: "Título de un artículo explicativo corto", excerpt: "Descripción breve del artículo que ocupa un par de líneas como máximo.", color: "from-orange-700 to-orange-400", icon: Lightbulb },
-  { tag: "Caso de Estudio", title: "Título de un caso de estudio o historia", excerpt: "Descripción breve del artículo que ocupa un par de líneas como máximo.", color: "from-[#0F1B2D] to-[#1e3a5f]", icon: Briefcase },
-  { tag: "Datos de la Semana", title: "Título de un artículo con datos y gráficos", excerpt: "Descripción breve del artículo que ocupa un par de líneas como máximo.", color: "from-green-800 to-green-500", icon: BarChart3 },
-  { tag: "Tendencias", title: "Título de un artículo sobre tendencias", excerpt: "Descripción breve del artículo que ocupa un par de líneas como máximo.", color: "from-[#1e3a5f] to-primary", icon: TrendingUp },
+  { tag: "Explainers", title: "¿Qué es la IA soberana?", excerpt: "Tres expertos de TOOXS explican qué es realmente la IA soberana y por qué controlar la pila de IA se está convirtiendo en una prioridad estratégica.", image: articleSovereignAi },
+  { tag: "Caso de Estudio", title: "Un maestro del management, estratega de fondos y verdadero game changer", excerpt: "Nuestros últimos obituarios incluyen también a un diseñador que redefinió la alfombra roja glamour.", image: articleDigitalTransform },
+  { tag: "Datos de la Semana", title: "Personalizando el cuidado para restaurar la confianza del consumidor", excerpt: "La atención médica está profundamente personal — sin embargo, para muchos consumidores se siente distante, costosa y confusa.", image: articleHealthcareAi },
+  { tag: "Tendencias", title: "De la implementación al impacto: Lo que las organizaciones líderes hacen bien con IA", excerpt: "Cuando Reckitt, un líder global en hogar y salud, se propuso reimaginar la gestión de crecimiento de ingresos, la IA...", image: articleAutomation },
 ];
 
+const categoryButtons = ["Más Explainers", "Más Datos de la Semana", "Más Tendencias", "Más Casos y Legados"];
+
 const interviews = [
-  { tag: "Podcast", title: "Título del episodio de podcast o entrevista #1", date: "Abril 9, 2026", excerpt: "Descripción del episodio. Una o dos líneas que resuman la conversación, el invitado y los temas cubiertos.", color: "from-purple-800 to-purple-500" },
-  { tag: "Entrevista", title: "Título del episodio de podcast o entrevista #2", date: "Abril 10, 2026", excerpt: "Descripción del episodio. Una o dos líneas que resuman la conversación, el invitado y los temas cubiertos.", color: "from-teal-700 to-teal-400" },
-  { tag: "Podcast", title: "Título del episodio de podcast o entrevista #3", date: "Abril 7, 2026", excerpt: "Descripción del episodio. Una o dos líneas que resuman la conversación, el invitado y los temas cubiertos.", color: "from-orange-700 to-orange-400" },
-  { tag: "Podcast", title: "Título del episodio de podcast o entrevista #4", date: "Abril 2, 2026", excerpt: "Descripción del episodio. Una o dos líneas que resuman la conversación, el invitado y los temas cubiertos.", color: "from-[#0F1B2D] to-[#1e3a5f]" },
+  { tag: "Podcast", title: "¿Puede LATAM sostener su ventaja competitiva?", date: "Abril 9, 2026", excerpt: "Nueva investigación examina cómo IA, talento, infraestructura y deuda están convergiendo para remodelar la competitividad latinoamericana.", image: podcastInterview },
+  { tag: "Entrevista", title: "Preparando el camino para los agentes de IA: Entrevista con CEO de Factory", date: "Abril 10, 2026", excerpt: "El CEO de Factory discute por qué escalar IA en ingeniería de software depende menos de demos llamativos y más de cambios en el modelo operativo.", image: articleDigitalTransform },
+  { tag: "Podcast", title: "Alcanzando pacientes durante el flujo del sector salud", date: "Abril 7, 2026", excerpt: "El CEO de HCA Healthcare reflexiona sobre el estado de la industria y cómo las tecnologías emergentes y el liderazgo firme pueden ayudar.", image: articleHealthcareAi },
+  { tag: "Podcast", title: "De dashboards a decisiones: Empoderando comerciantes con IA agéntica", date: "Abril 2, 2026", excerpt: "La IA agéntica puede automatizar trabajo rutinario y mejorar decisiones de merchandising a escala. Dos expertos de TOOXS discuten.", image: articleAutomation },
 ];
 
 const newsletterCards = [
@@ -61,32 +75,25 @@ const newsletterCards = [
 ];
 
 const quarterlyArticles = [
-  { title: "Tooxs Quarterly: Edición Digital", excerpt: "La IA agéntica está transformando la naturaleza misma de las operaciones empresariales. ¿Qué viene después?", color: "from-[#0F1B2D] to-[#1e3a5f]" },
-  { title: "Ediciones anteriores del Quarterly", excerpt: "Explora ediciones pasadas sobre gen AI, productividad, crecimiento y transformación digital.", color: "from-teal-700 to-teal-400" },
-  { title: "Agentes de IA en 2026: del piloto a la producción", excerpt: "Evaluar el valor empresarial vinculado a la automatización inteligente puede ayudar a las empresas a prosperar en un mundo volátil.", color: "from-purple-800 to-purple-500" },
+  { title: "Tooxs Quarterly: Edición Digital", excerpt: "La IA agéntica está transformando la naturaleza misma de las operaciones empresariales. ¿Qué viene después?", image: quarterlyCover },
+  { title: "Ediciones anteriores del Quarterly", excerpt: "Explora ediciones pasadas sobre gen AI, productividad, crecimiento y transformación digital.", image: quarterlyArchive },
+  { title: "Agentes de IA en 2026: del piloto a la producción", excerpt: "Evaluar el valor empresarial vinculado a la automatización inteligente puede ayudar a las empresas a prosperar en un mundo volátil.", image: heroAiAgents },
 ];
 
-/* ═══════════ COMPONENTS ═══════════ */
-
-function PlaceholderImg({ className, color, label }: { className?: string; color: string; label?: string }) {
-  return (
-    <div className={`bg-gradient-to-br ${color} flex items-center justify-center ${className ?? ""}`}>
-      <span className="text-white/40 text-xs uppercase tracking-widest">{label ?? "imagen"}</span>
-    </div>
-  );
-}
+/* ═══════════ PAGE ═══════════ */
 
 function NewsletterPage() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* ══════ HERO ══════ */}
+    <div className="min-h-screen bg-background" style={{ fontFamily: "'Inter', var(--font-body)" }}>
+      {/* ══════ HERO WITH PRISM ══════ */}
       <section className="relative bg-navy text-white pt-32 pb-16 overflow-hidden">
-        <div className="absolute -top-1/2 -right-[10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(37,99,235,0.3)_0%,transparent_70%)] rounded-full" />
+        <PrismBackground />
         <div className="relative z-10 max-w-[1200px] mx-auto px-6">
-          <h1 className="font-heading text-4xl md:text-5xl font-black mb-3 tracking-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+          <p className="text-xs text-white/50 mb-4 font-medium tracking-wide">‹ Volver al Inicio</p>
+          <h1 className="text-4xl md:text-[3.2rem] font-black mb-3 leading-[1.1] tracking-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
             Nuestros Insights
           </h1>
-          <p className="text-white/70 text-lg max-w-[560px] leading-relaxed">
+          <p className="text-white/70 text-[1.1rem] max-w-[560px] leading-relaxed">
             Tendencias, datos y perspectivas sobre tecnología, automatización e IA aplicada a la industria y los negocios en Latinoamérica.
           </p>
           <div className="flex items-center gap-4 mt-6">
@@ -101,49 +108,58 @@ function NewsletterPage() {
       </section>
 
       {/* ══════ HIGHLIGHTS ══════ */}
-      <section className="py-16">
+      <section className="py-16 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
-          <p className="text-xs font-bold tracking-[0.12em] uppercase text-muted-foreground mb-8">Destacados de la Semana</p>
+          <p className="text-[0.7rem] font-bold tracking-[0.14em] uppercase text-primary mb-10">Destacados de la Semana</p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* Main article */}
-            <div>
-              <PlaceholderImg className="w-full aspect-[4/3] rounded mb-5" color={highlightMain.color} label="imagen artículo principal" />
-              <span className="text-xs font-semibold uppercase tracking-wide text-primary">{highlightMain.tag}</span>
-              <h2 className="mt-2 text-2xl md:text-3xl font-extrabold leading-tight tracking-tight hover:text-primary transition-colors cursor-pointer" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-                {highlightMain.title}
-              </h2>
-              <p className="text-sm text-muted-foreground mt-2">{highlightMain.date}</p>
-              <p className="text-[15px] text-foreground/70 leading-relaxed mt-3">{highlightMain.excerpt}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            {/* Main article — image left, text right on lg */}
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-6 items-start lg:col-span-2">
+              <img src={highlightMain.image} alt={highlightMain.title} className="w-full aspect-[4/3] object-cover rounded" />
+              <div className="flex flex-col justify-center">
+                <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-primary">{highlightMain.tag}</span>
+                <h2 className="mt-2 text-xl md:text-2xl font-extrabold leading-tight tracking-tight cursor-pointer hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                  {highlightMain.title} <ChevronRight className="inline w-5 h-5 text-primary" />
+                </h2>
+                <p className="text-xs text-muted-foreground mt-2">{highlightMain.date}</p>
+                <p className="text-sm text-foreground/70 leading-relaxed mt-3">{highlightMain.excerpt}</p>
+              </div>
             </div>
 
             {/* Secondary articles */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {secondaryArticles.map((a, i) => (
-                <div key={i} className="border-b border-border pb-6">
-                  <PlaceholderImg className="w-full aspect-[16/10] rounded-sm mb-3" color={a.color} />
-                  <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.tag}</span>
-                  <h3 className="mt-1 text-base font-bold leading-snug hover:text-primary transition-colors cursor-pointer" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-                    {a.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground mt-1">{a.date}</p>
-                  <p className="text-sm text-foreground/60 leading-relaxed mt-2">{a.excerpt}</p>
-                </div>
-              ))}
-            </div>
+            {secondaryArticles.map((a, i) => (
+              <div key={i}>
+                <img src={a.image} alt={a.title} className="w-full aspect-[16/10] object-cover rounded-sm mb-3" loading="lazy" />
+                <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.tag}</span>
+                <h3 className="mt-1 text-base font-bold leading-snug cursor-pointer hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                  {a.title} <ChevronRight className="inline w-4 h-4 text-primary" />
+                </h3>
+                <p className="text-[0.78rem] text-muted-foreground mt-1">{a.date}</p>
+                <p className="text-sm text-foreground/60 leading-relaxed mt-2">{a.excerpt}</p>
+              </div>
+            ))}
           </div>
 
-          {/* Mini cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+          {/* Mini cards row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {miniArticles.map((a, i) => (
               <div key={i}>
-                <PlaceholderImg className="w-full aspect-[4/3] rounded-sm mb-3" color={a.color} />
-                <span className="text-[0.62rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.tag}</span>
-                <h4 className="mt-1 text-[0.95rem] font-bold leading-snug hover:text-primary transition-colors cursor-pointer" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-                  {a.title}
+                <img src={a.image} alt={a.title} className="w-full aspect-[4/3] object-cover rounded-sm mb-3" loading="lazy" />
+                <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.tag}</span>
+                <h4 className="mt-1 text-[0.95rem] font-bold leading-snug cursor-pointer hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                  {a.title} <ChevronRight className="inline w-3.5 h-3.5 text-primary" />
                 </h4>
                 <p className="text-[0.8rem] text-foreground/60 leading-relaxed mt-1">{a.excerpt}</p>
               </div>
+            ))}
+          </div>
+
+          {/* Category buttons */}
+          <div className="flex flex-wrap gap-3 mt-10">
+            {categoryButtons.map((label) => (
+              <button key={label} className="px-5 py-2 rounded-full border-2 border-primary text-primary text-sm font-semibold hover:bg-primary hover:text-white transition-all duration-200">
+                {label}
+              </button>
             ))}
           </div>
         </div>
@@ -160,47 +176,46 @@ function NewsletterPage() {
         </a>
       </section>
 
-      {/* ══════ INTERVIEWS & PODCASTS ══════ */}
-      <section className="py-16">
+      {/* ══════ INTERVIEWS ══════ */}
+      <section className="py-16 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-6">
-          <p className="text-xs font-bold tracking-[0.12em] uppercase text-muted-foreground mb-8">Entrevistas &amp; Podcasts</p>
+          <p className="text-[0.7rem] font-bold tracking-[0.14em] uppercase text-primary mb-8">Entrevistas &amp; Podcasts</p>
 
           <div className="flex flex-col">
             {interviews.map((item, i) => (
-              <div key={i} className={`grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-6 py-7 border-b border-border items-start ${i === 0 ? "pt-0" : ""}`}>
-                <PlaceholderImg className="w-full sm:w-[160px] aspect-square rounded-sm" color={item.color} />
+              <div key={i} className={`grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-6 py-7 border-b border-border items-start ${i === 0 ? "pt-0" : ""}`}>
+                <img src={item.image} alt={item.title} className="w-full sm:w-[140px] aspect-square object-cover rounded-sm" loading="lazy" />
                 <div>
-                  <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-muted-foreground">{item.tag}</span>
-                  <h3 className="mt-1 text-lg font-bold leading-snug hover:text-primary transition-colors cursor-pointer" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-                    {item.title}
+                  <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{item.tag}</span>
+                  <h3 className="mt-1 text-lg font-bold leading-snug cursor-pointer hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                    {item.title} <ChevronRight className="inline w-4 h-4 text-primary" />
                   </h3>
-                  <p className="text-xs text-primary mt-1">{item.date}</p>
+                  <p className="text-xs text-primary mt-1 font-medium">{item.date}</p>
                   <p className="text-sm text-foreground/60 leading-relaxed mt-2">{item.excerpt}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="flex gap-6 mt-8">
-            {["Más Podcasts", "Más Entrevistas", "Más Videos"].map((label) => (
-              <a key={label} href="#" className="text-primary font-semibold text-sm inline-flex items-center gap-1 hover:underline">
-                {label} <span className="text-base">›</span>
-              </a>
+          <div className="flex flex-wrap gap-3 mt-8">
+            {["Más Podcasts de TOOXS", "Más Entrevistas", "Más Videos"].map((label) => (
+              <button key={label} className="px-5 py-2 rounded-full border-2 border-primary text-primary text-sm font-semibold hover:bg-primary hover:text-white transition-all duration-200">
+                {label}
+              </button>
             ))}
           </div>
         </div>
       </section>
 
-      <hr className="border-t border-border" />
-
       {/* ══════ NEWSLETTER FEATURED ══════ */}
       <section className="py-16 bg-section-bg">
         <div className="max-w-[1200px] mx-auto px-6">
-          <p className="text-xs font-bold tracking-[0.12em] uppercase text-muted-foreground mb-8">Newsletter Destacado</p>
+          <p className="text-[0.7rem] font-bold tracking-[0.14em] uppercase text-primary mb-8">Newsletter Destacado</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
-            <div className="w-full aspect-video bg-gradient-to-br from-navy to-[#1e3a5f] rounded-md flex items-center justify-center">
-              <Mail size={120} className="text-white/20" />
+            <div className="relative w-full aspect-video bg-gradient-to-br from-navy to-[#1e3a5f] rounded-md flex items-center justify-center overflow-hidden">
+              <PrismBackground />
+              <Mail size={100} className="text-white/20 relative z-10" />
             </div>
             <div>
               <h2 className="text-2xl font-extrabold mb-2" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
@@ -226,19 +241,17 @@ function NewsletterPage() {
         </div>
       </section>
 
-      <hr className="border-t border-border" />
-
       {/* ══════ QUARTERLY ══════ */}
       <section className="py-16">
         <div className="max-w-[1200px] mx-auto px-6">
-          <p className="text-xs font-bold tracking-[0.12em] uppercase text-muted-foreground mb-8">Nuevos en el Quarterly</p>
+          <p className="text-[0.7rem] font-bold tracking-[0.14em] uppercase text-primary mb-8">Nuevos en el Quarterly</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-7">
             {quarterlyArticles.map((a, i) => (
               <div key={i}>
-                <PlaceholderImg className="w-full aspect-[16/10] rounded mb-4" color={a.color} />
-                <h3 className="text-base font-bold leading-snug mb-2 hover:text-primary transition-colors cursor-pointer" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-                  {a.title}
+                <img src={a.image} alt={a.title} className="w-full aspect-[16/10] object-cover rounded mb-4" loading="lazy" />
+                <h3 className="text-base font-bold leading-snug mb-2 cursor-pointer hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                  {a.title} <ChevronRight className="inline w-4 h-4 text-primary" />
                 </h3>
                 <p className="text-sm text-foreground/60 leading-relaxed">{a.excerpt}</p>
               </div>
