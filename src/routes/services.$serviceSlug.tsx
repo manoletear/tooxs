@@ -8,7 +8,33 @@ import heroData from "@/assets/hero-data-analytics.jpg";
 import heroDoc from "@/assets/hero-documental.jpg";
 import heroOpt from "@/assets/hero-optimizacion.jpg";
 
+const SERVICE_SEO: Record<string, { title: string; description: string }> = {
+  "ia-aplicada": { title: "IA Aplicada al Negocio — TOOXS", description: "Aplicamos inteligencia artificial en procesos críticos para acelerar decisiones, reducir errores y escalar operaciones empresariales." },
+  "automatizacion": { title: "Automatización de Procesos — TOOXS", description: "Diseñamos y automatizamos procesos end-to-end con RPA e IA para reducir fricción, errores y tiempos operativos." },
+  "data-analytics": { title: "Data & Analytics — TOOXS", description: "Unificamos, modelamos y activamos datos dispersos para mejorar visibilidad y toma de decisiones ejecutivas." },
+  "automatizacion-documental": { title: "Automatización Documental — TOOXS", description: "Extraemos, validamos y gestionamos información desde documentos complejos con IA y OCR inteligente." },
+  "optimizacion-operacional": { title: "Optimización Operacional — TOOXS", description: "Optimizamos procesos críticos con mantenimiento predictivo, monitoreo y mejora continua para mayor productividad." },
+};
+
 export const Route = createFileRoute("/services/$serviceSlug")({
+  head: ({ params }) => {
+    const seo = SERVICE_SEO[params.serviceSlug];
+    if (!seo) return { meta: [{ title: "Servicio — TOOXS" }] };
+    return {
+      meta: [
+        { title: seo.title },
+        { name: "description", content: seo.description },
+        { property: "og:title", content: seo.title },
+        { property: "og:description", content: seo.description },
+        { property: "og:url", content: `https://www.tooxs.com/services/${params.serviceSlug}` },
+        { name: "twitter:title", content: seo.title },
+        { name: "twitter:description", content: seo.description },
+      ],
+      links: [
+        { rel: "canonical", href: `https://www.tooxs.com/services/${params.serviceSlug}` },
+      ],
+    };
+  },
   component: ServiceDetailPage,
   notFoundComponent: () => (
     <div className="min-h-screen flex items-center justify-center">
