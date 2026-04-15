@@ -129,16 +129,16 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <div className="flex items-center gap-2.5 mb-1">
-                      <div className="w-8 h-8 rounded-full bg-mint/20 backdrop-blur-sm flex items-center justify-center">
-                        <card.icon className="text-mint" size={16} />
+                      <div className="w-10 h-10 rounded-full bg-mint/20 backdrop-blur-sm flex items-center justify-center">
+                        <card.icon className="text-mint" size={20} />
                       </div>
                       <div>
-                        <h3 className="text-white font-bold text-sm leading-tight">{card.title}</h3>
-                        <p className="text-mint text-[11px] font-medium italic">{card.subtitle}</p>
+                        <h3 className="text-white font-bold text-base leading-tight">{card.title}</h3>
+                        <p className="text-mint text-[14px] font-medium italic">{card.subtitle}</p>
                       </div>
                     </div>
                     {isActive && (
-                      <p className="text-white/50 text-[11px] mt-2 animate-fade-up">Clic para ver detalles →</p>
+                      <p className="text-white/50 text-[14px] mt-2 animate-fade-up">Clic para ver detalles →</p>
                     )}
                   </div>
                 </div>
@@ -156,27 +156,27 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
                 >
                   <div className="p-5 h-full flex flex-col">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-9 h-9 rounded-full bg-mint/20 flex items-center justify-center">
-                        <card.icon className="text-mint" size={18} />
+                      <div className="w-11 h-11 rounded-full bg-mint/20 flex items-center justify-center">
+                        <card.icon className="text-mint" size={22} />
                       </div>
                       <div>
-                        <h3 className="text-white font-bold text-sm">{card.title}</h3>
-                        <p className="text-mint text-[11px] italic">{card.subtitle}</p>
+                        <h3 className="text-white font-bold text-base">{card.title}</h3>
+                        <p className="text-mint text-[14px] italic">{card.subtitle}</p>
                       </div>
                     </div>
                     <div className="space-y-3 flex-1">
                       <div>
-                        <span className="text-mint text-[11px] font-bold uppercase tracking-wider">Problema</span>
-                        <p className="text-white/80 text-xs leading-relaxed mt-1">{card.problem}</p>
+                        <span className="text-mint text-[14px] font-bold uppercase tracking-wider">Problema</span>
+                        <p className="text-white/80 text-[15px] leading-relaxed mt-1">{card.problem}</p>
                       </div>
                       <div>
-                        <span className="text-mint text-[11px] font-bold uppercase tracking-wider">Solución</span>
-                        <p className="text-white/80 text-xs leading-relaxed mt-1">{card.solution}</p>
+                        <span className="text-mint text-[14px] font-bold uppercase tracking-wider">Solución</span>
+                        <p className="text-white/80 text-[15px] leading-relaxed mt-1">{card.solution}</p>
                       </div>
                     </div>
                     <div className="bg-mint/10 rounded-xl px-3 py-2.5 mt-2 border border-mint/20">
-                      <span className="text-mint text-[11px] font-bold">Impacto: </span>
-                      <span className="text-white text-[11px] font-medium">{card.impact}</span>
+                      <span className="text-mint text-[14px] font-bold">Impacto: </span>
+                      <span className="text-white text-[14px] font-medium">{card.impact}</span>
                     </div>
                   </div>
                 </div>
