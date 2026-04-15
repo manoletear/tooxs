@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
   { to: "/" as const, label: "Home" },
@@ -22,67 +22,64 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "backdrop-blur-xl bg-navy/95 shadow-lg shadow-navy/20 border-b border-navy-foreground/5"
-          : "backdrop-blur-md bg-navy/60 border-b border-navy-foreground/10"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex items-center justify-between transition-all duration-500 ${scrolled ? "h-14 lg:h-16" : "h-16 lg:h-20"}`}>
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-gold rounded-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <span className="text-navy font-bold text-sm" style={{ fontFamily: 'var(--font-heading)' }}>S</span>
-            </div>
-            <span className="text-navy-foreground font-semibold text-lg tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
+      <div
+        className={`flex items-center justify-between rounded-full px-6 transition-all duration-500 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-xl shadow-lg h-14 max-w-4xl"
+            : "bg-white/90 backdrop-blur-md h-14 max-w-4xl"
+        } w-full`}
+      >
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
+          <div className="w-7 h-7 bg-navy rounded-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <span className="text-white font-bold text-xs" style={{ fontFamily: 'var(--font-heading)' }}>S</span>
+          </div>
+          <div className="flex flex-col leading-none">
+            <span className="text-navy font-semibold text-sm tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
               Stratwell
             </span>
-          </Link>
-
-          {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`text-sm font-medium transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-gold after:transition-all after:duration-300 ${
-                  location.pathname === link.to
-                    ? "text-gold after:w-full"
-                    : "text-navy-foreground/80 hover:text-navy-foreground after:w-0 hover:after:w-full"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            <span className="text-navy/60 text-[9px] tracking-[0.15em] uppercase font-medium">Consulting</span>
           </div>
+        </Link>
 
-          {/* CTA */}
-          <Link
-            to="/contact"
-            className="hidden lg:inline-flex items-center gap-2 bg-gold text-navy px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-gold/90 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5 transition-all duration-300"
-          >
-            Contact Us <ArrowRight size={16} />
-          </Link>
-
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-navy-foreground hover:text-gold transition-colors duration-300"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+        {/* Desktop nav */}
+        <div className="hidden lg:flex items-center gap-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`text-sm font-medium transition-all duration-300 ${
+                location.pathname === link.to
+                  ? "text-navy"
+                  : "text-navy/60 hover:text-navy"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
+
+        {/* CTA */}
+        <Link
+          to="/contact"
+          className="hidden lg:inline-flex items-center gap-1.5 border border-navy/20 text-navy px-5 py-2 rounded-full text-sm font-medium hover:bg-navy hover:text-white transition-all duration-300"
+        >
+          Contact Us
+        </Link>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="lg:hidden text-navy hover:text-navy/70 transition-colors duration-300"
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
 
       {/* Mobile menu */}
-      <div
-        className={`lg:hidden overflow-hidden transition-all duration-400 ${
-          mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="bg-navy border-t border-navy-foreground/10 px-4 py-4 space-y-3">
+      {mobileOpen && (
+        <div className="lg:hidden absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-xl px-6 py-4 space-y-3 animate-fade-in">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -90,8 +87,8 @@ export function Navbar() {
               onClick={() => setMobileOpen(false)}
               className={`block text-sm font-medium py-2 transition-colors duration-300 ${
                 location.pathname === link.to
-                  ? "text-gold"
-                  : "text-navy-foreground/80 hover:text-navy-foreground"
+                  ? "text-navy"
+                  : "text-navy/60 hover:text-navy"
               }`}
             >
               {link.label}
@@ -100,12 +97,12 @@ export function Navbar() {
           <Link
             to="/contact"
             onClick={() => setMobileOpen(false)}
-            className="inline-flex items-center gap-2 bg-gold text-navy px-5 py-2.5 rounded-lg text-sm font-semibold mt-2"
+            className="inline-flex items-center gap-2 border border-navy/20 text-navy px-5 py-2.5 rounded-full text-sm font-medium mt-2"
           >
-            Contact Us <ArrowRight size={16} />
+            Contact Us
           </Link>
         </div>
-      </div>
+      )}
     </nav>
   );
 }
