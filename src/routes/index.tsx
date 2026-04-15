@@ -336,11 +336,13 @@ function TesisStatement() {
             {[...kpis, ...kpis].map((kpi, i) => (
               <div
                 key={i}
-                className="shrink-0 w-[220px] rounded-2xl border border-white/10 bg-white/[0.05] p-5 text-center backdrop-blur-sm"
+                className="shrink-0 w-[280px] rounded-2xl border border-white/10 bg-white/[0.05] p-6 backdrop-blur-sm"
               >
-                <p className="text-3xl font-extrabold text-[#177FC6] mb-1">{kpi.value}</p>
-                <p className="text-xs text-white/70 leading-snug mb-2">{kpi.label}</p>
-                <p className="text-[10px] text-white/30 uppercase tracking-wider">{kpi.source}</p>
+                <p className="text-[10px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-3">{kpi.tag}</p>
+                <p className="text-4xl font-extrabold text-[#177FC6] mb-2">{kpi.value}</p>
+                <p className="text-xs text-white/70 leading-snug mb-3">{kpi.description}</p>
+                <p className="text-xs text-white/40 italic mb-4">{kpi.insight}</p>
+                <p className="text-[10px] text-white/25 uppercase tracking-wider">{kpi.source}</p>
               </div>
             ))}
           </div>
