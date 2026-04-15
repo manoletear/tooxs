@@ -57,7 +57,7 @@ export function Footer() {
           {/* Social */}
           <div>
             <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white">Síguenos</h4>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm hover:text-mint transition-colors">
+            <a href="https://www.linkedin.com/company/tooxs/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm hover:text-mint transition-colors">
               <Linkedin size={18} />
               LinkedIn
             </a>
