@@ -1,26 +1,72 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import tooxsLogo from "@/assets/tooxs-logo.png";
 
 const navLinks = [
   { to: "/" as const, label: "Inicio" },
   { to: "/services" as const, label: "Servicios" },
-  { to: "/about" as const, label: "Industrias" },
+  { to: "/about" as const, label: "Industrias", hasDropdown: true },
   { to: "/case-studies" as const, label: "Casos" },
   { to: "/faqs" as const, label: "Blog" },
+];
+
+const industries = [
+  "Aeroespacial y Defensa",
+  "Agricultura",
+  "Automotriz y Ensamblaje",
+  "Químicos",
+  "Bienes de Consumo",
+  "Educación",
+  "Energía Eléctrica y Gas Natural",
+  "Energía y Materiales",
+  "Ingeniería y Construcción",
+  "Servicios Financieros",
+  "Salud",
+  "Industriales",
+  "Infraestructura",
+  "Ciencias de la Vida",
+  "Logística",
+  "Metales y Minería",
+  "Petróleo y Gas",
+  "Empaques y Papel",
+  "Capital Privado",
+  "Sector Público",
+  "Bienes Raíces",
+  "Retail",
+  "Semiconductores",
+  "Sector Social",
+  "Tecnología, Medios y Telecomunicaciones",
+  "Viajes y Turismo",
 ];
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
   const location = useLocation();
+  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleMouseEnter = () => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setIndustriesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    dropdownTimeout.current = setTimeout(() => setIndustriesOpen(false), 200);
+  };
+
+  // Split industries into 3 columns
+  const colSize = Math.ceil(industries.length / 3);
+  const col1 = industries.slice(0, colSize);
+  const col2 = industries.slice(colSize, colSize * 2);
+  const col3 = industries.slice(colSize * 2);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
@@ -36,19 +82,39 @@ export function Navbar() {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`text-sm font-medium transition-all duration-300 ${
-                location.pathname === link.to
-                  ? "text-navy"
-                  : "text-navy/60 hover:text-navy"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+            link.hasDropdown ? (
+              <div
+                key={link.to}
+                className="relative"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <Link
+                  to={link.to}
+                  className={`text-sm font-medium transition-all duration-300 ${
+                    location.pathname === link.to
+                      ? "text-navy"
+                      : "text-navy/60 hover:text-navy"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </div>
+            ) : (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`text-sm font-medium transition-all duration-300 ${
+                  location.pathname === link.to
+                    ? "text-navy"
+                    : "text-navy/60 hover:text-navy"
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </div>
 
         <Link
@@ -65,6 +131,39 @@ export function Navbar() {
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
+
+      {/* Industries Mega Dropdown */}
+      {industriesOpen && (
+        <div
+          className="hidden lg:block absolute top-[4.5rem] left-1/2 -translate-x-1/2 w-full max-w-4xl bg-white rounded-2xl shadow-xl px-10 py-8 animate-fade-in z-50"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Link
+            to="/about"
+            className="inline-flex items-center gap-2 text-primary font-semibold text-base mb-6 hover:underline"
+          >
+            Industrias <ArrowRight size={16} />
+          </Link>
+
+          <div className="grid grid-cols-3 gap-x-12 gap-y-3">
+            {[col1, col2, col3].map((col, ci) => (
+              <div key={ci} className="flex flex-col gap-3">
+                {col.map((industry) => (
+                  <Link
+                    key={industry}
+                    to="/about"
+                    onClick={() => setIndustriesOpen(false)}
+                    className="text-sm text-navy/70 hover:text-primary transition-colors duration-200"
+                  >
+                    {industry}
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {mobileOpen && (
         <div className="lg:hidden absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-xl px-6 py-4 space-y-3 animate-fade-in">
