@@ -33,6 +33,11 @@ export const Route = createRootRoute({
       { title: "TOOXS — Inteligencia Aplicada para Organizaciones" },
       { name: "description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa." },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: "TOOXS — Inteligencia Aplicada para Organizaciones" },
+      { name: "twitter:title", content: "TOOXS — Inteligencia Aplicada para Organizaciones" },
+      { property: "og:description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa." },
+      { name: "twitter:description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa." },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
