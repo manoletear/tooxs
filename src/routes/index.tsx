@@ -87,33 +87,33 @@ function HeroStrategic() {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-end overflow-hidden p-3 sm:p-5 md:p-6">
-      <div className="absolute inset-3 sm:inset-5 md:inset-6 rounded-2xl md:rounded-3xl overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen flex items-end overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
         <video ref={videoRef} autoPlay muted loop playsInline className="absolute inset-0 w-full h-[120%] object-cover will-change-transform" src="/hero-bg.mp4" style={{ top: "-10%" }} />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30" />
       </div>
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-16 md:pb-24">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-20 md:pb-28">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-20">
           {/* Left: Heading */}
-          <div className="lg:max-w-[55%]">
-            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ fontFamily: "var(--font-heading)" }}>
+          <div className="lg:max-w-[58%]">
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ fontFamily: "var(--font-heading)" }}>
               No es la tecnología.{" "}
               <br className="hidden sm:block" />
               Es cómo{" "}
-              <em className="not-italic" style={{ fontFamily: "var(--font-emphasis)", fontWeight: 400, fontStyle: "italic" }}>incorporarla</em>{" "}
+              <em className="not-italic" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, fontStyle: "italic" }}>incorporarla</em>{" "}
               <br className="hidden sm:block" />
               correctamente en las{" "}
-              <em className="not-italic" style={{ fontFamily: "var(--font-emphasis)", fontWeight: 400, fontStyle: "italic" }}>organizaciones.</em>
+              <em className="not-italic" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, fontStyle: "italic" }}>organizaciones.</em>
             </h1>
           </div>
           {/* Right: Subtitle + CTA */}
-          <div className={`lg:max-w-[35%] transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-            <p className="text-sm md:text-base text-white/80 leading-relaxed mb-6">
+          <div className={`lg:max-w-[32%] transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+            <p className="text-sm md:text-base text-white/80 leading-relaxed mb-8">
               TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa.
             </p>
-            <button onClick={scrollToCapabilities} className="inline-flex items-center gap-2 bg-white text-navy px-6 py-3 rounded-full font-medium hover:bg-white/90 transition-all duration-300 text-sm group">
-              Explorar capacidades
-              <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-mint text-white group-hover:scale-110 transition-transform">
+            <button onClick={scrollToForm} className="inline-flex items-center gap-3 bg-white text-navy px-7 py-3.5 rounded-full font-semibold hover:bg-white/95 transition-all duration-300 text-sm group shadow-lg">
+              Agendar una consulta
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary text-white group-hover:scale-110 transition-transform">
                 <ArrowRight size={14} />
               </span>
             </button>
