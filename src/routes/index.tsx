@@ -749,41 +749,6 @@ function TestimonialFlow() {
   );
 }
 
-/* ══════════════════════════════════════════
-   11. METODOLOGÍA
-   ══════════════════════════════════════════ */
-const phases = [
-  { title: "Descubrimiento", time: "2 semanas", desc: "Identificamos procesos repetitivos y de alto impacto." },
-  { title: "Piloto", time: "4 semanas", desc: "Automatizamos un proceso con RPA o IA en 4 semanas." },
-  { title: "Escalamiento", time: "Variable", desc: "Implementamos en más áreas, medimos resultados." },
-  { title: "Evolución continua", time: "Continua", desc: "Monitoreamos, optimizamos y añadimos nuevas capacidades." },
-];
-
-function MethodLoop() {
-  return (
-    <section className="py-24 bg-navy text-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">No implementamos proyectos. Acompañamos la transformación.</h2>
-        </ScrollReveal>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {phases.map((p, i) => (
-            <ScrollReveal key={p.title} delay={i * 120}>
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full border-2 border-mint flex items-center justify-center mx-auto mb-4">
-                  <span className="text-mint font-bold text-lg">{i + 1}</span>
-                </div>
-                <h3 className="text-lg font-bold mb-1">{p.title}</h3>
-                <p className="text-xs text-mint font-semibold mb-2">{p.time}</p>
-                <p className="text-sm text-white/70">{p.desc}</p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ══════════════════════════════════════════
    12. SMART FORM
@@ -1021,7 +986,7 @@ function Index() {
       <SolutionShowcase />
       <CaseEngine />
       <InsightLayer />
-      <MethodLoop />
+      
       <SmartForm />
       <ConversionCTA />
       <AIChatbot />
