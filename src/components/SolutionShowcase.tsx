@@ -232,6 +232,21 @@ export default function SolutionShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [modalSolution, setModalSolution] = useState<Solution | null>(null);
 
+  /* Touch swipe for mobile horizontal scroll */
+  const touchStart = useRef<number | null>(null);
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStart.current = e.touches[0].clientX;
+  }, []);
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (touchStart.current === null) return;
+    const diff = touchStart.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && activeIndex < solutions.length - 1) setActiveIndex(prev => prev + 1);
+      else if (diff < 0 && activeIndex > 0) setActiveIndex(prev => prev - 1);
+    }
+    touchStart.current = null;
+  }, [activeIndex]);
+
   return (
     <section className="py-20 relative overflow-hidden" style={{
       background: "radial-gradient(circle at top left, rgba(58,111,247,0.18), transparent 30%), radial-gradient(circle at bottom right, rgba(34,160,138,0.14), transparent 25%), linear-gradient(180deg, #09101f 0%, #0b1020 100%)",
@@ -247,9 +262,55 @@ export default function SolutionShowcase() {
           </p>
         </ScrollReveal>
 
-        {/* Accordion */}
+        {/* Accordion - mobile: horizontal swipeable cards, desktop: accordion */}
         <ScrollReveal>
-          <div className="flex flex-col md:flex-row gap-4 items-stretch" style={{ height: "520px" }}>
+          {/* Mobile: swipeable card view */}
+          <div
+            className="md:hidden relative overflow-hidden rounded-3xl"
+            style={{ height: 420 }}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            {solutions.map((sol, i) => {
+              const isActive = activeIndex === i;
+              return (
+                <div
+                  key={sol.id}
+                  className="absolute inset-0 rounded-3xl overflow-hidden"
+                  style={{
+                    opacity: isActive ? 1 : 0,
+                    transform: isActive ? "translateX(0)" : i > activeIndex ? "translateX(100%)" : "translateX(-100%)",
+                    transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)",
+                    pointerEvents: isActive ? "auto" : "none",
+                  }}
+                  onClick={() => setModalSolution(sol)}
+                >
+                  <img src={sol.image} alt={sol.title} className="absolute inset-0 w-full h-full object-cover" />
+                  <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${sol.accentColor}CC 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.3) 100%)` }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end" style={{ zIndex: 3 }}>
+                    <span className="inline-flex self-start items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3" style={{ background: `${sol.accentColor}30`, color: "white", border: `1px solid ${sol.accentColor}50` }}>
+                      {sol.icon}
+                      {sol.category}
+                    </span>
+                    <h3 className="text-2xl font-extrabold text-white tracking-tight leading-tight mb-2">{sol.title}</h3>
+                    <p className="text-white/85 text-sm leading-relaxed mb-4">{sol.subtitle}</p>
+                    <button className="self-start px-5 py-2.5 rounded-full text-white text-sm font-bold shadow-lg" style={{ background: sol.accentColor }}>
+                      Ver cómo funciona
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+            {/* Mobile dots */}
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2" style={{ zIndex: 5 }}>
+              {solutions.map((_, i) => (
+                <button key={i} className={`h-2 rounded-full transition-all duration-300 ${i === activeIndex ? "bg-white w-6" : "bg-white/40 w-2"}`} onClick={(e) => { e.stopPropagation(); setActiveIndex(i); }} />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: accordion */}
+          <div className="hidden md:flex gap-4 items-stretch" style={{ height: "520px" }}>
             {solutions.map((sol, i) => {
               const isActive = activeIndex === i;
 
@@ -294,7 +355,7 @@ export default function SolutionShowcase() {
                     className="absolute font-semibold text-white whitespace-nowrap pointer-events-none"
                     style={{
                       zIndex: 3,
-                      fontSize: "18px",
+                      fontSize: "23px",
                       letterSpacing: "-0.01em",
                       left: "50%",
                       bottom: "110px",
