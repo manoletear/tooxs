@@ -443,21 +443,25 @@ const capabilityCards = [
     title: "01 — Descubrir",
     description: "Nos sumergimos en tu negocio para identificar desafíos clave, descubrir oportunidades y construir una visión clara de lo que realmente importa.",
     image: monkeySeeImg,
+    time: "2 semanas",
   },
   {
     title: "02 — Estrategizar",
     description: "Diseñamos estrategias a medida alineadas con tus objetivos, restricciones y recursos disponibles.",
     image: monkeyHearImg,
+    time: "4 semanas",
   },
   {
     title: "03 — Ejecutar",
     description: "Acompañamos la implementación para asegurar que cada solución sea práctica, efectiva y con impacto a largo plazo.",
     image: monkeySpeakImg,
+    time: "Variable",
   },
   {
     title: "04 — Optimizar",
     description: "Medimos el desempeño, refinamos procesos y convertimos los datos en resultados de negocio concretos.",
     image: monkeyMeasureImg,
+    time: "Continua",
   },
 ];
 
