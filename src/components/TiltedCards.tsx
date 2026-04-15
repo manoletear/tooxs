@@ -109,9 +109,9 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
                     : "0 15px 40px -10px rgba(0,0,0,0.4)",
                 }}
               >
-                <div className="flex items-center justify-center pt-8 pb-4">
+                <div className="relative flex items-center justify-center pt-8 pb-4">
                   <div
-                    className="w-40 h-40 rounded-2xl overflow-hidden"
+                    className="relative w-40 h-40 rounded-2xl overflow-hidden"
                     style={{
                       transition: "transform 0.4s ease",
                       transform: isHovered ? "scale(1.1)" : "scale(1)",
@@ -120,9 +120,16 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
                     <img
                       src={card.image}
                       alt={card.title}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-contain grayscale"
                       loading="lazy"
                       draggable={false}
+                    />
+                    <div
+                      className="absolute inset-0 rounded-2xl transition-opacity duration-400"
+                      style={{
+                        background: "rgba(23,127,198,0.45)",
+                        opacity: isHovered ? 1 : 0,
+                      }}
                     />
                   </div>
                 </div>
