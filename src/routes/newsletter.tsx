@@ -21,11 +21,11 @@ export const Route = createFileRoute("/newsletter")({
 
 /* ═══════════ DATA (from shared articles) ═══════════ */
 
-const highlightMain = ARTICLES[0]; // Riesgo geopolítico
-const secondaryArticles = [ARTICLES[1], ARTICLES[2]];
-const miniArticles = [ARTICLES[3], ARTICLES[4], ARTICLES[10], ARTICLES[7]];
+const highlightMain = ARTICLES[11]; // Agentes de IA en 2026
+const secondaryArticles = [ARTICLES[12], ARTICLES[13]]; // CEO cambio, Alta dirección
+const miniArticles = [ARTICLES[14], ARTICLES[15], ARTICLES[16], ARTICLES[17]]; // Dilemas, Equipos, Liderazgo, Manufactura
 const categoryButtons = ["Más Explainers", "Más Datos de la Semana", "Más Tendencias", "Más Casos y Legados"];
-const interviews = [ARTICLES[6], ARTICLES[5], ARTICLES[9], ARTICLES[8]];
+const interviews = [ARTICLES[18], ARTICLES[19], ARTICLES[0], ARTICLES[5]]; // Ganar curvas, Rediseño, Geopolítico, Agentes
 
 const newsletterCards = [
   { title: "CEO Briefing", desc: "Las ideas más relevantes para la alta dirección. Resumen ejecutivo semanal." },
