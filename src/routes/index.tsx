@@ -3,6 +3,8 @@ import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pick
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 import CardDeckSpread from "../components/CardDeckSpread";
+import FluidCardStack from "../components/FluidCardStack";
+import { Search, Lightbulb, Rocket } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
