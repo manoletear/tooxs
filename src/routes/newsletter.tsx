@@ -28,44 +28,88 @@ export const Route = createFileRoute("/newsletter")({
 /* ═══════════ DATA ═══════════ */
 
 const highlightMain = {
-  tag: "Insights",
-  title: "Agentes de IA en 2026: del piloto a la producción — y por qué el 40% de los proyectos van a fracasar",
-  date: "Abril 15, 2026",
-  excerpt: "La automatización inteligente dejó de ser un experimento. Pero sin gobernanza, estrategia y visión operativa, la inversión se pierde. Lo que los ejecutivos industriales en Latam necesitan saber ahora.",
+  tag: "Estrategia",
+  title: "Riesgo geopolítico como oportunidad: cómo las empresas industriales pueden ganar en la incertidumbre",
+  date: "14 Abril 2026",
+  excerpt: "En un mundo fragmentado por tensiones comerciales y aranceles cambiantes, las empresas que mapean su exposición geopolítica y abrazan la agilidad no solo sobreviven — prosperan.",
   image: heroAiAgents,
 };
 
 const secondaryArticles = [
   {
-    tag: "Newsletter",
-    title: "McKinsey y ALICE colaboran para transformar la entrega de proyectos con scheduling generativo",
-    date: "Abril 14, 2026",
-    excerpt: "La alianza trae IA y analítica avanzada a la entrega de proyectos, permitiendo a propietarios y contratistas cerrar antes, gestionar riesgos y desbloquear valor medible.",
+    tag: "AI & Operaciones",
+    title: "Scheduling generativo: cómo la IA está transformando la ejecución de proyectos de capital",
+    date: "14 Abril 2026",
+    excerpt: "McKinsey y ALICE Technologies integran IA y analytics avanzados para que las constructoras y operadoras muevan más rápido, gestionen riesgo y desbloqueen valor medible en sus proyectos.",
     image: articleDigitalTransform,
   },
   {
-    tag: "Reporte",
-    title: "Estado de Alimentos y Bebidas: Las decisiones que los líderes CPG necesitan para renovar el crecimiento",
-    date: "Abril 8, 2026",
-    excerpt: "La lenta erosión de valor en la industria de bienes de consumo se está acelerando. Los líderes necesitan reformular sus portfolios y aprovechar tech e IA.",
+    tag: "Industria",
+    title: "El estado de alimentos y bebidas 2026: por qué las CPG deben reinventarse o perder terreno",
+    date: "8 Abril 2026",
+    excerpt: "La erosión de valor en bienes de consumo se está acelerando. Los líderes que no reforman sus portafolios, afinan su propuesta de valor y adoptan AI a fondo van a ceder terreno — rápido.",
     image: articleDataReport,
   },
 ];
 
 const miniArticles = [
-  { tag: "Explainers", title: "¿Qué es la IA soberana?", excerpt: "Tres expertos de TOOXS explican qué es realmente la IA soberana y por qué controlar la pila de IA se está convirtiendo en una prioridad estratégica.", image: articleSovereignAi },
-  { tag: "Caso de Estudio", title: "Un maestro del management, estratega de fondos y verdadero game changer", excerpt: "Nuestros últimos obituarios incluyen también a un diseñador que redefinió la alfombra roja glamour.", image: articleDigitalTransform },
-  { tag: "Datos de la Semana", title: "Personalizando el cuidado para restaurar la confianza del consumidor", excerpt: "La atención médica está profundamente personal — sin embargo, para muchos consumidores se siente distante, costosa y confusa.", image: articleHealthcareAi },
-  { tag: "Tendencias", title: "De la implementación al impacto: Lo que las organizaciones líderes hacen bien con IA", excerpt: "Cuando Reckitt, un líder global en hogar y salud, se propuso reimaginar la gestión de crecimiento de ingresos, la IA...", image: articleAutomation },
+  {
+    tag: "AI & Geopolítica",
+    title: "IA Soberana: por qué los países quieren controlar su propio stack de inteligencia artificial",
+    excerpt: "El control sobre modelos de IA, datos de entrenamiento e infraestructura de cómputo se está convirtiendo en una prioridad estratégica nacional.",
+    image: articleSovereignAi,
+  },
+  {
+    tag: "AI & Transformación",
+    title: "De implementación a impacto: qué hacen bien las organizaciones que realmente ganan con IA",
+    excerpt: "El caso Reckitt y otras empresas líderes muestra que el gap entre 'tener IA' y 'generar valor con IA' se cierra con cambios organizacionales, no solo tecnológicos.",
+    image: articleDigitalTransform,
+  },
+  {
+    tag: "Datos de la Semana",
+    title: "Personalizar la atención para restaurar la confianza del consumidor",
+    excerpt: "La atención de salud es profundamente personal — pero para muchos consumidores se siente distante, costosa y confusa, erosionando una confianza ya frágil.",
+    image: articleHealthcareAi,
+  },
+  {
+    tag: "AI & Retail",
+    title: "De dashboards a decisiones: cómo la IA agéntica está transformando el merchandising",
+    excerpt: "La IA agéntica puede automatizar trabajo rutinario y mejorar decisiones de merchandising a escala. Dos expertos discuten qué se necesita para convertir potencial en rendimiento.",
+    image: articleAutomation,
+  },
 ];
 
 const categoryButtons = ["Más Explainers", "Más Datos de la Semana", "Más Tendencias", "Más Casos y Legados"];
 
 const interviews = [
-  { tag: "Podcast", title: "¿Puede LATAM sostener su ventaja competitiva?", date: "Abril 9, 2026", excerpt: "Nueva investigación examina cómo IA, talento, infraestructura y deuda están convergiendo para remodelar la competitividad latinoamericana.", image: podcastInterview },
-  { tag: "Entrevista", title: "Preparando el camino para los agentes de IA: Entrevista con CEO de Factory", date: "Abril 10, 2026", excerpt: "El CEO de Factory discute por qué escalar IA en ingeniería de software depende menos de demos llamativos y más de cambios en el modelo operativo.", image: articleDigitalTransform },
-  { tag: "Podcast", title: "Alcanzando pacientes durante el flujo del sector salud", date: "Abril 7, 2026", excerpt: "El CEO de HCA Healthcare reflexiona sobre el estado de la industria y cómo las tecnologías emergentes y el liderazgo firme pueden ayudar.", image: articleHealthcareAi },
-  { tag: "Podcast", title: "De dashboards a decisiones: Empoderando comerciantes con IA agéntica", date: "Abril 2, 2026", excerpt: "La IA agéntica puede automatizar trabajo rutinario y mejorar decisiones de merchandising a escala. Dos expertos de TOOXS discuten.", image: articleAutomation },
+  {
+    tag: "Macroeconomía",
+    title: "¿Puede EEUU mantener su ventaja competitiva? Lo que AI, talento y deuda revelan sobre el futuro",
+    date: "9 Abril 2026",
+    excerpt: "Un nuevo estudio examina cómo la convergencia de IA, talento, infraestructura y deuda está reconfigurando la competitividad estadounidense — con lecciones para LATAM.",
+    image: podcastInterview,
+  },
+  {
+    tag: "AI & Desarrollo",
+    title: "El camino de los agentes de IA: menos demos espectaculares, más cambio operativo",
+    date: "10 Abril 2026",
+    excerpt: "El CEO de Factory explica por qué escalar IA en ingeniería de software depende menos de modelos más poderosos y más de cómo se reorganizan los equipos.",
+    image: articleDigitalTransform,
+  },
+  {
+    tag: "Salud & Tech",
+    title: "Salud en transformación: cómo la tecnología está cerrando la brecha entre pacientes y proveedores",
+    date: "7 Abril 2026",
+    excerpt: "El CEO de HCA Healthcare reflexiona sobre cómo las tecnologías emergentes y un liderazgo firme pueden llegar a los pacientes donde realmente están.",
+    image: articleHealthcareAi,
+  },
+  {
+    tag: "Libros & Ideas",
+    title: "Rewired 2da edición: el playbook actualizado para ganar con tecnología e IA",
+    date: "6 Abril 2026",
+    excerpt: "McKinsey actualiza su libro más influyente sobre transformación digital con nuevos capítulos sobre IA generativa, agentes y lo que hacen diferente las empresas que realmente transforman.",
+    image: articleAutomation,
+  },
 ];
 
 const newsletterCards = [
@@ -77,7 +121,7 @@ const newsletterCards = [
 const quarterlyArticles = [
   { title: "Tooxs Quarterly: Edición Digital", excerpt: "La IA agéntica está transformando la naturaleza misma de las operaciones empresariales. ¿Qué viene después?", image: quarterlyCover },
   { title: "Ediciones anteriores del Quarterly", excerpt: "Explora ediciones pasadas sobre gen AI, productividad, crecimiento y transformación digital.", image: quarterlyArchive },
-  { title: "Agentes de IA en 2026: del piloto a la producción", excerpt: "Evaluar el valor empresarial vinculado a la automatización inteligente puede ayudar a las empresas a prosperar en un mundo volátil.", image: heroAiAgents },
+  { title: "Riesgo geopolítico como oportunidad empresarial", excerpt: "En un mundo fragmentado por tensiones comerciales, las empresas que mapean su exposición geopolítica y abrazan la agilidad prosperan.", image: heroAiAgents },
 ];
 
 /* ═══════════ PAGE ═══════════ */
@@ -89,7 +133,7 @@ function NewsletterPage() {
       <section className="relative bg-navy text-white pt-32 pb-16 overflow-hidden">
         <PrismBackground />
         <div className="relative z-10 max-w-[1200px] mx-auto px-6">
-          <p className="text-xs text-white/50 mb-4 font-medium tracking-wide">‹ Volver al Inicio</p>
+          <Link to="/" className="text-xs text-white/50 mb-4 font-medium tracking-wide inline-block hover:text-white/80 transition-colors">‹ Volver al Inicio</Link>
           <h1 className="text-4xl md:text-[3.2rem] font-black mb-3 leading-[1.1] tracking-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
             Nuestros Insights
           </h1>
@@ -113,7 +157,7 @@ function NewsletterPage() {
           <p className="text-[0.7rem] font-bold tracking-[0.14em] uppercase text-primary mb-10">Destacados de la Semana</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            {/* Main article — image left, text right on lg */}
+            {/* Main article */}
             <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-6 items-start lg:col-span-2">
               <img src={highlightMain.image} alt={highlightMain.title} className="w-full aspect-[4/3] object-cover rounded" />
               <div className="flex flex-col justify-center">
