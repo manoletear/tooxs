@@ -17,6 +17,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as NewsletterIndexRouteImport } from './routes/newsletter.index'
 import { Route as NewsletterSlugRouteImport } from './routes/newsletter.$slug'
 import { Route as IndustriasTelecomunicacionesRouteImport } from './routes/industrias.telecomunicaciones'
@@ -66,6 +67,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
 } as any)
 const NewsletterIndexRoute = NewsletterIndexRouteImport.update({
   id: '/',
@@ -124,7 +130,7 @@ export interface FileRoutesByFullPath {
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
   '/newsletter': typeof NewsletterRouteWithChildren
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
@@ -134,6 +140,7 @@ export interface FileRoutesByFullPath {
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
   '/newsletter/$slug': typeof NewsletterSlugRoute
   '/newsletter/': typeof NewsletterIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -142,7 +149,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
-  '/services': typeof ServicesRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
@@ -152,6 +158,7 @@ export interface FileRoutesByTo {
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
   '/newsletter/$slug': typeof NewsletterSlugRoute
   '/newsletter': typeof NewsletterIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -162,7 +169,7 @@ export interface FileRoutesById {
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
   '/newsletter': typeof NewsletterRouteWithChildren
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
@@ -172,6 +179,7 @@ export interface FileRoutesById {
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
   '/newsletter/$slug': typeof NewsletterSlugRoute
   '/newsletter/': typeof NewsletterIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -193,6 +201,7 @@ export interface FileRouteTypes {
     | '/industrias/telecomunicaciones'
     | '/newsletter/$slug'
     | '/newsletter/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -201,7 +210,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faqs'
     | '/industrias'
-    | '/services'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
     | '/industrias/banca-finanzas'
@@ -211,6 +219,7 @@ export interface FileRouteTypes {
     | '/industrias/telecomunicaciones'
     | '/newsletter/$slug'
     | '/newsletter'
+    | '/services'
   id:
     | '__root__'
     | '/'
@@ -230,6 +239,7 @@ export interface FileRouteTypes {
     | '/industrias/telecomunicaciones'
     | '/newsletter/$slug'
     | '/newsletter/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -240,7 +250,7 @@ export interface RootRouteChildren {
   FaqsRoute: typeof FaqsRoute
   IndustriasRoute: typeof IndustriasRouteWithChildren
   NewsletterRoute: typeof NewsletterRouteWithChildren
-  ServicesRoute: typeof ServicesRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -300,6 +310,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/newsletter/': {
       id: '/newsletter/'
@@ -405,6 +422,18 @@ const NewsletterRouteWithChildren = NewsletterRoute._addFileChildren(
   NewsletterRouteChildren,
 )
 
+interface ServicesRouteChildren {
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -413,7 +442,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqsRoute: FaqsRoute,
   IndustriasRoute: IndustriasRouteWithChildren,
   NewsletterRoute: NewsletterRouteWithChildren,
-  ServicesRoute: ServicesRoute,
+  ServicesRoute: ServicesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
