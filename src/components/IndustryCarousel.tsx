@@ -53,6 +53,16 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
   const next = useCallback(() => { setIsAutoPlaying(false); setFlippedIndex(null); setActiveIndex(prev => (prev + 1) % n); }, [n]);
   const prev = useCallback(() => { setIsAutoPlaying(false); setFlippedIndex(null); setActiveIndex(prev => (prev - 1 + n) % n); }, [n]);
 
+  /* Touch swipe */
+  const touchStartX = useRef<number | null>(null);
+  const handleTouchStart = useCallback((e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; }, []);
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+    touchStartX.current = null;
+  }, [next, prev]);
+
   // Card dimensions
   const CARD_W = 280;
   const CARD_H = 400;
