@@ -16,6 +16,13 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as IndustriasTelecomunicacionesRouteImport } from './routes/industrias.telecomunicaciones'
+import { Route as IndustriasSaludRouteImport } from './routes/industrias.salud'
+import { Route as IndustriasRetailLogisticaRouteImport } from './routes/industrias.retail-logistica'
+import { Route as IndustriasMineriaUtilitiesRouteImport } from './routes/industrias.mineria-utilities'
+import { Route as IndustriasBancaFinanzasRouteImport } from './routes/industrias.banca-finanzas'
+import { Route as IndustriasAutomotrizRouteImport } from './routes/industrias.automotriz'
+import { Route as IndustriasAgroindustriaRouteImport } from './routes/industrias.agroindustria'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -52,6 +59,44 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriasTelecomunicacionesRoute =
+  IndustriasTelecomunicacionesRouteImport.update({
+    id: '/telecomunicaciones',
+    path: '/telecomunicaciones',
+    getParentRoute: () => IndustriasRoute,
+  } as any)
+const IndustriasSaludRoute = IndustriasSaludRouteImport.update({
+  id: '/salud',
+  path: '/salud',
+  getParentRoute: () => IndustriasRoute,
+} as any)
+const IndustriasRetailLogisticaRoute =
+  IndustriasRetailLogisticaRouteImport.update({
+    id: '/retail-logistica',
+    path: '/retail-logistica',
+    getParentRoute: () => IndustriasRoute,
+  } as any)
+const IndustriasMineriaUtilitiesRoute =
+  IndustriasMineriaUtilitiesRouteImport.update({
+    id: '/mineria-utilities',
+    path: '/mineria-utilities',
+    getParentRoute: () => IndustriasRoute,
+  } as any)
+const IndustriasBancaFinanzasRoute = IndustriasBancaFinanzasRouteImport.update({
+  id: '/banca-finanzas',
+  path: '/banca-finanzas',
+  getParentRoute: () => IndustriasRoute,
+} as any)
+const IndustriasAutomotrizRoute = IndustriasAutomotrizRouteImport.update({
+  id: '/automotriz',
+  path: '/automotriz',
+  getParentRoute: () => IndustriasRoute,
+} as any)
+const IndustriasAgroindustriaRoute = IndustriasAgroindustriaRouteImport.update({
+  id: '/agroindustria',
+  path: '/agroindustria',
+  getParentRoute: () => IndustriasRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -59,8 +104,15 @@ export interface FileRoutesByFullPath {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
-  '/industrias': typeof IndustriasRoute
+  '/industrias': typeof IndustriasRouteWithChildren
   '/services': typeof ServicesRoute
+  '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
+  '/industrias/automotriz': typeof IndustriasAutomotrizRoute
+  '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
+  '/industrias/mineria-utilities': typeof IndustriasMineriaUtilitiesRoute
+  '/industrias/retail-logistica': typeof IndustriasRetailLogisticaRoute
+  '/industrias/salud': typeof IndustriasSaludRoute
+  '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -68,8 +120,15 @@ export interface FileRoutesByTo {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
-  '/industrias': typeof IndustriasRoute
+  '/industrias': typeof IndustriasRouteWithChildren
   '/services': typeof ServicesRoute
+  '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
+  '/industrias/automotriz': typeof IndustriasAutomotrizRoute
+  '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
+  '/industrias/mineria-utilities': typeof IndustriasMineriaUtilitiesRoute
+  '/industrias/retail-logistica': typeof IndustriasRetailLogisticaRoute
+  '/industrias/salud': typeof IndustriasSaludRoute
+  '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -78,8 +137,15 @@ export interface FileRoutesById {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
-  '/industrias': typeof IndustriasRoute
+  '/industrias': typeof IndustriasRouteWithChildren
   '/services': typeof ServicesRoute
+  '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
+  '/industrias/automotriz': typeof IndustriasAutomotrizRoute
+  '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
+  '/industrias/mineria-utilities': typeof IndustriasMineriaUtilitiesRoute
+  '/industrias/retail-logistica': typeof IndustriasRetailLogisticaRoute
+  '/industrias/salud': typeof IndustriasSaludRoute
+  '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +157,13 @@ export interface FileRouteTypes {
     | '/faqs'
     | '/industrias'
     | '/services'
+    | '/industrias/agroindustria'
+    | '/industrias/automotriz'
+    | '/industrias/banca-finanzas'
+    | '/industrias/mineria-utilities'
+    | '/industrias/retail-logistica'
+    | '/industrias/salud'
+    | '/industrias/telecomunicaciones'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +173,13 @@ export interface FileRouteTypes {
     | '/faqs'
     | '/industrias'
     | '/services'
+    | '/industrias/agroindustria'
+    | '/industrias/automotriz'
+    | '/industrias/banca-finanzas'
+    | '/industrias/mineria-utilities'
+    | '/industrias/retail-logistica'
+    | '/industrias/salud'
+    | '/industrias/telecomunicaciones'
   id:
     | '__root__'
     | '/'
@@ -109,6 +189,13 @@ export interface FileRouteTypes {
     | '/faqs'
     | '/industrias'
     | '/services'
+    | '/industrias/agroindustria'
+    | '/industrias/automotriz'
+    | '/industrias/banca-finanzas'
+    | '/industrias/mineria-utilities'
+    | '/industrias/retail-logistica'
+    | '/industrias/salud'
+    | '/industrias/telecomunicaciones'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -117,7 +204,7 @@ export interface RootRouteChildren {
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   FaqsRoute: typeof FaqsRoute
-  IndustriasRoute: typeof IndustriasRoute
+  IndustriasRoute: typeof IndustriasRouteWithChildren
   ServicesRoute: typeof ServicesRoute
 }
 
@@ -172,8 +259,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industrias/telecomunicaciones': {
+      id: '/industrias/telecomunicaciones'
+      path: '/telecomunicaciones'
+      fullPath: '/industrias/telecomunicaciones'
+      preLoaderRoute: typeof IndustriasTelecomunicacionesRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
+    '/industrias/salud': {
+      id: '/industrias/salud'
+      path: '/salud'
+      fullPath: '/industrias/salud'
+      preLoaderRoute: typeof IndustriasSaludRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
+    '/industrias/retail-logistica': {
+      id: '/industrias/retail-logistica'
+      path: '/retail-logistica'
+      fullPath: '/industrias/retail-logistica'
+      preLoaderRoute: typeof IndustriasRetailLogisticaRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
+    '/industrias/mineria-utilities': {
+      id: '/industrias/mineria-utilities'
+      path: '/mineria-utilities'
+      fullPath: '/industrias/mineria-utilities'
+      preLoaderRoute: typeof IndustriasMineriaUtilitiesRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
+    '/industrias/banca-finanzas': {
+      id: '/industrias/banca-finanzas'
+      path: '/banca-finanzas'
+      fullPath: '/industrias/banca-finanzas'
+      preLoaderRoute: typeof IndustriasBancaFinanzasRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
+    '/industrias/automotriz': {
+      id: '/industrias/automotriz'
+      path: '/automotriz'
+      fullPath: '/industrias/automotriz'
+      preLoaderRoute: typeof IndustriasAutomotrizRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
+    '/industrias/agroindustria': {
+      id: '/industrias/agroindustria'
+      path: '/agroindustria'
+      fullPath: '/industrias/agroindustria'
+      preLoaderRoute: typeof IndustriasAgroindustriaRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
   }
 }
+
+interface IndustriasRouteChildren {
+  IndustriasAgroindustriaRoute: typeof IndustriasAgroindustriaRoute
+  IndustriasAutomotrizRoute: typeof IndustriasAutomotrizRoute
+  IndustriasBancaFinanzasRoute: typeof IndustriasBancaFinanzasRoute
+  IndustriasMineriaUtilitiesRoute: typeof IndustriasMineriaUtilitiesRoute
+  IndustriasRetailLogisticaRoute: typeof IndustriasRetailLogisticaRoute
+  IndustriasSaludRoute: typeof IndustriasSaludRoute
+  IndustriasTelecomunicacionesRoute: typeof IndustriasTelecomunicacionesRoute
+}
+
+const IndustriasRouteChildren: IndustriasRouteChildren = {
+  IndustriasAgroindustriaRoute: IndustriasAgroindustriaRoute,
+  IndustriasAutomotrizRoute: IndustriasAutomotrizRoute,
+  IndustriasBancaFinanzasRoute: IndustriasBancaFinanzasRoute,
+  IndustriasMineriaUtilitiesRoute: IndustriasMineriaUtilitiesRoute,
+  IndustriasRetailLogisticaRoute: IndustriasRetailLogisticaRoute,
+  IndustriasSaludRoute: IndustriasSaludRoute,
+  IndustriasTelecomunicacionesRoute: IndustriasTelecomunicacionesRoute,
+}
+
+const IndustriasRouteWithChildren = IndustriasRoute._addFileChildren(
+  IndustriasRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -181,7 +341,7 @@ const rootRouteChildren: RootRouteChildren = {
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   FaqsRoute: FaqsRoute,
-  IndustriasRoute: IndustriasRoute,
+  IndustriasRoute: IndustriasRouteWithChildren,
   ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport
