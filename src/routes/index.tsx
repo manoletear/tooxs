@@ -299,7 +299,7 @@ function TrustBarDynamic() {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {metrics.map((m, i) => (
               <ScrollReveal key={m.label} delay={i * 80}>
-                <div className="bg-card rounded-xl p-6 shadow-sm text-center border border-border/50">
+                <div className="bg-card rounded-xl p-6 shadow-sm text-center border border-border/50 h-full flex flex-col items-center justify-center">
                   <Counter end={m.value} suffix={m.suffix} />
                   <p className="mt-2 text-sm text-muted-foreground leading-snug">{m.label}</p>
                 </div>
