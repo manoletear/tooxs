@@ -5,11 +5,14 @@ import heroImage from "../assets/hero-health.jpg";
 export const Route = createFileRoute("/industrias/salud")({
   head: () => ({
     meta: [
-      { title: "Salud — Tooxs" },
-      { name: "description", content: "Acompañamos a prestadores y organizaciones de salud a modernizar flujos clínicos y administrativos con IA, automatización y analítica." },
-      { property: "og:title", content: "Salud — Tooxs" },
-      { property: "og:description", content: "Menos carga administrativa. Más capacidad para atender." },
+      { title: "Salud — TOOXS | IA para Prestadores y Aseguradoras" },
+      { name: "description", content: "Modernización de flujos clínicos y administrativos con IA, automatización y analítica para prestadores, aseguradoras y organizaciones de salud." },
+      { property: "og:title", content: "Salud — TOOXS" },
+      { property: "og:description", content: "Menos carga administrativa, más capacidad para atender con IA y automatización en salud." },
+      { property: "og:url", content: "https://www.tooxs.com/industrias/salud" },
+      { name: "keywords", content: "salud IA, automatización clínica, analítica salud, prestadores, TOOXS" },
     ],
+    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/salud" }],
   }),
   component: SaludPage,
 });

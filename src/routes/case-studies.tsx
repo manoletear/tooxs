@@ -6,10 +6,17 @@ import { ScrollReveal } from "../hooks/use-scroll-reveal";
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
     meta: [
-      { title: "Case Studies — Stratwell Consulting" },
-      { name: "description", content: "Explore real results: see how Stratwell Consulting helped businesses transform and grow." },
-      { property: "og:title", content: "Case Studies — Stratwell Consulting" },
-      { property: "og:description", content: "Explore real results from our strategic consulting engagements." },
+      { title: "Casos de Éxito — TOOXS | Resultados Reales con IA" },
+      { name: "description", content: "Descubre cómo TOOXS ha ayudado a empresas a transformar sus operaciones con IA, automatización y analítica avanzada. Resultados medibles en múltiples industrias." },
+      { property: "og:title", content: "Casos de Éxito — TOOXS" },
+      { property: "og:description", content: "Resultados reales: cómo empresas líderes transforman sus operaciones con TOOXS." },
+      { property: "og:url", content: "https://www.tooxs.com/case-studies" },
+      { name: "twitter:title", content: "Casos de Éxito — TOOXS" },
+      { name: "twitter:description", content: "Resultados reales de IA y automatización en empresas industriales." },
+      { name: "keywords", content: "casos de éxito, transformación digital, resultados IA, automatización empresas, TOOXS" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.tooxs.com/case-studies" },
     ],
   }),
   component: CaseStudiesPage,

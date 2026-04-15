@@ -5,11 +5,14 @@ import heroImage from "../assets/hero-banking.jpg";
 export const Route = createFileRoute("/industrias/banca-finanzas")({
   head: () => ({
     meta: [
-      { title: "Banca y Finanzas — Tooxs" },
-      { name: "description", content: "Diseñamos soluciones que aceleran evaluación, originación, cumplimiento y servicio financiero con automatización, IA y flujos auditables." },
-      { property: "og:title", content: "Banca y Finanzas — Tooxs" },
-      { property: "og:description", content: "Decisiones más rápidas. Riesgo mejor gestionado. Operación más eficiente." },
+      { title: "Banca y Finanzas — TOOXS | Automatización Financiera con IA" },
+      { name: "description", content: "Aceleramos evaluación crediticia, originación, cumplimiento y servicio financiero con automatización, IA y flujos auditables para banca y finanzas." },
+      { property: "og:title", content: "Banca y Finanzas — TOOXS" },
+      { property: "og:description", content: "Decisiones más rápidas, riesgo mejor gestionado y operación financiera más eficiente con IA." },
+      { property: "og:url", content: "https://www.tooxs.com/industrias/banca-finanzas" },
+      { name: "keywords", content: "banca IA, finanzas automatización, riesgo crediticio, compliance, TOOXS" },
     ],
+    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/banca-finanzas" }],
   }),
   component: BancaPage,
 });

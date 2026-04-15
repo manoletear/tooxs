@@ -20,9 +20,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "TOOXS — Inteligencia Aplicada para Organizaciones" },
-      { name: "description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa." },
+      { name: "description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa. IA, RPA y analítica para empresas en Chile y Latinoamérica." },
       { property: "og:title", content: "TOOXS — Inteligencia Aplicada para Organizaciones" },
-      { property: "og:description", content: "Automatización inteligente. RPA, IA y analítica para empresas chilenas." },
+      { property: "og:description", content: "Automatización inteligente, RPA, IA y analítica avanzada para empresas industriales en Chile y Latinoamérica." },
+      { property: "og:url", content: "https://www.tooxs.com" },
+      { name: "twitter:title", content: "TOOXS — Inteligencia Aplicada para Organizaciones" },
+      { name: "twitter:description", content: "Automatización inteligente, RPA, IA y analítica avanzada para empresas industriales." },
+      { name: "keywords", content: "inteligencia artificial, automatización, RPA, data analytics, transformación digital, Chile, consultoría tecnológica, TOOXS" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.tooxs.com" },
     ],
   }),
   component: Index,

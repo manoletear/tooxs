@@ -33,17 +33,61 @@ export const Route = createRootRoute({
       { title: "TOOXS — Inteligencia Aplicada para Organizaciones" },
       { name: "description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa." },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "TOOXS — Inteligencia Aplicada para Organizaciones" },
-      { name: "twitter:title", content: "TOOXS — Inteligencia Aplicada para Organizaciones" },
-      { property: "og:description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa." },
-      { name: "twitter:description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa." },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:site_name", content: "TOOXS" },
+      { property: "og:locale", content: "es_CL" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@toaborada" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
+      { name: "author", content: "TOOXS" },
+      { name: "theme-color", content: "#0A2647" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" as const },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" },
+      { rel: "canonical", href: "https://www.tooxs.com" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "TOOXS",
+          "url": "https://www.tooxs.com",
+          "logo": "https://www.tooxs.com/tooxs-logo.png",
+          "description": "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Santiago",
+            "addressCountry": "CL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+56 2 2345 6789",
+            "contactType": "sales",
+            "email": "contacto@tooxs.com"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/tooxs"
+          ]
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "TOOXS",
+          "url": "https://www.tooxs.com",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.tooxs.com/newsletter?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,

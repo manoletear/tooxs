@@ -5,11 +5,14 @@ import heroImage from "../assets/hero-telecom.jpg";
 export const Route = createFileRoute("/industrias/telecomunicaciones")({
   head: () => ({
     meta: [
-      { title: "Telecomunicaciones — Tooxs" },
-      { name: "description", content: "Ayudamos a operadores telco a integrar IA en red, atención, experiencia y operación para capturar eficiencia y mejorar servicio." },
-      { property: "og:title", content: "Telecomunicaciones — Tooxs" },
-      { property: "og:description", content: "Redes más eficientes. Clientes mejor entendidos. Operaciones más inteligentes." },
+      { title: "Telecomunicaciones — TOOXS | IA para Operadores Telco" },
+      { name: "description", content: "Integración de IA en redes, atención al cliente, experiencia y operación para operadores de telecomunicaciones." },
+      { property: "og:title", content: "Telecomunicaciones — TOOXS" },
+      { property: "og:description", content: "Redes más eficientes, clientes mejor entendidos y operaciones más inteligentes con IA." },
+      { property: "og:url", content: "https://www.tooxs.com/industrias/telecomunicaciones" },
+      { name: "keywords", content: "telecomunicaciones IA, redes inteligentes, experiencia cliente telco, TOOXS" },
     ],
+    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/telecomunicaciones" }],
   }),
   component: TelecomPage,
 });

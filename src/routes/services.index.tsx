@@ -14,10 +14,17 @@ import heroOpt from "@/assets/hero-optimizacion.jpg";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Servicios — TOOXS" },
-      { name: "description", content: "IA aplicada, automatización de procesos, data & analytics, automatización documental y optimización operacional para empresas industriales." },
-      { property: "og:title", content: "Servicios — TOOXS" },
-      { property: "og:description", content: "Plataformas de valor que generan impacto medible en tu operación." },
+      { title: "Servicios — TOOXS | IA, Automatización y Data Analytics" },
+      { name: "description", content: "IA aplicada, automatización de procesos RPA, data analytics, automatización documental y optimización operacional para empresas industriales en Chile y Latinoamérica." },
+      { property: "og:title", content: "Servicios — TOOXS | IA, Automatización y Data Analytics" },
+      { property: "og:description", content: "Plataformas de valor que generan impacto medible: IA aplicada, RPA, data analytics y optimización operacional." },
+      { property: "og:url", content: "https://www.tooxs.com/services" },
+      { name: "twitter:title", content: "Servicios — TOOXS" },
+      { name: "twitter:description", content: "IA aplicada, automatización, data analytics y optimización operacional para empresas." },
+      { name: "keywords", content: "servicios IA, automatización RPA, data analytics, automatización documental, optimización operacional, consultoría tecnológica, TOOXS" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.tooxs.com/services" },
     ],
   }),
   component: ServicesIndexPage,

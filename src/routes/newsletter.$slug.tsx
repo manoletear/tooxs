@@ -5,6 +5,50 @@ import { PrismBackground } from "@/components/PrismBackground";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/newsletter/$slug")({
+  head: ({ params }) => {
+    const article = getArticleBySlug(params.slug);
+    if (!article) return { meta: [{ title: "Artículo no encontrado — TOOXS" }] };
+    return {
+      meta: [
+        { title: `${article.title} — TOOXS Insights` },
+        { name: "description", content: article.excerpt },
+        { property: "og:title", content: article.title },
+        { property: "og:description", content: article.excerpt },
+        { property: "og:url", content: `https://www.tooxs.com/newsletter/${article.slug}` },
+        { property: "og:type", content: "article" },
+        { property: "og:image", content: article.image },
+        { name: "twitter:title", content: article.title },
+        { name: "twitter:description", content: article.excerpt },
+        { name: "twitter:image", content: article.image },
+        { name: "article:published_time", content: article.date },
+        { name: "article:author", content: "TOOXS" },
+        { name: "keywords", content: `${article.category}, IA, automatización, TOOXS, ${article.title.split(' ').slice(0, 3).join(', ')}` },
+      ],
+      links: [
+        { rel: "canonical", href: `https://www.tooxs.com/newsletter/${article.slug}` },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": article.title,
+            "description": article.excerpt,
+            "image": article.image,
+            "datePublished": article.date,
+            "author": { "@type": "Organization", "name": "TOOXS" },
+            "publisher": {
+              "@type": "Organization",
+              "name": "TOOXS",
+              "url": "https://www.tooxs.com"
+            },
+            "mainEntityOfPage": `https://www.tooxs.com/newsletter/${article.slug}`
+          }),
+        },
+      ],
+    };
+  },
   component: ArticlePage,
   notFoundComponent: () => (
     <div className="min-h-screen flex items-center justify-center">

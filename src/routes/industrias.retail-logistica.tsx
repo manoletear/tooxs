@@ -5,11 +5,14 @@ import heroImage from "../assets/hero-retail.jpg";
 export const Route = createFileRoute("/industrias/retail-logistica")({
   head: () => ({
     meta: [
-      { title: "Retail y Logística — Tooxs" },
-      { name: "description", content: "Ayudamos a retailers y operadores logísticos a optimizar inventario, mejorar disponibilidad y convertir la cadena de suministro en ventaja competitiva." },
-      { property: "og:title", content: "Retail y Logística — Tooxs" },
-      { property: "og:description", content: "Inventario inteligente. Ejecución más rápida. Menos fricción." },
+      { title: "Retail y Logística — TOOXS | Cadena de Suministro Inteligente" },
+      { name: "description", content: "Optimización de inventario, disponibilidad y cadena de suministro con IA y automatización para retailers y operadores logísticos." },
+      { property: "og:title", content: "Retail y Logística — TOOXS" },
+      { property: "og:description", content: "Inventario inteligente, ejecución más rápida y cadena de suministro como ventaja competitiva." },
+      { property: "og:url", content: "https://www.tooxs.com/industrias/retail-logistica" },
+      { name: "keywords", content: "retail IA, logística automatización, inventario inteligente, supply chain, TOOXS" },
     ],
+    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/retail-logistica" }],
   }),
   component: RetailPage,
 });

@@ -41,6 +41,8 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${data.hero.image})` }}
+          role="img"
+          aria-label={`Imagen de servicio: ${data.hero.title}`}
         />
         <div className="absolute inset-0 bg-navy/80" />
         <PrismBackground className="opacity-40" />
