@@ -19,92 +19,13 @@ export const Route = createFileRoute("/newsletter")({
   component: NewsletterPage,
 });
 
-/* ═══════════ DATA ═══════════ */
+/* ═══════════ DATA (from shared articles) ═══════════ */
 
-const highlightMain = {
-  tag: "Estrategia",
-  title: "Riesgo geopolítico como oportunidad: cómo las empresas industriales pueden ganar en la incertidumbre",
-  date: "14 Abril 2026",
-  excerpt: "En un mundo fragmentado por tensiones comerciales y aranceles cambiantes, las empresas que mapean su exposición geopolítica y abrazan la agilidad no solo sobreviven — prosperan.",
-  image: heroAiAgents,
-};
-
-const secondaryArticles = [
-  {
-    tag: "AI & Operaciones",
-    title: "Scheduling generativo: cómo la IA está transformando la ejecución de proyectos de capital",
-    date: "14 Abril 2026",
-    excerpt: "McKinsey y ALICE Technologies integran IA y analytics avanzados para que las constructoras y operadoras muevan más rápido, gestionen riesgo y desbloqueen valor medible en sus proyectos.",
-    image: articleDigitalTransform,
-  },
-  {
-    tag: "Industria",
-    title: "El estado de alimentos y bebidas 2026: por qué las CPG deben reinventarse o perder terreno",
-    date: "8 Abril 2026",
-    excerpt: "La erosión de valor en bienes de consumo se está acelerando. Los líderes que no reforman sus portafolios, afinan su propuesta de valor y adoptan AI a fondo van a ceder terreno — rápido.",
-    image: articleDataReport,
-  },
-];
-
-const miniArticles = [
-  {
-    tag: "AI & Geopolítica",
-    title: "IA Soberana: por qué los países quieren controlar su propio stack de inteligencia artificial",
-    excerpt: "El control sobre modelos de IA, datos de entrenamiento e infraestructura de cómputo se está convirtiendo en una prioridad estratégica nacional.",
-    image: articleSovereignAi,
-  },
-  {
-    tag: "AI & Transformación",
-    title: "De implementación a impacto: qué hacen bien las organizaciones que realmente ganan con IA",
-    excerpt: "El caso Reckitt y otras empresas líderes muestra que el gap entre 'tener IA' y 'generar valor con IA' se cierra con cambios organizacionales, no solo tecnológicos.",
-    image: articleDigitalTransform,
-  },
-  {
-    tag: "Datos de la Semana",
-    title: "Personalizar la atención para restaurar la confianza del consumidor",
-    excerpt: "La atención de salud es profundamente personal — pero para muchos consumidores se siente distante, costosa y confusa, erosionando una confianza ya frágil.",
-    image: articleHealthcareAi,
-  },
-  {
-    tag: "AI & Retail",
-    title: "De dashboards a decisiones: cómo la IA agéntica está transformando el merchandising",
-    excerpt: "La IA agéntica puede automatizar trabajo rutinario y mejorar decisiones de merchandising a escala. Dos expertos discuten qué se necesita para convertir potencial en rendimiento.",
-    image: articleAutomation,
-  },
-];
-
+const highlightMain = ARTICLES[0]; // Riesgo geopolítico
+const secondaryArticles = [ARTICLES[1], ARTICLES[2]];
+const miniArticles = [ARTICLES[3], ARTICLES[4], ARTICLES[10], ARTICLES[7]];
 const categoryButtons = ["Más Explainers", "Más Datos de la Semana", "Más Tendencias", "Más Casos y Legados"];
-
-const interviews = [
-  {
-    tag: "Macroeconomía",
-    title: "¿Puede EEUU mantener su ventaja competitiva? Lo que AI, talento y deuda revelan sobre el futuro",
-    date: "9 Abril 2026",
-    excerpt: "Un nuevo estudio examina cómo la convergencia de IA, talento, infraestructura y deuda está reconfigurando la competitividad estadounidense — con lecciones para LATAM.",
-    image: podcastInterview,
-  },
-  {
-    tag: "AI & Desarrollo",
-    title: "El camino de los agentes de IA: menos demos espectaculares, más cambio operativo",
-    date: "10 Abril 2026",
-    excerpt: "El CEO de Factory explica por qué escalar IA en ingeniería de software depende menos de modelos más poderosos y más de cómo se reorganizan los equipos.",
-    image: articleDigitalTransform,
-  },
-  {
-    tag: "Salud & Tech",
-    title: "Salud en transformación: cómo la tecnología está cerrando la brecha entre pacientes y proveedores",
-    date: "7 Abril 2026",
-    excerpt: "El CEO de HCA Healthcare reflexiona sobre cómo las tecnologías emergentes y un liderazgo firme pueden llegar a los pacientes donde realmente están.",
-    image: articleHealthcareAi,
-  },
-  {
-    tag: "Libros & Ideas",
-    title: "Rewired 2da edición: el playbook actualizado para ganar con tecnología e IA",
-    date: "6 Abril 2026",
-    excerpt: "McKinsey actualiza su libro más influyente sobre transformación digital con nuevos capítulos sobre IA generativa, agentes y lo que hacen diferente las empresas que realmente transforman.",
-    image: articleAutomation,
-  },
-];
+const interviews = [ARTICLES[6], ARTICLES[5], ARTICLES[9], ARTICLES[8]];
 
 const newsletterCards = [
   { title: "CEO Briefing", desc: "Las ideas más relevantes para la alta dirección. Resumen ejecutivo semanal." },
@@ -113,9 +34,9 @@ const newsletterCards = [
 ];
 
 const quarterlyArticles = [
-  { title: "Tooxs Quarterly: Edición Digital", excerpt: "La IA agéntica está transformando la naturaleza misma de las operaciones empresariales. ¿Qué viene después?", image: quarterlyCover },
-  { title: "Ediciones anteriores del Quarterly", excerpt: "Explora ediciones pasadas sobre gen AI, productividad, crecimiento y transformación digital.", image: quarterlyArchive },
-  { title: "Riesgo geopolítico como oportunidad empresarial", excerpt: "En un mundo fragmentado por tensiones comerciales, las empresas que mapean su exposición geopolítica y abrazan la agilidad prosperan.", image: heroAiAgents },
+  { title: "Tooxs Quarterly: Edición Digital", excerpt: "La IA agéntica está transformando la naturaleza misma de las operaciones empresariales. ¿Qué viene después?", image: quarterlyCover, slug: ARTICLES[0].slug },
+  { title: "Ediciones anteriores del Quarterly", excerpt: "Explora ediciones pasadas sobre gen AI, productividad, crecimiento y transformación digital.", image: quarterlyArchive, slug: ARTICLES[1].slug },
+  { title: "Riesgo geopolítico como oportunidad empresarial", excerpt: "En un mundo fragmentado por tensiones comerciales, las empresas que mapean su exposición geopolítica y abrazan la agilidad prosperan.", image: heroAiAgents, slug: ARTICLES[0].slug },
 ];
 
 /* ═══════════ PAGE ═══════════ */
