@@ -364,23 +364,24 @@ function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () =>
       transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
       className="overflow-hidden"
     >
-      <div
-        className="rounded-[24px] border mt-6 overflow-hidden bg-card shadow-lg"
-        style={{ borderColor: `${svc.accentColor}25` }}
-      >
-        <div className="p-8 md:p-10 space-y-10">
-          {/* Header */}
+      <div className="mt-8 rounded-[24px] overflow-hidden shadow-xl border border-border/40">
+
+        {/* ── Section 1: Statement ── */}
+        <div
+          className="relative px-8 md:px-12 py-10"
+          style={{ background: `linear-gradient(135deg, ${svc.accentColor}12 0%, ${svc.accentColor}06 100%)` }}
+        >
           <div className="flex items-start justify-between gap-4">
             <div>
               <span
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3"
-                style={{ background: `${svc.accentColor}15`, color: svc.accentColor, border: `1px solid ${svc.accentColor}30` }}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4"
+                style={{ background: `${svc.accentColor}18`, color: svc.accentColor, border: `1px solid ${svc.accentColor}30` }}
               >
                 <svc.icon size={14} />
                 {svc.title}
               </span>
               {svc.statement.map((p, i) => (
-                <p key={i} className="text-base md:text-lg leading-relaxed text-muted-foreground mb-3 last:mb-0" style={{ fontFamily: "var(--font-emphasis)" }}>
+                <p key={i} className="text-base md:text-lg leading-relaxed text-foreground/80 mb-3 last:mb-0 max-w-3xl" style={{ fontFamily: "var(--font-emphasis)" }}>
                   {p}
                 </p>
               ))}
@@ -392,79 +393,83 @@ function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () =>
               ✕
             </button>
           </div>
+        </div>
 
-          {/* How we generate value */}
-          <div>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-5" style={{ color: svc.accentColor }}>
-              CÓMO GENERAMOS VALOR
-            </p>
-            <div className="grid md:grid-cols-2 gap-4">
-              {svc.values.map((val, i) => (
-                <div
-                  key={val.title}
-                  className="p-5 rounded-[18px] border border-border bg-section-bg"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <span
-                      className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold text-primary-foreground"
-                      style={{ background: svc.accentColor }}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h4 className="text-foreground font-semibold text-sm">{val.title}</h4>
-                  </div>
-                  <p className="text-sm leading-relaxed pl-10 text-muted-foreground">{val.description}</p>
+        {/* ── Section 2: How we generate value ── */}
+        <div className="bg-card px-8 md:px-12 py-10">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-6" style={{ color: svc.accentColor }}>
+            CÓMO GENERAMOS VALOR
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            {svc.values.map((val, i) => (
+              <div
+                key={val.title}
+                className="p-5 rounded-[18px] border border-border bg-section-bg"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span
+                    className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold text-primary-foreground"
+                    style={{ background: svc.accentColor }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h4 className="text-foreground font-semibold text-sm">{val.title}</h4>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Metrics */}
-          <div>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-5 text-center" style={{ color: svc.accentColor }}>
-              IMPACTO MEDIBLE
-            </p>
-            <div className="grid grid-cols-3 gap-6 mb-3">
-              {svc.metrics.map((m, i) => (
-                <div key={i} className="text-center">
-                  <p className="text-2xl md:text-3xl font-bold mb-1" style={{ color: svc.accentColor }}>{m.value}</p>
-                  <p className="text-xs text-muted-foreground">{m.label}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-center italic text-muted-foreground/50">{svc.metricsSource}</p>
-          </div>
-
-          {/* Capabilities */}
-          <div>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: svc.accentColor }}>
-              CAPACIDADES CLAVE
-            </p>
-            <div className="flex flex-wrap gap-2.5">
-              {svc.capabilities.map((cap) => (
-                <span
-                  key={cap}
-                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl border border-border bg-section-bg text-sm font-medium text-foreground"
-                >
-                  <CheckCircle size={14} style={{ color: svc.accentColor }} />
-                  {cap}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="text-center pt-2">
-            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">{svc.cta.title}</h3>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-primary-foreground text-sm font-bold hover:-translate-y-0.5 transition-transform"
-              style={{ background: svc.accentColor, boxShadow: `0 10px 30px ${svc.accentColor}30` }}
-            >
-              {svc.cta.buttonText} <ArrowRight size={16} />
-            </Link>
+                <p className="text-sm leading-relaxed pl-10 text-muted-foreground">{val.description}</p>
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* ── Section 3: Metrics ── */}
+        <div
+          className="px-8 md:px-12 py-10"
+          style={{ background: svc.accentColor }}
+        >
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-6 text-center text-white/70">
+            IMPACTO MEDIBLE
+          </p>
+          <div className="grid grid-cols-3 gap-6 mb-3">
+            {svc.metrics.map((m, i) => (
+              <div key={i} className="text-center">
+                <p className="text-2xl md:text-3xl font-bold mb-1 text-white">{m.value}</p>
+                <p className="text-xs text-white/70">{m.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-center italic text-white/40">{svc.metricsSource}</p>
+        </div>
+
+        {/* ── Section 4: Capabilities ── */}
+        <div className="bg-section-bg px-8 md:px-12 py-10">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-5" style={{ color: svc.accentColor }}>
+            CAPACIDADES CLAVE
+          </p>
+          <div className="flex flex-wrap gap-2.5">
+            {svc.capabilities.map((cap) => (
+              <span
+                key={cap}
+                className="flex items-center gap-2 px-3.5 py-2 rounded-xl border border-border bg-card text-sm font-medium text-foreground"
+              >
+                <CheckCircle size={14} style={{ color: svc.accentColor }} />
+                {cap}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Section 5: CTA ── */}
+        <div className="bg-card px-8 md:px-12 py-10 text-center">
+          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">{svc.cta.title}</h3>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-primary-foreground text-sm font-bold hover:-translate-y-0.5 transition-transform"
+            style={{ background: svc.accentColor, boxShadow: `0 10px 30px ${svc.accentColor}30` }}
+          >
+            {svc.cta.buttonText} <ArrowRight size={16} />
+          </Link>
+        </div>
+
       </div>
     </motion.div>
   );
