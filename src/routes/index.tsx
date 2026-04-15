@@ -235,11 +235,41 @@ function TrustBarDynamic() {
    3. TESIS — Quote + KPI Carousel
    ══════════════════════════════════════════ */
 const kpis = [
-  { value: "73%", label: "de CEOs planea aumentar inversión en IA generativa en 2025", source: "PwC" },
-  { value: "4.4T", label: "USD en productividad anual estimada por IA generativa", source: "McKinsey" },
-  { value: "60%", label: "de tareas operativas serán asistidas por IA antes de 2027", source: "Gartner" },
-  { value: "2.6x", label: "mayor retorno en empresas que integran IA en procesos core", source: "BCG" },
-  { value: "40%", label: "de reducción en costos operativos con automatización inteligente", source: "Deloitte" },
+  {
+    tag: "COMPRESIÓN DE MÁRGENES",
+    value: "≈70%",
+    description: "de líderes cree que la IA generativa cambiará significativamente cómo crean valor.",
+    insight: "No es una tendencia — es una redefinición del modelo",
+    source: "PwC · Global CEO Survey 2024",
+  },
+  {
+    tag: "ADOPCIÓN REAL DEL STACK",
+    value: "78%",
+    description: "de organizaciones ya usa IA en al menos una función de negocio.",
+    insight: "Penetración real, no solo percepción",
+    source: "McKinsey & Company / Stanford AI Index 2024",
+  },
+  {
+    tag: "GAP HYPE VS. VALOR",
+    value: "56%",
+    description: "de CEOs no ha visto beneficios financieros concretos de la IA hasta ahora.",
+    insight: "La brecha que este programa cierra",
+    source: "PwC · CEO Survey 2025",
+  },
+  {
+    tag: "SEÑAL ESTRATÉGICA DE INVERSIÓN",
+    value: "88%",
+    description: "de ejecutivos planea aumentar inversión en IA, independiente del ROI actual.",
+    insight: "La apuesta continúa — con o sin resultados visibles",
+    source: "PwC · AI Business Survey 2024",
+  },
+  {
+    tag: "PREPARACIÓN ORGANIZACIONAL",
+    value: "~20%",
+    description: "de ejecutivos se siente altamente preparado para operar con IA de manera efectiva.",
+    insight: "Brecha de capacidad — no de voluntad",
+    source: "Deloitte AI Institute Survey 2024",
+  },
 ];
 
 function TesisStatement() {
@@ -306,11 +336,13 @@ function TesisStatement() {
             {[...kpis, ...kpis].map((kpi, i) => (
               <div
                 key={i}
-                className="shrink-0 w-[220px] rounded-2xl border border-white/10 bg-white/[0.05] p-5 text-center backdrop-blur-sm"
+                className="shrink-0 w-[280px] rounded-2xl border border-white/10 bg-white/[0.05] p-6 backdrop-blur-sm"
               >
-                <p className="text-3xl font-extrabold text-[#177FC6] mb-1">{kpi.value}</p>
-                <p className="text-xs text-white/70 leading-snug mb-2">{kpi.label}</p>
-                <p className="text-[10px] text-white/30 uppercase tracking-wider">{kpi.source}</p>
+                <p className="text-[10px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-3">{kpi.tag}</p>
+                <p className="text-4xl font-extrabold text-[#177FC6] mb-2">{kpi.value}</p>
+                <p className="text-xs text-white/70 leading-snug mb-3">{kpi.description}</p>
+                <p className="text-xs text-white/40 italic mb-4">{kpi.insight}</p>
+                <p className="text-[10px] text-white/25 uppercase tracking-wider">{kpi.source}</p>
               </div>
             ))}
           </div>
