@@ -32,7 +32,7 @@ export function Navbar() {
         } w-full`}
       >
         <Link to="/" className="flex items-center group flex-shrink-0">
-          <img src={tooxsLogo} alt="TOOXS" className="h-7 w-auto group-hover:scale-105 transition-transform duration-300" />
+          <img src={tooxsLogo} alt="TOOXS" className="h-10 w-auto group-hover:scale-105 transition-transform duration-300" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
