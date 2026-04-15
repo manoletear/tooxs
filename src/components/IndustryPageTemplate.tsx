@@ -44,6 +44,8 @@ export function IndustryPageTemplate({ data }: { data: IndustryPageData }) {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${data.hero.image})` }}
+          role="img"
+          aria-label={`Imagen de industria: ${data.hero.title}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/50 to-navy/20" />
         <div className="relative z-10 max-w-5xl mx-auto px-6 pb-16 md:pb-24 w-full">
