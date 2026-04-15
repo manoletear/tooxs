@@ -7,6 +7,7 @@ import IndustryCarousel from "../components/IndustryCarousel";
 import FluidCardStack from "../components/FluidCardStack";
 import { KineticTypography } from "../components/KineticTypography";
 import automotiveImg from "../assets/industry-automotive.jpg";
+import mapLatamPresence from "../assets/map-latam-presence.png";
 import TiltedCards from "../components/TiltedCards";
 import SolutionShowcase from "../components/SolutionShowcase";
 import monkeySeeImg from "../assets/monkey-see.png";
@@ -291,16 +292,46 @@ function TrustBarDynamic() {
         <DraggableMarquee speed={30} className="mb-12">
           {trustItems}
         </DraggableMarquee>
-        {/* Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
-          {metrics.map((m, i) => (
-            <ScrollReveal key={m.label} delay={i * 100}>
+        {/* Metrics + Map */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-start">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {metrics.slice(0, 4).map((m, i) => (
+              <ScrollReveal key={m.label} delay={i * 100}>
+                <div className="bg-card rounded-xl p-6 shadow-sm text-center border border-border/50">
+                  <Counter end={m.value} suffix={m.suffix} />
+                  <p className="mt-2 text-sm text-muted-foreground leading-snug">{m.label}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+            {/* 5th KPI spans full width on small, single col on sm+ */}
+            <ScrollReveal delay={400} className="col-span-2 sm:col-span-1">
               <div className="bg-card rounded-xl p-6 shadow-sm text-center border border-border/50">
-                <Counter end={m.value} suffix={m.suffix} />
-                <p className="mt-2 text-sm text-muted-foreground leading-snug">{m.label}</p>
+                <Counter end={metrics[4].value} suffix={metrics[4].suffix} />
+                <p className="mt-2 text-sm text-muted-foreground leading-snug">{metrics[4].label}</p>
               </div>
             </ScrollReveal>
-          ))}
+          </div>
+
+          {/* Map */}
+          <ScrollReveal delay={200} className="flex flex-col items-center">
+            <div className="bg-card rounded-xl p-4 shadow-sm border border-border/50 w-full">
+              <img
+                src={mapLatamPresence}
+                alt="Presencia regional de TOOXS en Latinoamérica"
+                className="w-full h-auto max-h-[320px] object-contain"
+                loading="lazy"
+                width={640}
+                height={960}
+              />
+              <div className="mt-3 flex flex-wrap justify-center gap-2">
+                {["Chile", "Perú", "Colombia", "Ecuador", "México"].map((country) => (
+                  <span key={country} className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                    {country}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
 
         {/* Partners marquee - draggable */}
