@@ -319,8 +319,8 @@ function TrustBarDynamic() {
                 height={960}
               />
               <div className="mt-3 flex flex-wrap justify-center gap-2">
-                {["Chile", "Perú", "Colombia", "Ecuador", "México"].map((country) => (
-                  <span key={country} className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                {["Chile", "Perú", "Colombia", "Costa Rica", "Panamá"].map((country) => (
+                  <span key={country} className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full" style={{ color: "#E08A2B", background: "rgba(224,138,43,0.1)" }}>
                     {country}
                   </span>
                 ))}
