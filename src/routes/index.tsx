@@ -129,27 +129,28 @@ function HeroContent() {
   }, []);
 
   return (
-    <div className={`max-w-3xl transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy-foreground leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>
-        Strategy That Powers{" "}
-        <em className="text-gold">Your Next Level</em>{" "}
-        of Growth
-      </h1>
-      <p className={`mt-6 text-lg md:text-xl text-navy-foreground/80 max-w-xl leading-relaxed transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-        We partner with ambitious businesses to develop and execute strategies that deliver lasting, measurable results.
-      </p>
-      <div className={`mt-8 flex flex-wrap gap-4 transition-all duration-1000 delay-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+    <div className={`w-full flex flex-col lg:flex-row items-end justify-between gap-8 transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+      {/* Left: Heading */}
+      <div className="max-w-2xl">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy-foreground leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>
+          Strategy That Powers{" "}
+          <em className="text-navy-foreground italic">Your Next Level</em>{" "}
+          of Growth.
+        </h1>
+      </div>
+      {/* Right: Subtitle + CTA */}
+      <div className={`max-w-sm transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+        <p className="text-sm md:text-base text-navy-foreground/80 leading-relaxed mb-6">
+          We help businesses unlock opportunities, scale faster, and achieve measurable results through data-driven strategies.
+        </p>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 bg-gold text-navy px-7 py-3.5 rounded-lg font-semibold hover:bg-gold/90 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5 transition-all duration-300"
+          className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-navy-foreground/20 text-navy-foreground px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 group"
         >
-          Book a Consultation <ArrowRight size={18} />
-        </Link>
-        <Link
-          to="/services"
-          className="inline-flex items-center gap-2 border-2 border-navy-foreground/30 text-navy-foreground px-7 py-3.5 rounded-lg font-semibold hover:bg-navy-foreground/10 hover:border-navy-foreground/50 transition-all duration-300"
-        >
-          Our Services
+          Book a Consultation
+          <span className="w-8 h-8 bg-navy rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <ArrowRight size={14} className="text-white" />
+          </span>
         </Link>
       </div>
     </div>
@@ -160,10 +161,10 @@ function Index() {
   return (
     <div>
       {/* ── Hero ── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center scale-105" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80)" }} />
-        <div className="absolute inset-0 bg-navy/70" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <section className="relative min-h-screen flex items-end overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1600880292089-7d20d93e5362?w=1920&q=80)" }} />
+        <div className="absolute inset-0 bg-navy/50" />
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
           <HeroContent />
         </div>
       </section>
