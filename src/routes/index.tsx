@@ -1,391 +1,771 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BarChart3, Cog, Monitor, DollarSign, Quote } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { CTASection } from "../components/CTASection";
+import { createFileRoute } from "@tanstack/react-router";
+import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight } from "lucide-react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Stratwell Consulting — Strategy That Powers Growth" },
-      { name: "description", content: "Empowering businesses to achieve sustainable growth through strategic consulting and innovative solutions." },
-      { property: "og:title", content: "Stratwell Consulting — Strategy That Powers Growth" },
-      { property: "og:description", content: "Empowering businesses to achieve sustainable growth through strategic consulting." },
+      { title: "TOOXS — Inteligencia Aplicada para Organizaciones" },
+      { name: "description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa." },
+      { property: "og:title", content: "TOOXS — Inteligencia Aplicada para Organizaciones" },
+      { property: "og:description", content: "Automatización inteligente. RPA, IA y analítica para empresas chilenas." },
     ],
   }),
   component: Index,
 });
 
-/* ── Animated Counter ── */
+/* ── Counter ── */
 function Counter({ end, suffix = "", prefix = "" }: { end: number; suffix?: string; prefix?: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const started = useRef(false);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 2000;
-          const step = Math.ceil(end / (duration / 16));
-          let current = 0;
-          const timer = setInterval(() => {
-            current += step;
-            if (current >= end) {
-              current = end;
-              clearInterval(timer);
-            }
-            setCount(current);
-          }, 16);
-        }
-      },
-      { threshold: 0.3 }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true;
+        const duration = 2000;
+        const step = Math.ceil(end / (duration / 16));
+        let current = 0;
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= end) { current = end; clearInterval(timer); }
+          setCount(current);
+        }, 16);
+      }
+    }, { threshold: 0.3 });
     observer.observe(el);
     return () => observer.disconnect();
   }, [end]);
-
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-bold text-navy animate-count-up" style={{ fontFamily: 'var(--font-heading)' }}>
-        {prefix}{count}{suffix}
-      </div>
+      <div className="text-3xl md:text-4xl font-extrabold text-navy">{prefix}{count}{suffix}</div>
     </div>
   );
 }
 
-/* ── Testimonial data ── */
-const testimonials = [
-  {
-    quote: "Stratwell's strategic approach transformed our operations and doubled our efficiency within a year.",
-    name: "Sarah Johnson",
-    title: "CEO, TechVentures Inc.",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
-  },
-  {
-    quote: "Their financial advisory services helped us navigate a complex merger with outstanding results.",
-    name: "Michael Chen",
-    title: "CFO, Global Dynamics",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-  },
-  {
-    quote: "The digital transformation roadmap they created was exactly what we needed to stay competitive.",
-    name: "Emily Rodriguez",
-    title: "COO, Innovation Labs",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-  },
-  {
-    quote: "Working with Stratwell was a game-changer. Their insights were invaluable to our growth strategy.",
-    name: "David Thompson",
-    title: "Founder, NextGen Solutions",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-  },
-];
-
-const services = [
-  { icon: BarChart3, title: "Business Strategy", description: "Develop comprehensive strategies that align with your vision and drive measurable growth across all business dimensions." },
-  { icon: Cog, title: "Operations Optimization", description: "Streamline processes and improve efficiency to reduce costs while maintaining the highest quality standards." },
-  { icon: Monitor, title: "Digital Transformation", description: "Leverage cutting-edge technology to modernize your business and create competitive advantages in the digital age." },
-  { icon: DollarSign, title: "Financial Advisory", description: "Expert financial guidance to optimize capital structure, manage risk, and maximize shareholder value." },
-];
-
-const caseStudies = [
-  {
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    category: "Digital Transformation",
-    title: "Tech Company Scales Revenue by 300%",
-    description: "How we helped a mid-size tech company triple their revenue through digital strategy and operational improvements.",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop",
-    category: "Operations",
-    title: "Manufacturing Firm Cuts Costs by 40%",
-    description: "Strategic operational restructuring that dramatically reduced overhead while improving output quality.",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&h=400&fit=crop",
-    category: "Financial Advisory",
-    title: "Startup Secures $50M in Funding",
-    description: "Financial strategy and pitch optimization that led to a successful Series B funding round.",
-  },
-];
-
-const steps = [
-  { num: "01", title: "Understand", description: "We immerse ourselves in your business to understand challenges, goals, and opportunities." },
-  { num: "02", title: "Strategize", description: "We develop tailored strategies based on data-driven insights and industry expertise." },
-  { num: "03", title: "Implement", description: "We work alongside your team to execute strategies with precision and accountability." },
-  { num: "04", title: "Measure", description: "We track performance metrics and refine approaches to ensure lasting results." },
-];
-
-/* ── Hero text animation ── */
-function HeroContent() {
+/* ══════════════════════════════════════════
+   1. HERO
+   ══════════════════════════════════════════ */
+function HeroStrategic() {
   const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 200);
-    return () => clearTimeout(t);
-  }, []);
+  useEffect(() => { const t = setTimeout(() => setVisible(true), 200); return () => clearTimeout(t); }, []);
+
+  const scrollToCapabilities = () => {
+    document.getElementById("capacidades")?.scrollIntoView({ behavior: "smooth" });
+  };
+  const scrollToForm = () => {
+    document.getElementById("smart-form")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <div className={`w-full flex flex-col lg:flex-row items-end justify-between gap-8 transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-      {/* Left: Heading */}
-      <div className="max-w-2xl">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy-foreground leading-[1.1]" style={{ fontFamily: 'var(--font-heading)' }}>
-          Strategy That Powers{" "}
-          <em className="text-navy-foreground italic">Your Next Level</em>{" "}
-          of Growth.
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" src="/hero-bg.mp4" />
+      <div className="absolute inset-0 bg-black/40" />
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-center py-32">
+        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          No es tecnología. Es cómo operan mejor las organizaciones.
         </h1>
-      </div>
-      {/* Right: Subtitle + CTA */}
-      <div className={`max-w-sm transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-        <p className="text-sm md:text-base text-navy-foreground/80 leading-relaxed mb-6">
-          We help businesses unlock opportunities, scale faster, and achieve measurable results through data-driven strategies.
+        <p className={`text-base md:text-lg text-white/80 max-w-2xl mx-auto lg:mx-auto mb-10 transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa.
         </p>
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-navy-foreground/20 text-navy-foreground px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 group"
-        >
-          Book a Consultation
-          <span className="w-8 h-8 bg-navy rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <ArrowRight size={14} className="text-white" />
-          </span>
-        </Link>
+        <div className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-center transition-all duration-1000 delay-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          <button onClick={scrollToCapabilities} className="inline-flex items-center justify-center gap-2 bg-mint text-white px-8 py-3.5 rounded-full font-semibold hover:opacity-90 hover:scale-[1.02] transition-all duration-300 text-sm">
+            Explorar capacidades
+          </button>
+          <button onClick={scrollToForm} className="inline-flex items-center justify-center gap-2 border border-white text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white hover:text-navy transition-all duration-300 text-sm">
+            Hablar con TOOXS
+          </button>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
-function Index() {
+/* ══════════════════════════════════════════
+   2. TRUST BAR
+   ══════════════════════════════════════════ */
+const logos = ["Microsoft", "UiPath", "Google Cloud", "Rocketbot", "SAP", "Oracle", "AWS", "Salesforce"];
+const metrics = [
+  { value: 98, suffix: "%", label: "reducción de errores" },
+  { value: 30, suffix: "+", label: "empresas chilenas" },
+  { value: 4, suffix: "", label: "semanas piloto" },
+  { value: 24, suffix: "/7", label: "soporte local" },
+];
+
+function TrustBarDynamic() {
   return (
-    <div>
-      {/* ── Hero ── */}
-      <section className="relative min-h-screen flex items-end overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          src="/hero-bg.mp4"
-        />
-        <div className="absolute inset-0 bg-navy/50" />
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
-          <HeroContent />
-        </div>
-      </section>
-
-      {/* ── Stats ── */}
-      <section className="py-20 bg-section-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-12">
-            <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Who We Are</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
-              Trusted by Businesses Worldwide
-            </h2>
-          </ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { end: 92, suffix: "%", label: "Client Retention" },
-              { end: 48, prefix: "$", suffix: "M", label: "Revenue Generated" },
-              { end: 200, suffix: "+", label: "Businesses Served" },
-              { end: 15, suffix: "+", label: "Years Experience" },
-            ].map((stat, i) => (
-              <ScrollReveal key={stat.label} delay={i * 100}>
-                <Counter end={stat.end} suffix={stat.suffix} prefix={stat.prefix} />
-                <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Services ── */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-14">
-            <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">What We Do</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
-              Our Services
-            </h2>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, i) => (
-              <ScrollReveal key={service.title} delay={i * 100}>
-                <div className="group bg-card rounded-xl p-8 border hover:shadow-xl hover:-translate-y-1 transition-all duration-400">
-                  <div className="w-12 h-12 bg-navy/5 rounded-lg flex items-center justify-center mb-5 group-hover:bg-gold/10 group-hover:scale-110 transition-all duration-300">
-                    <service.icon className="text-navy group-hover:text-gold transition-colors duration-300" size={24} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-navy mb-3" style={{ fontFamily: 'var(--font-heading)' }}>{service.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-            {/* CTA Card */}
-            <ScrollReveal delay={400}>
-              <Link
-                to="/services"
-                className="relative rounded-xl overflow-hidden flex items-end p-8 min-h-[280px] group"
-                style={{ backgroundImage: "url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop)" }}
-              >
-                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop)" }} />
-                <div className="absolute inset-0 bg-navy/70 group-hover:bg-navy/55 transition-all duration-500" />
-                <div className="relative z-10">
-                  <h3 className="text-xl font-bold text-navy-foreground mb-2" style={{ fontFamily: 'var(--font-heading)' }}>Start Your Growth Journey</h3>
-                  <span className="inline-flex items-center gap-1 text-gold text-sm font-semibold group-hover:gap-2 transition-all duration-300">
-                    Explore All Services <ArrowRight size={14} />
-                  </span>
-                </div>
-              </Link>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Case Studies ── */}
-      <section className="py-20 bg-section-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="flex items-end justify-between mb-14">
-              <div>
-                <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Results</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
-                  Featured Case Studies
-                </h2>
-              </div>
-              <Link to="/case-studies" className="hidden md:inline-flex items-center gap-1 text-navy font-semibold text-sm hover:text-gold hover:gap-2 transition-all duration-300">
-                View All <ArrowRight size={14} />
-              </Link>
-            </div>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-3 gap-6">
-            {caseStudies.map((cs, i) => (
-              <ScrollReveal key={cs.title} delay={i * 150}>
-                <div className="bg-card rounded-xl overflow-hidden border hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group">
-                  <div className="aspect-[3/2] overflow-hidden">
-                    <img src={cs.image} alt={cs.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-                  </div>
-                  <div className="p-6">
-                    <span className="inline-block bg-gold/10 text-gold text-xs font-semibold px-3 py-1 rounded-full mb-3">{cs.category}</span>
-                    <h3 className="text-lg font-semibold text-navy mb-2" style={{ fontFamily: 'var(--font-heading)' }}>{cs.title}</h3>
-                    <p className="text-muted-foreground text-sm">{cs.description}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-          <Link to="/case-studies" className="md:hidden mt-8 inline-flex items-center gap-1 text-navy font-semibold text-sm hover:text-gold transition-colors">
-            View All <ArrowRight size={14} />
-          </Link>
-        </div>
-      </section>
-
-      {/* ── Testimonials ── */}
-      <section className="py-20 overflow-hidden">
-        <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-          <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Testimonials</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
-            What Our Clients Say
-          </h2>
+    <section className="py-16 bg-section-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-navy">Empresas que confían en TOOXS</h2>
         </ScrollReveal>
-        <div className="flex gap-6 px-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
-          {testimonials.map((t, i) => (
-            <ScrollReveal key={t.name} delay={i * 100} className="min-w-[340px] max-w-[400px] snap-start flex-shrink-0">
-              <div className="bg-card rounded-xl p-8 border h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-400">
-                <Quote className="text-gold/40 mb-4" size={32} />
-                <p className="text-foreground/80 text-sm leading-relaxed mb-6">"{t.quote}"</p>
-                <div className="flex items-center gap-3">
-                  <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
-                  <div>
-                    <p className="font-semibold text-sm text-navy">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.title}</p>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Our Goal ── */}
-      <section className="py-20 bg-section-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal>
-              <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Our Goal</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
-                Transforming Strategy into Results
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                At Stratwell, we believe every business has untapped potential. Our mission is to uncover that potential and transform it into tangible, sustainable growth.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                We combine decades of industry expertise with innovative methodologies to deliver strategies that don't just look good on paper — they deliver real-world results.
-              </p>
-              <Link to="/about" className="inline-flex items-center gap-2 text-navy font-semibold hover:text-gold hover:gap-3 transition-all duration-300">
-                Learn More About Us <ArrowRight size={16} />
-              </Link>
-            </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <div className="rounded-xl overflow-hidden group">
-                <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&h=500&fit=crop"
-                  alt="Team collaboration"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Our Approach ── */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-14">
-            <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">How We Work</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
-              Our Approach
-            </h2>
-          </ScrollReveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((step, i) => (
-              <ScrollReveal key={step.num} delay={i * 150}>
-                <div className="text-center group">
-                  <div className="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-gold group-hover:scale-110 transition-all duration-400">
-                    <span className="text-gold font-bold text-lg group-hover:text-navy transition-colors duration-300">{step.num}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-navy mb-2" style={{ fontFamily: 'var(--font-heading)' }}>{step.title}</h3>
-                  <p className="text-muted-foreground text-sm">{step.description}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Trusted By ── */}
-      <section className="py-16 bg-section-bg overflow-hidden">
-        <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-          <p className="text-sm font-semibold tracking-widest uppercase text-muted-foreground">Trusted By Industry Leaders</p>
-        </ScrollReveal>
-        <div className="relative">
+        {/* Logo marquee */}
+        <div className="relative overflow-hidden mb-12">
           <div className="flex animate-marquee items-center gap-16">
             {[...Array(2)].flatMap((_, i) =>
-              ["Acme Corp", "GlobalTech", "Pinnacle", "Vertex", "Horizon", "Summit", "Apex", "Zenith"].map((name) => (
-                <div key={`${name}-${i}`} className="flex-shrink-0 text-2xl font-bold text-muted-foreground/30 tracking-wider hover:text-muted-foreground/60 transition-colors duration-500" style={{ fontFamily: 'var(--font-heading)' }}>
+              logos.map((name) => (
+                <div key={`${name}-${i}`} className="flex-shrink-0 text-xl font-bold text-[#9CA3AF] hover:text-navy tracking-wider transition-colors duration-500 cursor-default">
                   {name}
                 </div>
               ))
             )}
           </div>
         </div>
-      </section>
+        {/* Metrics */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {metrics.map((m, i) => (
+            <ScrollReveal key={m.label} delay={i * 100}>
+              <div className="bg-card rounded-xl p-6 shadow-sm text-center">
+                <Counter end={m.value} suffix={m.suffix} />
+                <p className="mt-2 text-sm text-muted-foreground">{m.label}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
-      {/* ── CTA ── */}
-      <CTASection />
+/* ══════════════════════════════════════════
+   3. TESIS
+   ══════════════════════════════════════════ */
+function TesisStatement() {
+  const lineRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = lineRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add("animate-line-grow"); }, { threshold: 0.5 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <section className="py-24">
+      <div className="max-w-3xl mx-auto px-4 text-center">
+        <ScrollReveal>
+          <p className="text-2xl md:text-3xl leading-relaxed text-foreground mb-2" style={{ fontFamily: "var(--font-emphasis)" }}>
+            Hay tecnología.
+          </p>
+          <p className="text-2xl md:text-3xl leading-relaxed text-foreground mb-6" style={{ fontFamily: "var(--font-emphasis)" }}>
+            Y hay tecnología que cambia cómo funcionan las organizaciones.
+          </p>
+          <p className="text-xl md:text-2xl font-bold text-mint">TOOXS está en la segunda.</p>
+          <div ref={lineRef} className="h-[1px] bg-mint mx-auto mt-6" style={{ width: 0 }} />
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════
+   4. INDUSTRIAS
+   ══════════════════════════════════════════ */
+const industries = [
+  {
+    icon: Pickaxe, name: "Minería y Utilities", tagline: "De la incertidumbre a la predictibilidad",
+    problem: "Conciliación manual de insumos (explosivos, combustible, neumáticos) → 40 horas/semana, errores del 5%.",
+    solution: "Bots RPA extraen datos de ERP y básculas. IA predictiva alerta sobre desviaciones de inventario.",
+    impact: "70% menos tiempo de conciliación, 0 errores de inventario.",
+  },
+  {
+    icon: ShoppingCart, name: "Retail y Logística", tagline: "Del quiebre de stock a la disponibilidad total",
+    problem: "Quiebres de stock no planificados → pérdida de ventas del 12% en productos críticos.",
+    solution: "Modelo de IA que predice demanda por SKU y tienda. RPA genera órdenes de compra automáticas.",
+    impact: "98% de disponibilidad de stock, reducción de 40% en exceso de inventario.",
+  },
+  {
+    icon: Landmark, name: "Banca y Finanzas", tagline: "De días a horas",
+    problem: "Apertura de cuentas toma 3 días por validación manual de documentos.",
+    solution: "OCR + IA extraen datos de cédulas y contratos. RPA crea cliente en core bancario.",
+    impact: "Apertura en 2 horas, 85% menos tiempo.",
+  },
+  {
+    icon: Wheat, name: "Agroindustria", tagline: "Precisión en cada cosecha",
+    problem: "Liquidación de temporeros manual → errores en pagos y horas extras no registradas.",
+    solution: "App móvil con geolocalización registra horas y kilos cosechados. RPA calcula liquidación y emite comprobante.",
+    impact: "100% de precisión en pagos, ahorro de 30 horas mensuales en administración.",
+  },
+  {
+    icon: Radio, name: "Telecomunicaciones", tagline: "Activación instantánea",
+    problem: "Activación de líneas móviles requiere 24 horas por procesos manuales entre operadores.",
+    solution: "RPA orquesta la portabilidad y activación en múltiples sistemas. IA verifica identidad con biometría.",
+    impact: "Activación en 5 minutos, 0 errores de portabilidad.",
+  },
+  {
+    icon: HeartPulse, name: "Salud", tagline: "Licencias sin demora",
+    problem: "Procesamiento de licencias médicas toma 15 días por revisión manual.",
+    solution: "OCR extrae datos del formulario. IA valida coherencia con diagnósticos. RPA ingresa a sistema de isapre/fonasa.",
+    impact: "Licencias liquidadas en 3 días, 40% menos tiempo.",
+  },
+];
+
+function IndustryExplorer() {
+  const [expanded, setExpanded] = useState<number | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <section className="py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Industrias que transformamos</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">Soluciones de automatización adaptadas a los desafíos únicos de cada sector en Chile.</p>
+        </ScrollReveal>
+        <div ref={scrollRef} className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible">
+          {industries.map((ind, i) => (
+            <ScrollReveal key={ind.name} delay={i * 80} className="min-w-[300px] lg:min-w-0 snap-start">
+              <div
+                className={`bg-card rounded-xl border transition-all duration-400 cursor-pointer group ${expanded === i ? "shadow-xl" : "hover:shadow-lg hover:-translate-y-1"}`}
+                onClick={() => setExpanded(expanded === i ? null : i)}
+              >
+                <div className={`border-t-4 rounded-t-xl transition-colors duration-300 ${expanded === i ? "border-mint" : "border-transparent group-hover:border-mint"}`} />
+                <div className="p-6">
+                  <ind.icon className="text-mint mb-3" size={28} />
+                  <h3 className="text-lg font-bold text-navy mb-1">{ind.name}</h3>
+                  <p className="text-sm text-muted-foreground italic">{ind.tagline}</p>
+                  <ChevronDown className={`mt-3 text-muted-foreground transition-transform duration-300 ${expanded === i ? "rotate-180" : ""}`} size={18} />
+                </div>
+                {expanded === i && (
+                  <div className="px-6 pb-6 border-t border-border pt-4 animate-fade-in space-y-3 text-sm">
+                    <div><span className="font-semibold text-navy">Problema típico:</span> <span className="text-muted-foreground">{ind.problem}</span></div>
+                    <div><span className="font-semibold text-navy">Qué hace TOOXS:</span> <span className="text-muted-foreground">{ind.solution}</span></div>
+                    <div><span className="font-semibold text-mint">Impacto:</span> <span className="text-foreground font-medium">{ind.impact}</span></div>
+                  </div>
+                )}
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════
+   5. CAPACIDADES (CapabilityGraph)
+   ══════════════════════════════════════════ */
+const capabilities = [
+  { title: "Entender", desc: "Auditoría de procesos, descubrimiento de oportunidades, mapeo de datos." },
+  { title: "Decidir", desc: "Modelos de IA, simulación de escenarios, priorización de impacto." },
+  { title: "Ejecutar", desc: "Bots RPA, integración con sistemas legacy, orquestación y monitoreo." },
+];
+
+function CapabilityGraph() {
+  const [active, setActive] = useState<number | null>(null);
+  return (
+    <section id="capacidades" className="py-24 bg-navy text-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">Entender → Decidir → Ejecutar</h2>
+          <p className="text-white/70">Nuestro marco de trabajo para automatización inteligente.</p>
+        </ScrollReveal>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0">
+          {capabilities.map((cap, i) => (
+            <div key={cap.title} className="flex items-center">
+              <div
+                className={`relative w-40 h-40 rounded-full border-2 flex flex-col items-center justify-center cursor-pointer transition-all duration-500 ${active === i ? "border-mint bg-mint/10 shadow-[0_0_30px_rgba(32,178,170,0.3)]" : "border-white/30 hover:border-mint/60"}`}
+                onClick={() => setActive(active === i ? null : i)}
+              >
+                <span className="text-xl font-bold">{cap.title}</span>
+                {active === i && (
+                  <p className="absolute -bottom-20 text-center text-sm text-white/80 w-56 animate-fade-in">{cap.desc}</p>
+                )}
+              </div>
+              {i < capabilities.length - 1 && (
+                <svg width="60" height="4" className="hidden md:block mx-2">
+                  <line x1="0" y1="2" x2="60" y2="2" stroke="#20B2AA" strokeWidth="2" strokeDasharray="6 4" className="animate-dash" />
+                </svg>
+              )}
+            </div>
+          ))}
+        </div>
+        {active !== null && <div className="h-16" />}
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════
+   6. SERVICIOS
+   ══════════════════════════════════════════ */
+const services = [
+  { icon: Brain, title: "IA aplicada", desc: "Modelos predictivos y generativos para tu negocio.", detail: "Predicción de demanda, detección de anomalías, NLP.", tech: "TensorFlow, Python, Azure ML", time: "6-8 semanas" },
+  { icon: Bot, title: "Automatización inteligente", desc: "RPA + IA para procesos complejos.", detail: "Automatización end-to-end con decisiones inteligentes.", tech: "UiPath, Power Automate, Python", time: "4-6 semanas" },
+  { icon: BarChart3, title: "Analítica aumentada", desc: "Dashboards y alertas que anticipan problemas.", detail: "BI en tiempo real con alertas predictivas.", tech: "Power BI, Looker, BigQuery", time: "3-4 semanas" },
+  { icon: Code2, title: "Desarrollo ágil", desc: "Apps a medida en semanas, no meses.", detail: "MVPs y aplicaciones internas con metodología ágil.", tech: "React, Node.js, Cloud Functions", time: "4-8 semanas" },
+  { icon: Link2, title: "Integración continua", desc: "Conectamos tus sistemas legacy con tecnología moderna.", detail: "APIs, middleware y conectores personalizados.", tech: "MuleSoft, REST APIs, Webhooks", time: "3-5 semanas" },
+];
+
+function ServiceSystem() {
+  const [selected, setSelected] = useState<number | null>(null);
+  return (
+    <section className="py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-14">
+          <p className="text-lg text-muted-foreground mb-1" style={{ fontFamily: "var(--font-emphasis)" }}>No ofrecemos servicios.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy">Diseñamos capacidades operacionales.</h2>
+        </ScrollReveal>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((s, i) => (
+            <ScrollReveal key={s.title} delay={i * 80}>
+              <div
+                className="bg-card rounded-xl p-7 border cursor-pointer group hover:shadow-lg hover:-translate-y-1 transition-all duration-400"
+                onClick={() => setSelected(selected === i ? null : i)}
+              >
+                <div className={`border-b-2 pb-5 mb-4 transition-colors duration-300 ${selected === i ? "border-mint" : "border-transparent group-hover:border-mint"}`}>
+                  <s.icon className="text-mint mb-3" size={28} />
+                  <h3 className="text-lg font-bold text-navy">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
+                </div>
+                {selected === i && (
+                  <div className="text-sm space-y-2 animate-fade-in">
+                    <p className="text-foreground">{s.detail}</p>
+                    <p className="text-muted-foreground"><span className="font-semibold text-navy">Tech:</span> {s.tech}</p>
+                    <p className="text-muted-foreground"><span className="font-semibold text-navy">Tiempo:</span> {s.time}</p>
+                  </div>
+                )}
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════
+   7. SOLUCIONES
+   ══════════════════════════════════════════ */
+const solutions = [
+  { title: "Predictive Maintenance Suite", problem: "Paradas no planificadas en equipos críticos (minería, manufactura).", impact: "-35% downtime, +20% vida útil de maquinaria." },
+  { title: "Stock Optimizer AI", problem: "Quiebres de stock y exceso de inventario en retail.", impact: "98% disponibilidad, -40% capital de trabajo inmovilizado." },
+  { title: "Loan Scoring Engine", problem: "Evaluación manual de créditos (banca, financieras).", impact: "-80% tiempo de análisis, +25% aprobaciones precisas." },
+];
+
+function SolutionSystem() {
+  return (
+    <section className="py-20 bg-section-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Soluciones empaquetadas para resultados rápidos</h2>
+          <p className="text-muted-foreground">Productos que combinan RPA, IA y analítica.</p>
+        </ScrollReveal>
+        <div className="grid md:grid-cols-3 gap-6">
+          {solutions.map((sol, i) => (
+            <ScrollReveal key={sol.title} delay={i * 120}>
+              <div className="bg-card rounded-xl border border-t-4 border-t-mint p-7 hover:shadow-xl hover:scale-[1.02] transition-all duration-400">
+                <h3 className="text-lg font-bold text-navy mb-3">{sol.title}</h3>
+                <p className="text-sm text-muted-foreground mb-2"><span className="font-semibold text-navy">Qué resuelve:</span> {sol.problem}</p>
+                <p className="text-sm font-semibold text-mint">{sol.impact}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════
+   8. CASOS
+   ══════════════════════════════════════════ */
+const cases = [
+  { title: "Minera media", before: "40 horas/semana en reportes de ley de mineral, errores del 8%.", intervention: "RPA extrae datos de laboratorio, IA valida coherencia, bot genera dashboard.", result: "4 horas/semana, 0 errores, ahorro de 36 horas operativas." },
+  { title: "Retail regional", before: "Quiebres de stock del 15% en temporada alta.", intervention: "Modelo predictivo de demanda por tienda, RPA ordena reposición automática.", result: "98% disponibilidad, aumento de ventas del 12%." },
+  { title: "Banco chileno", before: "Apertura de cuentas en 3 días, 200 solicitudes pendientes.", intervention: "OCR + IA validan documentos, RPA crea cliente en core bancario.", result: "Apertura en 2 horas, cola eliminada." },
+];
+
+function CaseEngine() {
+  const [idx, setIdx] = useState(0);
+  const c = cases[idx];
+  return (
+    <section className="py-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Cómo transformamos operaciones</h2>
+          <p className="text-muted-foreground">Escenarios reales (anónimos) con resultados medibles.</p>
+        </ScrollReveal>
+        <ScrollReveal>
+          <div className="bg-card rounded-2xl border p-8 md:p-10 shadow-sm">
+            <h3 className="text-xl font-bold text-navy mb-6">{c.title}</h3>
+            <div className="grid md:grid-cols-3 gap-6 text-sm">
+              <div>
+                <span className="inline-block bg-red-50 text-red-600 font-semibold px-3 py-1 rounded-full text-xs mb-2">Antes</span>
+                <p className="text-muted-foreground">{c.before}</p>
+              </div>
+              <div>
+                <span className="inline-block bg-blue-50 text-blue-600 font-semibold px-3 py-1 rounded-full text-xs mb-2">Intervención TOOXS</span>
+                <p className="text-muted-foreground">{c.intervention}</p>
+              </div>
+              <div>
+                <span className="inline-block bg-emerald-50 text-emerald-600 font-semibold px-3 py-1 rounded-full text-xs mb-2">Resultado</span>
+                <p className="text-foreground font-medium">{c.result}</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-between mt-8">
+              <button onClick={() => setIdx((idx - 1 + cases.length) % cases.length)} className="p-2 rounded-full border hover:bg-section-bg transition-colors"><ArrowLeft size={18} /></button>
+              <div className="flex gap-2">
+                {cases.map((_, i) => (
+                  <button key={i} onClick={() => setIdx(i)} className={`w-2.5 h-2.5 rounded-full transition-colors ${i === idx ? "bg-mint" : "bg-border"}`} />
+                ))}
+              </div>
+              <button onClick={() => setIdx((idx + 1) % cases.length)} className="p-2 rounded-full border hover:bg-section-bg transition-colors"><ArrowRight size={18} /></button>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════
+   9. INSIGHTS
+   ══════════════════════════════════════════ */
+const insights = [
+  { title: "Por qué el RPA solo no es suficiente en minería", excerpt: "La combinación de RPA con IA predictiva reduce fallas no planificadas en un 35%." },
+  { title: "IA agentic: el próximo salto para el retail chileno", excerpt: "Los agentes autónomos pueden gestionar inventarios y promociones sin supervisión humana." },
+  { title: "Cómo medir el ROI de la automatización en 4 pasos", excerpt: "Una guía práctica para justificar tu inversión en RPA e IA." },
+];
+
+function InsightLayer() {
+  return (
+    <section className="py-20 bg-section-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Insights para la nueva era operacional</h2>
+          <p className="text-muted-foreground">Artículos y puntos de vista de nuestro equipo.</p>
+        </ScrollReveal>
+        <div className="grid md:grid-cols-3 gap-6">
+          {insights.map((ins, i) => (
+            <ScrollReveal key={ins.title} delay={i * 100}>
+              <div className="bg-card rounded-xl p-7 border-l-4 border-l-mint hover:shadow-lg transition-all duration-400">
+                <h3 className="text-base font-bold text-navy mb-2" style={{ fontFamily: "var(--font-emphasis)" }}>{ins.title}</h3>
+                <p className="text-sm text-muted-foreground mb-4">{ins.excerpt}</p>
+                <a href="#" className="text-sm font-semibold text-mint hover:underline inline-flex items-center gap-1">Leer más <ArrowRight size={14} /></a>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════
+   10. TESTIMONIOS
+   ══════════════════════════════════════════ */
+const testimonials = [
+  { quote: "El equipo de TOOXS no solo implementó bots, nos ayudó a rediseñar nuestra operación financiera. Ahorramos 200 horas mensuales.", name: "Juan Pérez", title: "Gerente de Operaciones, Banco X" },
+  { quote: "La solución de mantenimiento predictivo evitó dos fallas mayores en seis meses. Un socio confiable.", name: "María González", title: "Jefa de Planta, Minera Regional" },
+  { quote: "El chatbot con IA resolvió el 70% de las consultas sin intervención humana. Excelente equipo.", name: "Andrés López", title: "CTO, Retail Nacional" },
+  { quote: "La implementación fue ágil y el soporte 24/7 nos da tranquilidad.", name: "Claudia Rojas", title: "Directora de Logística, Agroexportadora" },
+];
+
+function TestimonialFlow() {
+  return (
+    <section className="py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy">Lo que dicen nuestros clientes</h2>
+        </ScrollReveal>
+        <div className="grid md:grid-cols-2 gap-6">
+          {testimonials.map((t, i) => (
+            <ScrollReveal key={t.name} delay={i * 100}>
+              <div className="bg-card rounded-3xl p-8 shadow-lg hover:-translate-y-1 transition-all duration-400">
+                <Quote className="text-mint/40 mb-4" size={28} />
+                <p className="text-foreground/80 text-sm leading-relaxed mb-6 italic">"{t.quote}"</p>
+                <div>
+                  <p className="font-semibold text-sm text-navy">{t.name}</p>
+                  <p className="text-xs text-muted-foreground">{t.title}</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════
+   11. METODOLOGÍA
+   ══════════════════════════════════════════ */
+const phases = [
+  { title: "Descubrimiento", time: "2 semanas", desc: "Identificamos procesos repetitivos y de alto impacto." },
+  { title: "Piloto", time: "4 semanas", desc: "Automatizamos un proceso con RPA o IA en 4 semanas." },
+  { title: "Escalamiento", time: "Variable", desc: "Implementamos en más áreas, medimos resultados." },
+  { title: "Evolución continua", time: "Continua", desc: "Monitoreamos, optimizamos y añadimos nuevas capacidades." },
+];
+
+function MethodLoop() {
+  return (
+    <section className="py-24 bg-navy text-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">No implementamos proyectos. Acompañamos la transformación.</h2>
+        </ScrollReveal>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {phases.map((p, i) => (
+            <ScrollReveal key={p.title} delay={i * 120}>
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full border-2 border-mint flex items-center justify-center mx-auto mb-4">
+                  <span className="text-mint font-bold text-lg">{i + 1}</span>
+                </div>
+                <h3 className="text-lg font-bold mb-1">{p.title}</h3>
+                <p className="text-xs text-mint font-semibold mb-2">{p.time}</p>
+                <p className="text-sm text-white/70">{p.desc}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════
+   12. SMART FORM
+   ══════════════════════════════════════════ */
+function SmartForm() {
+  const [formData, setFormData] = useState({ name: "", email: "", industry: "", problem: "", maturity: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: integrate with HubSpot API
+    setSubmitted(true);
+  };
+
+  return (
+    <section id="smart-form" className="py-20 bg-section-bg">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">¿Listo para operar mejor?</h2>
+          <p className="text-muted-foreground">Cuéntanos tu desafío y te daremos un diagnóstico en 48 horas.</p>
+        </ScrollReveal>
+        <ScrollReveal>
+          <div className="grid lg:grid-cols-5 gap-10">
+            {/* Form */}
+            <div className="lg:col-span-3">
+              {submitted ? (
+                <div className="bg-card rounded-2xl p-10 text-center border">
+                  <div className="w-16 h-16 bg-mint/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Send className="text-mint" size={28} />
+                  </div>
+                  <h3 className="text-xl font-bold text-navy mb-2">¡Mensaje enviado!</h3>
+                  <p className="text-muted-foreground">Te contactaremos en menos de 48 horas.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 border space-y-5">
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm font-medium text-navy mb-1.5">Nombre completo *</label>
+                      <input required type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border bg-background text-foreground text-sm focus:ring-2 focus:ring-mint focus:border-mint outline-none transition" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-navy mb-1.5">Email corporativo *</label>
+                      <input required type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border bg-background text-foreground text-sm focus:ring-2 focus:ring-mint focus:border-mint outline-none transition" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-navy mb-1.5">Industria</label>
+                    <select value={formData.industry} onChange={(e) => setFormData({ ...formData, industry: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border bg-background text-foreground text-sm focus:ring-2 focus:ring-mint outline-none transition">
+                      <option value="">Selecciona...</option>
+                      <option>Minería</option>
+                      <option>Retail</option>
+                      <option>Banca</option>
+                      <option>Agroindustria</option>
+                      <option>Telecomunicaciones</option>
+                      <option>Salud</option>
+                      <option>Otro</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-navy mb-1.5">¿Qué proceso repetitivo te gustaría automatizar?</label>
+                    <textarea rows={3} value={formData.problem} onChange={(e) => setFormData({ ...formData, problem: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border bg-background text-foreground text-sm focus:ring-2 focus:ring-mint outline-none transition resize-none" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-navy mb-1.5">Nivel de madurez</label>
+                    <select value={formData.maturity} onChange={(e) => setFormData({ ...formData, maturity: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border bg-background text-foreground text-sm focus:ring-2 focus:ring-mint outline-none transition">
+                      <option value="">Selecciona...</option>
+                      <option>No hemos empezado</option>
+                      <option>Tenemos algo de RPA</option>
+                      <option>Buscamos escalar IA</option>
+                    </select>
+                  </div>
+                  <button type="submit" className="w-full bg-mint text-white py-3 rounded-full font-semibold hover:opacity-90 hover:scale-[1.01] transition-all duration-300 flex items-center justify-center gap-2">
+                    Recibir diagnóstico <ArrowRight size={16} />
+                  </button>
+                </form>
+              )}
+            </div>
+            {/* Benefits */}
+            <div className="lg:col-span-2 flex flex-col justify-center gap-6">
+              {[
+                { emoji: "✅", text: "Diagnóstico sin costo" },
+                { emoji: "⚡", text: "Propuesta en 48h" },
+                { emoji: "🤝", text: "Sin compromiso" },
+              ].map((b) => (
+                <div key={b.text} className="flex items-center gap-3 bg-card rounded-xl p-5 border">
+                  <span className="text-2xl">{b.emoji}</span>
+                  <span className="font-semibold text-navy">{b.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════
+   13. CHATBOT (n8n)
+   ══════════════════════════════════════════ */
+function AIChatbot() {
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState<{ role: "bot" | "user"; text: string }[]>([]);
+  const [step, setStep] = useState(0);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShown(true), 30000);
+    const handleMouseLeave = (e: MouseEvent) => { if (e.clientY < 5) setShown(true); };
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => { clearTimeout(timer); document.removeEventListener("mouseleave", handleMouseLeave); };
+  }, []);
+
+  useEffect(() => {
+    if (open && messages.length === 0) {
+      setMessages([{ role: "bot", text: "Hola, soy el asistente de TOOXS. ¿En qué industria trabajas?" }]);
+      setStep(1);
+    }
+  }, [open]);
+
+  const industryOptions = ["Minería", "Retail", "Banca", "Agro", "Telecom", "Salud"];
+  const solutionMap: Record<string, string> = {
+    "Minería": "Predictive Maintenance Suite",
+    "Retail": "Stock Optimizer AI",
+    "Banca": "Loan Scoring Engine",
+    "Agro": "automatización de liquidaciones",
+    "Telecom": "activación inteligente de líneas",
+    "Salud": "procesamiento de licencias con IA",
+  };
+
+  const handleOption = (option: string) => {
+    setMessages((prev) => [...prev, { role: "user", text: option }]);
+    if (step === 1) {
+      const sol = solutionMap[option] || "automatización inteligente";
+      setTimeout(() => {
+        setMessages((prev) => [...prev, { role: "bot", text: `Para ${option}, nuestra solución más efectiva es ${sol}. ¿Te gustaría agendar una reunión de 15 minutos con un experto?` }]);
+        setStep(2);
+      }, 600);
+    } else if (step === 2) {
+      if (option === "Sí") {
+        setTimeout(() => {
+          setMessages((prev) => [...prev, { role: "bot", text: "¡Excelente! Completa el formulario de contacto y te contactaremos pronto." }]);
+          setStep(3);
+        }, 600);
+      } else {
+        setTimeout(() => {
+          setMessages((prev) => [...prev, { role: "bot", text: "Sin problema. Puedes explorar nuestras soluciones o completar el formulario cuando quieras." }]);
+          setStep(3);
+        }, 600);
+      }
+    }
+  };
+
+  if (!shown) return null;
+
+  return (
+    <>
+      {!open && (
+        <button onClick={() => setOpen(true)} className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-mint text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform duration-300">
+          <MessageCircle size={24} />
+        </button>
+      )}
+      {open && (
+        <div className="fixed bottom-6 right-6 z-50 w-80 sm:w-96 bg-card rounded-2xl shadow-2xl border flex flex-col overflow-hidden animate-scale-in" style={{ maxHeight: "480px" }}>
+          <div className="bg-mint text-white px-5 py-3 flex items-center justify-between">
+            <span className="font-semibold text-sm">TOOXS Assistant</span>
+            <button onClick={() => setOpen(false)} className="hover:opacity-70"><X size={18} /></button>
+          </div>
+          <div className="flex-1 overflow-y-auto p-4 space-y-3" style={{ minHeight: "200px" }}>
+            {messages.map((m, i) => (
+              <div key={i} className={`text-sm px-4 py-2.5 rounded-2xl max-w-[85%] ${m.role === "bot" ? "bg-section-bg text-foreground self-start" : "bg-mint text-white self-end ml-auto"}`}>
+                {m.text}
+              </div>
+            ))}
+          </div>
+          <div className="p-3 border-t">
+            {step === 1 && (
+              <div className="flex flex-wrap gap-2">
+                {industryOptions.map((o) => (
+                  <button key={o} onClick={() => handleOption(o)} className="px-3 py-1.5 rounded-full border text-xs font-medium hover:bg-mint hover:text-white hover:border-mint transition-all">{o}</button>
+                ))}
+              </div>
+            )}
+            {step === 2 && (
+              <div className="flex gap-2">
+                <button onClick={() => handleOption("Sí")} className="px-4 py-2 rounded-full bg-mint text-white text-sm font-medium hover:opacity-90 transition">Sí, agendar</button>
+                <button onClick={() => handleOption("No")} className="px-4 py-2 rounded-full border text-sm font-medium hover:bg-section-bg transition">No, gracias</button>
+              </div>
+            )}
+            {step === 3 && (
+              <p className="text-xs text-muted-foreground text-center">Conversación finalizada</p>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+/* ══════════════════════════════════════════
+   14. CTA FINAL
+   ══════════════════════════════════════════ */
+function ConversionCTA() {
+  const scrollToForm = () => {
+    document.getElementById("smart-form")?.scrollIntoView({ behavior: "smooth" });
+  };
+  return (
+    <section className="py-24 bg-navy text-white">
+      <div className="max-w-3xl mx-auto px-4 text-center">
+        <ScrollReveal>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Convierte complejidad en ventaja operativa.</h2>
+          <p className="text-xl text-white/80 font-semibold mb-8">Trabajemos juntos.</p>
+          <button onClick={scrollToForm} className="inline-flex items-center gap-2 bg-mint text-white px-12 py-4 rounded-full font-semibold text-base hover:opacity-90 hover:shadow-[0_0_30px_rgba(32,178,170,0.4)] hover:scale-[1.02] transition-all duration-300">
+            Agendar conversación estratégica
+          </button>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════
+   INDEX — ASSEMBLY
+   ══════════════════════════════════════════ */
+function Index() {
+  return (
+    <div>
+      <HeroStrategic />
+      <TrustBarDynamic />
+      <TesisStatement />
+      <IndustryExplorer />
+      <CapabilityGraph />
+      <ServiceSystem />
+      <SolutionSystem />
+      <CaseEngine />
+      <InsightLayer />
+      <TestimonialFlow />
+      <MethodLoop />
+      <SmartForm />
+      <ConversionCTA />
+      <AIChatbot />
     </div>
   );
 }

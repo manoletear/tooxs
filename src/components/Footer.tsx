@@ -1,78 +1,74 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import tooxsLogo from "@/assets/tooxs-logo.png";
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-navy-foreground">
+    <footer className="bg-footer-bg text-[#9CA3AF]">
+      <div className="border-t border-[#1F2937]" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gold rounded-sm flex items-center justify-center">
-                <span className="text-navy font-bold text-sm" style={{ fontFamily: 'var(--font-heading)' }}>S</span>
-              </div>
-              <span className="font-semibold text-lg" style={{ fontFamily: 'var(--font-heading)' }}>Stratwell</span>
-            </div>
-            <p className="text-navy-foreground/70 text-sm leading-relaxed">
-              Empowering businesses to achieve sustainable growth through strategic consulting and innovative solutions.
+            <img src={tooxsLogo} alt="TOOXS" className="h-8 w-auto mb-4 brightness-0 invert" />
+            <p className="text-sm leading-relaxed">
+              Automatización inteligente para empresas chilenas. RPA, IA y soluciones a medida.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Enlaces */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white">Enlaces rápidos</h4>
             <div className="space-y-2">
               {[
-                { to: "/" as const, label: "Home" },
-                { to: "/services" as const, label: "Services" },
-                { to: "/about" as const, label: "About Us" },
-                { to: "/case-studies" as const, label: "Case Studies" },
-                { to: "/faqs" as const, label: "FAQs" },
+                { to: "/" as const, label: "Inicio" },
+                { to: "/about" as const, label: "Industrias" },
+                { to: "/services" as const, label: "Servicios" },
+                { to: "/case-studies" as const, label: "Casos de éxito" },
+                { to: "/faqs" as const, label: "Blog" },
+                { to: "/contact" as const, label: "Contacto" },
               ].map((link) => (
-                <Link key={link.to} to={link.to} className="block text-sm text-navy-foreground/70 hover:text-gold transition-colors">
+                <Link key={link.to} to={link.to} className="block text-sm hover:text-mint transition-colors">
                   {link.label}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Services */}
+          {/* Contacto */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">Services</h4>
-            <div className="space-y-2 text-sm text-navy-foreground/70">
-              <p>Business Strategy</p>
-              <p>Operations Optimization</p>
-              <p>Digital Transformation</p>
-              <p>Financial Advisory</p>
+            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white">Contacto</h4>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center gap-2">
+                <Phone size={14} className="text-mint" />
+                <span>+56 9 XXXX XXXX</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail size={14} className="text-mint" />
+                <span>contacto@tooxs.com</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <MapPin size={14} className="text-mint mt-0.5" />
+                <span>Santiago, Chile</span>
+              </div>
             </div>
           </div>
 
-          {/* Contact */}
+          {/* Social */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">Contact Us</h4>
-            <div className="space-y-3 text-sm text-navy-foreground/70">
-              <div className="flex items-center gap-2">
-                <Phone size={14} className="text-gold" />
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail size={14} className="text-gold" />
-                <span>info@stratwell.com</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin size={14} className="text-gold mt-0.5" />
-                <span>123 Business Ave, Suite 100<br />New York, NY 10001</span>
-              </div>
-            </div>
+            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white">Síguenos</h4>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm hover:text-mint transition-colors">
+              <Linkedin size={18} />
+              LinkedIn
+            </a>
           </div>
         </div>
 
-        <div className="border-t border-navy-foreground/10 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-navy-foreground/50">© 2024 Stratwell Consulting. All rights reserved.</p>
+        <div className="border-t border-[#1F2937] mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-[#6B7280]">© 2026 TOOXS. Todos los derechos reservados.</p>
           <div className="flex gap-4">
-            <a href="#" className="text-navy-foreground/50 hover:text-gold text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-navy-foreground/50 hover:text-gold text-sm transition-colors">Terms of Service</a>
+            <a href="#" className="text-[#6B7280] hover:text-mint text-sm transition-colors">Política de privacidad</a>
+            <a href="#" className="text-[#6B7280] hover:text-mint text-sm transition-colors">Términos de uso</a>
           </div>
         </div>
       </div>
