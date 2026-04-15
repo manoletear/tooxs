@@ -248,6 +248,29 @@ function HoverRevealCards({
                 transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)",
               }}
             />
+            {/* Color tint overlay for specific cards */}
+            {svc.slug === "automatizacion" && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  zIndex: 1,
+                  background: "rgba(23, 127, 198, 0.45)",
+                  mixBlendMode: "multiply",
+                  pointerEvents: "none",
+                }}
+              />
+            )}
+            {svc.slug === "data-analytics" && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  zIndex: 1,
+                  background: "rgba(224, 120, 30, 0.45)",
+                  mixBlendMode: "multiply",
+                  pointerEvents: "none",
+                }}
+              />
+            )}
             {/* Overlay */}
             <div
               className="absolute inset-0"
@@ -508,16 +531,6 @@ function ServicesIndexPage() {
       {/* ══════ HOVER REVEAL CARDS + DETAIL ══════ */}
       <section className="py-16 md:py-24 relative overflow-hidden bg-section-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10">
-            <div>
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2">
-                EXPLORA NUESTROS SERVICIOS
-              </p>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight">
-                Selecciona un servicio para ver el detalle
-              </h2>
-            </div>
-          </ScrollReveal>
 
           <ScrollReveal>
             <HoverRevealCards
