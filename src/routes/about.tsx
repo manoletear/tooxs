@@ -1,119 +1,169 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Target, Eye, Heart, Users } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ChevronRight, ArrowRight, Mail } from "lucide-react";
 import { PageHero } from "../components/PageHero";
-import { CTASection } from "../components/CTASection";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Stratwell Consulting" },
-      { name: "description", content: "Learn about Stratwell Consulting — our mission, values, and the team behind our success." },
-      { property: "og:title", content: "About Us — Stratwell Consulting" },
-      { property: "og:description", content: "Learn about Stratwell Consulting — our mission, values, and the team behind our success." },
+      { title: "Industrias — TOOXS" },
+      { name: "description", content: "Descubre cómo TOOXS aplica inteligencia en más de 25 industrias para transformar operaciones y decisiones." },
+      { property: "og:title", content: "Industrias — TOOXS" },
+      { property: "og:description", content: "Descubre cómo TOOXS aplica inteligencia en más de 25 industrias." },
     ],
   }),
-  component: AboutPage,
+  component: IndustriesPage,
 });
 
-const values = [
-  { icon: Target, title: "Excellence", description: "We hold ourselves to the highest standards in everything we do." },
-  { icon: Eye, title: "Transparency", description: "Open communication and honest counsel are the foundation of trust." },
-  { icon: Heart, title: "Integrity", description: "We act ethically and always put our clients' best interests first." },
-  { icon: Users, title: "Collaboration", description: "We work as an extension of your team, not as outside consultants." },
+const industries = [
+  { title: "Aeroespacial y Defensa", description: "Descubre cómo ayudamos a nuestros clientes a expandir los límites en aire y espacio, y a proteger medios de vida a través de capacidades, tecnologías y talento." },
+  { title: "Agricultura", description: "Descubre cómo aceleramos el crecimiento sostenible e inclusivo y generamos impacto transformacional para empresas y organizaciones de alimentos y agricultura impulsando eficiencias, crecimiento e innovación." },
+  { title: "Automotriz y Ensamblaje", description: "Descubre cómo ayudamos a fabricantes automotrices, proveedores, distribuidores, OEMs de maquinaria y conglomerados industriales con sus desafíos digitales, estratégicos, organizacionales y operativos." },
+  { title: "Químicos", description: "Descubre cómo ayudamos a empresas químicas a optimizar operaciones, mejorar el desempeño e identificar oportunidades de crecimiento." },
+  { title: "Bienes de Consumo", description: "Descubre cómo ayudamos a clientes de bienes de consumo a utilizar insights del consumidor para incrementar sus ventas." },
+  { title: "Educación", description: "Descubre cómo trabajamos con instituciones educativas para mejorar resultados estudiantiles, incrementar el acceso y la accesibilidad, y habilitar nueva investigación académica." },
+  { title: "Energía Eléctrica y Gas Natural", description: "Descubre cómo ayudamos a clientes en la industria energética a replantear estrategias, construir capacidades y mejorar el desempeño para una ventaja competitiva sostenida." },
+  { title: "Energía y Materiales", description: "Habilitamos organizaciones en los sectores de energía, materiales y recursos naturales para transformar sus operaciones y estrategia." },
+  { title: "Ingeniería, Construcción y Materiales", description: "Descubre cómo ayudamos a líderes de la industria de la construcción a acelerar el crecimiento, habilitado por ideas transformadoras, ejecución efectiva y desarrollo profundo de capacidades." },
+  { title: "Servicios Financieros", description: "Descubre cómo ayudamos al espectro completo de firmas de servicios financieros a mejorar su desempeño y transformación digital." },
+  { title: "Salud", description: "Descubre cómo ayudamos a líderes de salud públicos y privados a hacer la atención médica mejor, más accesible y más asequible para millones de personas en todo el mundo." },
+  { title: "Industriales y Electrónicos", description: "Descubre cómo ayudamos a nuestros clientes industriales y electrónicos a aprovechar nuevas tecnologías, buscar crecimiento y mejorar sus operaciones." },
+  { title: "Infraestructura", description: "Descubre cómo ayudamos a clientes del sector público y privado a desarrollar, entregar y operar infraestructura a gran escala para un crecimiento extraordinario." },
+  { title: "Ciencias de la Vida", description: "Descubre cómo trabajamos con innovadores en ciencias de la vida para ayudarlos a superar expectativas e innovar en todas las industrias de ciencias de la vida." },
+  { title: "Logística", description: "Descubre cómo ayudamos a clientes en transporte marítimo, carga, ferrocarril, distribución, paquetería y más a impulsar la innovación, optimizar operaciones y aprovechar nuevas oportunidades." },
+  { title: "Metales y Minería", description: "Descubre cómo ayudamos a empresas de metales y minería a acelerar el crecimiento aprovechando IA y analítica avanzada para dar forma a su estrategia e impulsar la innovación." },
+  { title: "Petróleo y Gas", description: "Descubre cómo ayudamos a líderes de la industria a desarrollar estrategias para gestionar riesgos, mejorar el desempeño y construir capacidades duraderas." },
+  { title: "Empaques y Papel", description: "Descubre cómo ayudamos a clientes a refinar estrategias y modelos de negocio para mejorar productos, operaciones y efectividad organizacional." },
+  { title: "Capital Privado", description: "Descubre cómo ayudamos a organizaciones de inversión a abordar sus desafíos operativos y organizacionales más urgentes." },
+  { title: "Sector Público", description: "Descubre cómo trabajamos con organizaciones del sector público y gobierno para mejorar la vida de los ciudadanos ayudando a resolver los desafíos económicos y sociales más apremiantes." },
+  { title: "Bienes Raíces", description: "Descubre cómo ayudamos a clientes a cultivar mayores retornos económicos y sociales en el entorno construido, generando oportunidades de crecimiento sostenible e inclusivo." },
+  { title: "Retail", description: "Descubre cómo ayudamos a clientes a incrementar la eficiencia e impulsar el crecimiento refinando la oferta comercial y desarrollando nuevas capacidades organizacionales y tecnológicas." },
+  { title: "Semiconductores", description: "Descubre cómo trabajamos en toda la industria de semiconductores — desde fundiciones y fabless hasta IDMs y fabricantes de equipos — ayudándolos a innovar, transformarse y crecer." },
+  { title: "Sector Social", description: "Descubre cómo ayudamos a instituciones líderes a identificar soluciones a grandes desafíos sociales y mejorar la salud, la vida y los medios de sustento de personas en todo el mundo." },
+  { title: "Tecnología, Medios y Telecomunicaciones", description: "Descubre cómo ayudamos a líderes de tecnología, medios y telecomunicaciones a crear valor a largo plazo a través de construcción de capacidades, analítica digital y transformaciones organizacionales." },
+  { title: "Viajes y Turismo", description: "Descubre cómo ayudamos a clientes de aerolíneas, aviación, hospitalidad, viajes y turismo a impulsar la innovación, optimizar operaciones y mejorar la experiencia del cliente." },
 ];
 
-const team = [
-  { name: "Alexandra Mitchell", role: "Managing Partner", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face" },
-  { name: "James Richardson", role: "Senior Strategy Director", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face" },
-  { name: "Maria Santos", role: "Head of Operations", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face" },
-  { name: "Robert Kim", role: "Chief Financial Advisor", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face" },
+const featured = [
+  {
+    title: "Casos de Éxito",
+    description: "Explora casos de estudio de clientes de TOOXS sobre cómo nos asociamos con empresas para definir estrategias audaces, integrar tecnología e IA, y crear crecimiento sostenible.",
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&h=320&fit=crop",
+    link: "/case-studies",
+  },
+  {
+    title: "Nuestro Ecosistema de Alianzas",
+    description: "Para ayudar a nuestros clientes en un mundo que cambia rápidamente, innovamos continuamente y extendemos nuestras capacidades. Desde la nube e inteligencia artificial hasta sostenibilidad y más.",
+    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500&h=320&fit=crop",
+    link: "/services",
+  },
+  {
+    title: "Soluciones",
+    description: "Descubre el software propietario, datos y soluciones de talento que TOOXS combina con capacidades de consultoría para entregar insights más rápidos e impacto medible.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=320&fit=crop",
+    link: "/services",
+  },
 ];
 
-function AboutPage() {
+function IndustriesPage() {
   return (
     <div>
       <PageHero
-        title="About Us"
-        subtitle="Driven by purpose. Guided by expertise. Committed to your success."
-        backgroundImage="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&q=80"
+        title="Industrias"
+        backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
       />
 
-      {/* Story */}
+      {/* Industries Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal>
-              <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Our Story</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
-                Built on a Foundation of Trust and Results
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Founded over 15 years ago, Stratwell Consulting began with a simple vision: to help businesses unlock their true potential through strategic excellence.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                What started as a boutique strategy firm has grown into a comprehensive consulting practice serving over 200 businesses worldwide. Our success is measured by our clients' success — a philosophy that has driven our 92% client retention rate.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Today, we continue to innovate our methodologies while staying true to the core principles that built our reputation: deep expertise, genuine partnership, and unwavering commitment to delivering results.
-              </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+            {industries.map((ind, i) => (
+              <ScrollReveal key={ind.title} delay={Math.min(i * 40, 300)}>
+                <div className="group cursor-pointer rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white border border-transparent hover:border-gray-100">
+                  <h3 className="text-lg font-bold text-navy mb-2 flex items-center gap-1 group-hover:text-primary transition-colors">
+                    {ind.title}
+                    <ChevronRight size={16} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{ind.description}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Section */}
+      <section className="py-16 border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-8">DESTACADOS</p>
+          </ScrollReveal>
+          <div className="grid md:grid-cols-3 gap-8">
+            {featured.map((item, i) => (
+              <ScrollReveal key={item.title} delay={i * 100}>
+                <Link to={item.link} className="group block">
+                  <div className="rounded-xl overflow-hidden mb-4 aspect-[5/3]">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3 className="font-bold text-navy text-lg flex items-center gap-1 mb-2 group-hover:text-primary transition-colors">
+                    {item.title} <ChevronRight size={16} />
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Keep Exploring */}
+      <section className="bg-primary py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <h2
+              className="text-3xl md:text-4xl text-white mb-10"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}
+            >
+              Sigue explorando
+            </h2>
+          </ScrollReveal>
+          <div className="grid md:grid-cols-2 gap-8">
+            <ScrollReveal delay={100}>
+              <Link to="/" className="group flex items-center gap-3 text-white font-medium text-lg border-b border-white/30 pb-4 hover:border-white transition-colors">
+                Historia de nuestra firma <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </ScrollReveal>
             <ScrollReveal delay={200}>
-              <div className="rounded-xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=500&fit=crop" alt="Team working together" className="w-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
-              </div>
+              <Link to="/services" className="group flex items-center gap-3 text-white font-medium text-lg border-b border-white/30 pb-4 hover:border-white transition-colors">
+                Políticas de servicio al cliente <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-20 bg-section-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-14">
-            <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Our Values</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>What Drives Us</h2>
-          </ScrollReveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((v, i) => (
-              <ScrollReveal key={v.title} delay={i * 100}>
-                <div className="text-center bg-card rounded-xl p-8 border hover:shadow-lg hover:-translate-y-1 transition-all duration-400">
-                  <div className="w-14 h-14 bg-navy/5 rounded-full flex items-center justify-center mx-auto mb-5">
-                    <v.icon className="text-navy" size={24} />
-                  </div>
-                  <h3 className="text-lg font-semibold text-navy mb-2" style={{ fontFamily: 'var(--font-heading)' }}>{v.title}</h3>
-                  <p className="text-muted-foreground text-sm">{v.description}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+      {/* Connect */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <h2
+            className="text-3xl md:text-4xl font-bold text-navy"
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}
+          >
+            Conectemos
+          </h2>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-medium hover:brightness-110 transition-all"
+          >
+            <Mail size={16} /> Contáctanos
+          </Link>
         </div>
       </section>
-
-      {/* Team */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-14">
-            <p className="text-sm font-semibold tracking-widest uppercase text-gold mb-2">Our Team</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>Meet the Leadership</h2>
-          </ScrollReveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((t, i) => (
-              <ScrollReveal key={t.name} delay={i * 100}>
-                <div className="text-center group">
-                  <div className="w-48 h-48 mx-auto rounded-full overflow-hidden mb-5">
-                    <img src={t.image} alt={t.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                  </div>
-                  <h3 className="font-semibold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>{t.name}</h3>
-                  <p className="text-sm text-muted-foreground">{t.role}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <CTASection />
     </div>
   );
 }
