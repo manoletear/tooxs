@@ -27,8 +27,8 @@ export function Navbar() {
       <div
         className={`flex items-center justify-between rounded-full px-6 transition-all duration-500 ${
           scrolled
-            ? "bg-white/85 backdrop-blur-xl shadow-lg h-14 max-w-4xl"
-            : "bg-white/85 backdrop-blur-md h-14 max-w-4xl"
+            ? "bg-white shadow-lg h-14 max-w-4xl"
+            : "bg-white h-14 max-w-4xl"
         } w-full`}
       >
         <Link to="/" className="flex items-center group flex-shrink-0">
