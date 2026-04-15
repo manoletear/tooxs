@@ -136,6 +136,10 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -146,6 +150,16 @@
     font-family: var(--font-heading);
     font-weight: 700;
   }
+}
+
+/* Marquee reverse (left to right) */
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
 }
 
 /* Scroll animations */
