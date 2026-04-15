@@ -310,7 +310,7 @@ function IndustryExplorer() {
           cards={industryCards}
           cardWidth={240}
           cardHeight={320}
-          overlap={50}
+          overlap={120}
           cardRadius={18}
           hoverBorderColor="var(--mint)"
           blurIntensity={3}
