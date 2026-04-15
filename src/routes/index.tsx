@@ -756,94 +756,39 @@ function TestimonialFlow() {
 
 
 /* ══════════════════════════════════════════
-   12. SMART FORM
+   12. SMART FORM (HubSpot Embedded)
    ══════════════════════════════════════════ */
 function SmartForm() {
-  const [formData, setFormData] = useState({ name: "", email: "", industry: "", problem: "", maturity: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: integrate with HubSpot API
-    setSubmitted(true);
-  };
+  useEffect(() => {
+    // Load HubSpot embed script
+    const script = document.createElement("script");
+    script.src = "https://js.hsforms.net/forms/embed/24156430.js";
+    script.defer = true;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   return (
     <section id="smart-form" className="py-20 bg-section-bg">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">¿Listo para operar mejor?</h2>
           <p className="text-muted-foreground">Cuéntanos tu desafío y te daremos un diagnóstico en 48 horas.</p>
         </ScrollReveal>
         <ScrollReveal>
-          <div className="grid lg:grid-cols-5 gap-10">
-            {/* Form */}
-            <div className="lg:col-span-3">
-              {submitted ? (
-                <div className="bg-card rounded-2xl p-10 text-center border">
-                  <div className="w-16 h-16 bg-mint/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Send className="text-mint" size={28} />
-                  </div>
-                  <h3 className="text-xl font-bold text-navy mb-2">¡Mensaje enviado!</h3>
-                  <p className="text-muted-foreground">Te contactaremos en menos de 48 horas.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 border space-y-5">
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium text-navy mb-1.5">Nombre completo *</label>
-                      <input required type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border bg-background text-foreground text-sm focus:ring-2 focus:ring-mint focus:border-mint outline-none transition" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-navy mb-1.5">Email corporativo *</label>
-                      <input required type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border bg-background text-foreground text-sm focus:ring-2 focus:ring-mint focus:border-mint outline-none transition" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-1.5">Industria</label>
-                    <select value={formData.industry} onChange={(e) => setFormData({ ...formData, industry: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border bg-background text-foreground text-sm focus:ring-2 focus:ring-mint outline-none transition">
-                      <option value="">Selecciona...</option>
-                      <option>Minería</option>
-                      <option>Retail</option>
-                      <option>Banca</option>
-                      <option>Agroindustria</option>
-                      <option>Telecomunicaciones</option>
-                      <option>Salud</option>
-                      <option>Otro</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-1.5">¿Qué proceso repetitivo te gustaría automatizar?</label>
-                    <textarea rows={3} value={formData.problem} onChange={(e) => setFormData({ ...formData, problem: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border bg-background text-foreground text-sm focus:ring-2 focus:ring-mint outline-none transition resize-none" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-1.5">Nivel de madurez</label>
-                    <select value={formData.maturity} onChange={(e) => setFormData({ ...formData, maturity: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border bg-background text-foreground text-sm focus:ring-2 focus:ring-mint outline-none transition">
-                      <option value="">Selecciona...</option>
-                      <option>No hemos empezado</option>
-                      <option>Tenemos algo de RPA</option>
-                      <option>Buscamos escalar IA</option>
-                    </select>
-                  </div>
-                  <button type="submit" className="w-full bg-mint text-white py-3 rounded-full font-semibold hover:opacity-90 hover:scale-[1.01] transition-all duration-300 flex items-center justify-center gap-2">
-                    Recibir diagnóstico <ArrowRight size={16} />
-                  </button>
-                </form>
-              )}
-            </div>
-            {/* Benefits */}
-            <div className="lg:col-span-2 flex flex-col justify-center gap-6">
-              {[
-                { emoji: "✅", text: "Diagnóstico sin costo" },
-                { emoji: "⚡", text: "Propuesta en 48h" },
-                { emoji: "🤝", text: "Sin compromiso" },
-              ].map((b) => (
-                <div key={b.text} className="flex items-center gap-3 bg-card rounded-xl p-5 border">
-                  <span className="text-2xl">{b.emoji}</span>
-                  <span className="font-semibold text-navy">{b.text}</span>
-                </div>
-              ))}
-            </div>
+          <div className="bg-card rounded-2xl p-8 border shadow-sm">
+            <div
+              ref={containerRef}
+              className="hs-form-frame"
+              data-region="na1"
+              data-form-id="ce71cdbb-2192-4264-af88-8060d3dc013a"
+              data-portal-id="24156430"
+            />
           </div>
         </ScrollReveal>
       </div>
