@@ -366,43 +366,40 @@ function IndustryExplorer() {
 /* ══════════════════════════════════════════
    5. CAPACIDADES (CapabilityGraph)
    ══════════════════════════════════════════ */
-const capabilities = [
-  { title: "Entender", desc: "Auditoría de procesos, descubrimiento de oportunidades, mapeo de datos." },
-  { title: "Decidir", desc: "Modelos de IA, simulación de escenarios, priorización de impacto." },
-  { title: "Ejecutar", desc: "Bots RPA, integración con sistemas legacy, orquestación y monitoreo." },
+const capabilityCards = [
+  {
+    title: "Entender",
+    description: "Auditoría de procesos, descubrimiento de oportunidades, mapeo de datos. Analizamos tu operación para identificar dónde la automatización genera mayor impacto.",
+    icon: <Search className="text-mint" size={28} />,
+    color: "rgba(10, 38, 71, 0.97)",
+    accentColor: "#20B2AA",
+  },
+  {
+    title: "Decidir",
+    description: "Modelos de IA, simulación de escenarios, priorización de impacto. Diseñamos la estrategia con datos, no con suposiciones.",
+    icon: <Lightbulb className="text-mint" size={28} />,
+    color: "rgba(10, 38, 71, 0.97)",
+    accentColor: "#20B2AA",
+  },
+  {
+    title: "Ejecutar",
+    description: "Bots RPA, integración con sistemas legacy, orquestación y monitoreo. Implementamos, medimos y optimizamos hasta que el proceso funcione solo.",
+    icon: <Rocket className="text-mint" size={28} />,
+    color: "rgba(10, 38, 71, 0.97)",
+    accentColor: "#20B2AA",
+  },
 ];
 
 function CapabilityGraph() {
-  const [active, setActive] = useState<number | null>(null);
   return (
-    <section id="capacidades" className="py-24 bg-navy text-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center mb-16">
+    <section id="capacidades" className="bg-navy text-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+        <ScrollReveal className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">Entender → Decidir → Ejecutar</h2>
           <p className="text-white/70">Nuestro marco de trabajo para automatización inteligente.</p>
         </ScrollReveal>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0">
-          {capabilities.map((cap, i) => (
-            <div key={cap.title} className="flex items-center">
-              <div
-                className={`relative w-40 h-40 rounded-full border-2 flex flex-col items-center justify-center cursor-pointer transition-all duration-500 ${active === i ? "border-mint bg-mint/10 shadow-[0_0_30px_rgba(32,178,170,0.3)]" : "border-white/30 hover:border-mint/60"}`}
-                onClick={() => setActive(active === i ? null : i)}
-              >
-                <span className="text-xl font-bold">{cap.title}</span>
-                {active === i && (
-                  <p className="absolute -bottom-20 text-center text-sm text-white/80 w-56 animate-fade-in">{cap.desc}</p>
-                )}
-              </div>
-              {i < capabilities.length - 1 && (
-                <svg width="60" height="4" className="hidden md:block mx-2">
-                  <line x1="0" y1="2" x2="60" y2="2" stroke="#20B2AA" strokeWidth="2" strokeDasharray="6 4" className="animate-dash" />
-                </svg>
-              )}
-            </div>
-          ))}
-        </div>
-        {active !== null && <div className="h-16" />}
       </div>
+      <FluidCardStack cards={capabilityCards} className="px-4 sm:px-6 lg:px-8" />
     </section>
   );
 }
