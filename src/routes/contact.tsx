@@ -21,46 +21,17 @@ function HubSpotForm() {
     const el = containerRef.current;
     if (!el) return;
 
-    const createForm = () => {
-      if ((window as any).hbspt?.forms) {
-        el.innerHTML = "";
-        (window as any).hbspt.forms.create({
-          region: "na1",
-          portalId: "24156430",
-          formId: "ce71cdbb-2192-4264-af88-8060d3dc013a",
-          target: el,
-        });
-      }
-    };
+    // Insert the hs-form-frame div
+    el.innerHTML = '<div class="hs-form-frame" data-region="na1" data-form-id="ce71cdbb-2192-4264-af88-8060d3dc013a" data-portal-id="24156430"></div>';
 
-    if ((window as any).hbspt?.forms) {
-      createForm();
-      return;
-    }
-
+    // Load the script if not already present
     const existing = document.querySelector('script[src*="hsforms.net/forms/embed/24156430"]');
-    if (existing) {
-      const interval = setInterval(() => {
-        if ((window as any).hbspt?.forms) {
-          clearInterval(interval);
-          createForm();
-        }
-      }, 200);
-      return () => clearInterval(interval);
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src = "https://js.hsforms.net/forms/embed/24156430.js";
+      script.defer = true;
+      document.head.appendChild(script);
     }
-
-    const script = document.createElement("script");
-    script.src = "https://js.hsforms.net/forms/embed/24156430.js";
-    script.defer = true;
-    script.onload = () => {
-      const interval = setInterval(() => {
-        if ((window as any).hbspt?.forms) {
-          clearInterval(interval);
-          createForm();
-        }
-      }, 200);
-    };
-    document.head.appendChild(script);
   }, []);
 
   return <div ref={containerRef} />;
