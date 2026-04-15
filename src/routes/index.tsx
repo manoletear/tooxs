@@ -220,18 +220,16 @@ function TesisStatement() {
   }, []);
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-24 overflow-hidden" style={{ backgroundColor: "#177FC6" }}>
       {/* Video background */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
         src="/tesis-bg.mp4"
       />
-      {/* Overlay azul-claro-gris al 20% */}
-      <div className="absolute inset-0" style={{ backgroundColor: "rgba(180, 200, 220, 0.20)" }} />
       <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
         <ScrollReveal>
           <p className="text-2xl md:text-3xl leading-relaxed text-white mb-2" style={{ fontFamily: "var(--font-emphasis)" }}>
