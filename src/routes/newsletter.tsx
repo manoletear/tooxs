@@ -73,29 +73,29 @@ function NewsletterPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             {/* Main article */}
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-6 items-start lg:col-span-2">
+            <Link to="/newsletter/$slug" params={{ slug: highlightMain.slug }} className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-6 items-start lg:col-span-2 group">
               <img src={highlightMain.image} alt={highlightMain.title} className="w-full aspect-[4/3] object-cover rounded" />
               <div className="flex flex-col justify-center">
-                <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-primary">{highlightMain.tag}</span>
-                <h2 className="mt-2 text-xl md:text-2xl font-extrabold leading-tight tracking-tight cursor-pointer hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-primary">{highlightMain.category}</span>
+                <h2 className="mt-2 text-xl md:text-2xl font-extrabold leading-tight tracking-tight group-hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
                   {highlightMain.title} <ChevronRight className="inline w-5 h-5 text-primary" />
                 </h2>
                 <p className="text-xs text-muted-foreground mt-2">{highlightMain.date}</p>
                 <p className="text-sm text-foreground/70 leading-relaxed mt-3">{highlightMain.excerpt}</p>
               </div>
-            </div>
+            </Link>
 
             {/* Secondary articles */}
             {secondaryArticles.map((a, i) => (
-              <div key={i}>
+              <Link key={i} to="/newsletter/$slug" params={{ slug: a.slug }} className="group block">
                 <img src={a.image} alt={a.title} className="w-full aspect-[16/10] object-cover rounded-sm mb-3" loading="lazy" />
-                <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.tag}</span>
-                <h3 className="mt-1 text-base font-bold leading-snug cursor-pointer hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.category}</span>
+                <h3 className="mt-1 text-base font-bold leading-snug group-hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
                   {a.title} <ChevronRight className="inline w-4 h-4 text-primary" />
                 </h3>
                 <p className="text-[0.78rem] text-muted-foreground mt-1">{a.date}</p>
                 <p className="text-sm text-foreground/60 leading-relaxed mt-2">{a.excerpt}</p>
-              </div>
+              </Link>
             ))}
           </div>
 
