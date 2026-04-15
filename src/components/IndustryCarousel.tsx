@@ -24,7 +24,6 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
 
   const n = cards.length;
 
-  // Intersection observer
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -33,12 +32,9 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
     return () => obs.disconnect();
   }, []);
 
-  // Auto-cycle
   useEffect(() => {
     if (!isAutoPlaying || !isVisible || flippedIndex !== null) return;
-    const id = setInterval(() => {
-      setActiveIndex(prev => (prev + 1) % n);
-    }, 3500);
+    const id = setInterval(() => setActiveIndex(prev => (prev + 1) % n), 3500);
     return () => clearInterval(id);
   }, [isAutoPlaying, isVisible, n, flippedIndex]);
 
@@ -49,33 +45,25 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
   }, []);
 
   const handleCardClick = useCallback((index: number) => {
-    if (index !== activeIndex) {
-      goTo(index);
-      return;
-    }
-    // Toggle flip on active card
+    if (index !== activeIndex) { goTo(index); return; }
     setIsAutoPlaying(false);
     setFlippedIndex(prev => prev === index ? null : index);
   }, [activeIndex, goTo]);
 
-  const next = useCallback(() => {
-    setIsAutoPlaying(false);
-    setFlippedIndex(null);
-    setActiveIndex(prev => (prev + 1) % n);
-  }, [n]);
+  const next = useCallback(() => { setIsAutoPlaying(false); setFlippedIndex(null); setActiveIndex(prev => (prev + 1) % n); }, [n]);
+  const prev = useCallback(() => { setIsAutoPlaying(false); setFlippedIndex(null); setActiveIndex(prev => (prev - 1 + n) % n); }, [n]);
 
-  const prev = useCallback(() => {
-    setIsAutoPlaying(false);
-    setFlippedIndex(null);
-    setActiveIndex(prev => (prev - 1 + n) % n);
-  }, [n]);
+  // Card dimensions
+  const CARD_W = 280;
+  const CARD_H = 400;
+  const ACTIVE_CARD_W = 340;
+  const ACTIVE_CARD_H = 480;
 
   return (
     <div ref={containerRef} className={`relative ${className}`}>
-      {/* Card Stack */}
-      <div className="relative mx-auto" style={{ height: 480, maxWidth: 700 }}>
+      {/* Card fan spread */}
+      <div className="relative mx-auto overflow-hidden" style={{ height: ACTIVE_CARD_H + 40, maxWidth: 1200 }}>
         {cards.map((card, i) => {
-          // Calculate position relative to active
           let offset = i - activeIndex;
           if (offset > n / 2) offset -= n;
           if (offset < -n / 2) offset += n;
@@ -84,35 +72,36 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
           const isFlipped = flippedIndex === i && isActive;
           const absOffset = Math.abs(offset);
 
-          // Only render nearby cards
           if (absOffset > 3) return null;
 
-          // Stack positioning: cards behind shift up and scale down
-          const translateY = isActive ? 0 : -absOffset * 28;
-          const translateX = offset * 12;
-          const scale = isActive ? 1 : 1 - absOffset * 0.06;
-          const zIndex = n - absOffset;
-          const opacity = absOffset > 2 ? 0 : 1 - absOffset * 0.15;
-          const rotate = offset * 2;
+          // Fan spread: cards distributed horizontally with rotation
+          const spacing = 190; // horizontal gap between cards
+          const translateX = offset * spacing;
+          const translateY = isActive ? -20 : absOffset * 15 + 10;
+          const rotateZ = offset * -5; // tilt outward
+          const scale = isActive ? 1 : 0.85 - absOffset * 0.03;
+          const zIndex = 10 - absOffset;
+          const opacity = absOffset > 3 ? 0 : 1;
+          const w = isActive ? ACTIVE_CARD_W : CARD_W;
+          const h = isActive ? ACTIVE_CARD_H : CARD_H;
 
           return (
             <div
               key={i}
               className="absolute left-1/2 top-1/2 cursor-pointer"
               style={{
-                width: 300,
-                height: 420,
-                marginLeft: -150,
-                marginTop: -210,
+                width: w,
+                height: h,
+                marginLeft: -w / 2,
+                marginTop: -h / 2,
                 zIndex,
-                transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`,
+                transform: `translateX(${translateX}px) translateY(${translateY}px) rotate(${rotateZ}deg) scale(${scale})`,
                 opacity,
                 transition: "all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)",
                 perspective: 1000,
               }}
               onClick={() => handleCardClick(i)}
             >
-              {/* Flip container */}
               <div
                 className="relative w-full h-full"
                 style={{
@@ -121,73 +110,73 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
                   transition: "transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)",
                 }}
               >
-                {/* FRONT - Image in B&W */}
+                {/* FRONT */}
                 <div
-                  className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl border border-border"
-                  style={{ backfaceVisibility: "hidden" }}
+                  className="absolute inset-0 overflow-hidden shadow-2xl"
+                  style={{
+                    backfaceVisibility: "hidden",
+                    borderRadius: isActive ? 24 : 18,
+                    border: isActive ? "3px solid rgba(255,255,255,0.3)" : "1px solid rgba(255,255,255,0.1)",
+                  }}
                 >
                   <img
                     src={card.image}
                     alt={card.title}
                     className="w-full h-full object-cover"
-                    style={{ filter: isActive && !isFlipped ? "grayscale(70%)" : "grayscale(100%)" }}
+                    style={{ filter: isActive ? "grayscale(60%)" : "grayscale(100%) brightness(0.8)" }}
                     draggable={false}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                  {/* Title overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <div className="flex items-center gap-2.5 mb-2">
-                      <div className="w-9 h-9 rounded-full bg-mint/20 backdrop-blur-sm flex items-center justify-center">
-                        <card.icon className="text-mint" size={18} />
+                    <div className="flex items-center gap-2.5 mb-1">
+                      <div className="w-8 h-8 rounded-full bg-mint/20 backdrop-blur-sm flex items-center justify-center">
+                        <card.icon className="text-mint" size={16} />
                       </div>
                       <div>
-                        <h3 className="text-white font-bold text-lg leading-tight">{card.title}</h3>
-                        <p className="text-mint text-xs font-medium italic mt-0.5">{card.subtitle}</p>
+                        <h3 className="text-white font-bold text-sm leading-tight">{card.title}</h3>
+                        <p className="text-mint text-[11px] font-medium italic">{card.subtitle}</p>
                       </div>
                     </div>
                     {isActive && (
-                      <p className="text-white/60 text-xs mt-3 animate-fade-up">Toca para ver detalles →</p>
+                      <p className="text-white/50 text-[11px] mt-2 animate-fade-up">Clic para ver detalles →</p>
                     )}
                   </div>
                 </div>
 
-                {/* BACK - Content */}
+                {/* BACK */}
                 <div
-                  className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl border border-mint/30"
+                  className="absolute inset-0 overflow-hidden shadow-2xl"
                   style={{
                     backfaceVisibility: "hidden",
                     transform: "rotateY(180deg)",
+                    borderRadius: 24,
+                    border: "2px solid rgba(23,127,198,0.3)",
                     background: "linear-gradient(135deg, #1D1D1B 0%, #2A2A28 100%)",
                   }}
                 >
-                  <div className="p-6 h-full flex flex-col">
-                    {/* Header */}
-                    <div className="flex items-center gap-3 mb-5">
-                      <div className="w-10 h-10 rounded-full bg-mint/20 flex items-center justify-center">
-                        <card.icon className="text-mint" size={20} />
+                  <div className="p-5 h-full flex flex-col">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-9 h-9 rounded-full bg-mint/20 flex items-center justify-center">
+                        <card.icon className="text-mint" size={18} />
                       </div>
                       <div>
-                        <h3 className="text-white font-bold text-base">{card.title}</h3>
-                        <p className="text-mint text-xs italic">{card.subtitle}</p>
+                        <h3 className="text-white font-bold text-sm">{card.title}</h3>
+                        <p className="text-mint text-[11px] italic">{card.subtitle}</p>
                       </div>
                     </div>
-
-                    {/* Content */}
-                    <div className="space-y-4 flex-1">
+                    <div className="space-y-3 flex-1">
                       <div>
-                        <span className="text-mint text-xs font-bold uppercase tracking-wider">Problema</span>
-                        <p className="text-white/80 text-sm leading-relaxed mt-1">{card.problem}</p>
+                        <span className="text-mint text-[11px] font-bold uppercase tracking-wider">Problema</span>
+                        <p className="text-white/80 text-xs leading-relaxed mt-1">{card.problem}</p>
                       </div>
                       <div>
-                        <span className="text-mint text-xs font-bold uppercase tracking-wider">Solución</span>
-                        <p className="text-white/80 text-sm leading-relaxed mt-1">{card.solution}</p>
+                        <span className="text-mint text-[11px] font-bold uppercase tracking-wider">Solución</span>
+                        <p className="text-white/80 text-xs leading-relaxed mt-1">{card.solution}</p>
                       </div>
                     </div>
-
-                    {/* Impact */}
-                    <div className="bg-mint/10 rounded-xl px-4 py-3 mt-3 border border-mint/20">
-                      <span className="text-mint text-xs font-bold">Impacto: </span>
-                      <span className="text-white text-xs font-medium">{card.impact}</span>
+                    <div className="bg-mint/10 rounded-xl px-3 py-2.5 mt-2 border border-mint/20">
+                      <span className="text-mint text-[11px] font-bold">Impacto: </span>
+                      <span className="text-white text-[11px] font-medium">{card.impact}</span>
                     </div>
                   </div>
                 </div>
@@ -198,14 +187,8 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
       </div>
 
       {/* Navigation */}
-      <div className="flex items-center justify-center gap-4 mt-6">
-        <button
-          onClick={prev}
-          className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-mint transition-colors"
-          aria-label="Anterior"
-        >
-          ‹
-        </button>
+      <div className="flex items-center justify-center gap-4 mt-4">
+        <button onClick={prev} className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-mint transition-colors" aria-label="Anterior">‹</button>
         <div className="flex gap-2">
           {cards.map((_, i) => (
             <button
@@ -216,13 +199,7 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
             />
           ))}
         </div>
-        <button
-          onClick={next}
-          className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-mint transition-colors"
-          aria-label="Siguiente"
-        >
-          ›
-        </button>
+        <button onClick={next} className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-mint transition-colors" aria-label="Siguiente">›</button>
       </div>
     </div>
   );
