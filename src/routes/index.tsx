@@ -238,6 +238,15 @@ function TesisStatement() {
 /* ══════════════════════════════════════════
    4. INDUSTRIAS
    ══════════════════════════════════════════ */
+const industryImages = [
+  "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=400&h=560&fit=crop", // Minería
+  "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=560&fit=crop", // Retail
+  "https://images.unsplash.com/photo-1560472355-536de3962603?w=400&h=560&fit=crop", // Banca
+  "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=560&fit=crop", // Agro
+  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=560&fit=crop", // Telecom
+  "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=560&fit=crop", // Salud
+];
+
 const industries = [
   {
     icon: Pickaxe, name: "Minería y Utilities", tagline: "De la incertidumbre a la predictibilidad",
