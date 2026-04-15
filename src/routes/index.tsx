@@ -180,14 +180,14 @@ function TrustBarDynamic() {
         </ScrollReveal>
         {/* Logo marquee */}
         <div className="relative overflow-hidden mb-12">
-          <div className="flex animate-marquee items-center gap-12">
+          <div className="flex animate-marquee items-center gap-4 sm:gap-6 md:gap-12">
             {[...Array(2)].flatMap((_, i) =>
               trustLogos.map((logo) => (
-                <div key={`${logo.alt}-${i}`} className="flex-shrink-0 w-[280px] h-[120px] flex items-center justify-center">
+                <div key={`${logo.alt}-${i}`} className="flex-shrink-0 w-[140px] h-[60px] sm:w-[180px] sm:h-[80px] md:w-[280px] md:h-[120px] flex items-center justify-center">
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="max-h-[100px] max-w-[260px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+                    className="max-h-[50px] max-w-[130px] sm:max-h-[70px] sm:max-w-[170px] md:max-h-[100px] md:max-w-[260px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
                   />
                 </div>
               ))
