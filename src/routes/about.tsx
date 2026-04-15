@@ -124,29 +124,26 @@ function IndustriesPage() {
         </div>
       </section>
 
-      {/* Keep Exploring */}
-      <section className="bg-primary py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* CTA Newsletter */}
+      <section className="bg-navy py-20 relative overflow-hidden">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <ScrollReveal>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-4">
+              Participa en nuestra comunidad
+            </p>
             <h2
-              className="text-3xl md:text-4xl text-white mb-10"
-              style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}
+              className="text-3xl md:text-4xl font-bold text-navy-foreground mb-4"
+              style={{ fontFamily: "var(--font-heading)" }}
             >
-              Sigue explorando
+              ¿Quieres recibir insights sobre tecnología e IA aplicada a tu industria?
             </h2>
+            <Link
+              to="/newsletter"
+              className="inline-flex items-center gap-2 bg-mint text-navy px-8 py-3.5 rounded-lg font-semibold hover:brightness-110 hover:-translate-y-0.5 transition-all duration-300 text-base mt-4"
+            >
+              Suscríbete al newsletter <ArrowRight size={18} />
+            </Link>
           </ScrollReveal>
-          <div className="grid md:grid-cols-2 gap-8">
-            <ScrollReveal delay={100}>
-              <Link to="/" className="group flex items-center gap-3 text-white font-medium text-lg border-b border-white/30 pb-4 hover:border-white transition-colors">
-                Historia de nuestra firma <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <Link to="/services" className="group flex items-center gap-3 text-white font-medium text-lg border-b border-white/30 pb-4 hover:border-white transition-colors">
-                Políticas de servicio al cliente <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </ScrollReveal>
-          </div>
         </div>
       </section>
 
