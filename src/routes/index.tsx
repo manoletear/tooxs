@@ -545,58 +545,6 @@ function ServiceSystem() {
    ══════════════════════════════════════════ */
 
 /* ══════════════════════════════════════════
-   8. CASOS
-   ══════════════════════════════════════════ */
-const cases = [
-  { title: "Minera media", before: "40 horas/semana en reportes de ley de mineral, errores del 8%.", intervention: "RPA extrae datos de laboratorio, IA valida coherencia, bot genera dashboard.", result: "4 horas/semana, 0 errores, ahorro de 36 horas operativas." },
-  { title: "Retail regional", before: "Quiebres de stock del 15% en temporada alta.", intervention: "Modelo predictivo de demanda por tienda, RPA ordena reposición automática.", result: "98% disponibilidad, aumento de ventas del 12%." },
-  { title: "Banco chileno", before: "Apertura de cuentas en 3 días, 200 solicitudes pendientes.", intervention: "OCR + IA validan documentos, RPA crea cliente en core bancario.", result: "Apertura en 2 horas, cola eliminada." },
-];
-
-function CaseEngine() {
-  const [idx, setIdx] = useState(0);
-  const c = cases[idx];
-  return (
-    <section className="py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Cómo transformamos operaciones</h2>
-          <p className="text-muted-foreground">Escenarios reales (anónimos) con resultados medibles.</p>
-        </ScrollReveal>
-        <ScrollReveal>
-          <div className="bg-card rounded-2xl border p-8 md:p-10 shadow-sm">
-            <h3 className="text-xl font-bold text-navy mb-6">{c.title}</h3>
-            <div className="grid md:grid-cols-3 gap-6 text-sm">
-              <div>
-                <span className="inline-block bg-red-50 text-red-600 font-semibold px-3 py-1 rounded-full text-xs mb-2">Antes</span>
-                <p className="text-muted-foreground">{c.before}</p>
-              </div>
-              <div>
-                <span className="inline-block bg-blue-50 text-blue-600 font-semibold px-3 py-1 rounded-full text-xs mb-2">Intervención TOOXS</span>
-                <p className="text-muted-foreground">{c.intervention}</p>
-              </div>
-              <div>
-                <span className="inline-block bg-emerald-50 text-emerald-600 font-semibold px-3 py-1 rounded-full text-xs mb-2">Resultado</span>
-                <p className="text-foreground font-medium">{c.result}</p>
-              </div>
-            </div>
-            <div className="flex items-center justify-between mt-8">
-              <button onClick={() => setIdx((idx - 1 + cases.length) % cases.length)} className="p-2 rounded-full border hover:bg-section-bg transition-colors"><ArrowLeft size={18} /></button>
-              <div className="flex gap-2">
-                {cases.map((_, i) => (
-                  <button key={i} onClick={() => setIdx(i)} className={`w-2.5 h-2.5 rounded-full transition-colors ${i === idx ? "bg-mint" : "bg-border"}`} />
-                ))}
-              </div>
-              <button onClick={() => setIdx((idx + 1) % cases.length)} className="p-2 rounded-full border hover:bg-section-bg transition-colors"><ArrowRight size={18} /></button>
-            </div>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
-  );
-}
-
-/* ══════════════════════════════════════════
    9. INSIGHTS
    ══════════════════════════════════════════ */
 const insights = [
@@ -938,7 +886,7 @@ function Index() {
       <TestimonialFlow />
       <ServiceSystem />
       <SolutionShowcase />
-      <CaseEngine />
+      
       <InsightLayer />
       
       <SmartForm />
