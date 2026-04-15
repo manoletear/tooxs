@@ -5,6 +5,7 @@ import { ScrollReveal } from "../hooks/use-scroll-reveal";
 import CardDeckSpread from "../components/CardDeckSpread";
 import IndustryCarousel from "../components/IndustryCarousel";
 import FluidCardStack from "../components/FluidCardStack";
+import { KineticTypography } from "../components/KineticTypography";
 
 export const Route = createFileRoute("/")({
   head: () => ({
