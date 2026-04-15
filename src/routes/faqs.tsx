@@ -7,10 +7,17 @@ import { ScrollReveal } from "../hooks/use-scroll-reveal";
 export const Route = createFileRoute("/faqs")({
   head: () => ({
     meta: [
-      { title: "FAQs — Stratwell Consulting" },
-      { name: "description", content: "Frequently asked questions about Stratwell Consulting services, process, and engagement." },
-      { property: "og:title", content: "FAQs — Stratwell Consulting" },
-      { property: "og:description", content: "Find answers to common questions about our consulting services." },
+      { title: "Preguntas Frecuentes — TOOXS | IA y Automatización" },
+      { name: "description", content: "Respuestas a las preguntas más frecuentes sobre los servicios de consultoría en IA, automatización y transformación digital de TOOXS." },
+      { property: "og:title", content: "Preguntas Frecuentes — TOOXS" },
+      { property: "og:description", content: "Resuelve tus dudas sobre nuestros servicios de IA y automatización." },
+      { property: "og:url", content: "https://www.tooxs.com/faqs" },
+      { name: "twitter:title", content: "FAQ — TOOXS" },
+      { name: "twitter:description", content: "Preguntas frecuentes sobre IA, automatización y consultoría tecnológica." },
+      { name: "keywords", content: "preguntas frecuentes, FAQ, consultoría IA, automatización, TOOXS" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.tooxs.com/faqs" },
     ],
   }),
   component: FAQsPage,
