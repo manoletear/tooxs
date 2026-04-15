@@ -171,29 +171,125 @@ const partnerLogos = [
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-IBM.png", alt: "IBM" },
 ];
 
+function DraggableMarquee({ children, reverse = false, speed = 30, className = "" }: { children: React.ReactNode; reverse?: boolean; speed?: number; className?: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const dragState = useRef({ isDragging: false, startX: 0, scrollLeft: 0 });
+
+  // Pause animation on hover/touch
+  const pause = useCallback(() => setIsPaused(true), []);
+  const resume = useCallback(() => { if (!dragState.current.isDragging) setIsPaused(false); }, []);
+
+  const onPointerDown = useCallback((e: React.PointerEvent) => {
+    const el = containerRef.current;
+    if (!el) return;
+    dragState.current = { isDragging: true, startX: e.clientX, scrollLeft: el.scrollLeft };
+    setIsPaused(true);
+    el.setPointerCapture(e.pointerId);
+    el.style.cursor = "grabbing";
+  }, []);
+
+  const onPointerMove = useCallback((e: React.PointerEvent) => {
+    if (!dragState.current.isDragging || !containerRef.current) return;
+    const dx = e.clientX - dragState.current.startX;
+    containerRef.current.scrollLeft = dragState.current.scrollLeft - dx;
+  }, []);
+
+  const onPointerUp = useCallback((e: React.PointerEvent) => {
+    dragState.current.isDragging = false;
+    if (containerRef.current) {
+      containerRef.current.releasePointerCapture(e.pointerId);
+      containerRef.current.style.cursor = "grab";
+    }
+    // Resume auto-scroll after a short delay
+    setTimeout(() => { if (!dragState.current.isDragging) setIsPaused(false); }, 2000);
+  }, []);
+
+  // Auto-scroll via requestAnimationFrame
+  const rafRef = useRef<number>(0);
+  const scrollPos = useRef(0);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    const inner = innerRef.current;
+    if (!el || !inner) return;
+    const halfWidth = inner.scrollWidth / 2;
+
+    const tick = () => {
+      if (!isPaused && !dragState.current.isDragging) {
+        scrollPos.current += (reverse ? -1 : 1) * (speed / 60);
+        if (scrollPos.current >= halfWidth) scrollPos.current -= halfWidth;
+        if (scrollPos.current < 0) scrollPos.current += halfWidth;
+        el.scrollLeft = scrollPos.current;
+      } else {
+        scrollPos.current = el.scrollLeft;
+        // Wrap around for manual scrolling too
+        const hw = inner.scrollWidth / 2;
+        if (el.scrollLeft >= hw) el.scrollLeft -= hw;
+        if (el.scrollLeft <= 0) el.scrollLeft += hw;
+        scrollPos.current = el.scrollLeft;
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    // Initialize scroll position
+    scrollPos.current = reverse ? halfWidth : 0;
+    el.scrollLeft = scrollPos.current;
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [isPaused, reverse, speed]);
+
+  return (
+    <div
+      ref={containerRef}
+      className={`overflow-hidden select-none ${className}`}
+      style={{ cursor: "grab", scrollbarWidth: "none", msOverflowStyle: "none" }}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerLeave={resume}
+      onMouseEnter={pause}
+      onMouseLeave={resume}
+    >
+      <div ref={innerRef} className="flex items-center gap-4 sm:gap-6 md:gap-12 w-max">
+        {children}
+        {children}
+      </div>
+    </div>
+  );
+}
+
 function TrustBarDynamic() {
+  const trustItems = trustLogos.map((logo) => (
+    <div key={logo.alt} className="flex-shrink-0 w-[140px] h-[60px] sm:w-[180px] sm:h-[80px] md:w-[280px] md:h-[120px] flex items-center justify-center">
+      <img
+        src={logo.src}
+        alt={logo.alt}
+        className="max-h-[50px] max-w-[130px] sm:max-h-[70px] sm:max-w-[170px] md:max-h-[100px] md:max-w-[260px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+      />
+    </div>
+  ));
+
+  const partnerItems = partnerLogos.map((logo) => (
+    <div key={logo.alt} className="flex-shrink-0 w-[200px] h-[100px] sm:w-[320px] sm:h-[140px] md:w-[560px] md:h-[240px] flex items-center justify-center">
+      <img
+        src={logo.src}
+        alt={logo.alt}
+        className="max-h-[80px] max-w-[180px] sm:max-h-[120px] sm:max-w-[300px] md:max-h-[200px] md:max-w-[520px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+      />
+    </div>
+  ));
+
   return (
     <section className="py-16 bg-section-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-navy">Empresas que confían en Tooxs</h2>
         </ScrollReveal>
-        {/* Logo marquee */}
-        <div className="relative overflow-hidden mb-12">
-          <div className="flex animate-marquee items-center gap-4 sm:gap-6 md:gap-12">
-            {[...Array(2)].flatMap((_, i) =>
-              trustLogos.map((logo) => (
-                <div key={`${logo.alt}-${i}`} className="flex-shrink-0 w-[140px] h-[60px] sm:w-[180px] sm:h-[80px] md:w-[280px] md:h-[120px] flex items-center justify-center">
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="max-h-[50px] max-w-[130px] sm:max-h-[70px] sm:max-w-[170px] md:max-h-[100px] md:max-w-[260px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
-                  />
-                </div>
-              ))
-            )}
-          </div>
-        </div>
+        {/* Logo marquee - draggable */}
+        <DraggableMarquee speed={30} className="mb-12">
+          {trustItems}
+        </DraggableMarquee>
         {/* Metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {metrics.map((m, i) => (
@@ -206,23 +302,11 @@ function TrustBarDynamic() {
           ))}
         </div>
 
-        {/* Partners marquee */}
+        {/* Partners marquee - draggable */}
         <div className="mt-16">
-          <div className="relative overflow-hidden mb-6">
-            <div className="flex animate-marquee-reverse items-center gap-4 sm:gap-6 md:gap-12" style={{ animationDuration: '20s' }}>
-              {[...Array(4)].flatMap((_, i) =>
-                partnerLogos.map((logo) => (
-                  <div key={`${logo.alt}-partner-${i}`} className="flex-shrink-0 w-[200px] h-[100px] sm:w-[320px] sm:h-[140px] md:w-[560px] md:h-[240px] flex items-center justify-center">
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      className="max-h-[80px] max-w-[180px] sm:max-h-[120px] sm:max-w-[300px] md:max-h-[200px] md:max-w-[520px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
-                    />
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
+          <DraggableMarquee reverse speed={25} className="mb-6">
+            {partnerItems}
+          </DraggableMarquee>
           <ScrollReveal className="text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-navy">Nuestros Partners</h2>
           </ScrollReveal>
