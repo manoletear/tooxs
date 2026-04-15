@@ -711,18 +711,35 @@ function TestimonialFlow() {
    12. SMART FORM (HubSpot Embedded)
    ══════════════════════════════════════════ */
 function SmartForm() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Load HubSpot embed script
-    const script = document.createElement("script");
-    script.src = "https://js.hsforms.net/forms/embed/24156430.js";
-    script.defer = true;
-    document.head.appendChild(script);
+    if (!formRef.current) return;
 
-    return () => {
-      document.head.removeChild(script);
-    };
+    // Check if script already loaded
+    const existingScript = document.querySelector('script[src="https://js.hsforms.net/forms/embed/24156430.js"]');
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://js.hsforms.net/forms/embed/24156430.js";
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    // Re-initialize the form element for HubSpot to pick up
+    const el = formRef.current;
+    el.setAttribute("data-region", "na1");
+    el.setAttribute("data-form-id", "ce71cdbb-2192-4264-af88-8060d3dc013a");
+    el.setAttribute("data-portal-id", "24156430");
+
+    // Trigger HubSpot to process new form elements
+    if ((window as any).hbspt?.forms) {
+      (window as any).hbspt.forms.create({
+        region: "na1",
+        portalId: "24156430",
+        formId: "ce71cdbb-2192-4264-af88-8060d3dc013a",
+        target: el,
+      });
+    }
   }, []);
 
   return (
@@ -735,7 +752,7 @@ function SmartForm() {
         <ScrollReveal>
           <div className="bg-card rounded-2xl p-8 border shadow-sm">
             <div
-              ref={containerRef}
+              ref={formRef}
               className="hs-form-frame"
               data-region="na1"
               data-form-id="ce71cdbb-2192-4264-af88-8060d3dc013a"
