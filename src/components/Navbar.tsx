@@ -19,6 +19,7 @@ const industries = [
   { label: "Telecomunicaciones", to: "/industrias/telecomunicaciones" },
   { label: "Salud", to: "/industrias/salud" },
   { label: "Automotriz", to: "/industrias/automotriz" },
+  { label: "Real Estate", to: "/industrias/real-estate" },
 ];
 
 export function Navbar() {

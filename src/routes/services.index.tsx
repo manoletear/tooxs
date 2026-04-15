@@ -77,7 +77,7 @@ const services: ServiceData[] = [
     shortTitle: "Automatización",
     subtitle: "Elimina tareas manuales. Acelera tu operación.",
     image: heroAuto,
-    accentColor: "#20B2AA",
+    accentColor: "#E08A2B",
     statement: [
       "La mayoría de las organizaciones no tienen un problema de estrategia, sino de ejecución.",
       "Automatizar procesos es la forma más directa de mejorar velocidad, eficiencia y escalabilidad.",
@@ -104,7 +104,7 @@ const services: ServiceData[] = [
     shortTitle: "Data & Analytics",
     subtitle: "Convierte datos dispersos en decisiones accionables.",
     image: heroData,
-    accentColor: "#17A86A",
+    accentColor: "#6366F1",
     statement: [
       "El problema no es falta de datos. Es falta de decisiones basadas en ellos.",
       "TOOXS convierte datos en una capa operativa real.",
