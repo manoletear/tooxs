@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Linkedin, Twitter, Mail, ChevronRight } from "lucide-react";
 import { PrismBackground } from "@/components/PrismBackground";
+import { HaloEffect } from "@/components/HaloEffect";
 import { ARTICLES } from "@/data/articles";
 
 import quarterlyCover from "@/assets/newsletter/quarterly-cover.jpg";
@@ -45,8 +46,18 @@ function NewsletterPage() {
   return (
     <div className="min-h-screen bg-background" style={{ fontFamily: "'Inter', var(--font-body)" }}>
       {/* ══════ HERO WITH PRISM ══════ */}
-      <section className="relative bg-navy text-white pt-32 pb-16 overflow-hidden">
-        <PrismBackground />
+      <section className="relative bg-navy text-white pt-32 pb-20 overflow-hidden">
+        <HaloEffect
+          count1={4}
+          count2={3}
+          count3={2}
+          size={320}
+          speed={6}
+          blur={100}
+          color1="#177FC6"
+          color2="#20B2AA"
+          color3="#0A2647"
+        />
         <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <Link to="/" className="text-xs text-white/50 mb-4 font-medium tracking-wide inline-block hover:text-white/80 transition-colors">‹ Volver al Inicio</Link>
           <h1 className="text-4xl md:text-[3.2rem] font-black mb-3 leading-[1.1] tracking-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
