@@ -418,10 +418,10 @@ function ServiceSystem() {
                 onClick={() => setSelected(selected === i ? null : i)}
               >
                 {/* Animated border lines from center */}
-                <span className="pointer-events-none absolute top-0 left-1/2 h-[2px] bg-mint origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" style={{ width: '100%', transform: 'translateX(-50%) scaleX(0)' }} />
-                <span className="pointer-events-none absolute bottom-0 left-1/2 h-[2px] bg-mint origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" style={{ width: '100%', transform: 'translateX(-50%) scaleX(0)' }} />
-                <span className="pointer-events-none absolute left-0 top-1/2 w-[2px] bg-mint origin-center scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out delay-100" style={{ height: '100%', transform: 'translateY(-50%) scaleY(0)' }} />
-                <span className="pointer-events-none absolute right-0 top-1/2 w-[2px] bg-mint origin-center scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out delay-100" style={{ height: '100%', transform: 'translateY(-50%) scaleY(0)' }} />
+                <span className="pointer-events-none absolute top-0 left-0 w-full h-[2px] bg-mint scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-center" />
+                <span className="pointer-events-none absolute bottom-0 left-0 w-full h-[2px] bg-mint scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-center" />
+                <span className="pointer-events-none absolute left-0 top-0 w-[2px] h-full bg-mint scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out delay-100 origin-center" />
+                <span className="pointer-events-none absolute right-0 top-0 w-[2px] h-full bg-mint scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out delay-100 origin-center" />
 
                 {/* Card content */}
                 <div className="relative z-10">
