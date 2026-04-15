@@ -508,16 +508,6 @@ function ServicesIndexPage() {
       {/* ══════ HOVER REVEAL CARDS + DETAIL ══════ */}
       <section className="py-16 md:py-24 relative overflow-hidden bg-section-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10">
-            <div>
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2">
-                EXPLORA NUESTROS SERVICIOS
-              </p>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight">
-                Selecciona un servicio para ver el detalle
-              </h2>
-            </div>
-          </ScrollReveal>
 
           <ScrollReveal>
             <HoverRevealCards
