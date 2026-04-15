@@ -414,21 +414,30 @@ function ServiceSystem() {
           {services.map((s, i) => (
             <ScrollReveal key={s.title} delay={i * 80}>
               <div
-                className="bg-card rounded-xl p-7 border cursor-pointer group hover:shadow-lg hover:-translate-y-1 transition-all duration-400"
+                className="relative bg-card rounded-xl p-7 cursor-pointer group hover:-translate-y-2 hover:scale-[1.10] hover:shadow-2xl transition-all duration-500 ease-out h-full overflow-hidden"
                 onClick={() => setSelected(selected === i ? null : i)}
               >
-                <div className={`border-b-2 pb-5 mb-4 transition-colors duration-300 ${selected === i ? "border-mint" : "border-transparent group-hover:border-mint"}`}>
-                  <s.icon className="text-mint mb-3" size={28} />
-                  <h3 className="text-lg font-bold text-navy">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
-                </div>
-                {selected === i && (
-                  <div className="text-sm space-y-2 animate-fade-in">
-                    <p className="text-foreground">{s.detail}</p>
-                    <p className="text-muted-foreground"><span className="font-semibold text-navy">Tech:</span> {s.tech}</p>
-                    <p className="text-muted-foreground"><span className="font-semibold text-navy">Tiempo:</span> {s.time}</p>
+                {/* Animated border lines from center */}
+                <span className="pointer-events-none absolute top-0 left-0 w-full h-[2px] bg-mint scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-center" />
+                <span className="pointer-events-none absolute bottom-0 left-0 w-full h-[2px] bg-mint scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-center" />
+                <span className="pointer-events-none absolute left-0 top-0 w-[2px] h-full bg-mint scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out delay-100 origin-center" />
+                <span className="pointer-events-none absolute right-0 top-0 w-[2px] h-full bg-mint scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out delay-100 origin-center" />
+
+                {/* Card content */}
+                <div className="relative z-10">
+                  <div className="pb-5 mb-4">
+                    <s.icon className="text-mint mb-3" size={28} />
+                    <h3 className="text-lg font-bold text-navy">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
                   </div>
-                )}
+                  {selected === i && (
+                    <div className="text-sm space-y-2 animate-fade-in">
+                      <p className="text-foreground">{s.detail}</p>
+                      <p className="text-muted-foreground"><span className="font-semibold text-navy">Tech:</span> {s.tech}</p>
+                      <p className="text-muted-foreground"><span className="font-semibold text-navy">Tiempo:</span> {s.time}</p>
+                    </div>
+                  )}
+                </div>
               </div>
             </ScrollReveal>
           ))}
