@@ -232,43 +232,89 @@ function TrustBarDynamic() {
   );
 }
 /* ══════════════════════════════════════════
-   3. TESIS
+   3. TESIS — Quote + KPI Carousel
    ══════════════════════════════════════════ */
+const kpis = [
+  { value: "73%", label: "de CEOs planea aumentar inversión en IA generativa en 2025", source: "PwC" },
+  { value: "4.4T", label: "USD en productividad anual estimada por IA generativa", source: "McKinsey" },
+  { value: "60%", label: "de tareas operativas serán asistidas por IA antes de 2027", source: "Gartner" },
+  { value: "2.6x", label: "mayor retorno en empresas que integran IA en procesos core", source: "BCG" },
+  { value: "40%", label: "de reducción en costos operativos con automatización inteligente", source: "Deloitte" },
+];
+
 function TesisStatement() {
-  const lineRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const el = lineRef.current;
+    const el = scrollRef.current;
     if (!el) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add("animate-line-grow"); }, { threshold: 0.5 });
-    obs.observe(el);
-    return () => obs.disconnect();
+    let frame: number;
+    let pos = 0;
+    const speed = 0.5;
+    const animate = () => {
+      pos += speed;
+      if (pos >= el.scrollWidth / 2) pos = 0;
+      el.scrollLeft = pos;
+      frame = requestAnimationFrame(animate);
+    };
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   return (
-    <section className="relative py-24 overflow-hidden" style={{ backgroundColor: "#177FC6" }}>
-      {/* Video background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-10 grayscale"
-        src="/tesis-bg.mp4"
-      />
-      <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
+    <section className="relative py-20 md:py-28 overflow-hidden" style={{ backgroundColor: "#0b1a2e" }}>
+      {/* Large background "IA" watermark */}
+      <div className="absolute top-1/2 right-8 -translate-y-1/2 text-[20rem] font-extrabold text-white/[0.04] leading-none select-none pointer-events-none hidden md:block" aria-hidden>
+        IA
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-8">
         <ScrollReveal>
-          <p className="text-2xl md:text-3xl leading-relaxed text-white mb-2" style={{ fontFamily: "var(--font-emphasis)" }}>
-            Hay tecnología.
+          {/* Quote icon */}
+          <div className="text-[#177FC6] text-5xl mb-6 leading-none" style={{ fontFamily: "Georgia, serif" }}>
+            ❝
+          </div>
+
+          {/* Quote text */}
+          <blockquote className="text-xl md:text-2xl lg:text-[1.7rem] leading-relaxed md:leading-[1.6] text-white font-semibold tracking-tight mb-8">
+            La IA ya no es solo una herramienta — es{" "}
+            <br className="hidden md:block" />
+            un <span className="text-[#177FC6]">imperativo estratégico</span>. Los líderes{" "}
+            <br className="hidden md:block" />
+            que entienden cómo aprovechar la IA{" "}
+            <br className="hidden md:block" />
+            generativa y agéntica darán forma al{" "}
+            <br className="hidden md:block" />
+            futuro de los negocios, no solo{" "}
+            <br className="hidden md:block" />
+            reaccionarán a él.
+          </blockquote>
+
+          {/* Attribution */}
+          <p className="text-sm text-white/50">
+            Dr. Abel Sanchez · <span className="text-white/40">MIT Professional Education</span>
           </p>
-          <p className="text-2xl md:text-3xl leading-relaxed text-white mb-6" style={{ fontFamily: "var(--font-emphasis)" }}>
-            Y hay tecnología que cambia cómo funcionan las organizaciones.
-          </p>
-          <KineticTypography
-            text="TOOXS está en la segunda."
-            className="text-2xl md:text-[2.2rem] font-bold text-white"
-          />
-          <div ref={lineRef} className="h-[1px] bg-mint mx-auto mt-6" style={{ width: 0 }} />
         </ScrollReveal>
+
+        {/* KPI Carousel */}
+        <div className="mt-16">
+          <div
+            ref={scrollRef}
+            className="flex gap-5 overflow-hidden"
+            style={{ scrollBehavior: "auto" }}
+          >
+            {[...kpis, ...kpis].map((kpi, i) => (
+              <div
+                key={i}
+                className="shrink-0 w-[220px] rounded-2xl border border-white/10 bg-white/[0.05] p-5 text-center backdrop-blur-sm"
+              >
+                <p className="text-3xl font-extrabold text-[#177FC6] mb-1">{kpi.value}</p>
+                <p className="text-xs text-white/70 leading-snug mb-2">{kpi.label}</p>
+                <p className="text-[10px] text-white/30 uppercase tracking-wider">{kpi.source}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
