@@ -209,14 +209,14 @@ function TrustBarDynamic() {
         {/* Partners marquee */}
         <div className="mt-16">
           <div className="relative overflow-hidden mb-6">
-            <div className="flex animate-marquee-reverse items-center gap-12" style={{ animationDuration: '20s' }}>
+            <div className="flex animate-marquee-reverse items-center gap-4 sm:gap-6 md:gap-12" style={{ animationDuration: '20s' }}>
               {[...Array(4)].flatMap((_, i) =>
                 partnerLogos.map((logo) => (
-                  <div key={`${logo.alt}-partner-${i}`} className="flex-shrink-0 w-[560px] h-[240px] flex items-center justify-center">
+                  <div key={`${logo.alt}-partner-${i}`} className="flex-shrink-0 w-[200px] h-[100px] sm:w-[320px] sm:h-[140px] md:w-[560px] md:h-[240px] flex items-center justify-center">
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="max-h-[200px] max-w-[520px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+                      className="max-h-[80px] max-w-[180px] sm:max-h-[120px] sm:max-w-[300px] md:max-h-[200px] md:max-w-[520px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
                     />
                   </div>
                 ))
