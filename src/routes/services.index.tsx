@@ -507,19 +507,14 @@ function ServicesIndexPage() {
       </section>
 
       {/* ══════ HOVER REVEAL CARDS + DETAIL ══════ */}
-      <section
-        className="py-16 md:py-24 relative overflow-hidden"
-        style={{
-          background: "radial-gradient(circle at top left, rgba(58,111,247,0.10), transparent 30%), radial-gradient(circle at bottom right, rgba(34,160,138,0.08), transparent 25%), linear-gradient(180deg, #09101f 0%, #0b1020 100%)",
-        }}
-      >
+      <section className="py-16 md:py-24 relative overflow-hidden bg-section-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10">
             <div>
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-2" style={{ color: "#20B2AA" }}>
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2">
                 EXPLORA NUESTROS SERVICIOS
               </p>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight">
                 Selecciona un servicio para ver el detalle
               </h2>
             </div>
