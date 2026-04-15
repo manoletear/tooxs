@@ -15,6 +15,13 @@ import articleLiderazgoSiglo from "@/assets/newsletter/article-liderazgo-siglo.j
 import articleManufacturaIa from "@/assets/newsletter/article-manufactura-ia.jpg";
 import articleGanarCurvas from "@/assets/newsletter/article-ganar-curvas.jpg";
 import articleRedisenoOrg from "@/assets/newsletter/article-rediseno-org.jpg";
+import articleGuiaCios from "@/assets/newsletter/article-guia-cios.jpg";
+import articleIaAgenticaLecciones from "@/assets/newsletter/article-ia-agentica-lecciones.jpg";
+import articleInnovacionIndustria from "@/assets/newsletter/article-innovacion-industria.jpg";
+import articlePuntosCiegosCeo from "@/assets/newsletter/article-puntos-ciegos-ceo.jpg";
+import articleReconfigurarTrabajo from "@/assets/newsletter/article-reconfigurar-trabajo.jpg";
+import articleTodosTechies from "@/assets/newsletter/article-todos-techies.jpg";
+import articleModeloOperativo from "@/assets/newsletter/article-modelo-operativo.jpg";
 
 export interface Article {
   id: number;
