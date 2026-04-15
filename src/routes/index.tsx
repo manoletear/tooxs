@@ -176,7 +176,7 @@ function TrustBarDynamic() {
     <section className="py-16 bg-section-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-navy">Empresas que confían en TOOXS</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-navy">Empresas que confían en Tooxs</h2>
         </ScrollReveal>
         {/* Logo marquee */}
         <div className="relative overflow-hidden mb-12">
