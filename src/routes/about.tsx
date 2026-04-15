@@ -3,7 +3,6 @@ import { ChevronRight, ArrowRight, Mail } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 import { ARTICLES } from "@/data/articles";
-import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
