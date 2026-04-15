@@ -27,21 +27,50 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
     return () => obs.disconnect();
   }, []);
 
-  // Tilted card configurations matching the Framer reference
-  const tilts = [
+  // Base tilts for each card
+  const baseTilts = [
     { rotate: -8, translateY: 0, zIndex: 1 },
     { rotate: 0, translateY: -20, zIndex: 2 },
     { rotate: 8, translateY: 0, zIndex: 1 },
   ];
 
+  const getCardTransform = (i: number) => {
+    const tilt = baseTilts[i] || baseTilts[0];
+    if (!isVisible) return `rotate(0deg) translateY(60px) scale(0.8)`;
+
+    const isHovered = hoveredIndex === i;
+
+    if (isHovered) {
+      // Hovered card: swings like hanging, slight rotation oscillation via CSS animation
+      return `rotate(${tilt.rotate}deg) translateY(${tilt.translateY - 18}px) scale(1.06)`;
+    }
+
+    if (hoveredIndex !== null) {
+      // Push neighbors away from hovered card
+      const diff = i - hoveredIndex;
+      const pushX = diff * 8;
+      const pushRotate = diff * 3;
+      return `rotate(${tilt.rotate + pushRotate}deg) translateY(${tilt.translateY + 5}px) translateX(${pushX}px) scale(0.97)`;
+    }
+
+    return `rotate(${tilt.rotate}deg) translateY(${tilt.translateY}px) scale(1)`;
+  };
+
   return (
     <div
       ref={containerRef}
-      className={`flex items-center justify-center gap-[-20px] py-12 ${className}`}
+      className={`flex items-center justify-center py-12 ${className}`}
     >
-      <div className="flex items-center justify-center" style={{ gap: "-10px" }}>
+      <style>{`
+        @keyframes hanging-swing {
+          0%, 100% { transform: rotate(0deg); }
+          25% { transform: rotate(2deg); }
+          75% { transform: rotate(-2deg); }
+        }
+      `}</style>
+      <div className="flex items-center justify-center gap-6">
         {cards.map((card, i) => {
-          const tilt = tilts[i] || tilts[0];
+          const tilt = baseTilts[i] || baseTilts[0];
           const isHovered = hoveredIndex === i;
 
           return (
@@ -51,13 +80,12 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
               style={{
                 width: 320,
                 height: 420,
-                transform: isVisible
-                  ? `rotate(${tilt.rotate}deg) translateY(${isHovered ? tilt.translateY - 15 : tilt.translateY}px) scale(${isHovered ? 1.05 : 1})`
-                  : `rotate(0deg) translateY(60px) scale(0.8)`,
+                transform: getCardTransform(i),
                 opacity: isVisible ? 1 : 0,
                 zIndex: isHovered ? 10 : tilt.zIndex,
-                transition: "all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)",
-                marginLeft: i > 0 ? -30 : 0,
+                transition: "all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                transformOrigin: "top center",
+                animation: isHovered ? "hanging-swing 2s ease-in-out infinite" : "none",
               }}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -74,7 +102,6 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
                     : "0 15px 40px -10px rgba(0,0,0,0.4)",
                 }}
               >
-                {/* Monkey image */}
                 <div className="flex items-center justify-center pt-8 pb-4">
                   <div
                     className="w-40 h-40 rounded-2xl overflow-hidden"
@@ -92,8 +119,6 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
                     />
                   </div>
                 </div>
-
-                {/* Title */}
                 <div className="px-7 pb-2">
                   <h3
                     className="text-2xl font-bold text-white mb-1"
@@ -102,8 +127,6 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
                     {card.title}
                   </h3>
                 </div>
-
-                {/* Description */}
                 <div className="px-7 pb-8">
                   <p className="text-sm leading-relaxed text-white/70">
                     {card.description}
