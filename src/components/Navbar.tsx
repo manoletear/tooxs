@@ -12,32 +12,13 @@ const navLinks = [
 ];
 
 const industries = [
-  "Aeroespacial y Defensa",
-  "Agricultura",
-  "Automotriz y Ensamblaje",
-  "Químicos",
-  "Bienes de Consumo",
-  "Educación",
-  "Energía Eléctrica y Gas Natural",
-  "Energía y Materiales",
-  "Ingeniería y Construcción",
-  "Servicios Financieros",
-  "Salud",
-  "Industriales",
-  "Infraestructura",
-  "Ciencias de la Vida",
-  "Logística",
-  "Metales y Minería",
-  "Petróleo y Gas",
-  "Empaques y Papel",
-  "Capital Privado",
-  "Sector Público",
-  "Bienes Raíces",
-  "Retail",
-  "Semiconductores",
-  "Sector Social",
-  "Tecnología, Medios y Telecomunicaciones",
-  "Viajes y Turismo",
+  { label: "Minería y Utilities", to: "/industrias/mineria-utilities" },
+  { label: "Retail y Logística", to: "/industrias/retail-logistica" },
+  { label: "Banca y Finanzas", to: "/industrias/banca-finanzas" },
+  { label: "Agroindustria", to: "/industrias/agroindustria" },
+  { label: "Telecomunicaciones", to: "/industrias/telecomunicaciones" },
+  { label: "Salud", to: "/industrias/salud" },
+  { label: "Automotriz", to: "/industrias/automotriz" },
 ];
 
 export function Navbar() {
@@ -62,11 +43,7 @@ export function Navbar() {
     dropdownTimeout.current = setTimeout(() => setIndustriesOpen(false), 200);
   };
 
-  // Split industries into 3 columns
-  const colSize = Math.ceil(industries.length / 3);
-  const col1 = industries.slice(0, colSize);
-  const col2 = industries.slice(colSize, colSize * 2);
-  const col3 = industries.slice(colSize * 2);
+  // No column splitting needed — only 7 industries now
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
@@ -146,20 +123,16 @@ export function Navbar() {
             Industrias <ArrowRight size={16} />
           </Link>
 
-          <div className="grid grid-cols-3 gap-x-12 gap-y-3">
-            {[col1, col2, col3].map((col, ci) => (
-              <div key={ci} className="flex flex-col gap-3">
-                {col.map((industry) => (
-                  <Link
-                    key={industry}
-                    to="/about"
-                    onClick={() => setIndustriesOpen(false)}
-                    className="text-sm text-navy/70 hover:text-primary transition-colors duration-200"
-                  >
-                    {industry}
-                  </Link>
-                ))}
-              </div>
+          <div className="grid grid-cols-2 gap-x-10 gap-y-3">
+            {industries.map((ind) => (
+              <Link
+                key={ind.to}
+                to={ind.to as any}
+                onClick={() => setIndustriesOpen(false)}
+                className="text-sm text-navy/70 hover:text-primary transition-colors duration-200"
+              >
+                {ind.label}
+              </Link>
             ))}
           </div>
         </div>
