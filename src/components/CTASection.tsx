@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 interface CTASectionProps {
   title?: string;
@@ -19,16 +20,18 @@ export function CTASection({
     >
       <div className="absolute inset-0 bg-navy/80" />
       <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-foreground mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-          {title}
-        </h2>
-        <p className="text-navy-foreground/80 text-lg mb-8 max-w-2xl mx-auto">{subtitle}</p>
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-2 bg-gold text-navy px-8 py-3.5 rounded-lg font-semibold hover:opacity-90 transition-opacity text-base"
-        >
-          {buttonText} <ArrowRight size={18} />
-        </Link>
+        <ScrollReveal>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-foreground mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+            {title}
+          </h2>
+          <p className="text-navy-foreground/80 text-lg mb-8 max-w-2xl mx-auto">{subtitle}</p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-gold text-navy px-8 py-3.5 rounded-lg font-semibold hover:bg-gold/90 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5 transition-all duration-300 text-base"
+          >
+            {buttonText} <ArrowRight size={18} />
+          </Link>
+        </ScrollReveal>
       </div>
     </section>
   );

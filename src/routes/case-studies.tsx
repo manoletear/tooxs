@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "../components/PageHero";
 import { CTASection } from "../components/CTASection";
+import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
@@ -65,17 +66,19 @@ function CaseStudiesPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {caseStudies.map((cs) => (
-              <div key={cs.title} className="bg-card rounded-xl overflow-hidden border hover:shadow-lg transition-shadow group">
-                <div className="aspect-[3/2] overflow-hidden">
-                  <img src={cs.image} alt={cs.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            {caseStudies.map((cs, i) => (
+              <ScrollReveal key={cs.title} delay={i * 100}>
+                <div className="bg-card rounded-xl overflow-hidden border hover:shadow-lg hover:-translate-y-1 transition-all duration-400 group h-full">
+                  <div className="aspect-[3/2] overflow-hidden">
+                    <img src={cs.image} alt={cs.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                  </div>
+                  <div className="p-6">
+                    <span className="inline-block bg-gold/10 text-gold text-xs font-semibold px-3 py-1 rounded-full mb-3">{cs.category}</span>
+                    <h3 className="text-lg font-semibold text-navy mb-2" style={{ fontFamily: 'var(--font-heading)' }}>{cs.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{cs.description}</p>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <span className="inline-block bg-gold/10 text-gold text-xs font-semibold px-3 py-1 rounded-full mb-3">{cs.category}</span>
-                  <h3 className="text-lg font-semibold text-navy mb-2" style={{ fontFamily: 'var(--font-heading)' }}>{cs.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{cs.description}</p>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { BarChart3, Cog, Monitor, DollarSign, ArrowRight, CheckCircle } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { CTASection } from "../components/CTASection";
+import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -58,9 +59,9 @@ function ServicesPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
           {services.map((service, idx) => (
-            <div key={service.title} className={`grid lg:grid-cols-2 gap-12 items-center ${idx % 2 === 1 ? "lg:direction-rtl" : ""}`}>
-              <div className={idx % 2 === 1 ? "lg:order-2" : ""}>
-                <div className="w-12 h-12 bg-navy/5 rounded-lg flex items-center justify-center mb-5">
+            <div key={service.title} className={`grid lg:grid-cols-2 gap-12 items-center`}>
+              <ScrollReveal className={idx % 2 === 1 ? "lg:order-2" : ""}>
+                <div className="w-12 h-12 bg-navy/5 rounded-lg flex items-center justify-center mb-5 group-hover:bg-gold/10 transition-colors">
                   <service.icon className="text-navy" size={24} />
                 </div>
                 <h2 className="text-3xl font-bold text-navy mb-4" style={{ fontFamily: 'var(--font-heading)' }}>{service.title}</h2>
@@ -76,10 +77,10 @@ function ServicesPage() {
                 <Link to="/contact" className="inline-flex items-center gap-2 bg-navy text-navy-foreground px-6 py-3 rounded-lg font-semibold text-sm hover:opacity-90 transition-opacity">
                   Get Started <ArrowRight size={16} />
                 </Link>
-              </div>
-              <div className={`rounded-xl overflow-hidden ${idx % 2 === 1 ? "lg:order-1" : ""}`}>
-                <img src={service.image} alt={service.title} className="w-full h-full object-cover" loading="lazy" />
-              </div>
+              </ScrollReveal>
+              <ScrollReveal delay={200} className={`rounded-xl overflow-hidden ${idx % 2 === 1 ? "lg:order-1" : ""}`}>
+                <img src={service.image} alt={service.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+              </ScrollReveal>
             </div>
           ))}
         </div>
