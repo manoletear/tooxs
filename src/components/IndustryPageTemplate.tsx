@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronRight, Mail } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 export interface IndustryService {
