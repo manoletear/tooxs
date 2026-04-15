@@ -457,9 +457,33 @@ function ServiceSystem() {
    7. SOLUCIONES
    ══════════════════════════════════════════ */
 const solutions = [
-  { title: "Predictive Maintenance Suite", problem: "Paradas no planificadas en equipos críticos (minería, manufactura).", impact: "-35% downtime, +20% vida útil de maquinaria." },
-  { title: "Stock Optimizer AI", problem: "Quiebres de stock y exceso de inventario en retail.", impact: "98% disponibilidad, -40% capital de trabajo inmovilizado." },
-  { title: "Loan Scoring Engine", problem: "Evaluación manual de créditos (banca, financieras).", impact: "-80% tiempo de análisis, +25% aprobaciones precisas." },
+  {
+    icon: "🏭",
+    tagline: "Menos fallas. Más producción.",
+    title: "Predictive Maintenance Suite",
+    problem: "Equipos críticos fallan sin aviso. Costos altos, operación detenida, riesgo operacional.",
+    metrics: [{ value: "-35%", label: "downtime" }, { value: "+20%", label: "vida útil de activos" }],
+    whyItWorks: "Anticipamos fallas antes de que ocurran combinando sensores, históricos y modelos predictivos.",
+    validation: "Reducciones de downtime de 30–50% en mantenimiento predictivo (McKinsey / Deloitte)",
+  },
+  {
+    icon: "🛒",
+    tagline: "Inventario optimizado. Capital liberado.",
+    title: "Stock Optimizer AI",
+    problem: "Exceso de inventario y quiebres de stock conviven al mismo tiempo.",
+    metrics: [{ value: "98%", label: "disponibilidad de productos" }, { value: "-40%", label: "capital inmovilizado" }],
+    whyItWorks: "Modelamos demanda y optimizamos reposición en tiempo real con IA.",
+    validation: "Optimización de inventario de 20–50% y niveles de servicio >95% (BCG / PwC)",
+  },
+  {
+    icon: "🏦",
+    tagline: "Decisiones de crédito en minutos, no días.",
+    title: "Loan Scoring Engine",
+    problem: "Evaluación manual, lenta y con sesgos.",
+    metrics: [{ value: "-80%", label: "tiempo de análisis" }, { value: "+25%", label: "precisión en aprobación" }],
+    whyItWorks: "Automatizamos scoring con modelos predictivos entrenados sobre datos históricos.",
+    validation: "Reducción de tiempos de evaluación de 60–90% (EY / McKinsey)",
+  },
 ];
 
 function SolutionSystem() {
@@ -470,13 +494,32 @@ function SolutionSystem() {
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Soluciones empaquetadas para resultados rápidos</h2>
           <p className="text-muted-foreground">Productos que combinan RPA, IA y analítica.</p>
         </ScrollReveal>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {solutions.map((sol, i) => (
             <ScrollReveal key={sol.title} delay={i * 120}>
-              <div className="bg-card rounded-xl border border-t-4 border-t-mint p-7 hover:shadow-xl hover:scale-[1.02] transition-all duration-400">
-                <h3 className="text-lg font-bold text-navy mb-3">{sol.title}</h3>
-                <p className="text-sm text-muted-foreground mb-2"><span className="font-semibold text-navy">Qué resuelve:</span> {sol.problem}</p>
-                <p className="text-sm font-semibold text-mint">{sol.impact}</p>
+              <div className="bg-card rounded-2xl border border-t-4 border-t-mint p-8 hover:shadow-xl hover:scale-[1.02] transition-all duration-400 h-full flex flex-col">
+                <div className="text-4xl mb-3">{sol.icon}</div>
+                <p className="text-xs font-semibold text-mint uppercase tracking-wider mb-1">{sol.tagline}</p>
+                <h3 className="text-lg font-bold text-navy mb-4">{sol.title}</h3>
+                <div className="mb-5">
+                  <p className="text-xs font-semibold text-navy/60 uppercase tracking-wider mb-1">El problema</p>
+                  <p className="text-sm text-muted-foreground">{sol.problem}</p>
+                </div>
+                <div className="grid grid-cols-2 gap-3 mb-5">
+                  {sol.metrics.map((m) => (
+                    <div key={m.label} className="bg-section-bg rounded-lg p-3 text-center">
+                      <p className="text-xl font-bold text-mint">{m.value}</p>
+                      <p className="text-[11px] text-muted-foreground leading-tight">{m.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mb-5">
+                  <p className="text-xs font-semibold text-navy/60 uppercase tracking-wider mb-1">Por qué funciona</p>
+                  <p className="text-sm text-muted-foreground">{sol.whyItWorks}</p>
+                </div>
+                <div className="mt-auto pt-4 border-t border-border">
+                  <p className="text-xs text-muted-foreground italic">📊 {sol.validation}</p>
+                </div>
               </div>
             </ScrollReveal>
           ))}
