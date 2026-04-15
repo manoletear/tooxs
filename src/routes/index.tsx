@@ -155,10 +155,11 @@ const trustLogos = [
   { src: "https://tooxs.com/wp-content/uploads/2025/08/logo-vik.png", alt: "Vik" },
 ];
 const metrics = [
-  { value: 98, suffix: "%", label: "reducción de errores" },
-  { value: 30, suffix: "+", label: "empresas chilenas" },
-  { value: 4, suffix: "", label: "semanas piloto" },
-  { value: 24, suffix: "/7", label: "soporte local" },
+  { value: 8, suffix: "+", label: "Años desarrollando soluciones digitales" },
+  { value: 120, suffix: "+", label: "Proyectos implementados" },
+  { value: 30, suffix: "+", label: "Clientes corporativos regionales" },
+  { value: 10, suffix: "+", label: "Soluciones tecnológicas propias" },
+  { value: 5, suffix: "", label: "Países con presencia regional" },
 ];
 
 const partnerLogos = [
@@ -291,12 +292,12 @@ function TrustBarDynamic() {
           {trustItems}
         </DraggableMarquee>
         {/* Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
           {metrics.map((m, i) => (
             <ScrollReveal key={m.label} delay={i * 100}>
-              <div className="bg-card rounded-xl p-6 shadow-sm text-center">
+              <div className="bg-card rounded-xl p-6 shadow-sm text-center border border-border/50">
                 <Counter end={m.value} suffix={m.suffix} />
-                <p className="mt-2 text-sm text-muted-foreground">{m.label}</p>
+                <p className="mt-2 text-sm text-muted-foreground leading-snug">{m.label}</p>
               </div>
             </ScrollReveal>
           ))}
