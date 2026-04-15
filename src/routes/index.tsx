@@ -69,10 +69,27 @@ function HeroStrategic() {
     document.getElementById("smart-form")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const heroRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (videoRef.current && heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        const scrollProgress = -rect.top;
+        videoRef.current.style.transform = `translateY(${scrollProgress * 0.25}px)`;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden">
-      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" src="/hero-bg.mp4" />
-      <div className="absolute inset-0 bg-black/40" />
+    <section ref={heroRef} className="relative min-h-screen flex items-end overflow-hidden p-3 sm:p-5 md:p-6">
+      <div className="absolute inset-3 sm:inset-5 md:inset-6 rounded-2xl md:rounded-3xl overflow-hidden">
+        <video ref={videoRef} autoPlay muted loop playsInline className="absolute inset-0 w-full h-[120%] object-cover will-change-transform" src="/hero-bg.mp4" style={{ top: "-10%" }} />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-16 md:pb-24">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
           {/* Left: Heading */}
@@ -190,7 +207,7 @@ function TrustBarDynamic() {
         {/* Partners marquee */}
         <div className="mt-16">
           <div className="relative overflow-hidden mb-6">
-            <div className="flex animate-marquee items-center gap-12" style={{ animationDuration: '20s' }}>
+            <div className="flex animate-marquee-reverse items-center gap-12" style={{ animationDuration: '20s' }}>
               {[...Array(4)].flatMap((_, i) =>
                 partnerLogos.map((logo) => (
                   <div key={`${logo.alt}-partner-${i}`} className="flex-shrink-0 w-[280px] h-[120px] flex items-center justify-center">
