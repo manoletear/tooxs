@@ -308,10 +308,10 @@ function IndustryExplorer() {
 
         <CardDeckSpread
           cards={industryCards}
-          cardWidth={200}
-          cardHeight={280}
-          overlap={80}
-          cardRadius={16}
+          cardWidth={240}
+          cardHeight={320}
+          overlap={50}
+          cardRadius={18}
           hoverBorderColor="var(--mint)"
           blurIntensity={3}
           animationIntensity={1.2}
@@ -324,16 +324,16 @@ function IndustryExplorer() {
                 right: 0,
                 bottom: 0,
                 background: "linear-gradient(to top, rgba(10,38,71,0.95), rgba(10,38,71,0.5) 60%, transparent)",
-                padding: "40px 14px 14px",
-                borderBottomLeftRadius: 16,
-                borderBottomRightRadius: 16,
+                padding: "48px 16px 18px",
+                borderBottomLeftRadius: 18,
+                borderBottomRightRadius: 18,
                 pointerEvents: "none",
-                opacity: isHovered ? 1 : 0.7,
+                opacity: isHovered ? 1 : 0.85,
                 transition: "opacity 0.4s ease-in-out",
               }}
             >
-              <div style={{ color: "#fff", fontSize: "14px", fontWeight: 700 }}>{card.title}</div>
-              <div style={{ color: "var(--mint)", fontSize: "12px", fontWeight: 400, marginTop: 2 }}>{card.subtitle}</div>
+              <div style={{ color: "#fff", fontSize: "18px", fontWeight: 800, letterSpacing: "0.02em" }}>{card.title}</div>
+              <div style={{ color: "var(--mint)", fontSize: "14px", fontWeight: 500, marginTop: 4 }}>{card.subtitle}</div>
             </div>
           )}
         />
