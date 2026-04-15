@@ -7,6 +7,10 @@ import IndustryCarousel from "../components/IndustryCarousel";
 import FluidCardStack from "../components/FluidCardStack";
 import { KineticTypography } from "../components/KineticTypography";
 import automotiveImg from "../assets/industry-automotive.jpg";
+import TiltedCards from "../components/TiltedCards";
+import monkeySeeImg from "../assets/monkey-see.png";
+import monkeyHearImg from "../assets/monkey-hear.png";
+import monkeySpeakImg from "../assets/monkey-speak.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -341,36 +345,30 @@ const capabilityCards = [
   {
     title: "Entender",
     description: "Auditoría de procesos, descubrimiento de oportunidades, mapeo de datos. Analizamos tu operación para identificar dónde la automatización genera mayor impacto.",
-    icon: <Search className="text-mint" size={28} />,
-    color: "rgba(10, 38, 71, 0.97)",
-    accentColor: "#20B2AA",
+    image: monkeySeeImg,
   },
   {
     title: "Decidir",
     description: "Modelos de IA, simulación de escenarios, priorización de impacto. Diseñamos la estrategia con datos, no con suposiciones.",
-    icon: <Lightbulb className="text-mint" size={28} />,
-    color: "rgba(10, 38, 71, 0.97)",
-    accentColor: "#20B2AA",
+    image: monkeyHearImg,
   },
   {
     title: "Ejecutar",
     description: "Bots RPA, integración con sistemas legacy, orquestación y monitoreo. Implementamos, medimos y optimizamos hasta que el proceso funcione solo.",
-    icon: <Rocket className="text-mint" size={28} />,
-    color: "rgba(10, 38, 71, 0.97)",
-    accentColor: "#20B2AA",
+    image: monkeySpeakImg,
   },
 ];
 
 function CapabilityGraph() {
   return (
-    <section id="capacidades" className="bg-navy text-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-        <ScrollReveal className="text-center mb-8">
+    <section id="capacidades" className="bg-navy text-white py-20 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">Entender → Decidir → Ejecutar</h2>
           <p className="text-white/70">Nuestro marco de trabajo para automatización inteligente.</p>
         </ScrollReveal>
+        <TiltedCards cards={capabilityCards} />
       </div>
-      <FluidCardStack cards={capabilityCards} className="px-4 sm:px-6 lg:px-8" />
     </section>
   );
 }
