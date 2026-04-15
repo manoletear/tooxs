@@ -329,9 +329,6 @@ export default function SolutionShowcase() {
           <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
             Soluciones destacadas
           </h2>
-          <p className="text-[#a7b0c5] max-w-[58ch] leading-relaxed">
-            Cada tarjeta está pensada para comunicar qué resuelve, cómo aporta valor y por qué merece exploración. El diseño prioriza claridad comercial y separación semántica entre soluciones.
-          </p>
         </ScrollReveal>
 
         {/* Cards Grid */}
