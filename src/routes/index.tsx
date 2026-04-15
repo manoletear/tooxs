@@ -693,61 +693,64 @@ function TestimonialFlow() {
   const doubled = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-20">
+    <section className="py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-navy">Lo que dicen nuestros clientes</h2>
         </ScrollReveal>
-        <div className="relative">
-          {/* Left arrow */}
-          <button
-            onClick={() => scroll(-1)}
-            className="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-border/50 flex items-center justify-center hover:bg-muted transition-colors"
-          >
-            <ArrowLeft size={18} className="text-navy" />
-          </button>
+      </div>
+      <div className="relative max-w-[1400px] mx-auto px-14">
+        {/* Left arrow */}
+        <button
+          onClick={() => scroll(-1)}
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-border/50 flex items-center justify-center hover:bg-muted transition-colors"
+        >
+          <ArrowLeft size={18} className="text-navy" />
+        </button>
 
-          {/* Carousel */}
-          <div
-            ref={scrollRef}
-            className="flex gap-6 overflow-hidden"
-            onMouseEnter={() => { isPaused.current = true; }}
-            onMouseLeave={() => { isPaused.current = false; }}
-          >
-            {doubled.map((t, i) => (
-              <div
-                key={`${t.name}-${i}`}
-                className="bg-card rounded-3xl p-8 shadow-lg hover:-translate-y-1 transition-all duration-400 flex flex-col min-w-[340px] md:min-w-[420px] shrink-0"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-semibold text-mint tracking-wide uppercase">{t.company}</span>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, s) => (
-                      <Star key={s} size={14} className="text-yellow-400 fill-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-                <Quote className="text-mint/40 mb-3" size={24} />
-                <p className="text-foreground/80 text-sm leading-relaxed mb-6 italic flex-1">"{t.quote}"</p>
-                <div className="flex items-center gap-3 pt-4 border-t border-border/50">
-                  <div className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center text-xs font-bold">{t.initials}</div>
-                  <div>
-                    <p className="font-semibold text-sm text-navy">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.title}</p>
-                  </div>
+        {/* Carousel track */}
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-hidden"
+          onMouseEnter={() => { isPaused.current = true; }}
+          onMouseLeave={() => { isPaused.current = false; }}
+        >
+          {doubled.map((t, i) => (
+            <div
+              key={`${t.name}-${i}`}
+              className="bg-card rounded-2xl p-6 shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col shrink-0"
+              style={{ width: 380, minHeight: 320 }}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs font-semibold text-mint tracking-wide uppercase">{t.company}</span>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, s) => (
+                    <Star key={s} size={13} className="text-yellow-400 fill-yellow-400" />
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Right arrow */}
-          <button
-            onClick={() => scroll(1)}
-            className="absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-border/50 flex items-center justify-center hover:bg-muted transition-colors"
-          >
-            <ArrowRight size={18} className="text-navy" />
-          </button>
+              <Quote className="text-mint/40 mb-2" size={20} />
+              <p className="text-foreground/80 text-[13px] leading-relaxed mb-4 italic flex-1">"{t.quote}"</p>
+              <div className="flex items-center gap-3 pt-3 border-t border-border/50 mt-auto">
+                <div className="w-9 h-9 rounded-full bg-navy text-white flex items-center justify-center text-[11px] font-bold shrink-0">{t.initials}</div>
+                <div>
+                  <p className="font-semibold text-sm text-navy">{t.name}</p>
+                  <p className="text-xs text-muted-foreground">{t.title}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
+
+        {/* Right arrow */}
+        <button
+          onClick={() => scroll(1)}
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-border/50 flex items-center justify-center hover:bg-muted transition-colors"
+        >
+          <ArrowRight size={18} className="text-navy" />
+        </button>
+      </div>
+    </section>
       </div>
     </section>
   );
