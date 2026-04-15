@@ -24,6 +24,7 @@ import { Route as NewsletterSlugRouteImport } from './routes/newsletter.$slug'
 import { Route as IndustriasTelecomunicacionesRouteImport } from './routes/industrias.telecomunicaciones'
 import { Route as IndustriasSaludRouteImport } from './routes/industrias.salud'
 import { Route as IndustriasRetailLogisticaRouteImport } from './routes/industrias.retail-logistica'
+import { Route as IndustriasRealEstateRouteImport } from './routes/industrias.real-estate'
 import { Route as IndustriasMineriaUtilitiesRouteImport } from './routes/industrias.mineria-utilities'
 import { Route as IndustriasBancaFinanzasRouteImport } from './routes/industrias.banca-finanzas'
 import { Route as IndustriasAutomotrizRouteImport } from './routes/industrias.automotriz'
@@ -106,6 +107,11 @@ const IndustriasRetailLogisticaRoute =
     path: '/retail-logistica',
     getParentRoute: () => IndustriasRoute,
   } as any)
+const IndustriasRealEstateRoute = IndustriasRealEstateRouteImport.update({
+  id: '/real-estate',
+  path: '/real-estate',
+  getParentRoute: () => IndustriasRoute,
+} as any)
 const IndustriasMineriaUtilitiesRoute =
   IndustriasMineriaUtilitiesRouteImport.update({
     id: '/mineria-utilities',
@@ -141,6 +147,7 @@ export interface FileRoutesByFullPath {
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
   '/industrias/mineria-utilities': typeof IndustriasMineriaUtilitiesRoute
+  '/industrias/real-estate': typeof IndustriasRealEstateRoute
   '/industrias/retail-logistica': typeof IndustriasRetailLogisticaRoute
   '/industrias/salud': typeof IndustriasSaludRoute
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
@@ -160,6 +167,7 @@ export interface FileRoutesByTo {
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
   '/industrias/mineria-utilities': typeof IndustriasMineriaUtilitiesRoute
+  '/industrias/real-estate': typeof IndustriasRealEstateRoute
   '/industrias/retail-logistica': typeof IndustriasRetailLogisticaRoute
   '/industrias/salud': typeof IndustriasSaludRoute
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
@@ -182,6 +190,7 @@ export interface FileRoutesById {
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
   '/industrias/mineria-utilities': typeof IndustriasMineriaUtilitiesRoute
+  '/industrias/real-estate': typeof IndustriasRealEstateRoute
   '/industrias/retail-logistica': typeof IndustriasRetailLogisticaRoute
   '/industrias/salud': typeof IndustriasSaludRoute
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
@@ -205,6 +214,7 @@ export interface FileRouteTypes {
     | '/industrias/automotriz'
     | '/industrias/banca-finanzas'
     | '/industrias/mineria-utilities'
+    | '/industrias/real-estate'
     | '/industrias/retail-logistica'
     | '/industrias/salud'
     | '/industrias/telecomunicaciones'
@@ -224,6 +234,7 @@ export interface FileRouteTypes {
     | '/industrias/automotriz'
     | '/industrias/banca-finanzas'
     | '/industrias/mineria-utilities'
+    | '/industrias/real-estate'
     | '/industrias/retail-logistica'
     | '/industrias/salud'
     | '/industrias/telecomunicaciones'
@@ -245,6 +256,7 @@ export interface FileRouteTypes {
     | '/industrias/automotriz'
     | '/industrias/banca-finanzas'
     | '/industrias/mineria-utilities'
+    | '/industrias/real-estate'
     | '/industrias/retail-logistica'
     | '/industrias/salud'
     | '/industrias/telecomunicaciones'
@@ -372,6 +384,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriasRetailLogisticaRouteImport
       parentRoute: typeof IndustriasRoute
     }
+    '/industrias/real-estate': {
+      id: '/industrias/real-estate'
+      path: '/real-estate'
+      fullPath: '/industrias/real-estate'
+      preLoaderRoute: typeof IndustriasRealEstateRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
     '/industrias/mineria-utilities': {
       id: '/industrias/mineria-utilities'
       path: '/mineria-utilities'
@@ -408,6 +427,7 @@ interface IndustriasRouteChildren {
   IndustriasAutomotrizRoute: typeof IndustriasAutomotrizRoute
   IndustriasBancaFinanzasRoute: typeof IndustriasBancaFinanzasRoute
   IndustriasMineriaUtilitiesRoute: typeof IndustriasMineriaUtilitiesRoute
+  IndustriasRealEstateRoute: typeof IndustriasRealEstateRoute
   IndustriasRetailLogisticaRoute: typeof IndustriasRetailLogisticaRoute
   IndustriasSaludRoute: typeof IndustriasSaludRoute
   IndustriasTelecomunicacionesRoute: typeof IndustriasTelecomunicacionesRoute
@@ -418,6 +438,7 @@ const IndustriasRouteChildren: IndustriasRouteChildren = {
   IndustriasAutomotrizRoute: IndustriasAutomotrizRoute,
   IndustriasBancaFinanzasRoute: IndustriasBancaFinanzasRoute,
   IndustriasMineriaUtilitiesRoute: IndustriasMineriaUtilitiesRoute,
+  IndustriasRealEstateRoute: IndustriasRealEstateRoute,
   IndustriasRetailLogisticaRoute: IndustriasRetailLogisticaRoute,
   IndustriasSaludRoute: IndustriasSaludRoute,
   IndustriasTelecomunicacionesRoute: IndustriasTelecomunicacionesRoute,

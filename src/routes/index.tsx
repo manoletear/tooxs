@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight, Search, Lightbulb, Rocket, Car, Star } from "lucide-react";
+import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight, Search, Lightbulb, Rocket, Car, Star, Building2 } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 import CardDeckSpread from "../components/CardDeckSpread";
@@ -451,6 +451,7 @@ const industryImages = [
   "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=560&fit=crop", // Telecom
   "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=560&fit=crop", // Salud
   automotiveImg, // Automotriz
+  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=560&fit=crop", // Real Estate
 ];
 
 const industries = [
@@ -495,6 +496,12 @@ const industries = [
     problem: "Concesionarios y talleres procesan garantías, repuestos y órdenes de trabajo de forma manual, generando demoras y errores.",
     solution: "OCR lee órdenes y documentos de garantía. IA clasifica fallas y predice demanda de repuestos. RPA actualiza DMS/ERP y notifica al cliente.",
     impact: "40–60% menos tiempo administrativo, garantías en 1–2 días, mejor experiencia cliente.",
+  },
+  {
+    icon: Building2, name: "Real Estate", tagline: "Del papel a la firma digital",
+    problem: "Gestión comercial y documental manual: seguimiento de prospectos en Excel, contratos en papel, postventa descoordinada.",
+    solution: "Automatización del embudo comercial, OCR para documentos legales, dashboards de velocidad de venta y stock.",
+    impact: "40–60% menos tiempo administrativo, +25% velocidad de cierre comercial.",
   },
 ];
 
