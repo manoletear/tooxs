@@ -125,7 +125,36 @@ const trustLogos = [
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BUPA-1.png", alt: "Bupa" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-DIVEMOTOR-1.png", alt: "Divemotor" },
   { src: "https://tooxs.com/wp-content/uploads/2025/08/logo-vik.png", alt: "Vik" },
+const metrics = [
+  { value: 98, suffix: "%", label: "reducción de errores" },
+  { value: 30, suffix: "+", label: "empresas chilenas" },
+  { value: 4, suffix: "", label: "semanas piloto" },
+  { value: 24, suffix: "/7", label: "soporte local" },
 ];
+
+function TrustBarDynamic() {
+  return (
+    <section className="py-16 bg-section-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-navy">Empresas que confían en TOOXS</h2>
+        </ScrollReveal>
+        {/* Logo marquee */}
+        <div className="relative overflow-hidden mb-12">
+          <div className="flex animate-marquee items-center gap-12">
+            {[...Array(2)].flatMap((_, i) =>
+              trustLogos.map((logo) => (
+                <div key={`${logo.alt}-${i}`} className="flex-shrink-0 w-[140px] h-[60px] flex items-center justify-center">
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="max-h-[50px] max-w-[130px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+                  />
+                </div>
+              ))
+            )}
+          </div>
+        </div>
         {/* Metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {metrics.map((m, i) => (
@@ -141,7 +170,6 @@ const trustLogos = [
     </section>
   );
 }
-
 /* ══════════════════════════════════════════
    3. TESIS
    ══════════════════════════════════════════ */
