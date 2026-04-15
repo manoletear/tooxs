@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -18,10 +18,15 @@ function ContactPage() {
   const [formData, setFormData] = useState({
     name: "", email: "", phone: "", date: "", company: "", service: "", message: "",
   });
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 300);
+    return () => clearTimeout(t);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     alert("Thank you for your inquiry! We'll be in touch shortly.");
   };
 
@@ -39,7 +44,7 @@ function ContactPage() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left */}
-            <div>
+            <div className={`transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
               <h1 className="text-4xl md:text-5xl font-bold text-navy-foreground leading-tight mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
                 Let's <em className="text-gold">Start</em> the Conversation
               </h1>
@@ -47,38 +52,30 @@ function ContactPage() {
                 Ready to take the next step? Reach out and let's discuss how we can help your business achieve its full potential.
               </p>
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center">
-                    <Phone size={18} className="text-gold" />
+                {[
+                  { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
+                  { icon: Mail, label: "Email", value: "info@stratwell.com" },
+                  { icon: MapPin, label: "Address", value: "123 Business Ave, Suite 100, New York, NY 10001" },
+                ].map((item, i) => (
+                  <div
+                    key={item.label}
+                    className={`flex items-center gap-4 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                    style={{ transitionDelay: `${500 + i * 150}ms` }}
+                  >
+                    <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center">
+                      <item.icon size={18} className="text-gold" />
+                    </div>
+                    <div>
+                      <p className="text-navy-foreground/60 text-xs uppercase tracking-wider">{item.label}</p>
+                      <p className="text-navy-foreground font-medium">{item.value}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-navy-foreground/60 text-xs uppercase tracking-wider">Phone</p>
-                    <p className="text-navy-foreground font-medium">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center">
-                    <Mail size={18} className="text-gold" />
-                  </div>
-                  <div>
-                    <p className="text-navy-foreground/60 text-xs uppercase tracking-wider">Email</p>
-                    <p className="text-navy-foreground font-medium">info@stratwell.com</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center">
-                    <MapPin size={18} className="text-gold" />
-                  </div>
-                  <div>
-                    <p className="text-navy-foreground/60 text-xs uppercase tracking-wider">Address</p>
-                    <p className="text-navy-foreground font-medium">123 Business Ave, Suite 100, New York, NY 10001</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
             {/* Right — Form */}
-            <div className="bg-card rounded-2xl p-8 md:p-10 shadow-xl">
+            <div className={`bg-card rounded-2xl p-8 md:p-10 shadow-xl transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
               <h2 className="text-2xl font-bold text-navy mb-6" style={{ fontFamily: 'var(--font-heading)' }}>Book a Consultation</h2>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "../components/PageHero";
 import { CTASection } from "../components/CTASection";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/ui/accordion";
+import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/faqs")({
   head: () => ({
@@ -41,14 +42,16 @@ function FAQsPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="border rounded-xl px-6 bg-card">
-                <AccordionTrigger className="text-left text-navy font-semibold hover:no-underline" style={{ fontFamily: 'var(--font-heading)' }}>
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
+              <ScrollReveal key={i} delay={i * 50}>
+                <AccordionItem value={`faq-${i}`} className="border rounded-xl px-6 bg-card">
+                  <AccordionTrigger className="text-left text-navy font-semibold hover:no-underline" style={{ fontFamily: 'var(--font-heading)' }}>
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              </ScrollReveal>
             ))}
           </Accordion>
         </div>
