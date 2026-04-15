@@ -16,16 +16,13 @@ interface IndustryCarouselProps {
 }
 
 export default function IndustryCarousel({ cards, className = "" }: IndustryCarouselProps) {
-  const [currentAngle, setCurrentAngle] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [isDragging, setIsDragging] = useState(false);
-  const dragStartX = useRef(0);
-  const dragStartAngle = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   const n = cards.length;
-  const angleStep = 360 / n;
 
   // Intersection observer
   useEffect(() => {
@@ -36,157 +33,191 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
     return () => obs.disconnect();
   }, []);
 
-  // Auto-rotate
+  // Auto-cycle
   useEffect(() => {
-    if (!isAutoPlaying || !isVisible) return;
-    const id = setInterval(() => setCurrentAngle(a => a - angleStep), 3000);
+    if (!isAutoPlaying || !isVisible || flippedIndex !== null) return;
+    const id = setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % n);
+    }, 3500);
     return () => clearInterval(id);
-  }, [isAutoPlaying, isVisible, angleStep]);
+  }, [isAutoPlaying, isVisible, n, flippedIndex]);
 
-  const goTo = useCallback((dir: number) => {
+  const goTo = useCallback((index: number) => {
     setIsAutoPlaying(false);
-    setCurrentAngle(a => a + dir * angleStep);
-  }, [angleStep]);
+    setFlippedIndex(null);
+    setActiveIndex(index);
+  }, []);
 
-  // Drag handlers
-  const onPointerDown = useCallback((e: React.PointerEvent) => {
-    setIsDragging(true);
+  const handleCardClick = useCallback((index: number) => {
+    if (index !== activeIndex) {
+      goTo(index);
+      return;
+    }
+    // Toggle flip on active card
     setIsAutoPlaying(false);
-    dragStartX.current = e.clientX;
-    dragStartAngle.current = currentAngle;
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
-  }, [currentAngle]);
+    setFlippedIndex(prev => prev === index ? null : index);
+  }, [activeIndex, goTo]);
 
-  const onPointerMove = useCallback((e: React.PointerEvent) => {
-    if (!isDragging) return;
-    const dx = e.clientX - dragStartX.current;
-    setCurrentAngle(dragStartAngle.current + dx * 0.3);
-  }, [isDragging]);
+  const next = useCallback(() => {
+    setIsAutoPlaying(false);
+    setFlippedIndex(null);
+    setActiveIndex(prev => (prev + 1) % n);
+  }, [n]);
 
-  const onPointerUp = useCallback(() => {
-    if (!isDragging) return;
-    setIsDragging(false);
-    // Snap to nearest card
-    setCurrentAngle(a => Math.round(a / angleStep) * angleStep);
-  }, [isDragging, angleStep]);
-
-  // Responsive radius
-  const radius = typeof window !== "undefined" && window.innerWidth < 640 ? 220 : 380;
+  const prev = useCallback(() => {
+    setIsAutoPlaying(false);
+    setFlippedIndex(null);
+    setActiveIndex(prev => (prev - 1 + n) % n);
+  }, [n]);
 
   return (
     <div ref={containerRef} className={`relative ${className}`}>
-      {/* 3D Scene */}
-      <div
-        className="relative mx-auto select-none"
-        style={{ width: "100%", height: 420, perspective: 1200 }}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
-      >
-        <div
-          className="absolute inset-0 flex items-center justify-center"
-          style={{
-            transformStyle: "preserve-3d",
-            transform: `rotateY(${currentAngle}deg)`,
-            transition: isDragging ? "none" : "transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1)",
-          }}
-        >
-          {cards.map((card, i) => {
-            const angle = i * angleStep;
-            // Determine if this card is roughly facing front
-            const normalizedAngle = ((currentAngle + angle) % 360 + 360) % 360;
-            const isFront = normalizedAngle < 30 || normalizedAngle > 330;
+      {/* Card Stack */}
+      <div className="relative mx-auto" style={{ height: 480, maxWidth: 700 }}>
+        {cards.map((card, i) => {
+          // Calculate position relative to active
+          let offset = i - activeIndex;
+          if (offset > n / 2) offset -= n;
+          if (offset < -n / 2) offset += n;
 
-            return (
+          const isActive = offset === 0;
+          const isFlipped = flippedIndex === i && isActive;
+          const absOffset = Math.abs(offset);
+
+          // Only render nearby cards
+          if (absOffset > 3) return null;
+
+          // Stack positioning: cards behind shift up and scale down
+          const translateY = isActive ? 0 : -absOffset * 28;
+          const translateX = offset * 12;
+          const scale = isActive ? 1 : 1 - absOffset * 0.06;
+          const zIndex = n - absOffset;
+          const opacity = absOffset > 2 ? 0 : 1 - absOffset * 0.15;
+          const rotate = offset * 2;
+
+          return (
+            <div
+              key={i}
+              className="absolute left-1/2 top-1/2 cursor-pointer"
+              style={{
+                width: 300,
+                height: 420,
+                marginLeft: -150,
+                marginTop: -210,
+                zIndex,
+                transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`,
+                opacity,
+                transition: "all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                perspective: 1000,
+              }}
+              onClick={() => handleCardClick(i)}
+            >
+              {/* Flip container */}
               <div
-                key={i}
-                className="absolute"
+                className="relative w-full h-full"
                 style={{
-                  width: 260,
-                  height: 370,
-                  transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
-                  backfaceVisibility: "hidden",
+                  transformStyle: "preserve-3d",
+                  transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+                  transition: "transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)",
                 }}
               >
+                {/* FRONT - Image in B&W */}
                 <div
-                  className="w-full h-full rounded-2xl overflow-hidden shadow-xl border border-white/10 transition-all duration-500"
+                  className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl border border-border"
+                  style={{ backfaceVisibility: "hidden" }}
+                >
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full h-full object-cover"
+                    style={{ filter: isActive && !isFlipped ? "grayscale(70%)" : "grayscale(100%)" }}
+                    draggable={false}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  {/* Title overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <div className="w-9 h-9 rounded-full bg-mint/20 backdrop-blur-sm flex items-center justify-center">
+                        <card.icon className="text-mint" size={18} />
+                      </div>
+                      <div>
+                        <h3 className="text-white font-bold text-lg leading-tight">{card.title}</h3>
+                        <p className="text-mint text-xs font-medium italic mt-0.5">{card.subtitle}</p>
+                      </div>
+                    </div>
+                    {isActive && (
+                      <p className="text-white/60 text-xs mt-3 animate-fade-up">Toca para ver detalles →</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* BACK - Content */}
+                <div
+                  className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl border border-mint/30"
                   style={{
-                    background: "#fff",
-                    outline: isFront ? "2px solid var(--mint)" : "none",
-                    outlineOffset: 2,
+                    backfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)",
+                    background: "linear-gradient(135deg, #1D1D1B 0%, #2A2A28 100%)",
                   }}
                 >
-                  {/* Image */}
-                  <div className="relative h-[55%] overflow-hidden">
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="w-full h-full object-cover"
-                      draggable={false}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,38,71,0.95)] via-[rgba(10,38,71,0.4)] to-transparent" />
-                    <div className="absolute bottom-3 left-4 right-4">
-                      <div className="flex items-center gap-2 mb-1">
-                        <card.icon className="text-mint" size={18} />
-                        <span className="text-white font-bold text-base leading-tight">{card.title}</span>
+                  <div className="p-6 h-full flex flex-col">
+                    {/* Header */}
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="w-10 h-10 rounded-full bg-mint/20 flex items-center justify-center">
+                        <card.icon className="text-mint" size={20} />
                       </div>
-                      <span className="text-mint text-xs font-medium italic">{card.subtitle}</span>
+                      <div>
+                        <h3 className="text-white font-bold text-base">{card.title}</h3>
+                        <p className="text-mint text-xs italic">{card.subtitle}</p>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Content */}
-                  <div className="p-4 h-[45%] flex flex-col justify-between text-xs">
-                    <div className="space-y-2">
+                    {/* Content */}
+                    <div className="space-y-4 flex-1">
                       <div>
-                        <span className="font-bold text-navy text-[11px] uppercase tracking-wider">Problema</span>
-                        <p className="text-muted-foreground leading-snug mt-0.5 line-clamp-2">{card.problem}</p>
+                        <span className="text-mint text-xs font-bold uppercase tracking-wider">Problema</span>
+                        <p className="text-white/80 text-sm leading-relaxed mt-1">{card.problem}</p>
                       </div>
                       <div>
-                        <span className="font-bold text-navy text-[11px] uppercase tracking-wider">Solución</span>
-                        <p className="text-muted-foreground leading-snug mt-0.5 line-clamp-2">{card.solution}</p>
+                        <span className="text-mint text-xs font-bold uppercase tracking-wider">Solución</span>
+                        <p className="text-white/80 text-sm leading-relaxed mt-1">{card.solution}</p>
                       </div>
                     </div>
-                    <div className="bg-mint/10 rounded-lg px-3 py-1.5 mt-1">
-                      <span className="font-bold text-mint text-[11px]">Impacto: </span>
-                      <span className="text-navy text-[11px] font-medium">{card.impact}</span>
+
+                    {/* Impact */}
+                    <div className="bg-mint/10 rounded-xl px-4 py-3 mt-3 border border-mint/20">
+                      <span className="text-mint text-xs font-bold">Impacto: </span>
+                      <span className="text-white text-xs font-medium">{card.impact}</span>
                     </div>
                   </div>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
 
       {/* Navigation */}
-      <div className="flex items-center justify-center gap-4 mt-4">
+      <div className="flex items-center justify-center gap-4 mt-6">
         <button
-          onClick={() => goTo(1)}
+          onClick={prev}
           className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-mint transition-colors"
           aria-label="Anterior"
         >
           ‹
         </button>
-        <div className="flex gap-1.5">
-          {cards.map((_, i) => {
-            const normalizedAngle = ((-currentAngle % 360) + 360) % 360;
-            const cardAngle = i * angleStep;
-            const isActive = Math.abs(normalizedAngle - cardAngle) < angleStep / 2 ||
-                             Math.abs(normalizedAngle - cardAngle - 360) < angleStep / 2 ||
-                             Math.abs(normalizedAngle - cardAngle + 360) < angleStep / 2;
-            return (
-              <button
-                key={i}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${isActive ? "bg-mint w-6" : "bg-navy/30"}`}
-                onClick={() => { setIsAutoPlaying(false); setCurrentAngle(-i * angleStep); }}
-                aria-label={`Ir a ${cards[i].title}`}
-              />
-            );
-          })}
+        <div className="flex gap-2">
+          {cards.map((_, i) => (
+            <button
+              key={i}
+              className={`h-2 rounded-full transition-all duration-300 ${i === activeIndex ? "bg-mint w-8" : "bg-navy/30 w-2"}`}
+              onClick={() => goTo(i)}
+              aria-label={`Ir a ${cards[i].title}`}
+            />
+          ))}
         </div>
         <button
-          onClick={() => goTo(-1)}
+          onClick={next}
           className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-mint transition-colors"
           aria-label="Siguiente"
         >
