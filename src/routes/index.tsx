@@ -361,23 +361,23 @@ function IndustryExplorer() {
    ══════════════════════════════════════════ */
 const capabilityCards = [
   {
-    title: "01 — Discover",
-    description: "We immerse ourselves in your business to identify key challenges, uncover opportunities, and build a clear picture of what matters most.",
+    title: "01 — Descubrir",
+    description: "Nos sumergimos en tu negocio para identificar desafíos clave, descubrir oportunidades y construir una visión clara de lo que realmente importa.",
     image: monkeySeeImg,
   },
   {
-    title: "02 — Strategize",
-    description: "We craft tailored strategies that align with your goals, constraints, and available resources.",
+    title: "02 — Estrategizar",
+    description: "Diseñamos estrategias a medida alineadas con tus objetivos, restricciones y recursos disponibles.",
     image: monkeyHearImg,
   },
   {
-    title: "03 — Execute",
-    description: "We support implementation to ensure every solution is practical, effective, and built for long-term impact.",
+    title: "03 — Ejecutar",
+    description: "Acompañamos la implementación para asegurar que cada solución sea práctica, efectiva y con impacto a largo plazo.",
     image: monkeySpeakImg,
   },
   {
-    title: "04 — Optimize",
-    description: "We track performance, refine processes, and turn insights into measurable business results.",
+    title: "04 — Optimizar",
+    description: "Medimos el desempeño, refinamos procesos y convertimos los datos en resultados de negocio concretos.",
     image: monkeyMeasureImg,
   },
 ];
