@@ -19,6 +19,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as NewsletterIndexRouteImport } from './routes/newsletter.index'
+import { Route as ServicesServiceSlugRouteImport } from './routes/services.$serviceSlug'
 import { Route as NewsletterSlugRouteImport } from './routes/newsletter.$slug'
 import { Route as IndustriasTelecomunicacionesRouteImport } from './routes/industrias.telecomunicaciones'
 import { Route as IndustriasSaludRouteImport } from './routes/industrias.salud'
@@ -77,6 +78,11 @@ const NewsletterIndexRoute = NewsletterIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => NewsletterRoute,
+} as any)
+const ServicesServiceSlugRoute = ServicesServiceSlugRouteImport.update({
+  id: '/$serviceSlug',
+  path: '/$serviceSlug',
+  getParentRoute: () => ServicesRoute,
 } as any)
 const NewsletterSlugRoute = NewsletterSlugRouteImport.update({
   id: '/$slug',
@@ -139,6 +145,7 @@ export interface FileRoutesByFullPath {
   '/industrias/salud': typeof IndustriasSaludRoute
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
   '/newsletter/$slug': typeof NewsletterSlugRoute
+  '/services/$serviceSlug': typeof ServicesServiceSlugRoute
   '/newsletter/': typeof NewsletterIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/industrias/salud': typeof IndustriasSaludRoute
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
   '/newsletter/$slug': typeof NewsletterSlugRoute
+  '/services/$serviceSlug': typeof ServicesServiceSlugRoute
   '/newsletter': typeof NewsletterIndexRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -178,6 +186,7 @@ export interface FileRoutesById {
   '/industrias/salud': typeof IndustriasSaludRoute
   '/industrias/telecomunicaciones': typeof IndustriasTelecomunicacionesRoute
   '/newsletter/$slug': typeof NewsletterSlugRoute
+  '/services/$serviceSlug': typeof ServicesServiceSlugRoute
   '/newsletter/': typeof NewsletterIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -200,6 +209,7 @@ export interface FileRouteTypes {
     | '/industrias/salud'
     | '/industrias/telecomunicaciones'
     | '/newsletter/$slug'
+    | '/services/$serviceSlug'
     | '/newsletter/'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
@@ -218,6 +228,7 @@ export interface FileRouteTypes {
     | '/industrias/salud'
     | '/industrias/telecomunicaciones'
     | '/newsletter/$slug'
+    | '/services/$serviceSlug'
     | '/newsletter'
     | '/services'
   id:
@@ -238,6 +249,7 @@ export interface FileRouteTypes {
     | '/industrias/salud'
     | '/industrias/telecomunicaciones'
     | '/newsletter/$slug'
+    | '/services/$serviceSlug'
     | '/newsletter/'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -324,6 +336,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/newsletter/'
       preLoaderRoute: typeof NewsletterIndexRouteImport
       parentRoute: typeof NewsletterRoute
+    }
+    '/services/$serviceSlug': {
+      id: '/services/$serviceSlug'
+      path: '/$serviceSlug'
+      fullPath: '/services/$serviceSlug'
+      preLoaderRoute: typeof ServicesServiceSlugRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/newsletter/$slug': {
       id: '/newsletter/$slug'
@@ -423,10 +442,12 @@ const NewsletterRouteWithChildren = NewsletterRoute._addFileChildren(
 )
 
 interface ServicesRouteChildren {
+  ServicesServiceSlugRoute: typeof ServicesServiceSlugRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesServiceSlugRoute: ServicesServiceSlugRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 
