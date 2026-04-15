@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState, useRef, useCallback, type ReactNode } from "react";
 import { X, FileText, Shield, FolderSearch, Receipt } from "lucide-react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
