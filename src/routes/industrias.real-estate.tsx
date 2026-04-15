@@ -5,11 +5,14 @@ import heroImage from "../assets/hero-real-estate.jpg";
 export const Route = createFileRoute("/industrias/real-estate")({
   head: () => ({
     meta: [
-      { title: "Real Estate — Tooxs" },
-      { name: "description", content: "Automatización y analítica para desarrolladoras inmobiliarias, corredoras y administradoras de activos. Más velocidad comercial, mejor gestión operativa." },
-      { property: "og:title", content: "Real Estate — Tooxs" },
-      { property: "og:description", content: "Gestión inmobiliaria más ágil, con datos y automatización." },
+      { title: "Real Estate — TOOXS | Automatización Inmobiliaria" },
+      { name: "description", content: "Automatización y analítica para desarrolladoras inmobiliarias, corredoras y administradoras de activos. Más velocidad comercial y mejor gestión operativa." },
+      { property: "og:title", content: "Real Estate — TOOXS" },
+      { property: "og:description", content: "Gestión inmobiliaria más ágil con datos, IA y automatización de procesos." },
+      { property: "og:url", content: "https://www.tooxs.com/industrias/real-estate" },
+      { name: "keywords", content: "real estate IA, automatización inmobiliaria, gestión activos, TOOXS" },
     ],
+    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/real-estate" }],
   }),
   component: RealEstatePage,
 });

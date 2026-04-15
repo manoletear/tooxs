@@ -5,11 +5,14 @@ import heroImage from "../assets/hero-mining.jpg";
 export const Route = createFileRoute("/industrias/mineria-utilities")({
   head: () => ({
     meta: [
-      { title: "Minería y Utilities — Tooxs" },
-      { name: "description", content: "Ayudamos a compañías intensivas en activos a reducir pérdidas operativas, anticipar fallas y mejorar la continuidad operacional con IA." },
-      { property: "og:title", content: "Minería y Utilities — Tooxs" },
-      { property: "og:description", content: "Operaciones críticas, decisiones en tiempo real." },
+      { title: "Minería y Utilities — TOOXS | IA para Operaciones Críticas" },
+      { name: "description", content: "Ayudamos a compañías mineras y de utilities a reducir pérdidas operativas, anticipar fallas y mejorar la continuidad operacional con IA y automatización." },
+      { property: "og:title", content: "Minería y Utilities — TOOXS" },
+      { property: "og:description", content: "IA para operaciones críticas: decisiones en tiempo real, mantenimiento predictivo y optimización de activos." },
+      { property: "og:url", content: "https://www.tooxs.com/industrias/mineria-utilities" },
+      { name: "keywords", content: "minería IA, utilities automatización, mantenimiento predictivo, optimización activos, TOOXS" },
     ],
+    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/mineria-utilities" }],
   }),
   component: MineriaPage,
 });
