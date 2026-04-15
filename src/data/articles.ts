@@ -368,6 +368,399 @@ Este insight no es exclusivo de salud. En cualquier industria B2B o B2C, la pers
 
 La personalización a escala requiere tres cosas: datos limpios, automatización inteligente y la capacidad de actuar en tiempo real. Si quieres que tu empresa deje de tratar a todos los clientes igual, la tecnología ya existe. Lo que falta es implementarla.`,
   },
+  {
+    id: 12,
+    slug: "agentes-ia-automatizacion-2026",
+    category: "Insights",
+    date: "15 Abril 2026",
+    readTime: "8 min",
+    title: "Agentes de IA en 2026: del piloto a la producción — y por qué el 40% de los proyectos van a fracasar",
+    excerpt: "La automatización inteligente dejó de ser un experimento. Pero sin gobernanza, estrategia clara y visión operativa, la inversión se pierde. Esto es lo que los ejecutivos industriales en Latinoamérica necesitan saber ahora.",
+    image: articleAgentesIa,
+    content: `La volatilidad geopolítica ya no es un "cisne negro" — es el nuevo normal. Durante 2024 y 2025, la conversación sobre inteligencia artificial giró en torno a modelos de lenguaje, chatbots y pilotos internos. Pero 2026 marca un punto de inflexión: los agentes de IA están pasando de la experimentación a la producción.
+
+Según McKinsey, el 88% de las organizaciones ya usa IA en al menos una función empresarial. Pero la cifra que importa es otra: solo el 23% ha logrado escalar agentes de IA en al menos una función de negocio. El resto sigue en piloto, POC o evaluación.
+
+## Agentes de IA: no son chatbots, no son RPA
+
+Una confusión común entre ejecutivos es tratar a los agentes de IA como una evolución del RPA (Robotic Process Automation). No lo son. Son una categoría distinta.
+
+**RPA** ejecuta tareas repetitivas siguiendo scripts predefinidos. Es determinista: mismo input, mismo output. Funciona bien para procesos estructurados pero es frágil — si cambia una interfaz, se rompe.
+
+**Un agente de IA**, en cambio, percibe su entorno, razona sobre un objetivo, planifica acciones y se adapta a condiciones cambiantes. Usa modelos de lenguaje como cerebro para interpretar contexto, manejar datos no estructurados y tomar decisiones en escenarios ambiguos.
+
+La diferencia clave: RPA ejecuta tareas; un agente logra objetivos.
+
+## Lo que dicen los datos: oportunidad masiva, riesgo real
+
+McKinsey estima que los agentes de IA podrían agregar entre $2.6 y $4.4 billones de dólares en valor anual. IDC proyecta un aumento de 10x en el uso de agentes por empresas del G2000 para 2027.
+
+PwC reporta que el 66% de las empresas que ya adoptaron agentes registran ganancias de productividad mensurables, y el 57% reporta ahorros de costos tangibles. Gartner predice que para fin de 2026, el 40% de las aplicaciones empresariales tendrán agentes de IA integrados.
+
+Pero Gartner también advierte que más del 40% de los proyectos de agentes podrían ser cancelados antes de fin de 2027. Las razones: costos que escalan sin control, valor empresarial poco claro, y agentes que violan políticas internas.
+
+## Dónde están generando valor hoy
+
+**Operaciones y cadena de suministro.** Agentes que coordinan robots, sensores y sistemas logísticos en tiempo real. El 58% de las empresas ya usa "Physical AI" en algún nivel.
+
+**Finanzas y administración.** Facturación automatizada, pronósticos financieros y auditoría de gastos. Resultado: aceleración de procesos de cierre entre 30% y 50%.
+
+**Servicio al cliente.** Agentes que manejan reembolsos, escalaciones y soporte omnicanal con contexto completo del historial del cliente. Equipos pequeños recuperan más de 40 horas mensuales.
+
+**Ventas y marketing.** Generación de leads, alcance personalizado y calificación automática con mejoras de 2-3x en velocidad del pipeline.
+
+## La oportunidad para Latinoamérica
+
+Chile, con su industria minera, tiene un terreno natural para agentes que optimicen mantenimiento predictivo, gestión de flotas autónomas y monitoreo ambiental en tiempo real. Brasil y México pueden implementar agentes que coordinen líneas de producción y optimicen cadenas de suministro complejas.
+
+El desafío no es tecnológico — es organizacional. La barrera número uno es la brecha de habilidades. Las empresas que resuelvan primero esta ecuación van a capturar una ventaja competitiva difícil de replicar.
+
+## Qué necesita un ejecutivo para no ser parte del 40% que fracasa
+
+**Gobernanza desde el día uno.** Definir qué decisiones puede tomar un agente de forma autónoma y cuáles requieren supervisión humana.
+
+**ROI medible antes de escalar.** Antes de escalar un agente, hay que demostrar valor concreto en un proceso acotado.
+
+**Integración híbrida.** Los agentes más efectivos no reemplazan la automatización tradicional — la orquestan. Un sistema maduro combina RPA para tareas estructuradas con agentes de IA para razonamiento y decisión.
+
+**Capacitación del equipo.** Presupuesto sin capacidad de ejecución es gasto, no inversión. La brecha de habilidades es el cuello de botella real.`,
+  },
+  {
+    id: 13,
+    slug: "agente-del-cambio-ceos",
+    category: "Liderazgo & AI",
+    date: "15 Abril 2026",
+    readTime: "7 min",
+    title: "El agente del cambio: Por qué tu CEO está perdiendo contra la IA",
+    excerpt: "88% de las empresas han desplegado IA, pero 86% no está lista para operarla. Los números no mienten: o inviertes 5 veces más en personas que en tecnología, o tu transformación fracasará.",
+    image: articleCeoCambio,
+    content: `En el último año, hemos visto mineras en El Teniente instalar sistemas de IA predictiva para mantenimiento de equipos, empresas de logística en Valparaíso implementar agentes autónomos de ruta, y fábricas en Arica optimizando cadenas con aprendizaje automático. El problema: solo 14% de los CEO actúa como campeón del cambio. La mayoría ve la IA como un proyecto IT, no como una transformación que requiere repensar cómo trabaja la gente.
+
+## La paradoja: tenemos la IA, pero no los líderes
+
+McKinsey documentó algo brutal: 86% de las organizaciones reconoce que no está preparada para operar IA a escala. No es que no tengan la tecnología. Es que tienen un liderazgo que entiende algoritmos pero no entiende transformación organizacional.
+
+## El dinero está en el lugar equivocado
+
+Hemos trabajado con clientes en Chile que han gastado US$2 millones en infraestructura de IA y luego descubrieron que necesitaban el doble en capacitación, cambio de procesos y re-thinking de roles. La regla de McKinsey: por cada dólar invertido en tecnología, deberías invertir 5 en las personas.
+
+Los CEOs que logran mantener o mejorar el performance durante transformaciones son 4 veces más probables de priorizar la gente junto con la tecnología.
+
+## El agujero negro de la gobernanza
+
+Uno de cada seis CEO no tiene propietario designado en el C-Suite para la estrategia de IA. Es decir, 1 en 6 organizaciones está ejecutando la transformación más importante del siglo sin un dueño claro.
+
+## Por qué las empresas tradicionales fracasan
+
+La manufactura, logística y minería en Latinoamérica tienen culturas donde la obediencia jerárquica es fuerte. Con IA agéntica, es una debilidad. Los equipos necesitan entender POR QUÉ cambia el proceso, necesitan espacio para sugerir mejoras, necesitan ver el error como data de aprendizaje.
+
+## La acción urgente: tres cosas que deberías hacer hoy
+
+**Primero: designa un dueño ejecutivo.** No puede ser el IT director. Tiene que ser alguien con poder para mover recursos humanos, redefinir roles, y tomar decisiones rápido.
+
+**Segundo: invierte en comprensión de tu gente.** Antes de automatizar un proceso, entiende qué hace que la gente se sienta segura o amenazada con el cambio.
+
+**Tercero: crea un fondo de experimentación rápida.** USD 200K-500K distribuidos entre equipos para que prueben casos de uso pequeños de IA. Fallar rápido, aprender rápido, escalar lo que funciona.`,
+  },
+  {
+    id: 14,
+    slug: "desempeno-alta-direccion",
+    category: "C-Suite & Gobernanza",
+    date: "15 Abril 2026",
+    readTime: "8 min",
+    title: "Cómo desmitificar el desempeño de los equipos de alta dirección",
+    excerpt: "Solo 24% de las empresas es altamente exitosa en transformaciones. 63% cumple parcialmente. Seis obstáculos derrotan a tu C-Suite. Aquí cómo esquivarlos.",
+    image: articleAltaDireccion,
+    content: `McKinsey estudió 1,500+ transformaciones empresariales en los últimos 5 años. Solo 24% fue altamente exitosa. 63% cumplió "la mayoría de objetivos." El resto: fracaso o abandono. No es por falta de dinero o mercado. Es por debilidad de liderazgo de C-Suite.
+
+## Los seis obstáculos que derrota a la mayoría del C-Suite
+
+**Obstáculo 1: Falta de alineación ejecutiva sobre la visión.** El CEO ve IA como eficiencia operacional. El CTO ve IA como innovación técnica. El CFO ve IA como riesgo de costo. Ninguno está equivocado, pero si no se alinean en QUÉ es el proyecto, los resultados son contradictorios.
+
+**Obstáculo 2: Distribución ineficiente del tiempo ejecutivo.** Si tu CEO pasa 5% del tiempo en IA (2 horas por semana), eso envía un mensaje: no es prioridad. Las empresas exitosas: el CEO pasa 20-30% del tiempo.
+
+**Obstáculo 3: Gestión de stakeholders débil.** Directorios que quieren dividendos ahora, accionistas que no entienden el case, empleados que temen por sus puestos. Un C-Suite fuerte comunica valor y obtiene alineación.
+
+**Obstáculo 4: Métricas de éxito mal definidas.** IT mide "% de adoption." Operaciones mide "costo evitado." Finanzas mide "ROI." Si no convergen, parecería que algunos ganan y otros pierden.
+
+**Obstáculo 5: Gestión del riesgo reactiva, no proactiva.** Sin un plan proactivo de riesgos y gobernanza clara, cada riesgo se convierte en crisis.
+
+**Obstáculo 6: Falta de accountability estructurada.** Si nadie es responsable por la transformación, todos son. Y eso significa nadie.
+
+## Plan de 60 días para fortalecer tu C-Suite
+
+**Semanas 1-2:** Diagnóstico de alineación. Reúnete con cada C-Suite player por separado.
+
+**Semanas 3-4:** Alineación ejecutiva (off-site). Un día de trabajo donde el C-Suite articula visión compartida.
+
+**Semanas 5-8:** Comunicación cascada. El CEO comunica la visión alineada a toda la organización.
+
+**Semanas 9-12:** Governance mensual. C-Suite se junta una vez al mes, 90 minutos enfocados.
+
+## El take de Tooxs
+
+La correlación es simple: empresas donde el C-Suite está alineado, comprometido, y claro en visión ganan. Donde está dividido, distraído, o poco comprometido, pierden. No es que una tenga mejor tecnología. Es que tiene mejor liderazgo.`,
+  },
+  {
+    id: 15,
+    slug: "cinco-dilemas-imposibles-ceos",
+    category: "Estrategia & Liderazgo",
+    date: "15 Abril 2026",
+    readTime: "7 min",
+    title: "Los Cinco Dilemas Imposibles: Cómo los Mejores CEOs Navegan lo Irresuelto",
+    excerpt: "McKinsey entrevistó a ~100 CEOs senior. Las decisiones más críticas no tienen solución correcta. Tienen tensión permanente. Los mejores líderes lo saben y actúan diferente.",
+    image: articleDilemasCeo,
+    content: `Tu CEO natural quiere certeza. Pregunta: "¿Hago X o hago Y?" Espera respuesta clara. Realidad: las decisiones que definen tu empresa no tienen respuesta clara. Tienen tensión.
+
+McKinsey mapeó cinco dilemas que repiten en toda organización. CEO mediocres eligen lado A y viven en conflicto permanente. CEO buenos reconocen que ambos lados son válidos y buscan "tanto/como" solución.
+
+## Dilema 1: Preservar Core vs. Innovar
+
+Minera chilena vende mineral commodity. Margen bajo. Ve que mercado quiere "mineral verificado ESG" y paga premium 15-20%. Quiere innovar. Pero eso requiere cambio de procesos, inversión, riesgo.
+
+**CEO mediocre dice:** "Core es sagrado. Innovamos, pero no amenazamos core." Nunca innova de verdad.
+
+**CEO bueno dice:** "Core es nuestro colchón financiero por 24 meses. En ese tiempo, lanzamos innovación paralela."
+
+## Dilema 2: Corto Plazo vs. Largo Plazo
+
+**CEO mediocre:** "Necesito mostrar números ahora." Corta inversión de largo plazo. Funciona trimestre 1. Trimestre 4, carencia de inversión golpea.
+
+**CEO bueno:** "¿Dónde gasto menos pero con más impacto?" Requiere más creatividad.
+
+## Dilema 3: Estrellas Individuales vs. Colectivo
+
+**CEO mediocre:** "Es demasiado talentoso para perder. Le permito comportamiento tóxico."
+
+**CEO bueno:** "Talento excepcional que no juega en equipo no tiene lugar aquí. 3 meses para cambiar. Si no, sale."
+
+## Dilema 4: Empoderar vs. Controlar
+
+**CEO bueno:** "Empodero dentro de límites claros. Si está dentro de límite, decide sin pedirme. Si está fuera, escalas."
+
+## Dilema 5: Role Immersion vs. Personal Identity
+
+**CEO bueno:** "Necesito estar sharp para mi empresa. Eso significa dormir, relación sana, actividad que recarga baterías." Un CEO de manufactura en Monterrey lo implementó. Burnout bajó 60%.
+
+## El Patrón: Both/And, no Either/Or
+
+CEOs ganadores no creen que dilemas se resuelven. Creen que se navegan. No es "preservar O innovar." Es "¿Cómo preservo core Y innovo en paralelo?" Esa mentalidad "both/and" es lo que diferencia.`,
+  },
+  {
+    id: 16,
+    slug: "equipos-clase-mundial",
+    category: "Talento & Equipos",
+    date: "15 Abril 2026",
+    readTime: "7 min",
+    title: "De lo Peor a lo Mejor: Los 4 Pilares de los Equipos de Clase Mundial",
+    excerpt: "McKinsey estudió a los mejores equipos del mundo en deportes, negocios y militares. La sorpresa: no nacen talentosos. Se construyen. Y hay una fórmula clara que funciona en Santiago, Medellín o Lima.",
+    image: articleEquiposMundial,
+    content: `Hay una creencia en empresas latinoamericanas: "Nuestro talento no es el problema. El talento en Chile simplemente no existe." Falso.
+
+McKinsey comparó equipos "de élite" con equipos "mediocres" en contextos idénticos. La diferencia: cómo estaban organizados y liderados. Solo 38% de nuevos coaches alcanzan éxito en primeros 6 meses. Solo 23% sobreviven al cuarto año.
+
+## Pilar 1: Estándares Claros y Cultura No-Negociable
+
+Equipos mediocres tienen "valores" colgados en la pared. "Integridad." "Excelencia." Nadie sabe qué significa. Equipos de clase mundial definen con precisión brutal qué esperan.
+
+Ejemplo de una minera chilena: no dijeron "seguridad es importante." Especificaron estándares medibles con consecuencias reales. Cuando especificas así, la cultura cambia en meses.
+
+## Pilar 2: Selección de Talento Complementario
+
+Equipos de clase mundial piensan: "¿Qué capacidades NECESITAMOS para ganar? ¿Quién cubre cada una? ¿Dónde hay huecos?" Buscan gente que rellena huecos, no gente que "es buena."
+
+Una fintech en Bogotá contrató 4 personas diferentes, ninguna era la "estrella más brillante." Pero juntos tardaron 9 meses en producción; competencia tardó 16.
+
+## Pilar 3: Manuales de Operación Detallados
+
+Un equipo de logística tenía caos. Cada persona resolvía problemas de forma diferente. Crearon un manual con procedimientos claros. Nuevas personas operaban sin fricción en 2 semanas vs. 3 meses antes. Inconsistencia bajó 70%.
+
+## Pilar 4: Liderazgo Distribuido (No Heroísmo)
+
+Equipos mediocres dependen del héroe. Cuando se va, colapsa. Equipos de clase mundial distribuyen decisiones. 23% de equipos liderados heroicamente sobreviven 4 años. 70% de equipos con liderazgo distribuido lo hacen.
+
+## Cómo Pasar de Mediocre a Excelencia en 18 Meses
+
+**Meses 1-3:** Define estándares explícitos. Comunica. Cambia gente que no está de acuerdo.
+
+**Meses 3-6:** Analiza huecos en complementariedad. Contrata para rellenar.
+
+**Meses 6-9:** Crea manuales operacionales.
+
+**Meses 9-18:** Suelta poder. Deja que cada persona decida en su área.`,
+  },
+  {
+    id: 17,
+    slug: "fabrica-liderazgo-siglo-xxi",
+    category: "Desarrollo de Talento",
+    date: "15 Abril 2026",
+    readTime: "7 min",
+    title: "La Fábrica de Liderazgo del Siglo XXI: Por Qué no Puedes Outsourcear Desarrollo de Talento",
+    excerpt: "McKinsey identificó los 6 traits del liderazgo moderno. Desarrollar líderes no es una iniciativa de RRHH — es responsabilidad personal del CEO. Las empresas que ganan lo saben.",
+    image: articleLiderazgoSiglo,
+    content: `McKinsey entrevistó a 1000+ líderes y sus equipos para mapear qué distingue líderes efectivos en 2026. No es MBA. No es carisma. Son estos 6 traits:
+
+**1) Energía positiva** — Capacidad de mantener optimismo bajo presión sin ser ingenuo.
+
+**2) Liderazgo servicial** — Tu rol no es "estar en el pico de la pirámide." Es remover obstáculos para que otros hagan su mejor trabajo.
+
+**3) Aprendizaje continuo** — El mercado cambia cada 6 meses. Si tu mental model es 2020, eres dinosaurio.
+
+**4) Resiliencia** — Vas a fracasar. Los líderes que "se rompen" no llegan a cumplir. Los resilientes atraviesan.
+
+**5) Agilidad** — Capacidad de pivotar decisiones rápidamente cuando contexto cambia.
+
+**6) Accountability** — Sin excusas. Cuando algo falla, dices "yo fui responsable."
+
+47% de empresas reportan "talent gaps" como barrera crítica para IA y transformación digital. ¿Por qué? Porque no tienen máquina para producir líderes con estos 6 traits.
+
+## Las 4 Disciplinas de la Fábrica de Liderazgo
+
+**Disciplina 1: Identificación temprana.** Desde día 1, observas quién tiene curiosidad, resiliencia, capacidad de influenciar sin autoridad.
+
+**Disciplina 2: Rotaciones deliberadas.** Rotas talento por 2-3 áreas diferentes en primeros 5 años. Líderes necesitan amplitud.
+
+**Disciplina 3: Tutoría directa.** El CEO, COO, VP dedican tiempo mensual a mentorar gente con potencial. Feedback estructurado.
+
+**Disciplina 4: Promoción basada en potencial, no en performance.** Mejor performer en rol A no es buen líder en rol B.
+
+## Por Qué RRHH No Puede Hacerlo Solo
+
+Desarrollo de liderazgo necesita autoridad y contexto que solo CEO tiene. Un programa de entrenamiento sin sponsor CEO es teatro. Una minera en Antofagasta: nuevo CEO dijo "Esto es prioridad mía. 4 horas/semana." En 18 meses identificó 15 personas con potencial, las rotó, las mentoró, promovió 5 a liderazgo.
+
+## El Juego de Largo Plazo
+
+Una minera en Perú invirtió fuertemente hace 5 años. Hoy, 78% de posiciones de liderazgo medio se rellenan internamente vs. 30% hace 5 años. Costo de contratación bajó 40%. Retención creció 25%.`,
+  },
+  {
+    id: 18,
+    slug: "faros-manufactura-ia",
+    category: "Manufactura & AI",
+    date: "15 Abril 2026",
+    readTime: "7 min",
+    title: "Lo que Chile puede aprender de las fábricas más avanzadas del mundo",
+    excerpt: "60% de los casos de uso más nuevos en manufactura usan IA. Empresas líderes logran 2-3x ganancia de productividad, 99% reducción de defectos, 30% ahorro en energía. ¿Tu fábrica está lista?",
+    image: articleManufacturaIa,
+    content: `En las primeras olas de transformación manufacturera (2015-2020), veías IoT, robótica, cloud computing. Ahora, en 2026, 60% de los nuevos use cases de manufactura de clase mundial usan IA. Comparado con menos del 20% en la primera ola. Ahora eres competitivo o quedas atrás.
+
+## Qué ven en las fábricas "Lighthouse"
+
+Visita una de estas plantas — están en Alemania, Japón, Corea, Estados Unidos. La gente dentro es la misma que en Chile: operarios, supervisores, ingenieros. La diferencia: 2-3x más productividad por metro cuadrado. El defecto casi desaparece: 99% de conformidad versus 94-96% en plantas típicas. Y el consumo energético cae 30%.
+
+## Las tres aplicaciones de IA que ves en líderes globales
+
+**Primero: Predicción de mantenimiento.** Sensores + modelos de IA predicen cuándo fallará una máquina. Resultado: 40% menos downtime no programado.
+
+**Segundo: Optimización de calidad en tiempo real.** Cámaras + IA inspecciona cada unidad mientras se produce. Ahorro de scrap: 50-70%.
+
+**Tercero: Optimización de procesos dinámicos.** Parámetros como temperatura, velocidad, presión se ajustan automáticamente. Aprendizaje continuo que mejora cada turno.
+
+## Chile en manufactura: Excelencia operativa, no liderazgo tecnológico
+
+Las plantas chilenas son eficientes, sólidas, profesionales. Pero la mayoría opera con esquemas de 2015-2018. Una planta siderúrgica: IoT en máquinas pero datos en silos por departamento. Ganancias actuales: 8%. Potencial sin explotar: 25%.
+
+## Los obstáculos que frenan a manufactura chilena
+
+**Infraestructura de datos fragmentada.** PLC's, SCADA, MES, ERP no hablan entre ellos.
+
+**Falta de talento.** En Chile no sobran ingenieros especialistas en IA aplicada a manufactura.
+
+**Ciclos de decisión lentos.** Una propuesta requiere aprobación de múltiples capas.
+
+**Miedo cultural.** "¿Y si el algoritmo falla?" "Los operarios van a perder empleo."
+
+## Cómo comenzar: Empezar pequeño, pensar grande
+
+No remodelas toda la fábrica de una. Comienza con un use case de alto impacto, bajo riesgo. A los 6 meses, ves resultados. Luego escalas.
+
+## El take de Tooxs
+
+Implementar IA en una planta sin rediseñar el modelo operativo completo fracasa. Primero datos limpios, luego procesos digitales, luego entrenamiento del equipo, luego el modelo de IA. Esa secuencia importa.`,
+  },
+  {
+    id: 19,
+    slug: "ganar-en-las-curvas",
+    category: "Estrategia",
+    date: "15 Abril 2026",
+    readTime: "7 min",
+    title: "Ganar en las Curvas: 5 Movimientos Estratégicos que tu Empresa Necesita Ahora",
+    excerpt: "La incertidumbre global se duplicó desde los 90s. Las empresas que ganan en tiempos de volatilidad no son las que mejor predicen el futuro, sino las que aprenden a moverse rápido.",
+    image: articleGanarCurvas,
+    content: `Hace tres décadas, la incertidumbre global era predecible. Hoy es el doble. Las mineras chilenas que planeaban a 10 años ya no pueden. La volatilidad es tu nueva normalidad.
+
+McKinsey mapeó cómo ganan las empresas en este entorno: las compañías que se adaptan rápido generan 2x más retorno que el mercado. No es magia. Es disciplina en cinco movimientos específicos.
+
+## Movimiento 1: Decide Dónde Jugar (y Dónde NO)
+
+Los ganadores eligen explícitamente en qué mercados/segmentos van a ganar y en cuáles aceptan perder. Una minera chilena no puede ser excelente simultáneamente en litio, cobre y oro.
+
+La pregunta para tu equipo: ¿En qué 3 segmentos vamos a ser inexpugnables? Si la respuesta es "en todos somos fuertes", tu estrategia está rota.
+
+## Movimiento 2: Innova en tu Modelo de Negocio, no Solo en Producto
+
+Los ganadores innovan en CÓMO generan y capturan valor. Una minera que evoluciona de vender mineral a vender soluciones de trazabilidad ESG. 92% de las empresas planean aumentar inversión en IA. Pero si no redefines tu modelo de negocio alrededor de IA, gastarás dinero sin retorno.
+
+## Movimiento 3: Linka Tu Talento al Valor que Generan
+
+Las empresas tech tienen 40% más rotación en top 20 personas vs hace 5 años. Los ganadores crean claridad brutal entre qué hace tu empresa y quién crea valor real. Diseñan incentivos explícitos.
+
+## Movimiento 4: Asigna Capital Dinámicamente, no en Silos
+
+Los ganadores reasignan capital trimestralmente basados en dónde están surgiendo oportunidades. Dinamismo, no rigidez.
+
+## Movimiento 5: M&A Programático
+
+Las adquisiciones no son apuestas de casino. Los ganadores hacen M&A sistemáticamente para acceder a talento, tecnología o mercados. Las compañías que hacen esto generan 2x retorno que aquellas que expanden solo orgánicamente.
+
+## El take de Tooxs
+
+Ejecutar estos movimientos requiere: decisiones duras, velocidad, integración de sistemas, y mentalidad de experimento. Esto no es software que compres. Es arquitectura organizacional que diseñas.`,
+  },
+  {
+    id: 20,
+    slug: "rediseno-organizacional-era-agentica",
+    category: "Org Design & AI",
+    date: "15 Abril 2026",
+    readTime: "8 min",
+    title: "El rediseño organizacional que nadie en Chile está hablando (y por qué es urgente)",
+    excerpt: "75% de los roles van a cambiar. Necesitarás nuevos roles: agent orchestrators, hybrid managers, AI coaches. Tu jerarquía tradicional no sobrevivirá. ¿Estás preparado?",
+    image: articleRedisenoOrg,
+    content: `En el próximo lustro, con IA agéntica, la realidad es cruda: 75% de los roles en la mayoría de las industrias van a cambiar significativamente. No desaparecerán todos. Pero transformarán. Un analista de costos que dedicaba 4 horas al procesamiento de datos ahora hace análisis estratégico. Un técnico que hacía mantenimiento reactivo ahora orquesta mantenimiento predictivo.
+
+## Los nuevos roles que emergen
+
+**Agent Orchestrator:** Define el comportamiento de sistemas de IA. No es programador — entiende procesos + IA + riesgos.
+
+**Hybrid Manager:** Administra la interacción entre humanos y agentes. Decide cuándo delega al agente, cuándo interviene un humano.
+
+**AI Coach:** Capacita a empleados en cómo trabajar con sistemas de IA. No es training clásico. Es enseñar a confiar, usar, y mejorar colaboración con máquinas.
+
+## Las organizaciones que funcionan en era agéntica: Planas, rápidas, fluidas
+
+Olvida la pirámide tradicional. En lugar de 8 niveles de aprobación, tienes 2-3. Los agentes de IA manejan decisiones de bajo riesgo. Los humanos se concentran en empatía, negociación, pensamiento estratégico ambiguo.
+
+## El rol de Manager se redefinió
+
+Un manager gasta 40% del tiempo en meetings de aprobación, reportes, y microgestión. En era agéntica, eso desaparece. Los agentes manejan flujos. El manager entrena al equipo, resuelve problemas que los agentes no pueden, y define guías éticas.
+
+## Cómo comienzan empresas líderes
+
+Identifican un departamento donde el cambio es menos riesgoso. Definen qué agentes pueden hacer. Entrenan al equipo en "trabajar con agentes." Rediseñan roles. A los 6 meses, ven ganancia de productividad y equipo más enganchado.
+
+## Las cosas que necesitas hacer ahora
+
+**Primero: Auditoría de roles.** ¿Cuáles se benefician de IA agéntica? ¿Cuáles evolucionarían?
+
+**Segundo: Piloto temprano.** Elige un área y comienza experimentando. Aprenderás más en 3 meses de piloto real que en 12 de planificación.
+
+**Tercero: Programa de desarrollo talento.** ¿Cómo capacitas a gente en "trabajo con IA"?
+
+**Cuarto: Redefine liderazgo.** ¿Qué significa ser un buen manager en esta era?
+
+## El take de Tooxs
+
+Las empresas que ganan primero definen el modelo organizacional futuro, luego arman el talento, luego construyen la tecnología. No al revés. Un grupo empresarial que hizo esto logró adopción rápida, confianza del equipo, y ganancia de productividad real de 28% en el primer año.`,
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
