@@ -553,28 +553,6 @@ function ServicesIndexPage() {
         </div>
       </section>
 
-      {/* ══════ STRATEGIC CLOSE ══════ */}
-      <section className="bg-section-bg py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <ScrollReveal>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-6">CIERRE ESTRATÉGICO</p>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="p-6 rounded-xl border bg-card">
-                <p className="text-sm text-muted-foreground mb-2">Nuestras industrias responden:</p>
-                <p className="text-lg font-bold text-foreground" style={{ fontFamily: "var(--font-heading)" }}>
-                  "¿Dónde aplicamos?"
-                </p>
-              </div>
-              <div className="p-6 rounded-xl border bg-card">
-                <p className="text-sm text-muted-foreground mb-2">Nuestros servicios responden:</p>
-                <p className="text-lg font-bold text-primary" style={{ fontFamily: "var(--font-heading)" }}>
-                  "¿Cómo generamos impacto?"
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
 
       {/* ══════ CTA ══════ */}
       <section className="bg-navy py-20 relative overflow-hidden">
