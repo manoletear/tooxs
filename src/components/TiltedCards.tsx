@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 interface TiltedCard {
   title: string;
@@ -64,6 +64,19 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
     return `rotate(${tilt.rotate}deg) translateY(${tilt.translateY}px) scale(1)`;
   };
 
+  /* Mobile swipe */
+  const [mobileIndex, setMobileIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const handleTouchStart = useCallback((e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; }, []);
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      setMobileIndex(prev => diff > 0 ? Math.min(prev + 1, cards.length - 1) : Math.max(prev - 1, 0));
+    }
+    touchStartX.current = null;
+  }, [cards.length]);
+
   return (
     <div
       ref={containerRef}
@@ -76,7 +89,48 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
           75% { transform: rotate(-2deg); }
         }
       `}</style>
-      <div className="flex items-center justify-center gap-6">
+
+      {/* Mobile: swipeable single card */}
+      <div className="md:hidden w-full overflow-hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+        <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${mobileIndex * 100}%)` }}>
+          {cards.map((card, i) => (
+            <div key={i} className="w-full shrink-0 px-4 flex justify-center">
+              <div className="relative w-[280px]" style={{ height: 380 }}>
+                <div
+                  className="w-full h-full rounded-3xl overflow-hidden shadow-2xl flex flex-col"
+                  style={{
+                    background: "linear-gradient(145deg, rgba(23,127,198,0.15) 0%, rgba(29,29,27,0.97) 40%)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                >
+                  <div className="relative flex items-center justify-center pt-8 pb-4">
+                    <div className="relative w-40 h-40 rounded-2xl overflow-hidden">
+                      <img src={card.image} alt={card.title} className="w-full h-full object-contain grayscale" loading="lazy" draggable={false} />
+                    </div>
+                  </div>
+                  <div className="px-7 pb-2">
+                    <h3 className="text-2xl font-bold text-white mb-1" style={{ fontFamily: "var(--font-heading)" }}>{card.title}</h3>
+                    {card.time && (
+                      <span className="inline-block text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full mt-1" style={{ background: "rgba(23,127,198,0.2)", color: "rgba(23,127,198,1)", border: "1px solid rgba(23,127,198,0.3)" }}>⏱ {card.time}</span>
+                    )}
+                  </div>
+                  <div className="px-7 pb-6 flex-1 overflow-hidden">
+                    <p className="text-xs leading-relaxed text-white/70">{card.description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center gap-2 mt-4">
+          {cards.map((_, i) => (
+            <button key={i} className={`h-2 rounded-full transition-all duration-300 ${i === mobileIndex ? "bg-mint w-6" : "bg-white/30 w-2"}`} onClick={() => setMobileIndex(i)} />
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop: tilted cards */}
+      <div className="hidden md:flex items-center justify-center gap-6">
         {cards.map((card, i) => {
           const tilt = baseTilts[i] || baseTilts[0];
           const isHovered = hoveredIndex === i;

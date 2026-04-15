@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef, type ReactNode } from "react";
+import { useState, useEffect, useMemo, useRef, useCallback, type ReactNode } from "react";
 
 interface CardData {
   image: string;
@@ -95,19 +95,66 @@ export default function CardDeckSpread({
     return { duration: 0.7 / intensity, delayStep: 0.09 / intensity };
   }, [animationIntensity]);
 
+  /* Mobile swipe */
+  const [mobileIndex, setMobileIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const handleTouchStart = useCallback((e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; }, []);
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      setMobileIndex(prev => diff > 0 ? Math.min(prev + 1, cards.length - 1) : Math.max(prev - 1, 0));
+    }
+    touchStartX.current = null;
+  }, [cards.length]);
+
   return (
     <div
       ref={containerRef}
       className={className}
       style={{
         width: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
         position: "relative",
-        overflow: "visible",
       }}
     >
+      {/* Mobile: swipeable */}
+      <div className="md:hidden overflow-hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+        <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${mobileIndex * 100}%)` }}>
+          {cards.map((card, i) => (
+            <div key={i} className="w-full shrink-0 flex justify-center px-4">
+              <div
+                style={{
+                  width: cardWidth,
+                  height: cardHeight,
+                  borderRadius: cardRadius,
+                  overflow: "hidden",
+                  boxShadow: `0 4px 24px rgba(0,0,0,${shadowIntensity})`,
+                  cursor: card.onClick ? "pointer" : "default",
+                }}
+                onClick={card.onClick}
+              >
+                <img src={card.image} alt={card.alt} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: card.backgroundPosition || "center", borderRadius: cardRadius }} />
+                {renderOverlay ? renderOverlay(card, i, false) : card.title && (
+                  <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, background: titleBackgroundColor, color: titleTextColor, padding: "8px 12px", borderBottomLeftRadius: cardRadius, borderBottomRightRadius: cardRadius, textAlign: "center", fontSize: "14px", fontWeight: 600 }}>
+                    {card.title}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center gap-2 mt-4">
+          {cards.map((_, i) => (
+            <button key={i} className={`h-2 rounded-full transition-all duration-300 ${i === mobileIndex ? "bg-mint w-6" : "bg-white/30 w-2"}`} onClick={() => setMobileIndex(i)} />
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop: deck spread */}
+      <div
+        className="hidden md:flex items-center justify-center"
+        style={{ overflow: "visible" }}
+      >
       <div
         style={{
           position: "relative",
@@ -202,6 +249,7 @@ export default function CardDeckSpread({
             </div>
           );
         })}
+      </div>
       </div>
     </div>
   );
