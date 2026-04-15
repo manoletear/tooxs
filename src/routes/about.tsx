@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight, ArrowRight, Mail } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
+import { ARTICLES } from "@/data/articles";
+import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -27,24 +29,9 @@ const industries = [
 ];
 
 const featured = [
-  {
-    title: "Casos de Éxito",
-    description: "Explora casos de estudio de clientes de TOOXS sobre cómo nos asociamos con empresas para definir estrategias audaces, integrar tecnología e IA, y crear crecimiento sostenible.",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&h=320&fit=crop",
-    link: "/case-studies",
-  },
-  {
-    title: "Nuestro Ecosistema de Alianzas",
-    description: "Para ayudar a nuestros clientes en un mundo que cambia rápidamente, innovamos continuamente y extendemos nuestras capacidades. Desde la nube e inteligencia artificial hasta sostenibilidad y más.",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500&h=320&fit=crop",
-    link: "/services",
-  },
-  {
-    title: "Soluciones",
-    description: "Descubre el software propietario, datos y soluciones de talento que TOOXS combina con capacidades de consultoría para entregar insights más rápidos e impacto medible.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=320&fit=crop",
-    link: "/services",
-  },
+  ARTICLES[2],  // Estado alimentos y bebidas
+  ARTICLES[3],  // IA Soberana
+  ARTICLES[8],  // Rewired 2da edición
 ];
 
 function IndustriesPage() {
