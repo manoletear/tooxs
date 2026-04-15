@@ -8,6 +8,7 @@ import FluidCardStack from "../components/FluidCardStack";
 import { KineticTypography } from "../components/KineticTypography";
 import automotiveImg from "../assets/industry-automotive.jpg";
 import mapLatamPresence from "../assets/map-latam-presence.png";
+import { ARTICLES } from "../data/articles";
 import TiltedCards from "../components/TiltedCards";
 import SolutionShowcase from "../components/SolutionShowcase";
 import monkeySeeImg from "../assets/monkey-see.png";
@@ -680,8 +681,6 @@ function InsightLayer() {
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
   };
 
-  // Use first 10 articles from the newsletter
-  const { ARTICLES } = require("@/data/articles");
   const articles = ARTICLES.slice(0, 10);
 
   return (
