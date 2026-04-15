@@ -27,8 +27,8 @@ export function Navbar() {
       <div
         className={`flex items-center justify-between rounded-full px-6 transition-all duration-500 ${
           scrolled
-            ? "bg-navy/90 backdrop-blur-xl shadow-lg h-14 max-w-4xl"
-            : "bg-navy/90 backdrop-blur-md h-14 max-w-4xl"
+            ? "bg-white/85 backdrop-blur-xl shadow-lg h-14 max-w-4xl"
+            : "bg-white/85 backdrop-blur-md h-14 max-w-4xl"
         } w-full`}
       >
         <Link to="/" className="flex items-center group flex-shrink-0">
@@ -42,8 +42,8 @@ export function Navbar() {
               to={link.to}
               className={`text-sm font-medium transition-all duration-300 ${
                 location.pathname === link.to
-                  ? "text-white"
-                  : "text-white/60 hover:text-white"
+                  ? "text-navy"
+                  : "text-navy/60 hover:text-navy"
               }`}
             >
               {link.label}
@@ -60,7 +60,7 @@ export function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-white hover:text-white/70 transition-colors duration-300"
+          className="lg:hidden text-navy hover:text-navy/70 transition-colors duration-300"
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
