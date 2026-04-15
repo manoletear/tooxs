@@ -133,6 +133,16 @@ const metrics = [
   { value: 24, suffix: "/7", label: "soporte local" },
 ];
 
+const partnerLogos = [
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/logos_webtooxs_empresas_path.png", alt: "Path" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/logos_webtooxs_empresas_aws.png", alt: "AWS" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/logos_webtooxs_empresas_microsoft.png", alt: "Microsoft" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/logos_webtooxs_empresas_googlecloud.png", alt: "Google Cloud" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-AUTOMATION.png", alt: "Automation Anywhere" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-SONDA.png", alt: "Sonda" },
+  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-IBM.png", alt: "IBM" },
+];
+
 function TrustBarDynamic() {
   return (
     <section className="py-16 bg-section-bg">
