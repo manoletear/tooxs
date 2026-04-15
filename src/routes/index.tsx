@@ -229,7 +229,7 @@ function TesisStatement() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale"
+        className="absolute inset-0 w-full h-full object-cover opacity-10 grayscale"
         src="/tesis-bg.mp4"
       />
       <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
