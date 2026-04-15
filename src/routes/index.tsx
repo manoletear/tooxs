@@ -162,7 +162,14 @@ function Index() {
     <div>
       {/* ── Hero ── */}
       <section className="relative min-h-screen flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&q=80)" }} />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/hero-bg.mp4"
+        />
         <div className="absolute inset-0 bg-navy/50" />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
           <HeroContent />
