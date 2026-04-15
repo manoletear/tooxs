@@ -1,17 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Linkedin, Twitter, Mail, ChevronRight } from "lucide-react";
 import { PrismBackground } from "@/components/PrismBackground";
+import { ARTICLES } from "@/data/articles";
 
-// Images
-import heroAiAgents from "@/assets/newsletter/hero-ai-agents.jpg";
-import articleDigitalTransform from "@/assets/newsletter/article-digital-transform.jpg";
-import articleDataReport from "@/assets/newsletter/article-data-report.jpg";
-import articleAutomation from "@/assets/newsletter/article-automation.jpg";
-import articleSovereignAi from "@/assets/newsletter/article-sovereign-ai.jpg";
-import podcastInterview from "@/assets/newsletter/podcast-interview.jpg";
-import articleHealthcareAi from "@/assets/newsletter/article-healthcare-ai.jpg";
 import quarterlyCover from "@/assets/newsletter/quarterly-cover.jpg";
 import quarterlyArchive from "@/assets/newsletter/quarterly-archive.jpg";
+import heroAiAgents from "@/assets/newsletter/hero-ai-agents.jpg";
 
 export const Route = createFileRoute("/newsletter")({
   head: () => ({
