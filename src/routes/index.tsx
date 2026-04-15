@@ -750,8 +750,7 @@ function TestimonialFlow() {
           <ArrowRight size={18} className="text-navy" />
         </button>
       </div>
-  );
-}
+    </section>
   );
 }
 
