@@ -176,18 +176,18 @@ function TrustBarDynamic() {
     <section className="py-16 bg-section-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-navy">Empresas que confían en TOOXS</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-navy">Empresas que confían en Tooxs</h2>
         </ScrollReveal>
         {/* Logo marquee */}
         <div className="relative overflow-hidden mb-12">
-          <div className="flex animate-marquee items-center gap-12">
+          <div className="flex animate-marquee items-center gap-4 sm:gap-6 md:gap-12">
             {[...Array(2)].flatMap((_, i) =>
               trustLogos.map((logo) => (
-                <div key={`${logo.alt}-${i}`} className="flex-shrink-0 w-[280px] h-[120px] flex items-center justify-center">
+                <div key={`${logo.alt}-${i}`} className="flex-shrink-0 w-[140px] h-[60px] sm:w-[180px] sm:h-[80px] md:w-[280px] md:h-[120px] flex items-center justify-center">
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="max-h-[100px] max-w-[260px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+                    className="max-h-[50px] max-w-[130px] sm:max-h-[70px] sm:max-w-[170px] md:max-h-[100px] md:max-w-[260px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
                   />
                 </div>
               ))
@@ -209,14 +209,14 @@ function TrustBarDynamic() {
         {/* Partners marquee */}
         <div className="mt-16">
           <div className="relative overflow-hidden mb-6">
-            <div className="flex animate-marquee-reverse items-center gap-12" style={{ animationDuration: '20s' }}>
+            <div className="flex animate-marquee-reverse items-center gap-4 sm:gap-6 md:gap-12" style={{ animationDuration: '20s' }}>
               {[...Array(4)].flatMap((_, i) =>
                 partnerLogos.map((logo) => (
-                  <div key={`${logo.alt}-partner-${i}`} className="flex-shrink-0 w-[560px] h-[240px] flex items-center justify-center">
+                  <div key={`${logo.alt}-partner-${i}`} className="flex-shrink-0 w-[200px] h-[100px] sm:w-[320px] sm:h-[140px] md:w-[560px] md:h-[240px] flex items-center justify-center">
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="max-h-[200px] max-w-[520px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+                      className="max-h-[80px] max-w-[180px] sm:max-h-[120px] sm:max-w-[300px] md:max-h-[200px] md:max-w-[520px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
                     />
                   </div>
                 ))
