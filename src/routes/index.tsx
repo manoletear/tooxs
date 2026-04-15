@@ -125,6 +125,7 @@ const trustLogos = [
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BUPA-1.png", alt: "Bupa" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-DIVEMOTOR-1.png", alt: "Divemotor" },
   { src: "https://tooxs.com/wp-content/uploads/2025/08/logo-vik.png", alt: "Vik" },
+];
 const metrics = [
   { value: 98, suffix: "%", label: "reducción de errores" },
   { value: 30, suffix: "+", label: "empresas chilenas" },
