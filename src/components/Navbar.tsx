@@ -1,6 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import tooxsLogo from "@/assets/tooxs-logo.png";
 
 const navLinks = [
   { to: "/" as const, label: "Home" },
