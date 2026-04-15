@@ -295,7 +295,7 @@ function TrustBarDynamic() {
           {trustItems}
         </DraggableMarquee>
         {/* Metrics + Map */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-center">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {metrics.map((m, i) => (
               <ScrollReveal key={m.label} delay={i * 80}>
