@@ -102,14 +102,14 @@ function NewsletterPage() {
           {/* Mini cards row */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {miniArticles.map((a, i) => (
-              <div key={i}>
+              <Link key={i} to="/newsletter/$slug" params={{ slug: a.slug }} className="group block">
                 <img src={a.image} alt={a.title} className="w-full aspect-[4/3] object-cover rounded-sm mb-3" loading="lazy" />
-                <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.tag}</span>
-                <h4 className="mt-1 text-[0.95rem] font-bold leading-snug cursor-pointer hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.category}</span>
+                <h4 className="mt-1 text-[0.95rem] font-bold leading-snug group-hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
                   {a.title} <ChevronRight className="inline w-3.5 h-3.5 text-primary" />
                 </h4>
                 <p className="text-[0.8rem] text-foreground/60 leading-relaxed mt-1">{a.excerpt}</p>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -142,17 +142,17 @@ function NewsletterPage() {
 
           <div className="flex flex-col">
             {interviews.map((item, i) => (
-              <div key={i} className={`grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-6 py-7 border-b border-border items-start ${i === 0 ? "pt-0" : ""}`}>
+              <Link key={i} to="/newsletter/$slug" params={{ slug: item.slug }} className={`grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-6 py-7 border-b border-border items-start group ${i === 0 ? "pt-0" : ""}`}>
                 <img src={item.image} alt={item.title} className="w-full sm:w-[140px] aspect-square object-cover rounded-sm" loading="lazy" />
                 <div>
-                  <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{item.tag}</span>
-                  <h3 className="mt-1 text-lg font-bold leading-snug cursor-pointer hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                  <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{item.category}</span>
+                  <h3 className="mt-1 text-lg font-bold leading-snug group-hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
                     {item.title} <ChevronRight className="inline w-4 h-4 text-primary" />
                   </h3>
                   <p className="text-xs text-primary mt-1 font-medium">{item.date}</p>
                   <p className="text-sm text-foreground/60 leading-relaxed mt-2">{item.excerpt}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
