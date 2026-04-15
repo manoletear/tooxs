@@ -874,11 +874,11 @@ function Index() {
       <TesisStatement />
       <IndustryExplorer />
       <CapabilityGraph />
+      <TestimonialFlow />
       <ServiceSystem />
       <SolutionSystem />
       <CaseEngine />
       <InsightLayer />
-      <TestimonialFlow />
       <MethodLoop />
       <SmartForm />
       <ConversionCTA />
