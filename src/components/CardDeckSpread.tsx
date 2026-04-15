@@ -250,6 +250,7 @@ export default function CardDeckSpread({
           );
         })}
       </div>
+      </div>
     </div>
   );
 }
