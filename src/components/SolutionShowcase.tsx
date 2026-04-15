@@ -329,6 +329,9 @@ export default function SolutionShowcase() {
           <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
             Soluciones destacadas
           </h2>
+          <p className="text-[#a7b0c5] text-base font-normal mt-3 max-w-[60ch]">
+            Transformamos procesos críticos en ventajas competitivas usando IA, automatización y analítica avanzada.
+          </p>
         </ScrollReveal>
 
         {/* Cards Grid */}
