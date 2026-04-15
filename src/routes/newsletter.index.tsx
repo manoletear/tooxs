@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Linkedin, Twitter, Mail, ChevronRight } from "lucide-react";
+import { Linkedin, Instagram, Mail, ChevronRight } from "lucide-react";
 import { PrismBackground } from "@/components/PrismBackground";
 import { HaloEffect } from "@/components/HaloEffect";
 import { ARTICLES } from "@/data/articles";
@@ -67,11 +67,11 @@ function NewsletterPage() {
             Tendencias, datos y perspectivas sobre tecnología, automatización e IA aplicada a la industria y los negocios en Latinoamérica.
           </p>
           <div className="flex items-center gap-4 mt-6">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-white/80 text-sm font-medium hover:text-white transition-colors">
+            <a href="https://www.linkedin.com/company/tooxs/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-white/80 text-sm font-medium hover:text-white transition-colors">
               <Linkedin size={18} /> LinkedIn
             </a>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-white/80 text-sm font-medium hover:text-white transition-colors">
-              <Twitter size={18} /> X
+            <a href="https://www.instagram.com/tooxs_digital/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-white/80 text-sm font-medium hover:text-white transition-colors">
+              <Instagram size={18} /> Instagram
             </a>
           </div>
         </div>
