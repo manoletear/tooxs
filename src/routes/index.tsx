@@ -6,6 +6,7 @@ import CardDeckSpread from "../components/CardDeckSpread";
 import IndustryCarousel from "../components/IndustryCarousel";
 import FluidCardStack from "../components/FluidCardStack";
 import { KineticTypography } from "../components/KineticTypography";
+import automotiveImg from "../assets/industry-automotive.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
