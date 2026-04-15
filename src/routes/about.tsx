@@ -23,6 +23,7 @@ const industries = [
   { title: "Telecomunicaciones", description: "Ayudamos a operadores y empresas telco a integrar IA en red, atención, experiencia y operación para capturar eficiencia y mejorar servicio.", link: "/industrias/telecomunicaciones" },
   { title: "Salud", description: "Acompañamos a prestadores, aseguradores y organizaciones de salud a modernizar flujos clínicos y administrativos con IA, automatización y analítica.", link: "/industrias/salud" },
   { title: "Automotriz", description: "Ayudamos a fabricantes, importadores, distribuidores y operadores del mundo automotriz a mejorar productividad, calidad y velocidad de ejecución con IA y automatización.", link: "/industrias/automotriz" },
+  { title: "Real Estate", description: "Acompañamos a desarrolladoras, corredoras y administradoras de activos a digitalizar procesos comerciales, documentales y operativos para acelerar ventas y mejorar visibilidad.", link: "/industrias/real-estate" },
 ];
 
 const featured = [
