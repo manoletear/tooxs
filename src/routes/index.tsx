@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
+import CardDeckSpread from "../components/CardDeckSpread";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -237,6 +238,15 @@ function TesisStatement() {
 /* ══════════════════════════════════════════
    4. INDUSTRIAS
    ══════════════════════════════════════════ */
+const industryImages = [
+  "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=400&h=560&fit=crop", // Minería
+  "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=560&fit=crop", // Retail
+  "https://images.unsplash.com/photo-1560472355-536de3962603?w=400&h=560&fit=crop", // Banca
+  "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=560&fit=crop", // Agro
+  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=560&fit=crop", // Telecom
+  "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=560&fit=crop", // Salud
+];
+
 const industries = [
   {
     icon: Pickaxe, name: "Minería y Utilities", tagline: "De la incertidumbre a la predictibilidad",
@@ -277,8 +287,15 @@ const industries = [
 ];
 
 function IndustryExplorer() {
-  const [expanded, setExpanded] = useState<number | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [selected, setSelected] = useState<number | null>(null);
+
+  const industryCards = industries.map((ind, i) => ({
+    image: industryImages[i % industryImages.length],
+    alt: ind.name,
+    title: ind.name,
+    subtitle: ind.tagline,
+    onClick: () => setSelected(selected === i ? null : i),
+  }));
 
   return (
     <section className="py-20">
@@ -287,31 +304,58 @@ function IndustryExplorer() {
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Industrias que transformamos</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">Soluciones de automatización adaptadas a los desafíos únicos de cada sector en Chile.</p>
         </ScrollReveal>
-        <div ref={scrollRef} className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible">
-          {industries.map((ind, i) => (
-            <ScrollReveal key={ind.name} delay={i * 80} className="min-w-[300px] lg:min-w-0 snap-start">
-              <div
-                className={`bg-card rounded-xl border transition-all duration-400 cursor-pointer group ${expanded === i ? "shadow-xl" : "hover:shadow-lg hover:-translate-y-1"}`}
-                onClick={() => setExpanded(expanded === i ? null : i)}
-              >
-                <div className={`border-t-4 rounded-t-xl transition-colors duration-300 ${expanded === i ? "border-mint" : "border-transparent group-hover:border-mint"}`} />
-                <div className="p-6">
-                  <ind.icon className="text-mint mb-3" size={28} />
-                  <h3 className="text-lg font-bold text-navy mb-1">{ind.name}</h3>
-                  <p className="text-sm text-muted-foreground italic">{ind.tagline}</p>
-                  <ChevronDown className={`mt-3 text-muted-foreground transition-transform duration-300 ${expanded === i ? "rotate-180" : ""}`} size={18} />
+
+        <CardDeckSpread
+          cards={industryCards}
+          cardWidth={200}
+          cardHeight={280}
+          overlap={80}
+          cardRadius={16}
+          hoverBorderColor="var(--mint)"
+          blurIntensity={3}
+          animationIntensity={1.2}
+          titleBackgroundColor="linear-gradient(to top, rgba(10,38,71,0.9), rgba(10,38,71,0.4), transparent)"
+          renderOverlay={(card, index, isHovered) => (
+            <div
+              style={{
+                position: "absolute",
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: "linear-gradient(to top, rgba(10,38,71,0.95), rgba(10,38,71,0.5) 60%, transparent)",
+                padding: "40px 14px 14px",
+                borderBottomLeftRadius: 16,
+                borderBottomRightRadius: 16,
+                pointerEvents: "none",
+                opacity: isHovered ? 1 : 0.7,
+                transition: "opacity 0.4s ease-in-out",
+              }}
+            >
+              <div style={{ color: "#fff", fontSize: "14px", fontWeight: 700 }}>{card.title}</div>
+              <div style={{ color: "var(--mint)", fontSize: "12px", fontWeight: 400, marginTop: 2 }}>{card.subtitle}</div>
+            </div>
+          )}
+        />
+
+        {/* Expanded detail panel */}
+        {selected !== null && (
+          <ScrollReveal className="mt-8">
+            <div className="bg-card rounded-xl border p-6 shadow-lg max-w-2xl mx-auto">
+              <div className="flex items-center gap-3 mb-4">
+                {(() => { const Icon = industries[selected].icon; return <Icon className="text-mint" size={28} />; })()}
+                <div>
+                  <h3 className="text-lg font-bold text-navy">{industries[selected].name}</h3>
+                  <p className="text-sm text-mint italic">{industries[selected].tagline}</p>
                 </div>
-                {expanded === i && (
-                  <div className="px-6 pb-6 border-t border-border pt-4 animate-fade-in space-y-3 text-sm">
-                    <div><span className="font-semibold text-navy">Problema típico:</span> <span className="text-muted-foreground">{ind.problem}</span></div>
-                    <div><span className="font-semibold text-navy">Qué hace TOOXS:</span> <span className="text-muted-foreground">{ind.solution}</span></div>
-                    <div><span className="font-semibold text-mint">Impacto:</span> <span className="text-foreground font-medium">{ind.impact}</span></div>
-                  </div>
-                )}
               </div>
-            </ScrollReveal>
-          ))}
-        </div>
+              <div className="space-y-3 text-sm">
+                <div><span className="font-semibold text-navy">Problema típico:</span> <span className="text-muted-foreground">{industries[selected].problem}</span></div>
+                <div><span className="font-semibold text-navy">Qué hace TOOXS:</span> <span className="text-muted-foreground">{industries[selected].solution}</span></div>
+                <div><span className="font-semibold text-mint">Impacto:</span> <span className="text-foreground font-medium">{industries[selected].impact}</span></div>
+              </div>
+            </div>
+          </ScrollReveal>
+        )}
       </div>
     </section>
   );
