@@ -4,6 +4,7 @@ interface TiltedCard {
   title: string;
   description: string;
   image: string;
+  time?: string;
 }
 
 interface TiltedCardsProps {
@@ -140,6 +141,12 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
                   >
                     {card.title}
                   </h3>
+                  {card.time && (
+                    <span className="inline-block text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full mt-1"
+                      style={{ background: "rgba(23,127,198,0.2)", color: "rgba(23,127,198,1)", border: "1px solid rgba(23,127,198,0.3)" }}>
+                      ⏱ {card.time}
+                    </span>
+                  )}
                 </div>
                 <div className="px-7 pb-6 flex-1 overflow-hidden">
                   <p className="text-xs leading-relaxed text-white/70">
