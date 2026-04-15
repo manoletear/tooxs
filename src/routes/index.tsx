@@ -182,11 +182,11 @@ function TrustBarDynamic() {
           <div className="flex animate-marquee items-center gap-12">
             {[...Array(2)].flatMap((_, i) =>
               trustLogos.map((logo) => (
-                <div key={`${logo.alt}-${i}`} className="flex-shrink-0 w-[140px] h-[60px] flex items-center justify-center">
+                <div key={`${logo.alt}-${i}`} className="flex-shrink-0 w-[280px] h-[120px] flex items-center justify-center">
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="max-h-[50px] max-w-[130px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+                    className="max-h-[100px] max-w-[260px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
                   />
                 </div>
               ))
@@ -211,11 +211,11 @@ function TrustBarDynamic() {
             <div className="flex animate-marquee-reverse items-center gap-12" style={{ animationDuration: '20s' }}>
               {[...Array(4)].flatMap((_, i) =>
                 partnerLogos.map((logo) => (
-                  <div key={`${logo.alt}-partner-${i}`} className="flex-shrink-0 w-[280px] h-[120px] flex items-center justify-center">
+                  <div key={`${logo.alt}-partner-${i}`} className="flex-shrink-0 w-[560px] h-[240px] flex items-center justify-center">
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="max-h-[100px] max-w-[260px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+                      className="max-h-[200px] max-w-[520px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
                     />
                   </div>
                 ))
