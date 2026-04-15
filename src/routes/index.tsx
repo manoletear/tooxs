@@ -11,6 +11,7 @@ import TiltedCards from "../components/TiltedCards";
 import monkeySeeImg from "../assets/monkey-see.png";
 import monkeyHearImg from "../assets/monkey-hear.png";
 import monkeySpeakImg from "../assets/monkey-speak.png";
+import monkeyMeasureImg from "../assets/monkey-measure.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -361,27 +362,32 @@ function IndustryExplorer() {
 const capabilityCards = [
   {
     title: "Entender",
-    description: "Auditoría de procesos, descubrimiento de oportunidades, mapeo de datos. Analizamos tu operación para identificar dónde la automatización genera mayor impacto.",
+    description: "Se entra en el negocio para identificar problemas y oportunidades.",
     image: monkeySeeImg,
   },
   {
-    title: "Decidir",
-    description: "Modelos de IA, simulación de escenarios, priorización de impacto. Diseñamos la estrategia con datos, no con suposiciones.",
+    title: "Estrategizar",
+    description: "Se construyen estrategias a medida según objetivos y recursos disponibles.",
     image: monkeyHearImg,
   },
   {
-    title: "Ejecutar",
-    description: "Bots RPA, integración con sistemas legacy, orquestación y monitoreo. Implementamos, medimos y optimizamos hasta que el proceso funcione solo.",
+    title: "Implementar",
+    description: "Se acompaña la ejecución para que las soluciones sean viables y duraderas.",
     image: monkeySpeakImg,
+  },
+  {
+    title: "Medir",
+    description: "Se mide el desempeño, se ajusta lo necesario y se aseguran resultados concretos.",
+    image: monkeyMeasureImg,
   },
 ];
 
 function CapabilityGraph() {
   return (
     <section id="capacidades" className="bg-navy text-white py-20 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">Entender → Decidir → Ejecutar</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">Entender → Estrategizar → Implementar → Medir</h2>
           <p className="text-white/70">Nuestro marco de trabajo para automatización inteligente.</p>
         </ScrollReveal>
         <TiltedCards cards={capabilityCards} />
