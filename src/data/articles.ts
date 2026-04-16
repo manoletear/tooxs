@@ -22,6 +22,15 @@ import articlePuntosCiegosCeo from "@/assets/newsletter/article-puntos-ciegos-ce
 import articleReconfigurarTrabajo from "@/assets/newsletter/article-reconfigurar-trabajo.jpg";
 import articleTodosTechies from "@/assets/newsletter/article-todos-techies.jpg";
 import articleModeloOperativo from "@/assets/newsletter/article-modelo-operativo.jpg";
+import articleMovilidadLogistica from "@/assets/newsletter/article-movilidad-logistica.jpg";
+import articleAccionesCeos2023 from "@/assets/newsletter/article-acciones-ceos-2023.jpg";
+import articleCeoAltoPotencial from "@/assets/newsletter/article-ceo-alto-potencial.jpg";
+import articleEstadoIa2024 from "@/assets/newsletter/article-estado-ia-2024.jpg";
+import articleResetMinorista from "@/assets/newsletter/article-reset-minorista.jpg";
+import articlePlantaSiderurgica from "@/assets/newsletter/article-planta-siderurgica.jpg";
+import articleColaboracionDigital from "@/assets/newsletter/article-colaboracion-digital.jpg";
+import articleEmpresaReconfigurada from "@/assets/newsletter/article-empresa-reconfigurada.jpg";
+import articleIndustria40 from "@/assets/newsletter/article-industria-4-0.jpg";
 
 export interface Article {
   id: number;
