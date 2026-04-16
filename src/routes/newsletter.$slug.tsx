@@ -74,7 +74,7 @@ function renderMarkdown(content: string) {
           <h2
             key={i}
             className="text-2xl font-bold mt-10 mb-4 text-foreground"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+           
           >
             {trimmed.replace("## ", "")}
           </h2>
@@ -140,7 +140,7 @@ function ArticlePage() {
   };
 
   return (
-    <div className="min-h-screen bg-background" style={{ fontFamily: "'Inter', var(--font-body)" }}>
+    <div className="min-h-screen bg-background">
       {/* Sticky back button */}
       <div className="fixed top-20 left-4 md:left-8 z-50">
         <Link
@@ -176,7 +176,7 @@ function ArticlePage() {
           {/* Title & meta */}
           <h1
             className="text-3xl md:text-[2.6rem] font-black leading-[1.15] tracking-tight mb-4 text-foreground"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+           
           >
             {article.title}
           </h1>

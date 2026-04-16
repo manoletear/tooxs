@@ -37,7 +37,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
   return (
     <div>
       {/* ══════ HERO ══════ */}
-      <section className="relative min-h-[75vh] flex items-end overflow-hidden">
+      <section className="relative h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${data.hero.image})` }}

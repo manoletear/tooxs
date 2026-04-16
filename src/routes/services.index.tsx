@@ -517,7 +517,7 @@ function ServicesIndexPage() {
   return (
     <div>
       {/* ══════ HERO ══════ */}
-      <section className="relative bg-navy text-white pt-32 pb-20 overflow-hidden">
+      <section className="relative bg-navy text-white pt-28 pb-16 overflow-hidden">
         <PrismBackground />
         <div className="relative z-10 max-w-5xl mx-auto px-6">
           <ScrollReveal>
