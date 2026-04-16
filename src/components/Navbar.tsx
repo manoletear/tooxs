@@ -8,6 +8,7 @@ const navLinks = [
   { to: "/services" as const, label: "Servicios" },
   { to: "/about" as const, label: "Industrias", hasDropdown: true },
   { to: "/case-studies" as const, label: "Casos" },
+  { to: "/activar-ia" as const, label: "Activar IA" },
   { to: "/newsletter" as const, label: "Newsletter" },
 ];
 
