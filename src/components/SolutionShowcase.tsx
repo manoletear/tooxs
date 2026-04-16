@@ -23,6 +23,7 @@ interface Solution {
   steps: SolutionStep[];
   integrations?: string[];
   useCases?: string[];
+  websiteUrl?: string;
 }
 
 const solutions: Solution[] = [
@@ -48,6 +49,7 @@ const solutions: Solution[] = [
       { title: "Trazabilidad", description: "Registra estados, acciones y resultados para control y auditoría." },
     ],
     integrations: ["ERP", "SharePoint", "Correo", "API", "Bases de datos", "FTP / SFTP"],
+    websiteUrl: "https://docuengine.tooxs.com/",
   },
   {
     id: "safevision",
@@ -294,9 +296,16 @@ export default function SolutionShowcase() {
                     </span>
                     <h3 className="text-2xl font-extrabold text-white tracking-tight leading-tight mb-2">{sol.title}</h3>
                     <p className="text-white/85 text-sm leading-relaxed mb-4">{sol.subtitle}</p>
-                    <button className="self-start px-5 py-2.5 rounded-full text-white text-sm font-bold shadow-lg" style={{ background: sol.accentColor }}>
-                      Ver cómo funciona
-                    </button>
+                    <div className="flex gap-3">
+                      <button className="px-5 py-2.5 rounded-full text-white text-sm font-bold shadow-lg" style={{ background: sol.accentColor }}>
+                        Ver cómo funciona
+                      </button>
+                      {sol.websiteUrl && (
+                        <a href={sol.websiteUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="px-5 py-2.5 rounded-full text-white text-sm font-bold shadow-lg border border-white/20 hover:-translate-y-0.5 transition-transform" style={{ background: "#E08A2B" }}>
+                          Sitio web
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               );
@@ -398,19 +407,33 @@ export default function SolutionShowcase() {
                       {sol.subtitle}
                     </p>
 
-                    <button
-                      className="self-start px-5 py-2.5 rounded-full text-white text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-transform"
-                      style={{
-                        background: sol.accentColor,
-                        boxShadow: `0 10px 24px ${sol.accentColor}50`,
-                      }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setModalSolution(sol);
-                      }}
-                    >
-                      Ver cómo funciona
-                    </button>
+                    <div className="flex gap-3">
+                      <button
+                        className="px-5 py-2.5 rounded-full text-white text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-transform"
+                        style={{
+                          background: sol.accentColor,
+                          boxShadow: `0 10px 24px ${sol.accentColor}50`,
+                        }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setModalSolution(sol);
+                        }}
+                      >
+                        Ver cómo funciona
+                      </button>
+                      {sol.websiteUrl && (
+                        <a
+                          href={sol.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-5 py-2.5 rounded-full text-white text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-transform border border-white/20"
+                          style={{ background: "#E08A2B", boxShadow: "0 10px 24px rgba(224,138,43,0.3)" }}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Sitio web
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               );
