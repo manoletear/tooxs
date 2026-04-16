@@ -685,7 +685,7 @@ function ServicesIndexPage() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black mb-3 sm:mb-4 leading-[1.1] tracking-tight"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Capacidades aplicadas<br className="hidden sm:block" /> donde se genera valor
+              Construimos contigo<br className="hidden sm:block" /> la próxima versión de ti o tu empresa
             </h1>
             <p className="text-white/80 text-sm sm:text-base md:text-[1.05rem] lg:text-[1.1rem] max-w-[620px] leading-relaxed">
               Siete capacidades que se integran al flujo operativo. <em className="text-white/95">Datos, IA, automatización, integración, analítica, nube y estrategia</em> trabajando juntos sobre los procesos críticos del negocio.
