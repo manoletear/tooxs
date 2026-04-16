@@ -18,6 +18,10 @@ import {
 } from "lucide-react";
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
+import laptopDashboard from "@/assets/activar-laptop-dashboard.jpg";
+import neuralSphere from "@/assets/activar-neural-sphere.jpg";
+import circuitFlow from "@/assets/activar-circuit-flow.jpg";
+import ecoBulb from "@/assets/activar-eco-bulb.jpg";
 
 export const Route = createFileRoute("/activar-ia")({
   head: () => ({
@@ -213,79 +217,152 @@ function ActivarIAPage() {
         </div>
       </section>
 
-      {/* ══════ BENEFITS ══════ */}
-      <section className="py-16 md:py-24 bg-section-bg">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <ScrollReveal>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2">
-              POR QUÉ ACTIVAR IA
-            </p>
-            <div className="w-16 h-0.5 bg-primary mb-6" />
-            <h2
-              className="text-3xl md:text-4xl font-bold text-foreground max-w-3xl leading-tight mb-12"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              IA al servicio de tu negocio, no al revés
-            </h2>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {benefits.map((b, i) => {
-              const Icon = b.icon;
-              return (
-                <ScrollReveal key={b.title} delay={i * 80}>
-                  <div className="bg-card border rounded-2xl p-7 h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                      <Icon size={22} />
+      {/* ══════ BENEFITS — split with image overlap ══════ */}
+      <section className="py-20 md:py-28 bg-section-bg relative overflow-hidden">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            {/* LEFT — sticky title block + decorative image */}
+            <div className="lg:col-span-5 lg:sticky lg:top-28">
+              <ScrollReveal>
+                <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2">
+                  POR QUÉ ACTIVAR IA
+                </p>
+                <div className="w-16 h-0.5 bg-primary mb-6" />
+                <h2
+                  className="text-4xl md:text-5xl font-black text-foreground leading-[1.05] mb-6"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  IA al servicio de tu negocio,<br />
+                  <span className="text-primary">no al revés</span>
+                </h2>
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 max-w-md">
+                  Cinco frentes donde la IA deja de ser experimento y empieza a generar retorno medible.
+                </p>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl hidden lg:block">
+                  <img
+                    src={laptopDashboard}
+                    alt="Dashboard analítico con IA"
+                    loading="lazy"
+                    width={1024}
+                    height={768}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+                  <div className="absolute -bottom-3 -right-3 w-24 h-24 bg-mint rounded-2xl -z-10" />
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* RIGHT — staggered colored cards */}
+            <div className="lg:col-span-7 space-y-5">
+              {benefits.map((b, i) => {
+                const Icon = b.icon;
+                const palette = [
+                  { bg: "bg-primary text-white", iconBg: "bg-white/15 text-mint", desc: "text-white/85" },
+                  { bg: "bg-mint text-navy", iconBg: "bg-navy/10 text-navy", desc: "text-navy/80" },
+                  { bg: "bg-card border text-foreground", iconBg: "bg-primary/10 text-primary", desc: "text-muted-foreground" },
+                  { bg: "bg-navy text-white", iconBg: "bg-mint/15 text-mint", desc: "text-white/80" },
+                  { bg: "bg-card border text-foreground", iconBg: "bg-primary/10 text-primary", desc: "text-muted-foreground" },
+                ][i];
+                const offset = i % 2 === 1 ? "lg:ml-12" : "lg:ml-0";
+                return (
+                  <ScrollReveal key={b.title} delay={i * 80}>
+                    <div className={`${palette.bg} ${offset} rounded-2xl p-7 md:p-8 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex gap-5`}>
+                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl ${palette.iconBg} flex items-center justify-center`}>
+                        <Icon size={22} />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg md:text-xl font-bold mb-2 leading-tight">{b.title}</h3>
+                        <p className={`text-sm leading-relaxed ${palette.desc}`}>{b.desc}</p>
+                      </div>
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-2">{b.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
-                  </div>
-                </ScrollReveal>
-              );
-            })}
+                  </ScrollReveal>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ══════ HOW WE DO IT - CAPABILITIES ══════ */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+      {/* ══════ HOW WE DO IT — colored blocks grid (Keepler style) ══════ */}
+      <section className="py-20 md:py-28 bg-background relative overflow-hidden">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <ScrollReveal>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2">
-              CÓMO LO HACEMOS
-            </p>
-            <div className="w-16 h-0.5 bg-primary mb-6" />
-            <h2
-              className="text-3xl md:text-4xl font-bold text-foreground max-w-3xl leading-tight mb-4"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Capacidades de IA aplicadas dentro de tu operación
-            </h2>
-            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mb-12 leading-relaxed">
-              Activamos cuatro frentes donde la IA genera retorno medible y sostenible.
-            </p>
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3">
+                CÓMO LO HACEMOS
+              </p>
+              <h2
+                className="text-4xl md:text-5xl font-black text-foreground leading-[1.05] mb-5"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Capacidades de IA aplicadas<br className="hidden md:block" /> dentro de tu operación
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                Activamos cuatro frentes donde la IA genera retorno medible y sostenible.
+              </p>
+            </div>
           </ScrollReveal>
-          <div className="grid md:grid-cols-2 gap-6">
-            {capabilities.map((cap, i) => {
+
+          {/* Top row: image + first colored block */}
+          <div className="grid md:grid-cols-2 gap-5 mb-5">
+            <ScrollReveal>
+              <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[300px] rounded-2xl overflow-hidden group">
+                <img
+                  src={laptopDashboard}
+                  alt="Equipo trabajando con IA"
+                  loading="lazy"
+                  width={1024}
+                  height={768}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+            </ScrollReveal>
+
+            {capabilities[0] && (() => {
+              const cap = capabilities[0];
               const Icon = cap.icon;
               return (
-                <ScrollReveal key={cap.title} delay={i * 100}>
-                  <div className="border rounded-2xl p-7 bg-gradient-to-br from-card to-section-bg/50 h-full hover:border-primary/40 transition-all duration-300">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center">
-                        <Icon size={18} />
-                      </div>
-                      <span className="text-[0.7rem] font-bold uppercase tracking-wider text-primary">
-                        {cap.tag}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground mb-4">{cap.title}</h3>
-                    <ul className="space-y-2">
+                <ScrollReveal delay={100}>
+                  <div className="bg-[#F5C518] text-navy rounded-2xl p-8 md:p-10 h-full flex flex-col min-h-[300px]">
+                    <Icon size={32} className="mb-4" />
+                    <span className="text-[0.7rem] font-bold uppercase tracking-wider mb-2 opacity-70">{cap.tag}</span>
+                    <h3 className="text-2xl md:text-3xl font-black mb-4 leading-tight" style={{ fontFamily: "var(--font-heading)" }}>
+                      {cap.title}
+                    </h3>
+                    <div className="w-10 h-0.5 bg-navy/30 mb-4" />
+                    <p className="text-sm text-navy/80 leading-relaxed">
+                      {cap.items.join(" · ")}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              );
+            })()}
+          </div>
+
+          {/* Bottom row: 3 colored blocks */}
+          <div className="grid md:grid-cols-3 gap-5">
+            {capabilities.slice(1).map((cap, i) => {
+              const Icon = cap.icon;
+              const colors = [
+                { bg: "bg-[#E94560] text-white", divider: "bg-white/40", desc: "text-white/85" },
+                { bg: "bg-mint text-navy", divider: "bg-navy/30", desc: "text-navy/80" },
+                { bg: "bg-[#7C3AED] text-white", divider: "bg-white/40", desc: "text-white/85" },
+              ][i];
+              return (
+                <ScrollReveal key={cap.title} delay={150 + i * 100}>
+                  <div className={`${colors.bg} rounded-2xl p-8 h-full flex flex-col min-h-[300px] hover:-translate-y-1 transition-transform duration-300`}>
+                    <Icon size={28} className="mb-4" />
+                    <span className="text-[0.7rem] font-bold uppercase tracking-wider mb-2 opacity-80">
+                      {cap.tag}
+                    </span>
+                    <h3 className="text-xl font-black mb-4 leading-tight" style={{ fontFamily: "var(--font-heading)" }}>
+                      {cap.title}
+                    </h3>
+                    <div className={`w-10 h-0.5 mb-4 ${colors.divider}`} />
+                    <ul className="space-y-1.5 text-sm">
                       {cap.items.map((it) => (
-                        <li key={it} className="flex items-start gap-2 text-sm text-foreground/75">
-                          <CheckCircle2 size={15} className="text-mint flex-shrink-0 mt-0.5" />
-                          <span>{it}</span>
-                        </li>
+                        <li key={it} className={colors.desc}>· {it}</li>
                       ))}
                     </ul>
                   </div>
@@ -296,44 +373,62 @@ function ActivarIAPage() {
         </div>
       </section>
 
-      {/* ══════ SOLUTIONS ══════ */}
-      <section className="py-16 md:py-24 bg-navy text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(32,178,170,0.15),transparent_60%)]" />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
+      {/* ══════ SOLUTIONS — dark with image cards (Tailored AI Applications) ══════ */}
+      <section className="py-20 md:py-28 bg-[#0a0a0f] text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,58,237,0.18),transparent_60%),radial-gradient(ellipse_at_bottom_left,rgba(32,178,170,0.12),transparent_60%)]" />
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6">
           <ScrollReveal>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-2">
-              SOLUCIONES A LA MEDIDA
-            </p>
-            <div className="w-16 h-0.5 bg-mint mb-6" />
-            <h2
-              className="text-3xl md:text-4xl font-bold max-w-3xl leading-tight mb-12"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              IA aplicada según el problema, no según la moda
-            </h2>
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-3">
+                SOLUCIONES A LA MEDIDA
+              </p>
+              <h2
+                className="text-4xl md:text-5xl font-black leading-[1.05] mb-5"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Aplicaciones de IA <span className="text-mint">a tu medida</span>
+              </h2>
+              <p className="text-white/70 text-base md:text-lg leading-relaxed">
+                IA aplicada según el problema, no según la moda.
+              </p>
+            </div>
           </ScrollReveal>
           <div className="grid md:grid-cols-3 gap-6">
             {solutions.map((s, i) => {
               const Icon = s.icon;
+              const heroImg = [neuralSphere, circuitFlow, ecoBulb][i];
               return (
                 <ScrollReveal key={s.title} delay={i * 120}>
-                  <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 h-full hover:bg-white/10 hover:border-mint/40 transition-all duration-300 flex flex-col">
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="w-12 h-12 rounded-xl bg-mint/15 text-mint flex items-center justify-center">
-                        <Icon size={22} />
-                      </div>
-                      <span className="text-[0.65rem] font-bold uppercase tracking-wider text-mint/80 bg-mint/10 px-2 py-1 rounded-full border border-mint/20">
+                  <div className="bg-[#13131c] border border-white/10 rounded-2xl overflow-hidden h-full flex flex-col hover:border-mint/40 hover:-translate-y-1 transition-all duration-300 group">
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img
+                        src={heroImg}
+                        alt={s.title}
+                        loading="lazy"
+                        width={1024}
+                        height={1024}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#13131c] via-transparent to-transparent" />
+                      <span className="absolute top-4 left-4 text-[0.65rem] font-bold uppercase tracking-wider text-mint bg-black/50 backdrop-blur px-2.5 py-1 rounded-full border border-mint/30">
                         {s.badge}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold mb-3">{s.title}</h3>
-                    <p className="text-sm text-white/70 leading-relaxed mb-6 flex-1">{s.desc}</p>
-                    <Link
-                      to={s.to}
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-mint hover:gap-2 transition-all"
-                    >
-                      {s.cta} <ArrowRight size={14} />
-                    </Link>
+                    <div className="p-7 flex-1 flex flex-col">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-lg bg-mint/15 text-mint flex items-center justify-center flex-shrink-0">
+                          <Icon size={20} />
+                        </div>
+                        <h3 className="text-xl font-black leading-tight" style={{ fontFamily: "var(--font-heading)" }}>{s.title}</h3>
+                      </div>
+                      <p className="text-sm text-white/70 leading-relaxed mb-6 flex-1">{s.desc}</p>
+                      <Link
+                        to={s.to}
+                        className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-mint border border-mint/40 hover:bg-mint hover:text-navy rounded-full px-5 py-2.5 transition-all self-start"
+                      >
+                        {s.cta} <ArrowRight size={14} />
+                      </Link>
+                    </div>
                   </div>
                 </ScrollReveal>
               );
