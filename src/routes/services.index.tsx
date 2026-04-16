@@ -395,7 +395,7 @@ function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () =>
       transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
       className="overflow-hidden"
     >
-      <div className="mt-8 rounded-[24px] overflow-hidden shadow-xl border border-border/40">
+      <div className="mt-8 overflow-hidden">
 
         {/* ── Section 1: Statement ── */}
         <div
@@ -435,7 +435,7 @@ function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () =>
             {svc.values.map((val, i) => (
               <div
                 key={val.title}
-                className="p-5 rounded-[18px] border border-border bg-section-bg"
+                className="p-5 rounded-[18px] bg-section-bg"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <span
