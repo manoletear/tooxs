@@ -689,7 +689,7 @@ function ServicesIndexPage() {
               Construimos contigo<br className="hidden sm:block" /> la próxima versión de ti o tu empresa
             </h1>
             <p className="text-white/80 text-sm sm:text-base md:text-[1.05rem] lg:text-[1.1rem] max-w-[620px] leading-relaxed">
-              Siete capacidades que se integran al flujo operativo. <em className="text-white/95">Datos, IA, automatización, integración, analítica, nube y estrategia</em> trabajando juntos sobre los procesos críticos del negocio.
+              Nuestra combinación de capacidades, alianzas y experiencia en la industria nos permite trabajar contigo para transformar tu empresa, fortaleciendo su forma de operar, decidir y crecer.
             </p>
           </ScrollReveal>
         </div>
