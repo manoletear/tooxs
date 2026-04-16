@@ -485,52 +485,92 @@ const industryImages = [
 
 const industries = [
   {
-    icon: Pickaxe, name: "Minería y Utilities", tagline: "Mantenimiento basado en condición y confiabilidad de activos",
-    problem: "La disponibilidad de equipos críticos define la capacidad de producción. La mantención preventiva por horas y la correctiva no planificada generan variabilidad operativa y presión sobre costos.",
-    solution: "Se incorporan datos de condición desde operación (SCADA, sensores) y del histórico de mantención (SAP PM / EAM) para ajustar la planificación según el comportamiento real de los equipos, interviniendo antes de la falla.",
-    impact: "−10% a −40% fallas no programadas · −10% a −25% costos de mantención · +5% a +15% disponibilidad (McKinsey).",
+    icon: Pickaxe,
+    name: "Minería y Utilities",
+    tagline: "Gestión de mantenimiento basada en condición y confiabilidad de activos",
+    problem:
+      "La disponibilidad de equipos críticos define directamente la capacidad de producción. La mantención preventiva por horas y la correctiva no planificada generan variabilidad operativa y presión sobre costos y cumplimiento del plan.",
+    solution:
+      "Se incorporan datos de condición desde operación (SCADA, sensores) y del histórico de mantención (SAP PM / EAM) para ajustar la planificación según el comportamiento real de los equipos. Esto permite intervenir antes de la falla y, sobre todo, estabilizar la planificación.",
+    impact:
+      "−10% a −40% fallas no programadas · −10% a −25% costos de mantención · +5% a +15% disponibilidad de equipos (McKinsey). Lectura: el punto no es anticipar fallas, es reducir la variabilidad operativa.",
   },
   {
-    icon: ShoppingCart, name: "Retail y Logística", tagline: "Reposición y flujo de inventario coordinado en toda la cadena",
-    problem: "El margen se pierde en descalces: quiebres en sala, sobrestock en CD y reposición tardía. La operación depende de ciclos que no reflejan cambios reales en demanda ni restricciones logísticas.",
-    solution: "Se integran ventas, inventario (sala y CD) y tránsito logístico para ajustar reposición de forma continua, anticipando quiebres y alineando distribución con capacidad real.",
-    impact: "+20% a +50% precisión de forecast · −20% a −30% inventario (McKinsey).",
+    icon: ShoppingCart,
+    name: "Retail y Logística",
+    tagline: "Reposición y flujo de inventario coordinado en toda la cadena",
+    problem:
+      "El margen se pierde en descalces: quiebres en sala, sobrestock en CD y reposición tardía. La operación depende de ciclos de planificación que no reflejan cambios reales en demanda ni restricciones logísticas.",
+    solution:
+      "Se integran ventas, inventario (sala y CD) y tránsito logístico para ajustar reposición de forma continua, no por ciclos. Esto permite anticipar quiebres, reducir acumulación y alinear distribución con capacidad real.",
+    impact:
+      "+20% a +50% precisión de forecast · −20% a −30% inventario (McKinsey). Lectura: el problema no es el forecast, es que la reposición no sigue el ritmo de la demanda real.",
   },
   {
-    icon: Landmark, name: "Servicios Financieros", tagline: "Gestión de riesgo integrada al flujo operativo",
-    problem: "El riesgo se define en la operación: originación, transacciones, monitoreo de cartera y cumplimiento. Cuando la evaluación ocurre después, la exposición ya está tomada.",
-    solution: "El scoring, validaciones y controles se integran directamente en el flujo transaccional, evaluando en línea y detectando anomalías en el momento en que ocurren.",
-    impact: "−60% a −80% tiempos de análisis · mejor detección de anomalías y fraude (Deloitte).",
+    icon: Landmark,
+    name: "Servicios Financieros",
+    tagline: "Gestión de riesgo integrada al flujo operativo",
+    problem:
+      "El riesgo se define en la operación: originación, transacciones, monitoreo de cartera y cumplimiento. Cuando la evaluación ocurre después, la exposición ya está tomada.",
+    solution:
+      "El scoring, validaciones y controles se integran directamente en el flujo transaccional. Esto permite evaluar en línea, monitorear continuamente y detectar anomalías en el momento en que ocurren.",
+    impact:
+      "−60% a −80% tiempos de análisis · mejor detección de anomalías y fraude (Deloitte). Lectura: el punto no es el modelo, es cuándo ocurre la decisión.",
   },
   {
-    icon: Wheat, name: "Agroindustria", tagline: "Control operativo y trazabilidad en procesos de packing",
-    problem: "El valor de la producción se define en el packing: clasificación, tiempos, trazabilidad y cumplimiento. Las pérdidas en esta etapa afectan exportación, precios y rechazos.",
-    solution: "Se estructuran datos de proceso (líneas, calidad, tiempos) para monitorear y ajustar la operación en tiempo real.",
-    impact: "−15% a −25% pérdidas postcosecha · +10% a +20% eficiencia operativa (WEF).",
+    icon: Wheat,
+    name: "Agroindustria",
+    tagline: "Control operativo y trazabilidad en procesos de packing",
+    problem:
+      "El valor de la producción se define en el packing: clasificación, tiempos, trazabilidad y cumplimiento. Las pérdidas en esta etapa afectan directamente exportación, precios y rechazos.",
+    solution:
+      "Se estructuran datos de proceso (líneas, calidad, tiempos) para monitorear y ajustar la operación en tiempo real, reduciendo desvíos y mejorando control end-to-end.",
+    impact:
+      "−15% a −25% pérdidas postcosecha · +10% a +20% eficiencia operativa (World Economic Forum). Lectura: el margen no se pierde en el campo, se pierde en cómo se ejecuta el packing.",
   },
   {
-    icon: Radio, name: "Telecomunicaciones", tagline: "Gestión operativa de red con menor intervención manual",
-    problem: "La operación de red concentra incidentes, degradación de servicio y mantenimiento distribuido. La gestión reactiva genera alta carga operativa y tiempos de resolución variables.",
-    solution: "Se integran monitoreo, eventos y datos de red para priorizar, diagnosticar y resolver incidentes con menor intervención manual.",
-    impact: "−20% a −40% incidentes · −30% a −60% tiempo de resolución · −15% a −25% costos operativos (Gartner).",
+    icon: Radio,
+    name: "Telecomunicaciones",
+    tagline: "Gestión operativa de red con menor intervención manual",
+    problem:
+      "La operación de red concentra la mayor complejidad: incidentes, degradación de servicio y mantenimiento distribuido. La gestión reactiva genera alta carga operativa y tiempos de resolución variables.",
+    solution:
+      "Se integran monitoreo, eventos y datos de red para priorizar, diagnosticar y resolver incidentes con menor intervención manual. Esto permite operar con mayor estabilidad y menor dependencia de escalamiento humano.",
+    impact:
+      "−20% a −40% incidentes operacionales · −30% a −60% tiempos de resolución · −15% a −25% costos operativos (Gartner). Lectura: el punto no es reaccionar más rápido, es reducir la cantidad de eventos que requieren reacción.",
   },
   {
-    icon: HeartPulse, name: "Salud", tagline: "Reducción de carga administrativa en procesos clínicos",
-    problem: "Una parte relevante del tiempo clínico se consume en tareas administrativas: registros, validaciones y gestión documental.",
-    solution: "Se estructuran y automatizan flujos administrativos para reducir intervención manual y liberar capacidad clínica directa.",
-    impact: "−20% a −40% carga administrativa (McKinsey).",
+    icon: HeartPulse,
+    name: "Salud",
+    tagline: "Reducción de carga administrativa en procesos clínicos",
+    problem:
+      "Una parte relevante del tiempo clínico se consume en tareas administrativas: registros, validaciones y gestión documental, que restan capacidad directa de atención.",
+    solution:
+      "Se estructuran y automatizan flujos administrativos para reducir intervención manual y tiempos de gestión, liberando capacidad clínica.",
+    impact:
+      "−20% a −40% carga administrativa (McKinsey). Lectura: cada proceso administrativo que se elimina libera capacidad clínica directa.",
   },
   {
-    icon: Car, name: "Automotriz", tagline: "Postventa y garantías sin reprocesos",
-    problem: "La postventa concentra margen, pero opera con procesos manuales en garantías, órdenes y documentación, generando errores y demoras.",
-    solution: "Se automatiza la lectura, validación y registro en DMS/ERP, eliminando reprocesos y reduciendo tiempos administrativos.",
-    impact: "−30% a −70% tiempos administrativos (Deloitte).",
+    icon: Car,
+    name: "Automotriz",
+    tagline: "Gestión de postventa y garantías sin reprocesos",
+    problem:
+      "La postventa concentra una parte relevante del margen, pero sigue operando con procesos manuales en garantías, órdenes y documentación, generando errores y demoras.",
+    solution:
+      "Se automatiza la lectura, validación y registro de información en sistemas (DMS/ERP), reduciendo errores y tiempos de gestión.",
+    impact:
+      "−30% a −70% tiempos administrativos (Deloitte). Lectura: la mejora no está en atender más rápido, sino en no tener que rehacer el proceso.",
   },
   {
-    icon: Building2, name: "Real Estate", tagline: "Gestión de activos basada en datos operativos",
-    problem: "Las decisiones sobre ocupación, precios y rendimiento se toman con información parcial o desfasada.",
-    solution: "Se integran datos de operación, mercado y clientes para ajustar pricing, ocupación y portafolio con visibilidad continua.",
-    impact: "Mejor pricing y valorización · mayor control de ocupación y rendimiento (PwC).",
+    icon: Building2,
+    name: "Real Estate",
+    tagline: "Gestión de activos basada en datos operativos",
+    problem:
+      "Las decisiones sobre activos —ocupación, precios, rendimiento— suelen basarse en información parcial o desfasada del mercado y la operación.",
+    solution:
+      "Se integran datos de operación, mercado y clientes para ajustar pricing, ocupación y gestión de portafolio con visibilidad continua.",
+    impact:
+      "Mejora en valorización y pricing · mayor control sobre ocupación y rendimiento (PwC). Lectura: el activo no cambia, cambia cómo se gestiona con información.",
   },
 ];
 
