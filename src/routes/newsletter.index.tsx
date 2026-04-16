@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
-import { Linkedin, Instagram, Mail, ChevronRight, Search, X } from "lucide-react";
+import { Linkedin, Instagram, Mail, ChevronRight } from "lucide-react";
 import { GradientProBackground } from "@/components/GradientProBackground";
 import { PrismBackground } from "@/components/PrismBackground";
-import { ARTICLES, CATEGORY_GROUPS, getCategoryGroup, type CategoryGroup } from "@/data/articles";
+import { NewsletterFilters, type NewsletterFilterState } from "@/components/NewsletterFilters";
+import { ARTICLES, CATEGORY_GROUPS, getCategoryGroup, getIndustry, getContentType } from "@/data/articles";
 
 import quarterlyCover from "@/assets/newsletter/quarterly-cover.jpg";
 import quarterlyArchive from "@/assets/newsletter/quarterly-archive.jpg";
