@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Mail, ChevronRight } from "lucide-react";
+import { LightspeedBackground } from "@/components/LightspeedBackground";
 import { PrismBackground } from "@/components/PrismBackground";
-import { HaloEffect } from "@/components/HaloEffect";
 import { ARTICLES } from "@/data/articles";
 
 import quarterlyCover from "@/assets/newsletter/quarterly-cover.jpg";
@@ -53,17 +53,14 @@ function NewsletterPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* ══════ HERO WITH PRISM ══════ */}
-      <section className="relative bg-navy text-white h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end overflow-hidden">
-        <HaloEffect
-          count1={4}
-          count2={3}
-          count3={2}
-          size={320}
-          speed={6}
-          blur={100}
-          color1="#177FC6"
-          color2="#20B2AA"
-          color3="#0A2647"
+      <section className="relative bg-black text-white h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end overflow-hidden">
+        <LightspeedBackground
+          speed={0.8}
+          intensity={1.2}
+          particleCount={18}
+          colorR={0.09}
+          colorG={0.5}
+          colorB={0.78}
         />
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 pb-12">
           <Link to="/" className="text-xs text-white/50 mb-4 font-medium tracking-wide inline-block hover:text-white/80 transition-colors">‹ Volver al Inicio</Link>
