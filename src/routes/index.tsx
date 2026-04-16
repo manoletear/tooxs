@@ -317,23 +317,16 @@ function TrustBarDynamic() {
           </div>
 
           {/* Map */}
-          <ScrollReveal delay={200} className="flex flex-col items-center">
-            <div className="bg-card rounded-xl p-4 shadow-sm border border-border/50 w-full">
+          <ScrollReveal delay={200} className="flex flex-col items-center h-full">
+            <div className="bg-card rounded-xl p-4 shadow-sm border border-border/50 w-full h-full flex items-center justify-center">
               <img
                 src={mapLatamPresence}
-                alt="Presencia regional de TOOXS en Latinoamérica"
+                alt="Presencia regional de TOOXS en Chile, Perú, Colombia, Costa Rica y Panamá"
                 className="w-full h-auto max-h-[320px] object-contain"
                 loading="lazy"
                 width={640}
                 height={960}
               />
-              <div className="mt-3 flex flex-wrap justify-center gap-2">
-                {["Chile", "Perú", "Colombia", "Costa Rica", "Panamá"].map((country) => (
-                  <span key={country} className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full" style={{ color: "#E08A2B", background: "rgba(224,138,43,0.1)" }}>
-                    {country}
-                  </span>
-                ))}
-              </div>
             </div>
           </ScrollReveal>
         </div>
