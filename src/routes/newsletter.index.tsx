@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
 import { Linkedin, Instagram, Mail, ChevronRight } from "lucide-react";
-import { GradientProBackground } from "@/components/GradientProBackground";
+import { InsightsBackground } from "@/components/InsightsBackground";
 import { PrismBackground } from "@/components/PrismBackground";
 import { NewsletterFilters, type NewsletterFilterState } from "@/components/NewsletterFilters";
 import { ARTICLES, CATEGORY_GROUPS, getCategoryGroup, getIndustry, getContentType } from "@/data/articles";
@@ -85,18 +85,9 @@ function NewsletterPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* ══════ HERO WITH PRISM ══════ */}
-      <section className="relative bg-black text-white min-h-[420px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[560px] flex items-end overflow-hidden">
-        <GradientProBackground
-          primary="#177FC6"
-          secondary="#20B2AA"
-          background="#0A2647"
-          speed={0.25}
-          warpStrength={1}
-          warpDetail={5}
-          warpSpeed={2}
-          contrast={1.5}
-          saturation={1}
-        />
+      <section className="relative bg-[#06192f] text-white min-h-[420px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[560px] flex items-end overflow-hidden">
+        <InsightsBackground />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06192f] via-[#06192f]/30 to-transparent pointer-events-none" aria-hidden="true" />
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
           <Link to="/" className="text-xs text-white/60 mb-3 sm:mb-4 font-medium tracking-wide inline-block hover:text-white transition-colors">‹ Volver al Inicio</Link>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black mb-3 sm:mb-4 leading-[1.1] tracking-tight">
