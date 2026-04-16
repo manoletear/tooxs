@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Brain, Cog, BarChart3, FileText, Factory, ArrowRight, CheckCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PrismBackground } from "@/components/PrismBackground";
+import { BokehBackground } from "@/components/BokehBackground";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 
 import heroIa from "@/assets/hero-ia-aplicada.jpg";
