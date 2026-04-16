@@ -41,6 +41,16 @@ import articleConsumidor2024 from "@/assets/newsletter/article-consumidor-2024.j
 import articleMandosIntermedios from "@/assets/newsletter/article-mandos-intermedios.jpg";
 import articleTrabajoRemoto from "@/assets/newsletter/article-trabajo-remoto.jpg";
 import articleDeconstruirSilos from "@/assets/newsletter/article-deconstruir-silos.jpg";
+import articleIaInmobiliaria from "@/assets/newsletter/article-ia-inmobiliaria.jpg";
+import articleValorIndustria40 from "@/assets/newsletter/article-valor-industria-40.jpg";
+import articleEcosistemasDigitales from "@/assets/newsletter/article-ecosistemas-digitales.jpg";
+import articleRelojCibernetico from "@/assets/newsletter/article-reloj-cibernetico.jpg";
+import articleVentajaFabricas from "@/assets/newsletter/article-ventaja-fabricas.jpg";
+import articleCulturaEmpresas from "@/assets/newsletter/article-cultura-empresas.jpg";
+import articleEmpleadosValor from "@/assets/newsletter/article-empleados-valor.jpg";
+import articleCadenaSostenible from "@/assets/newsletter/article-cadena-sostenible.jpg";
+import article4irSostenibilidad from "@/assets/newsletter/article-4ir-sostenibilidad.jpg";
+import articleGeopoliticaCorporativa from "@/assets/newsletter/article-geopolitica-corporativa.jpg";
 
 export interface Article {
   id: number;
