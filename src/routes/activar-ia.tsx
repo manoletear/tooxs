@@ -196,9 +196,6 @@ function ActivarIAPage() {
           <Link to="/" className="text-xs text-white/60 mb-3 sm:mb-4 font-medium tracking-wide inline-block hover:text-white transition-colors">
             ‹ Volver al Inicio
           </Link>
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-3 sm:mb-4 inline-flex items-center gap-2">
-            <Sparkles size={14} /> Activar IA
-          </p>
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black mb-3 sm:mb-4 leading-[1.1] tracking-tight"
             style={{ fontFamily: "var(--font-heading)" }}
@@ -208,12 +205,17 @@ function ActivarIAPage() {
           <p className="text-white/85 text-sm sm:text-base md:text-[1.05rem] lg:text-[1.1rem] max-w-[640px] leading-relaxed mb-5 sm:mb-7">
             Transformamos datos complejos en decisiones accionables que aceleran el crecimiento, reducen costos operacionales y mitigan riesgos. De la estrategia a la producción.
           </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 bg-mint text-navy px-6 py-3 rounded-full text-sm font-bold hover:-translate-y-0.5 transition-transform shadow-lg shadow-mint/20"
-          >
-            Conversemos <ArrowRight size={16} />
-          </Link>
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-mint text-navy px-6 py-3 rounded-full text-sm font-bold hover:-translate-y-0.5 transition-transform shadow-lg shadow-mint/20"
+            >
+              Conversemos <ArrowRight size={16} />
+            </Link>
+            <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-mint border border-mint/40 bg-mint/10 px-4 py-2.5 rounded-full">
+              <Sparkles size={14} /> Activar IA
+            </span>
+          </div>
         </div>
       </section>
 
