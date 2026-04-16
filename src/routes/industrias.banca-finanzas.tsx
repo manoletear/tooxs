@@ -33,7 +33,7 @@ function BancaPage() {
         ],
         services: [
           { title: "Scoring y evaluación", description: "Automatizamos análisis de crédito, lectura documental y consolidación de antecedentes para acelerar originación y mejorar consistencia." },
-          { title: "Onboarding digital", description: "Reducimos fricción en apertura de clientes, validación documental, KYC y activación operativa." },
+          { title: "Onboarding digital", description: "Reducimos pasos manuales en apertura de clientes, validación documental, KYC y activación operativa." },
           { title: "Cumplimiento y trazabilidad", description: "Diseñamos flujos auditables, alertas y automatizaciones que fortalecen cumplimiento normativo y reducen errores manuales." },
           { title: "Gestión documental financiera", description: "Extraemos y estructuramos información desde contratos, estados, carpetas de cliente y documentación regulatoria." },
           { title: "Detección de anomalías", description: "Apoyamos monitoreo de patrones y eventos que requieren revisión, escalamiento o priorización." },
@@ -52,7 +52,7 @@ function BancaPage() {
         ],
         cta: {
           title: "Acelera decisiones sin perder control",
-          subtitle: "Haz más eficiente tu operación financiera donde hoy tienes más fricción manual.",
+          subtitle: "Haz más eficiente tu operación financiera donde hoy tienes más carga manual.",
           buttonText: "Solicitar una revisión de proceso",
         },
       }}

@@ -52,7 +52,7 @@ function TelecomPage() {
         ],
         cta: {
           title: "Conecta red, experiencia y operación en una sola capa de inteligencia",
-          subtitle: "Reduce fricción donde hoy tienes más costo y más fuga de valor.",
+          subtitle: "Elimina cuellos de botella donde hoy tienes más costo y más fuga de valor.",
           buttonText: "Hablar con Tooxs",
         },
       }}

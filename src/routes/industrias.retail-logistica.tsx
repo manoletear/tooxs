@@ -23,12 +23,12 @@ function RetailPage() {
       data={{
         hero: {
           title: "Retail y Logística",
-          subtitle: "Inventario inteligente. Ejecución más rápida. Menos fricción.",
+          subtitle: "Inventario inteligente. Ejecución más rápida. Menos quiebres operativos.",
           description: "Ayudamos a retailers, operadores logísticos y negocios omnicanal a optimizar inventario, mejorar disponibilidad y convertir la cadena de suministro en una ventaja competitiva.",
           image: heroImage,
         },
         statement: [
-          "En retail y logística, el problema rara vez es solo vender más. El problema real es mantener disponibilidad sin sobrecargar capital, responder a la demanda sin fricción y operar con visibilidad de punta a punta.",
+          "En retail y logística, el problema rara vez es solo vender más. El problema real es mantener disponibilidad sin sobrecargar capital, responder a la demanda con agilidad y operar con visibilidad de punta a punta.",
           "Tooxs integra datos comerciales, operacionales y logísticos para transformar abastecimiento, reposición, planificación y ejecución.",
         ],
         services: [

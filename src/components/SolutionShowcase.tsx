@@ -105,7 +105,7 @@ const solutions: Solution[] = [
     image: facturasImg,
     icon: <Receipt size={24} />,
     accentColor: "#C6961A",
-    fullDescription: "Captura facturas y documentos anexos, extrae información relevante, valida consistencia con órdenes de compra y deriva excepciones para revisión. Reduce fricción en cuentas por pagar y control documental.",
+    fullDescription: "Captura facturas y documentos anexos, extrae información relevante, valida consistencia con órdenes de compra y deriva excepciones para revisión. Reduce demoras y trabajo manual en cuentas por pagar y control documental.",
     problems: [
       "Recepción manual de facturas y documentos asociados a importaciones.",
       "Errores en digitación, validación y comparación documental.",

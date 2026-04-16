@@ -33,7 +33,7 @@ function SaludPage() {
         ],
         services: [
           { title: "Automatización administrativa", description: "Reducimos trabajo manual en admisión, agenda, validación, documentación, autorizaciones y seguimiento." },
-          { title: "Orquestación de pacientes", description: "Mejoramos coordinación entre canales, áreas y puntos de contacto para reducir fricción." },
+          { title: "Orquestación de pacientes", description: "Mejoramos coordinación entre canales, áreas y puntos de contacto para reducir tiempos de espera." },
           { title: "Gestión documental clínica y operativa", description: "Digitalizamos y estructuramos información para acelerar acceso, búsqueda y trazabilidad." },
           { title: "Analítica para capacidad y demanda", description: "Apoyamos visibilidad de demanda, tiempos de espera, capacidad y saturación operativa." },
           { title: "Soporte a atención", description: "Creamos asistentes para resolver consultas frecuentes, orientar usuarios y apoyar equipos internos." },
@@ -52,7 +52,7 @@ function SaludPage() {
         ],
         cta: {
           title: "Haz más eficiente tu operación sin comprometer la atención",
-          subtitle: "Menos fricción administrativa. Más capacidad real de respuesta.",
+          subtitle: "Menos carga administrativa. Más capacidad real de respuesta.",
           buttonText: "Solicitar evaluación",
         },
       }}
