@@ -1090,6 +1090,463 @@ Comunicamos el plan una vez, la gente sigue haciendo lo que hacía. Las empresas
 
 Las transformaciones que funcionan ven el modelo operativo como un sistema interconectado, no como un proyecto que cierras. En una empresa logística de LATAM que acompañamos, su tiempo de entrega cayó 35%, los costos se redujeron 18%, y el equipo supo exactamente por qué. El error: tratar la transformación como "implementación de software" en silos. Es un rediseño del cómo operás, con gente, procesos, datos y tecnología alineados.`,
   },
+  {
+    id: 28,
+    slug: "movilidad-inteligente-logistica-mineria",
+    category: "Logística & Movilidad",
+    date: "16 Abril 2026",
+    readTime: "5 min",
+    title: "Movilidad inteligente en logística: De la promesa a la ganancia real",
+    excerpt: "Vehículos autónomos, rutas optimizadas, logística compartida. Hace años era ciencia ficción. Hoy, en minería y manufactura en Latinoamérica, es herramienta competitiva que reduce costos 15-25%.",
+    image: articleMovilidadLogistica,
+    content: `En 2020 hablábamos de "robo-taxis", "vehículos autónomos completos", "drones por todas partes". Era hype. Hoy, lo que funciona en minería y manufactura es más mundano pero más valioso: optimización de rutas, consolidación de cargas, monitoreo de flota.
+
+McKinsey documentó que en logística industrial, movilidad "futura" ya es operación hoy, con ROI claro.
+
+## Optimización de rutas con algoritmos
+
+Un camión que hoy hace 12 viajes por semana para distribuir concentrado a puerto puede hacer 15 optimizando ruta, consolidando cargas, evitando vacíos de retorno. Impacto: -20% en costo de transporte. En minería con alto volumen, eso son millones por año.
+
+## Monitoreo de flota en tiempo real
+
+GPS + IoT en cada vehículo. Saber dónde está cada carga, velocidad, consumo de combustible, desviaciones de ruta. Impacto: -15% en consumo combustible y mejor utilización de flota.
+
+## Mantenimiento predictivo en vehículos
+
+Sensores en motores, transmisiones, frenos predicen fallos. No mantienes por calendario, sino cuando realmente necesita servicio. Menos downtime, menos costo.
+
+## ¿Y los vehículos autónomos completos?
+
+Dentro de algunas minas grandes existen camiones autónomos en operación (Rio Tinto en Australia). Pero en minería chilena aún no es mainstream por temas regulatorios, talento y costo (camión autónomo cuesta 2-3x más). En minería, lo realista es "asistencia autónoma": camión con operador, pero sistema maneja cambios de velocidad, mantiene carril, acelera/frena automáticamente.
+
+## Cómo implementar movilidad inteligente hoy
+
+**Paso 1: Auditar flota actual.** Cuántos vehículos, rutas, utilización, costo operacional.
+
+**Paso 2: Instalar IoT + GPS en flota.** No es costoso. Cajas pequeñas que se cuelgan o adhieren.
+
+**Paso 3: Algoritmo de optimización de rutas.** Reglas simples generan mejora 15-20%.
+
+**Paso 4: Dashboard para despachadores.** Mapa en tiempo real, alertas de desvíos.
+
+**Paso 5: Medir impacto.** Comparar antes/después: km recorridos, viajes completados, combustible, ingresos por viaje.
+
+## Caso típico en minería chilena
+
+Mina que transporta 500 toneladas/día de concentrado a puerto (400 km). Hoy 25 camiones, 50 viajes/día. Con optimización: misma cantidad con 21 camiones = ahorro de USD 500k-800k anual. Costo implementar: USD 50k-100k. Payback: 3-6 meses.
+
+## La perspectiva Tooxs
+
+Movilidad "futura" en minería no requiere tecnología mágica. Requiere visibilidad de lo que tienes hoy, algoritmos simples que optimicen rutas y cargas, y monitoreo continuo. La brecha se cerrará en 3 años. Las que esperen perderán competitividad en costo logístico.`,
+  },
+  {
+    id: 29,
+    slug: "acciones-mejores-ceos-2023",
+    category: "Liderazgo & Estrategia",
+    date: "16 Abril 2026",
+    readTime: "8 min",
+    title: "2023 definió a los CEOs de 2026: Qué hicieron diferente (antes de que fuera tarde)",
+    excerpt: "McKinsey documentó qué CEOs tomaron acciones que los diferenciaban. No fueron grandes apuestas. Fueron decisiones simples pero poco frecuentes. Si tu CEO no hizo estas cosas hace 2-3 años, ya estás rezagado.",
+    image: articleAccionesCeos2023,
+    content: `McKinsey documentó en 2023-2024 qué CEOs tomaron acciones que los diferenciaban. Si tu CEO no hizo estas 3-4 cosas hace 2-3 años, ya estás rezagado.
+
+## Acción 1: Invirtieron en talento diferente
+
+Mientras muchas compañías hacían "cost cutting", los mejores CEOs hicieron lo opuesto: invirtieron agresivamente en traer talento diferente. Contrataron fuera de industria. Una minera contrató a gente de tech. Una manufacturera contrató a gente de logística. Pagaron premium por eso. Resultó en un tercio de nuevas ideas proviniendo de gente nueva.
+
+## Acción 2: Dieron autonomía real a equipos operacionales
+
+Mientras muchos CEOs seguían con "aprobación centralizada", los mejores escribieron límites claros de autoridad. "Gerentes pueden gastar hasta $1M sin aprobación C-suite. Arriba de eso, necesita aprobación. Pero implementa rápido." Velocidad de decisión aumentó 3x.
+
+## Acción 3: Separaron decisiones "irreversibles" de "reversibles"
+
+Los mejores CEOs notaron que estaban aprobando ambas con el mismo nivel de rigor. Decisiones reversibles se aprueban rápido con menos data. Decisiones irreversibles (cierro una línea de negocio) requieren análisis profundo. Velocidad aumentó, riesgo no aumentó.
+
+## Acción 4: Invirtieron en visibilidad de caja en tiempo real
+
+Mientras muchos CEOs veían números financieros 30 días después, los mejores invirtieron en dashboards que mostraban caja, reservas, flujos proyectados en tiempo real. Eso permitió actuar rápido si algo iba mal.
+
+## Acción 5: Fueron públicos sobre dónde la empresa NO iba a competir
+
+Es fácil decir "queremos ser los mejores en todo". Es difícil decir "no vamos a competir aquí". Un CEO de minería en 2023 dijo: "No vamos a competir en 'mina de volumen bajo costo'. Vamos a competir en 'mina especializada de alto margen'." Eso cambió cada decisión.
+
+## Acción 6: Reembolsaron ganancias estratégicamente
+
+Mientras mercado esperaba dividendos altos, algunos CEOs dijeron: "Vamos a retener efectivo para invertir en transformación." Requirió comunicación clara, pero permitió transformación sin deuda.
+
+## Lo común: simplicidad, velocidad, claridad
+
+No requirieron consultoría cara ni cambios de estructura. Fueron decisiones directas. Buscaban ir más rápido sin sacrificar control. Comunicaban límites claros, no ambigüedad.
+
+## La perspectiva Tooxs
+
+Trabajamos con CEOs que en 2026 intentan hacer lo que los mejores hicieron en 2023. Siempre es más difícil hacerlo después. Es más fácil establecer una cultura de velocidad desde el inicio que cambiarla 3 años después. Los CEOs que actúen en 2026 aún pueden implementar estas acciones, pero estarán 2-3 años atrás de competidores que lo hicieron en 2023.`,
+  },
+  {
+    id: 30,
+    slug: "ceo-alto-potencial-tres-capacidades",
+    category: "Desarrollo Ejecutivo",
+    date: "16 Abril 2026",
+    readTime: "10 min",
+    title: "No todos los CEOs son iguales: Los de alto potencial hacen tres cosas radicalmente diferente",
+    excerpt: "McKinsey identificó cuáles ejecutivos tienen alto potencial para prosperar como CEOs. No es título. No es experiencia. Es mentalidad y capacidad. Si aspiras a ser CEO, debes saber qué los diferencia.",
+    image: articleCeoAltoPotencial,
+    content: `No es el que lleva 20 años en la compañía. No es el que tiene MBA de prestigio. Es alguien que prospera bajo incertidumbre, toma decisiones rápidas sin información perfecta, atrae talento y los desarrolla deliberadamente, sabe cuándo cambiar y cuándo persistir, y comunica con claridad brutal.
+
+McKinsey estudió CEOs de alto potencial en varias industrias. El patrón era claro. No era tema de inteligencia. Era tema de cómo piensan y cómo actúan.
+
+## Capacidad 1: Prosperar bajo incertidumbre radical
+
+Cuando hay ambigüedad, la mayoría de ejecutivos se congela. Buscan más data. Reúnen más committees. Esperan certeza que nunca llega. Ejecutivos de alto potencial actúan diferente: toman decisión con 60-70% de información, implementan, miden, ajustan.
+
+**Cómo desarrollarlo:** Identifica decisiones donde NO necesitas información perfecta. Tómalas rápido. No digas "vamos a estudiar". Di "vamos a pilotar, medimos en 6 semanas, decidimos". Mide obsesivamente.
+
+## Capacidad 2: Atraer y desarrollar talento obsesivamente
+
+CEOs de alto potencial dedican 20-30% de su tiempo a talento. No es "gestión de RH". Es buscar activamente mejor gente, convencerla de unirse, desarrollarla en roles cada vez más difíciles.
+
+**Cómo desarrollarlo:** Sé claro sobre qué talento necesitas. Busca obsesivamente (LinkedIn, redes, headhunters, competidores). Invierte en su desarrollo (mentoring continuo, rol más desafiante cada 12-18 meses). Sé transparente sobre salida: si un talento que desarrollaste se va a ser CEO en otra compañía, eso es victoria.
+
+## Capacidad 3: Comunicar con claridad brutal
+
+La mayoría de ejecutivos "comunican" en corporatese. Frases largas, ambigüedad, marketing speak. CEOs de alto potencial comunican diferente:
+
+- "Aquí está donde estamos. Aquí está donde necesitamos estar. Aquí está por qué."
+- "Vamos a hacer X. Si sale mal, el costo es Y. Vale la pena."
+- "No sé cómo vamos a lograr Z. Pero vamos a empezar aquí."
+
+**Cómo desarrollarlo:** Escribe como hablas. Sé transparente sobre restricciones. Repite constantemente: dí el mismo mensaje 50 veces.
+
+## Qué más diferencia a los de alto potencial
+
+**Saben cuándo pivotar.** Si una estrategia no funciona a los 6 meses, cambian. Eso requiere ego manejable.
+
+**Construyen para largo plazo pero actúan para corto plazo.** Visión de 5-10 años. Pero actúan en quarterly.
+
+**Entienden el negocio profundamente.** Pasan tiempo en terreno, con clientes, con operaciones.
+
+## El camino para desarrollar alto potencial
+
+**Si eres ejecutivo ahora:** Toma decisiones rápido sin esperar aprobación. Desarrolla deliberadamente a 2-3 personas para roles más grandes. Comunica con claridad. Busca stretch assignments.
+
+**Si eres aspirante a CEO:** Identifica un mentor que sea CEO de alto potencial. Toma un rol operacional donde puedas ver impacto directo. Desarrolla una junta o advisory para exponerte a pensamiento estratégico.
+
+## La perspectiva Tooxs
+
+Los mejores no esperan el rol de CEO para actuar como CEO. Actúan como CEO en su rol actual. Toman decisiones rápido. Desarrollan talento. Comunican claridad. Miden obsesivamente. Si quieres ser CEO, comienza ahora—en tu rol actual.`,
+  },
+  {
+    id: 31,
+    slug: "estado-ia-generativa-2024-adopcion",
+    category: "AI & Operaciones",
+    date: "16 Abril 2026",
+    readTime: "9 min",
+    title: "IA generativa dejó de ser futurista. Comenzó a ser ingeniería de costos.",
+    excerpt: "A principios de 2024, IA generativa estaba en pruebas piloto en la mayoría de empresas. En 2026, las que siguieron piloteando están atrás de las que escalaron. La ventana se cierra rápidamente.",
+    image: articleEstadoIa2024,
+    content: `En 2023, CEO de empresa de manufactura decía "estamos evaluando IA." En 2024, director de operaciones decía "tenemos un piloto." En 2026, CFO dice "¿Por qué esta línea de producción cuesta 12% más que la del competidor? Ah, porque no tiene IA." El cambio es brutal: de experimento a imperativo operacional.
+
+McKinsey documentó que empresas que adoptaron IA generativa temprano (2023-2024) lograron ahorros de 5-15% en costo operacional. Empresas que "siguen evaluando" en 2026 están 1,5-2,5 años atrás. Esa brecha es irreversible en ciclos de negocio de 3 años.
+
+## Las tres aplicaciones que ya generan ROI claro
+
+**Aplicación 1: Optimización de documentos y procesos operacionales.** IA generativa analiza manuales, procesos documentados, reportes de incidentes. Genera versión optimizada que elimina pasos redundantes. Procesos optimizados requerían 8-12% menos tiempo, con 10-15% menos errores. Inversión: 30-80K USD. Retorno: 200-300K USD anuales.
+
+**Aplicación 2: Generación de reports y análisis.** En lugar de 3 analistas gastando 15 horas/semana generando reports, IA generativa lo hace en 2 horas, con 95% precisión. Lead time de decisión sobre cambios operacionales bajó de 2 semanas a 2 días. Ciclo de mejora continua acelerado 5x. Inversión: 20-50K USD.
+
+**Aplicación 3: Asistencia en decisiones complejas.** Operador enfrenta decisión: "¿Cambio línea de producción de A a B ahora, o espero?" IA generativa sintetiza datos (demanda proyectada, stock, tiempo de cambio, costo, ingresos) y presenta opciones en 30 segundos vs. 30 minutos. Decisión es mejor y más rápida. Inversión: 15-40K USD. Retorno: 5-10% en eficiencia operacional.
+
+## Por qué quien no adoptó en 2023-2024 va a luchar
+
+No es porque IA sea mágica. Es porque competidor que adopta primero captura ahorros, invierte esos ahorros en mejorar producto o bajar precio. Tú no pudiste bajar precio porque aún no capturaste ahorros. Resultado: pierdes cliente.
+
+Ejemplo: Transportista logístico que adopta IA generativa en 2024 para optimizar rutas, reduciendo costo por km 8-10%. Puede bajar precio a cliente 5%, mantener margen superior. Competidor sin IA no puede. En 2 años, perdió 15-20% de volumen. Es difícil de revertir.
+
+## Cómo hacerlo bien
+
+**1. No comiences con "grande".** Comienza con problema pequeño que duele. Un proceso de 15 horas/semana que IA generativa automatiza en 1 hora.
+
+**2. Mide todo.** Antes y después. Diferencia es tu retorno.
+
+**3. Escala lento.** Primero piloto con 1 equipo. Después, 3 equipos. Después, planta completa.
+
+**4. Cambia procesos cuando sea necesario.** IA generativa no encaja en proceso antiguo. A veces necesitas redesign pequeño.
+
+## La perspectiva Tooxs
+
+El mito es "IA es cara." Verdad: pilotos mal diseñados son caros (500K-2M USD que no generan retorno). IA bien diseñada es barata: 30-150K USD, payback 6-12 meses. El tiempo de decidir es 2026, no 2027.`,
+  },
+  {
+    id: 32,
+    slug: "reset-minorista-comercio-integrado",
+    category: "Retail & Comercio",
+    date: "16 Abril 2026",
+    readTime: "9 min",
+    title: "El retail tradicional está muerto: Pero su reemplazo no es lo que crees",
+    excerpt: "McKinsey documenta que retail no es simplemente física vs. digital. Los ganadores combinan ambos de formas que la mayoría de empresas no entiende.",
+    image: articleResetMinorista,
+    content: `Tienes una tienda física. No puedes cerrar porque tu marca y clientes dependen de ella. Pero sabes que no es suficiente. Entonces abres un e-commerce. Pero el e-commerce es un desastre sin logística. Ahora estás manejando dos negocios que compiten entre sí. McKinsey llama a esto el "reset" del retail. No es una transición. Es una reconfiguración completa.
+
+## Los ganadores de 2026
+
+**No es omnichannel** (ese término está muerto). Significaba "el cliente puede comprar en cualquier canal", pero si tu tienda física y e-commerce no están integrados operativamente, solo tienes dos negocios separados.
+
+**Sí es: integración operativa real.** Inventario sincronizado. Logística unificada. Datos de cliente centralizados. El cliente es el centro, no el canal.
+
+## Las nuevas tácticas que funcionan
+
+### Táctica 1: Tienda como hub logístico (no solo punto de venta)
+
+Tu tienda física es punto de recepción/devolución, almacén mini, punto de envío de e-commerce. Una tienda de ropa en Santiago vende online a todo Chile. Los clientes pueden recoger en tienda, devolver en tienda (aunque compraron online), ver stock online actualizado cada hora.
+
+### Táctica 2: Diferenciación por experiencia, no por producto
+
+Tu competidor online tiene 50x más selección. No puedes competir en catálogo. Compites en experiencia: personalización, servicio (un consultor que arma outfit completo), comunidad (events, talleres), fricción cero.
+
+### Táctica 3: Datos de cliente como fuente de verdad
+
+Capturar quién compra (programa de lealtad), qué compró, cuándo, a qué precio. Conectarlo con su actividad online. Actuar en base a eso.
+
+### Táctica 4: Precio dinámico y local
+
+El precio puede variar según inventario local, demanda local, competencia local. Requiere tecnología, pero significa más margen o más volumen.
+
+### Táctica 5: Automatización donde importa menos
+
+No automatices el customer-facing. Automatiza logística, inventory, fulfillment. Usa esa banda ancha para mejorar experiencia humana.
+
+## El error que comete la mayoría
+
+**Crear dos negocios separados.** "Vamos a lanzar una tienda online" pero como unidad separada, con CFO diferente, sistemas diferentes. Compiten por presupuesto, inventario, clientes. Necesita ser una estructura unificada con dos canales, no dos negocios.
+
+**Invertir en tecnología sin cambiar operaciones.** Implementas un CDP pero no cambias cómo usan la data. Se vuelve un reporte que nadie mira.
+
+## La perspectiva Tooxs
+
+Trabajamos con minoristas en Chile en esta transición. Lo que hemos visto funcionar: comenzar pequeño (integración de inventario antes de logística), medir obsesivamente, iterar. Este es un reset, no una migración. Requiere pensar diferente sobre qué es retail en 2026.`,
+  },
+  {
+    id: 33,
+    slug: "planta-siderurgica-india-datos",
+    category: "Casos & Industria",
+    date: "16 Abril 2026",
+    readTime: "5 min",
+    title: "Datos en el acero: Cómo una planta india ganó competencia global",
+    excerpt: "Un caso real de transformación de datos en industria. No es ciencia de ficción, no son inversiones billonarias. Es disciplina, enfoque, y convertir lo que observas en decisiones que mejoran margen.",
+    image: articlePlantaSiderurgica,
+    content: `Una planta siderúrgica en Kalinganagar, India, producía acero de calidad mundial. Pero en la estación de metalurgia secundaria—donde se calienta el acero a temperaturas exactas—estaban dejando dinero sobre la mesa.
+
+## El problema: excelencia operacional con datos rotos
+
+El proceso requería precisión: sobrecalentar daña calidad; subcalentar baja eficiencia. Operadores experimentados lo hacían "a ojo", basado en experiencia y suerte. Resultado: variabilidad, defectos, ineficiencia.
+
+## La solución: instrumentar, medir, optimizar
+
+La planta instaló sensores de temperatura de alta precisión e integró esos datos con sistema de control automático que ajusta potencia en tiempo real. Parecía simple. Pero requería tres cosas:
+
+1. **Hardware.** Sensores que resistieran 1600 grados Celsius sin fallar.
+2. **Software.** Algoritmo que interpretara los datos y tomara decisiones rápidas (segundos, no minutos).
+3. **Change management.** Operadores desconfiados que preferían su intuición tuvieron que aprender a confiar en la máquina.
+
+## El impacto: números que hablan solos
+
+Después de 18 meses de implementación:
+
+- **Throughput +12%.** Más acero procesado con misma instalación.
+- **Defectos -35%.** Menos rechazos, menos reproceso.
+- **Energía -8%.** Control más preciso = menos desperdicio térmico.
+- **Variabilidad en temperatura -60%.** Consistencia que operador manual nunca alcanzaría.
+
+En dinero: una planta que procesa 500.000 toneladas/año = decenas de millones de dólares en EBITDA.
+
+## Por qué los operadores aceptaron el cambio
+
+Clave: entrenamiento y resultados visibles. No fue "máquina los reemplaza". Fue "máquina hace mejor lo que ustedes hacían, ustedes se enfocan en supervisión". Además, operadores vieron bonificación cuando mejora llegaba. Incentivos alineados = resistencia reducida a 0.
+
+## Lecciones para minería en Latinoamérica
+
+**1. Comienza en un proceso crítico, no en todo.** Pilotar es sabio.
+
+**2. Obtén datos de calidad ANTES de optimizar.** 3 meses recolectando datos. Datos limpios = decisiones buenas.
+
+**3. El operador es tu aliado, no rival.** Si se siente empoderado, apoya el cambio.
+
+**4. Mide el impacto cada semana.** Throughput, defectos, energía, variabilidad.
+
+## ¿Podría una mina chilena replicar esto?
+
+Absolutamente. Procesos mineros que se beneficiarían: molienda (densidad, viscosidad, energía), flotación (pH, aireación, tiempo de residencia), concentración (flujos, densidades, temperaturas), espesamiento (humedad, flujo).
+
+## La perspectiva Tooxs
+
+Este no es un caso aislado. Es patrón replicable: identificar proceso crítico donde precisión = dinero, instalar sensores, diseñar lógica de control, probar en piloto, escalar con confianza. El acero indio no es más inteligente que el cobre chileno. Simplemente optó por convertir observación en acción.`,
+  },
+  {
+    id: 34,
+    slug: "colaboracion-digital-manufactura-conectada",
+    category: "Manufactura & Tech",
+    date: "16 Abril 2026",
+    readTime: "5 min",
+    title: "Fuerza de trabajo conectada: Más que tecnología, es cultura",
+    excerpt: "En minería y manufactura, si tu equipo no está conectado, los datos y automatización son inútiles. Colaboración digital no es Slack en las minas; son sistemas que permiten resolver problemas juntos, rápido.",
+    image: articleColaboracionDigital,
+    content: `Una mina típica tiene 10+ sistemas: ERP, SCADA, telemetría, email, WhatsApp, papeles. Información crítica está dispersa. Operador en turno no sabe qué conoce mantenimiento. Turno anterior dejó nota pero nadie la vio. Resultado: problemas sin resolver, ineficiencias que se repiten, talento frustrado.
+
+## ¿Qué es colaboración digital en manufactura?
+
+No es tener Zoom o Teams. Es integración de información y comunicación alrededor de operación. Ejemplo: hay vibraciones anormales en molino. Digitalmente integrado significa:
+
+1. Sistema automático detecta vibraciones (sensor + análisis).
+2. Alerta aparece en dashboard del operador, técnico mantenimiento, supervisor turno.
+3. Operador abre aplicación, ve historial de este molino (fallos anteriores, qué se hizo, resultado).
+4. Técnico ve especificaciones, manuales, acceso remoto para diagnóstico.
+5. Todos pueden ver progreso en tiempo real.
+6. Cuando se resuelve, queda registrado: "problema X, causa Y, solución Z, tiempo 4 horas".
+
+## El impacto de colaboración digital integrada
+
+McKinsey estudió plantas con sistemas colaborativos integrados vs. sin ellos:
+
+- **Tiempo de resolución de problemas: -35%.** Información disponible inmediatamente.
+- **Unplanned downtime: -25%.** Anticipas problemas antes del paro.
+- **Satisfacción de operarios: +40%.** Entienden qué pasa, se sienten valorizados.
+- **Productividad: +15%.** Menos tiempo gastado en buscar información.
+
+## Qué sistemas deben estar integrados
+
+**1. Datos operacionales en tiempo real.** Temperatura, flujos, presiones, vibraciones, energía. Accesibles desde cualquier pantalla en planta.
+
+**2. Comunicación integrada.** Chat dentro del sistema operacional, no WhatsApp disperso. Si hay alerta, se notifica automáticamente a gente relevante.
+
+**3. Historial de decisiones y problemas.** Base de conocimiento de qué pasó, cómo se resolvió. Aprendizaje documentado.
+
+**4. Acceso remoto a diagnóstico.** Un técnico especialista puede ver lo que ve operador en planta sin estar físicamente.
+
+**5. Capacitación integrada.** Enlaces a manuales, videos, contactos de especialistas.
+
+## Barreras en LATAM
+
+**Brecha de conectividad.** Minas remotas con banda ancha limitada. Solución: sistemas que funcionan offline y sincronizan.
+
+**Resistencia a cambio.** "Siempre lo hemos hecho así." Solución: mostrar casos reales con menos trabajo manual.
+
+**Diversidad de sistemas legacy.** Integrar SCADA de 1995 con sistemas nuevos es caro. Solución: middleware que traduce entre sistemas sin reemplazar legacy.
+
+## La perspectiva Tooxs
+
+Colaboración digital no es un proyecto de tech. Es transformación de cómo trabaja la gente. Requiere integración técnica de sistemas, cambio cultural (confianza, transparencia, documentación), entrenamiento, y métrica clara. Cuando operador, técnico y gerente ven misma información y pueden comunicarse instantáneamente, decisiones son más rápidas y correctas. Eso es ganancia operacional pura.`,
+  },
+  {
+    id: 35,
+    slug: "empresa-reconfigurada-vs-optimizar",
+    category: "Estrategia & Org",
+    date: "16 Abril 2026",
+    readTime: "10 min",
+    title: "Mientras competidores optimizan, los ganadores se reconfiguran",
+    excerpt: "Cinco empresas diferentes (minería, manufactura, servicios) reconfiguran completamente sus operaciones. No es mejora. Es reinvención. McKinsey documentó lo que tienen en común.",
+    image: articleEmpresaReconfigurada,
+    content: `La mayoría de empresas optimizan. Reducen costos 5%. Mejoran calidad 3%. Es racional. Es seguro. Es insuficiente cuando la industria está cambiando.
+
+Las compañías que McKinsey estudió no optimizaron. Se reconfiguraron. Cambiaron cómo trabajan, cómo organizan, cómo toman decisiones. No fue un cambio de 10%. Fue un cambio de 50%+.
+
+## Patrón 1: Desafiaron sus asunciones sobre cómo funciona el negocio
+
+"Siempre hemos hecho X" dejó de ser una razón válida.
+
+**Ejemplo en minería:** Una minera de cobre asumía que "la minería requiere presencia física 24/7 en sitio". Hicieron pilotos con telepresencia, automatización, supervisión remota. Resultado: menos personas en sitio, rotación reducida 60%, productividad subió.
+
+**Ejemplo en manufactura:** Una fábrica asumía "necesitas inventario de materias primas porque los proveedores son lentos". Implementó Just-In-Time radical. Liberó dinero de working capital.
+
+## Patrón 2: Reordenaron cómo fluye la información y la decisión
+
+Antes: CEO decide. Flujo de información sube lentamente. Acción es lenta. Después: información fluye en tiempo real. Decisiones se toman localmente. Escalation solo cuando es necesario.
+
+**Caso real:** Una compañía de servicios tenía proceso de aprobación de cambios que tomaba 2 semanas. Reconfiguró: agente en terreno aprueba cambios menores inmediatamente. Tiempo bajó a 2 días. Satisfacción subió.
+
+## Patrón 3: Cambiaron qué competencias valoran
+
+Si antes valoraban "experiencia y antigüedad", ahora valoran "habilidad para aprender y adaptarse". Promovieron gente diferente. Crearon carreras para quien se adapta rápido.
+
+## Patrón 4: Dieron el liderazgo a personas que entienden cambio
+
+Necesitas líderes que hayan vivido cambio antes. No necesariamente de tu industria. Una minera contrató un VP de Operaciones de una compañía logística. Una manufacturera contrató un CFO de un startup de software.
+
+## Reconfiguración requiere paciencia + urgencia
+
+**Paciencia:** Las reconfiguraciones que funcionaron tomaron 18-24 meses. Algunas fases fueron piloto vs. escalamiento.
+
+**Urgencia:** Pero tampoco lentamente. Necesitas norte claro y movimiento consistente. Las que tomaron 3 años perdieron oportunidad.
+
+## Por qué fracasan la mayoría de intentos
+
+**Razón 1: Cambio de liderazgo sin cambio organizacional.** El nuevo CEO choca contra la cultura. Se rinde o se va.
+
+**Razón 2: Reconfiguración sin "para qué".** Sin objetivo claro, es cambio por cambiar.
+
+**Razón 3: No comunicar los "por qué" constantemente.** La resistencia mata reconfiguración.
+
+## Checklist para comenzar
+
+- Identifica 3-5 asunciones sobre tu negocio que podrían estar obsoletas
+- Para cada una, piensa: "¿Qué pasaría si invertimos eso?"
+- Pilota un cambio pequeño (6-8 semanas). Mide impacto
+- Si funciona, decide: ¿Escalamos o pivotamos?
+- Comunica obsesivamente el "por qué" y los resultados
+- Evalúa tu liderazgo. ¿Tienen mentalidad de reconfiguración o de optimización?
+
+## La perspectiva Tooxs
+
+Cuando una minera dice "necesita automatización", a veces significa "queremos que una máquina haga lo que hace un trabajador" (eso es optimización). Reconfiguración significa "queremos rediseñar completamente cómo funciona esa operación, de forma que la automatización sea un enabler". Las compañías que ganaron no persiguieron tecnología. Persiguieron reconfiguraciones que la tecnología habilitaba.`,
+  },
+  {
+    id: 36,
+    slug: "industria-4-0-post-covid-resiliencia",
+    category: "Industria 4.0",
+    date: "16 Abril 2026",
+    readTime: "5 min",
+    title: "Post-COVID: Operaciones que no cierren cuando pase lo siguiente",
+    excerpt: "La pandemia mostró que operaciones analógicas quiebran rápido. Las digitales resistieron. Ahora toca consolidar eso que aprendimos.",
+    image: articleIndustria40,
+    content: `En 2020, cuando todo cerró, surgió un patrón claro: plantas con sistemas digitales integrados continuaron. Plantas con silos analógicos colapsaron.
+
+¿Por qué? Plantas digitales podían operar con menos gente presencialmente (supervisión remota), tenían información en tiempo real, tenían procesos documentados (alguien nuevo podía asumir rápido). Plantas analógicas dependían de personas clave que no podían ir, y todo se paralizaba.
+
+## ¿Qué aprendió la industria?
+
+Que resiliencia no es redundancia (tener "backup" de todo). Es **flexibilidad**: poder operar con configuraciones diferentes rápidamente. Eso requiere:
+
+1. **Datos en tiempo real.** Saber qué pasa sin estar presente.
+2. **Automatización de decisiones críticas.** Si gerente no está, sistema continúa tomando decisiones inteligentes.
+3. **Documentación de procesos.** Nuevo operador puede funcionar el día uno sin training de semanas.
+4. **Talento cruzado.** Varias personas pueden hacer el mismo rol.
+
+## Industria 4.0 no es lujo, es seguro de operación
+
+Las empresas que invierten en 4.0 hoy no lo ven como modernización tech. Lo ven como insurance contra la próxima crisis. Porque la próxima crisis vendrá. No sabemos cuál (climática, geopolítica, energética), pero vendrá. Las plantas preparadas ganan. Las no preparadas, cierran.
+
+## Dónde hacer inversión 4.0 post-COVID
+
+**1. Visibilidad de operaciones en tiempo real.** Dashboards que muestren estado de planta 24/7. En minutos, no en horas. Alguien remoto debería poder ver si la molienda está normal, si hay problema, qué hacer.
+
+**2. Decisiones automáticas en procesos críticos.** Control automático de temperaturas, flujos, presiones. Si se sale de rango, alerta + acción automática.
+
+**3. Sistemas de comunicación integrados.** Si una crisis requiere coordinar desde casas, plataforma única: video, chat, documentos, datos de operación.
+
+**4. Capacitación digital.** E-learning para operadores nuevos. Si mañana necesitas 50% más gente rápido, debe ser posible sin esperar 3 meses de training presencial.
+
+## El costo de NO hacer Industria 4.0 post-COVID
+
+Si hoy tu planta sigue igual que pre-pandemia:
+
+- **Riesgo operacional alto.** Una persona se enferma = problema.
+- **Talento escaso.** Gente joven no quiere viajar a remotos 14/14 sin poder trabajar desde casa.
+- **Márgenes bajos.** Sin automatización inteligente, costo operacional será siempre alto.
+- **Próxima crisis te cierra.** Simple como eso.
+
+## La perspectiva Tooxs
+
+Post-COVID no es volver a pre-COVID. Es construir operaciones que resistan incertidumbre. Eso requiere 4.0: visibilidad en tiempo real, automatización inteligente, procesos documentados y escalables, talento preparado. La pandemia fue el canario en la mina—te mostró si tu operación es resiliente o frágil. Si fue frágil, no esperes a la próxima crisis. Comienza ahora.`,
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
