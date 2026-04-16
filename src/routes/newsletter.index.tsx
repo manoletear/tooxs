@@ -71,7 +71,7 @@ function NewsletterPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* ══════ HERO WITH PRISM ══════ */}
-      <section className="relative bg-black text-white h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end overflow-hidden">
+      <section className="relative bg-black text-white min-h-[420px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[560px] flex items-end overflow-hidden">
         <GradientProBackground
           primary="#177FC6"
           secondary="#20B2AA"
@@ -83,15 +83,15 @@ function NewsletterPage() {
           contrast={1.5}
           saturation={1}
         />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 pb-12">
-          <Link to="/" className="text-xs text-white/50 mb-4 font-medium tracking-wide inline-block hover:text-white/80 transition-colors">‹ Volver al Inicio</Link>
-          <h1 className="text-4xl md:text-[3.2rem] font-black mb-3 leading-[1.1] tracking-tight">
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
+          <Link to="/" className="text-xs text-white/60 mb-3 sm:mb-4 font-medium tracking-wide inline-block hover:text-white transition-colors">‹ Volver al Inicio</Link>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black mb-3 sm:mb-4 leading-[1.1] tracking-tight">
             Nuestros Insights
           </h1>
-          <p className="text-white/70 text-[1.1rem] max-w-[560px] leading-relaxed">
+          <p className="text-white/80 text-sm sm:text-base md:text-[1.05rem] lg:text-[1.1rem] max-w-[560px] leading-relaxed">
             Tendencias, datos y perspectivas sobre tecnología, automatización e IA aplicada a la industria y los negocios en Latinoamérica.
           </p>
-          <div className="flex items-center gap-4 mt-6">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-5 sm:mt-6">
             <a href="https://www.linkedin.com/company/tooxs/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-white/80 text-sm font-medium hover:text-white transition-colors">
               <Linkedin size={18} /> LinkedIn
             </a>
