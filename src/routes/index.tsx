@@ -594,8 +594,8 @@ function CapabilityGraph() {
     <section id="capacidades" className="bg-navy text-white py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">Entender → Estrategizar → Implementar → Medir</h2>
-          <p className="text-white/70">Nuestro marco de trabajo para automatización inteligente.</p>
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-mint mb-3">Entender → Estrategizar → Implementar → Medir</p>
+          <h2 className="text-3xl md:text-4xl font-bold">Nuestro marco de trabajo para automatización inteligente.</h2>
         </ScrollReveal>
         <TiltedCards cards={capabilityCards} />
       </div>
