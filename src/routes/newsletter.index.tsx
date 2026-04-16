@@ -53,7 +53,7 @@ function NewsletterPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* ══════ HERO WITH PRISM ══════ */}
-      <section className="relative bg-navy text-white pt-28 pb-16 overflow-hidden">
+      <section className="relative bg-navy text-white h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end overflow-hidden">
         <HaloEffect
           count1={4}
           count2={3}
@@ -65,7 +65,7 @@ function NewsletterPage() {
           color2="#20B2AA"
           color3="#0A2647"
         />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 pb-12">
           <Link to="/" className="text-xs text-white/50 mb-4 font-medium tracking-wide inline-block hover:text-white/80 transition-colors">‹ Volver al Inicio</Link>
           <h1 className="text-4xl md:text-[3.2rem] font-black mb-3 leading-[1.1] tracking-tight">
             Nuestros Insights
