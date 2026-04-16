@@ -18,6 +18,10 @@ import {
 } from "lucide-react";
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
+import laptopDashboard from "@/assets/activar-laptop-dashboard.jpg";
+import neuralSphere from "@/assets/activar-neural-sphere.jpg";
+import circuitFlow from "@/assets/activar-circuit-flow.jpg";
+import ecoBulb from "@/assets/activar-eco-bulb.jpg";
 
 export const Route = createFileRoute("/activar-ia")({
   head: () => ({
