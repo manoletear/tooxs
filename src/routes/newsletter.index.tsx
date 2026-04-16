@@ -130,7 +130,7 @@ function NewsletterPage() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-baseline justify-between mb-8">
               <p className="text-[0.7rem] font-bold tracking-[0.14em] uppercase text-primary">
-                {selectedGroup === "Todas" ? "Resultados de búsqueda" : selectedGroup}
+                Resultados de búsqueda
               </p>
               <span className="text-xs text-muted-foreground">
                 {filteredArticles.length} {filteredArticles.length === 1 ? "artículo" : "artículos"}
@@ -141,7 +141,7 @@ function NewsletterPage() {
               <div className="text-center py-16 text-muted-foreground">
                 <p className="text-base">No encontramos artículos que coincidan con tu búsqueda.</p>
                 <button
-                  onClick={() => { setQuery(""); setSelectedGroup("Todas"); }}
+                  onClick={() => setFilters({ themes: [], industries: [], contentTypes: [], query: "" })}
                   className="mt-4 text-primary text-sm font-semibold hover:underline"
                 >
                   Limpiar filtros
