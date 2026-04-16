@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Mail, ChevronRight } from "lucide-react";
+import { LightspeedBackground } from "@/components/LightspeedBackground";
 import { PrismBackground } from "@/components/PrismBackground";
-import { HaloEffect } from "@/components/HaloEffect";
 import { ARTICLES } from "@/data/articles";
 
 import quarterlyCover from "@/assets/newsletter/quarterly-cover.jpg";
