@@ -518,22 +518,23 @@ function ServicesIndexPage() {
   return (
     <div>
       {/* ══════ HERO ══════ */}
-      <section className="relative bg-[#050d1a] text-white h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end overflow-hidden">
+      <section className="relative bg-[#050d1a] text-white min-h-[420px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[560px] flex items-end overflow-hidden">
         <BokehBackground
           colors={["#177FC6", "#20B2AA", "#1e3a5f", "#0e4d92"]}
           particleCount={45}
         />
-        <div className="relative z-10 max-w-5xl mx-auto px-6 pb-12">
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
           <ScrollReveal>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-4">Nuestros Servicios</p>
+            <Link to="/" className="text-xs text-white/60 mb-3 sm:mb-4 font-medium tracking-wide inline-block hover:text-white transition-colors">‹ Volver al Inicio</Link>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-3 sm:mb-4">Nuestros Servicios</p>
             <h1
-              className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-tight mb-4"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black mb-3 sm:mb-4 leading-[1.1] tracking-tight"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Plataformas de valor,<br />no listas de servicios
+              Plataformas de valor,<br className="hidden sm:block" /> no listas de servicios
             </h1>
-            <p className="text-lg text-white/60 max-w-2xl leading-relaxed">
-              Cada servicio responde una pregunta: <em className="text-white/80">¿Cómo generamos impacto?</em> Diseñamos soluciones que operan dentro del negocio, no como capas aisladas.
+            <p className="text-white/80 text-sm sm:text-base md:text-[1.05rem] lg:text-[1.1rem] max-w-[560px] leading-relaxed">
+              Cada servicio responde una pregunta: <em className="text-white/95">¿Cómo generamos impacto?</em> Diseñamos soluciones que operan dentro del negocio, no como capas aisladas.
             </p>
           </ScrollReveal>
         </div>
