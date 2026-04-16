@@ -92,7 +92,7 @@ function NewsletterPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             {/* Main article */}
             <Link to="/newsletter/$slug" params={{ slug: highlightMain.slug }} className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-6 items-start lg:col-span-2 group">
-              <img src={highlightMain.image} alt={highlightMain.title} className="w-full aspect-[4/3] object-cover rounded" />
+              <img src={highlightMain.image} alt={highlightMain.title} className="w-full aspect-[4/3] object-cover rounded-xl" />
               <div className="flex flex-col justify-center">
                 <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-primary">{highlightMain.category}</span>
                 <h2 className="mt-2 text-xl md:text-2xl font-extrabold leading-tight tracking-tight group-hover:text-primary transition-colors">
@@ -106,7 +106,7 @@ function NewsletterPage() {
             {/* Secondary articles */}
             {secondaryArticles.map((a, i) => (
               <Link key={i} to="/newsletter/$slug" params={{ slug: a.slug }} className="group block">
-                <img src={a.image} alt={a.title} className="w-full aspect-[16/10] object-cover rounded-sm mb-3" loading="lazy" />
+                <img src={a.image} alt={a.title} className="w-full aspect-[16/10] object-cover rounded-xl mb-3" loading="lazy" />
                 <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.category}</span>
                 <h3 className="mt-1 text-base font-bold leading-snug group-hover:text-primary transition-colors">
                   {a.title} <ChevronRight className="inline w-4 h-4 text-primary" />
@@ -121,7 +121,7 @@ function NewsletterPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {miniArticles.map((a, i) => (
               <Link key={i} to="/newsletter/$slug" params={{ slug: a.slug }} className="group block">
-                <img src={a.image} alt={a.title} className="w-full aspect-[4/3] object-cover rounded-sm mb-3" loading="lazy" />
+                <img src={a.image} alt={a.title} className="w-full aspect-[4/3] object-cover rounded-xl mb-3" loading="lazy" />
                 <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.category}</span>
                 <h4 className="mt-1 text-[0.95rem] font-bold leading-snug group-hover:text-primary transition-colors">
                   {a.title} <ChevronRight className="inline w-3.5 h-3.5 text-primary" />
@@ -161,7 +161,7 @@ function NewsletterPage() {
           <div className="flex flex-col">
             {interviews.map((item, i) => (
               <Link key={i} to="/newsletter/$slug" params={{ slug: item.slug }} className={`grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-6 py-7 border-b border-border items-start group ${i === 0 ? "pt-0" : ""}`}>
-                <img src={item.image} alt={item.title} className="w-full sm:w-[140px] aspect-square object-cover rounded-sm" loading="lazy" />
+                <img src={item.image} alt={item.title} className="w-full sm:w-[140px] aspect-square object-cover rounded-xl" loading="lazy" />
                 <div>
                   <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{item.category}</span>
                   <h3 className="mt-1 text-lg font-bold leading-snug group-hover:text-primary transition-colors">
@@ -226,7 +226,7 @@ function NewsletterPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-7">
             {quarterlyArticles.map((a, i) => (
               <Link key={i} to="/newsletter/$slug" params={{ slug: a.slug }} className="group block">
-                <img src={a.image} alt={a.title} className="w-full aspect-[16/10] object-cover rounded mb-4" loading="lazy" />
+                <img src={a.image} alt={a.title} className="w-full aspect-[16/10] object-cover rounded-xl mb-4" loading="lazy" />
                 <h3 className="text-base font-bold leading-snug mb-2 group-hover:text-primary transition-colors">
                   {a.title} <ChevronRight className="inline w-4 h-4 text-primary" />
                 </h3>
