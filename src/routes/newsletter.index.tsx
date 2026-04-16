@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
-import { Linkedin, Instagram, Mail, ChevronRight, Search, X } from "lucide-react";
+import { Linkedin, Instagram, Mail, ChevronRight } from "lucide-react";
 import { GradientProBackground } from "@/components/GradientProBackground";
 import { PrismBackground } from "@/components/PrismBackground";
-import { ARTICLES, CATEGORY_GROUPS, getCategoryGroup, type CategoryGroup } from "@/data/articles";
+import { NewsletterFilters, type NewsletterFilterState } from "@/components/NewsletterFilters";
+import { ARTICLES, CATEGORY_GROUPS, getCategoryGroup, getIndustry, getContentType } from "@/data/articles";
 
 import quarterlyCover from "@/assets/newsletter/quarterly-cover.jpg";
 import quarterlyArchive from "@/assets/newsletter/quarterly-archive.jpg";
@@ -50,23 +51,36 @@ const quarterlyArticles = [
 /* ═══════════ PAGE ═══════════ */
 
 function NewsletterPage() {
-  const [selectedGroup, setSelectedGroup] = useState<CategoryGroup | "Todas">("Todas");
-  const [query, setQuery] = useState("");
+  const [filters, setFilters] = useState<NewsletterFilterState>({
+    themes: [],
+    industries: [],
+    contentTypes: [],
+    query: "",
+  });
 
-  const isFiltering = selectedGroup !== "Todas" || query.trim().length > 0;
+  const isFiltering =
+    filters.themes.length > 0 ||
+    filters.industries.length > 0 ||
+    filters.contentTypes.length > 0 ||
+    filters.query.trim().length > 0;
 
   const filteredArticles = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = filters.query.trim().toLowerCase();
     return ARTICLES.filter((a) => {
-      const matchesGroup = selectedGroup === "Todas" || getCategoryGroup(a.category) === selectedGroup;
+      const matchesTheme =
+        filters.themes.length === 0 || filters.themes.includes(getCategoryGroup(a.category));
+      const matchesIndustry =
+        filters.industries.length === 0 || filters.industries.includes(getIndustry(a));
+      const matchesContent =
+        filters.contentTypes.length === 0 || filters.contentTypes.includes(getContentType(a));
       const matchesQuery =
         q.length === 0 ||
         a.title.toLowerCase().includes(q) ||
         a.excerpt.toLowerCase().includes(q) ||
         a.category.toLowerCase().includes(q);
-      return matchesGroup && matchesQuery;
+      return matchesTheme && matchesIndustry && matchesContent && matchesQuery;
     });
-  }, [selectedGroup, query]);
+  }, [filters]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -102,60 +116,13 @@ function NewsletterPage() {
         </div>
       </section>
 
-      {/* ══════ FILTERS & SEARCH ══════ */}
-      <section className="sticky top-0 z-30 bg-background/95 backdrop-blur-md border-b border-border">
-        <div className="max-w-[1200px] mx-auto px-6 py-5">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            {/* Category pills */}
-            <div className="flex flex-wrap gap-2">
-              <button
-                onClick={() => setSelectedGroup("Todas")}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold border-2 transition-all ${
-                  selectedGroup === "Todas"
-                    ? "bg-primary text-white border-primary"
-                    : "border-border text-foreground/70 hover:border-primary hover:text-primary"
-                }`}
-              >
-                Todas
-              </button>
-              {CATEGORY_GROUPS.map((group) => (
-                <button
-                  key={group}
-                  onClick={() => setSelectedGroup(group)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-semibold border-2 transition-all ${
-                    selectedGroup === group
-                      ? "bg-primary text-white border-primary"
-                      : "border-border text-foreground/70 hover:border-primary hover:text-primary"
-                  }`}
-                >
-                  {group}
-                </button>
-              ))}
-            </div>
+      {/* ══════ FILTERS (3 collapsible panels: Tema · Industria · Tipo de contenido) ══════ */}
+      <NewsletterFilters
+        state={filters}
+        onChange={setFilters}
+        resultsCount={filteredArticles.length}
+      />
 
-            {/* Search */}
-            <div className="relative w-full md:w-72 shrink-0">
-              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Buscar por nombre…"
-                className="w-full h-10 pl-9 pr-9 rounded-full border border-border bg-background text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-              />
-              {query && (
-                <button
-                  onClick={() => setQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                  aria-label="Limpiar búsqueda"
-                >
-                  <X size={16} />
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ══════ FILTERED RESULTS (only when filtering) ══════ */}
       {isFiltering ? (
@@ -163,7 +130,7 @@ function NewsletterPage() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="flex items-baseline justify-between mb-8">
               <p className="text-[0.7rem] font-bold tracking-[0.14em] uppercase text-primary">
-                {selectedGroup === "Todas" ? "Resultados de búsqueda" : selectedGroup}
+                Resultados de búsqueda
               </p>
               <span className="text-xs text-muted-foreground">
                 {filteredArticles.length} {filteredArticles.length === 1 ? "artículo" : "artículos"}
@@ -174,7 +141,7 @@ function NewsletterPage() {
               <div className="text-center py-16 text-muted-foreground">
                 <p className="text-base">No encontramos artículos que coincidan con tu búsqueda.</p>
                 <button
-                  onClick={() => { setQuery(""); setSelectedGroup("Todas"); }}
+                  onClick={() => setFilters({ themes: [], industries: [], contentTypes: [], query: "" })}
                   className="mt-4 text-primary text-sm font-semibold hover:underline"
                 >
                   Limpiar filtros
@@ -251,7 +218,7 @@ function NewsletterPage() {
                 {CATEGORY_GROUPS.map((group) => (
                   <button
                     key={group}
-                    onClick={() => setSelectedGroup(group)}
+                    onClick={() => setFilters({ ...filters, themes: [group] })}
                     className="px-5 py-2 rounded-full border-2 border-primary text-primary text-sm font-semibold hover:bg-primary hover:text-white transition-all duration-200"
                   >
                     Ver más en {group}

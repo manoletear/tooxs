@@ -126,6 +126,72 @@ export function getCategoryGroup(category: string): CategoryGroup {
   return "Estrategia & Liderazgo";
 }
 
+/* ═══════════ INDUSTRY CLASSIFICATION ═══════════ */
+export type Industry =
+  | "Minería & Energía"
+  | "Retail & Consumo"
+  | "Banca & Finanzas"
+  | "Salud"
+  | "Manufactura & Industria"
+  | "Logística & Transporte"
+  | "Tecnología & Telecom"
+  | "Real Estate"
+  | "Cross-Industry";
+
+export const INDUSTRIES: Industry[] = [
+  "Minería & Energía",
+  "Retail & Consumo",
+  "Banca & Finanzas",
+  "Salud",
+  "Manufactura & Industria",
+  "Logística & Transporte",
+  "Tecnología & Telecom",
+  "Real Estate",
+  "Cross-Industry",
+];
+
+export function getIndustry(article: Article): Industry {
+  const t = (article.title + " " + article.excerpt + " " + article.category).toLowerCase();
+  if (t.includes("miner") || t.includes("energ") || t.includes("litio") || t.includes("cobre") || t.includes("hidrógeno")) return "Minería & Energía";
+  if (t.includes("retail") || t.includes("consumo") || t.includes("consumidor") || t.includes("cpg") || t.includes("alimentos")) return "Retail & Consumo";
+  if (t.includes("banca") || t.includes("financ") || t.includes("riesgo") || t.includes("capital markets")) return "Banca & Finanzas";
+  if (t.includes("salud") || t.includes("paciente") || t.includes("clínic") || t.includes("healthcare")) return "Salud";
+  if (t.includes("manufactura") || t.includes("fábrica") || t.includes("industria 4") || t.includes("siderúrg") || t.includes("planta")) return "Manufactura & Industria";
+  if (t.includes("logística") || t.includes("supply chain") || t.includes("cadena de suministro") || t.includes("movilidad") || t.includes("transporte")) return "Logística & Transporte";
+  if (t.includes("telecom") || t.includes("software") || t.includes("plataforma") || t.includes("cios") || t.includes("ctos") || t.includes("tech")) return "Tecnología & Telecom";
+  if (t.includes("inmobiliar") || t.includes("real estate")) return "Real Estate";
+  return "Cross-Industry";
+}
+
+/* ═══════════ CONTENT TYPE CLASSIFICATION ═══════════ */
+export type ContentType =
+  | "Artículo"
+  | "Insight"
+  | "Caso de estudio"
+  | "Entrevista & Podcast"
+  | "Datos & Reporte"
+  | "Libros & Ideas";
+
+export const CONTENT_TYPES: ContentType[] = [
+  "Artículo",
+  "Insight",
+  "Caso de estudio",
+  "Entrevista & Podcast",
+  "Datos & Reporte",
+  "Libros & Ideas",
+];
+
+export function getContentType(article: Article): ContentType {
+  const c = article.category.toLowerCase();
+  const t = article.title.toLowerCase();
+  if (c.includes("podcast") || c.includes("entrevista") || t.includes("entrevista") || t.includes("podcast")) return "Entrevista & Podcast";
+  if (c.includes("datos") || c.includes("reporte") || t.includes("estado de")) return "Datos & Reporte";
+  if (c.includes("libros") || c.includes("ideas") || t.includes("libro")) return "Libros & Ideas";
+  if (c.includes("casos") || t.includes("caso") || t.includes("faros")) return "Caso de estudio";
+  if (c.includes("insights")) return "Insight";
+  return "Artículo";
+}
+
 export const ARTICLES: Article[] = [
   {
     id: 1,
