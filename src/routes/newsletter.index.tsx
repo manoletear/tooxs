@@ -53,7 +53,7 @@ function NewsletterPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* ══════ HERO WITH PRISM ══════ */}
-      <section className="relative bg-navy text-white pt-28 pb-16 overflow-hidden">
+      <section className="relative bg-navy text-white h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end overflow-hidden">
         <HaloEffect
           count1={4}
           count2={3}
