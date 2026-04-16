@@ -680,44 +680,61 @@ function ServicesIndexPage() {
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
           <ScrollReveal>
             <Link to="/" className="text-xs text-white/60 mb-3 sm:mb-4 font-medium tracking-wide inline-block hover:text-white transition-colors">‹ Volver al Inicio</Link>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-3 sm:mb-4">Nuestros Servicios</p>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-3 sm:mb-4">Sistema de Capacidades TOOXS</p>
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black mb-3 sm:mb-4 leading-[1.1] tracking-tight"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Plataformas de valor,<br className="hidden sm:block" /> no listas de servicios
+              Capacidades aplicadas<br className="hidden sm:block" /> donde se genera valor
             </h1>
-            <p className="text-white/80 text-sm sm:text-base md:text-[1.05rem] lg:text-[1.1rem] max-w-[560px] leading-relaxed">
-              Cada servicio responde una pregunta: <em className="text-white/95">¿Cómo generamos impacto?</em> Diseñamos soluciones que operan dentro del negocio, no como capas aisladas.
+            <p className="text-white/80 text-sm sm:text-base md:text-[1.05rem] lg:text-[1.1rem] max-w-[620px] leading-relaxed">
+              Siete capacidades que se integran al flujo operativo. <em className="text-white/95">Datos, IA, automatización, integración, analítica, nube y estrategia</em> trabajando juntos sobre los procesos críticos del negocio.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ══════ HOVER REVEAL CARDS + DETAIL ══════ */}
+      {/* ══════ FLIP CARDS — SISTEMA DE CAPACIDADES ══════ */}
       <section className="py-16 md:py-24 relative overflow-hidden bg-section-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
           <ScrollReveal>
-            <HoverRevealCards
-              onSelect={handleSelect}
-              activeHover={activeHover}
-              setActiveHover={setActiveHover}
-            />
+            <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3">Cómo trabajamos</p>
+              <h2
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 leading-tight"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Pasa el cursor o toca cada capacidad para ver qué cambia
+              </h2>
+              <p className="text-muted-foreground text-sm md:text-base">
+                Cada tarjeta describe la capacidad y, al girarla, muestra el impacto por rol y ejemplos por industria.
+              </p>
+            </div>
           </ScrollReveal>
 
-          {/* Detail panel */}
-          <AnimatePresence mode="wait">
-            {selectedIndex !== null && (
-              <ServiceDetailPanel
-                key={services[selectedIndex].slug}
-                svc={services[selectedIndex]}
-                onClose={() => setSelectedIndex(null)}
-              />
-            )}
-          </AnimatePresence>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+            {capabilities.map((cap, i) => (
+              <ScrollReveal key={cap.number} delay={Math.min(i * 80, 320)}>
+                <CapabilityFlipCard cap={cap} />
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* ══════ LEGACY DEEP-LINK SHOWCASE (oculto, mantenido para compatibilidad) ══════ */}
+      <div className="hidden">
+        <HoverRevealCards onSelect={handleSelect} activeHover={activeHover} setActiveHover={setActiveHover} />
+        <AnimatePresence mode="wait">
+          {selectedIndex !== null && (
+            <ServiceDetailPanel
+              key={services[selectedIndex].slug}
+              svc={services[selectedIndex]}
+              onClose={() => setSelectedIndex(null)}
+            />
+          )}
+        </AnimatePresence>
+      </div>
 
 
       {/* ══════ CTA ══════ */}
