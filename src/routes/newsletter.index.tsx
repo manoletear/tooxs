@@ -218,7 +218,7 @@ function NewsletterPage() {
                 {CATEGORY_GROUPS.map((group) => (
                   <button
                     key={group}
-                    onClick={() => setSelectedGroup(group)}
+                    onClick={() => setFilters({ ...filters, themes: [group] })}
                     className="px-5 py-2 rounded-full border-2 border-primary text-primary text-sm font-semibold hover:bg-primary hover:text-white transition-all duration-200"
                   >
                     Ver más en {group}
