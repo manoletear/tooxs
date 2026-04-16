@@ -1,12 +1,12 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import tooxsLogo from "@/assets/tooxs-logo.png";
 
 const navLinks = [
   { to: "/" as const, label: "Inicio" },
-  { to: "/services" as const, label: "Capacidades" },
-  { to: "/about" as const, label: "Industrias", hasDropdown: true },
+  { to: "/services" as const, label: "Capacidades", dropdown: "capabilities" as const },
+  { to: "/about" as const, label: "Industrias", dropdown: "industries" as const },
   { to: "/case-studies" as const, label: "Casos" },
   { to: "/activar-ia" as const, label: "Activar IA" },
   { to: "/newsletter" as const, label: "Newsletter" },
@@ -23,10 +23,22 @@ const industries = [
   { label: "Real Estate", to: "/industrias/real-estate" },
 ];
 
+const capabilities = [
+  { label: "Datos e IA", to: "/services" },
+  { label: "Automatización de Procesos", to: "/services" },
+  { label: "Integración y Plataformas", to: "/services" },
+  { label: "Analítica Operacional", to: "/services" },
+  { label: "Infraestructura y Nube", to: "/services" },
+  { label: "Aplicación en Procesos Críticos", to: "/services" },
+  { label: "Estrategia Aplicada", to: "/services" },
+];
+
+type DropdownKey = "capabilities" | "industries" | null;
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<DropdownKey>(null);
   const location = useLocation();
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -36,16 +48,14 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (key: DropdownKey) => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
-    setIndustriesOpen(true);
+    setOpenDropdown(key);
   };
 
   const handleMouseLeave = () => {
-    dropdownTimeout.current = setTimeout(() => setIndustriesOpen(false), 200);
+    dropdownTimeout.current = setTimeout(() => setOpenDropdown(null), 200);
   };
-
-  // No column splitting needed — only 7 industries now
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
@@ -62,22 +72,28 @@ export function Navbar() {
 
         <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) =>
-            link.hasDropdown ? (
+            "dropdown" in link && link.dropdown ? (
               <div
                 key={link.to}
                 className="relative"
-                onMouseEnter={handleMouseEnter}
+                onMouseEnter={() => handleMouseEnter(link.dropdown!)}
                 onMouseLeave={handleMouseLeave}
               >
                 <Link
                   to={link.to}
-                  className={`text-sm font-medium transition-all duration-300 ${
+                  className={`inline-flex items-center gap-1 text-sm font-medium transition-all duration-300 ${
                     location.pathname === link.to
                       ? "text-navy"
                       : "text-navy/60 hover:text-navy"
                   }`}
                 >
                   {link.label}
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform duration-200 ${
+                      openDropdown === link.dropdown ? "rotate-180" : ""
+                    }`}
+                  />
                 </Link>
               </div>
             ) : (
@@ -111,16 +127,47 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Industries Mega Dropdown */}
-      {industriesOpen && (
+      {/* Capabilities Mega Dropdown */}
+      {openDropdown === "capabilities" && (
         <div
           className="hidden lg:block absolute top-[4.5rem] left-1/2 -translate-x-1/2 w-full max-w-4xl bg-white rounded-2xl shadow-xl px-10 py-8 animate-fade-in z-50"
-          onMouseEnter={handleMouseEnter}
+          onMouseEnter={() => handleMouseEnter("capabilities")}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 text-primary font-semibold text-base mb-6 hover:underline"
+            onClick={() => setOpenDropdown(null)}
+          >
+            Capacidades <ArrowRight size={16} />
+          </Link>
+
+          <div className="grid grid-cols-2 gap-x-10 gap-y-3">
+            {capabilities.map((cap, i) => (
+              <Link
+                key={i}
+                to={cap.to}
+                onClick={() => setOpenDropdown(null)}
+                className="text-sm text-navy/70 hover:text-primary transition-colors duration-200"
+              >
+                {cap.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Industries Mega Dropdown */}
+      {openDropdown === "industries" && (
+        <div
+          className="hidden lg:block absolute top-[4.5rem] left-1/2 -translate-x-1/2 w-full max-w-4xl bg-white rounded-2xl shadow-xl px-10 py-8 animate-fade-in z-50"
+          onMouseEnter={() => handleMouseEnter("industries")}
           onMouseLeave={handleMouseLeave}
         >
           <Link
             to="/about"
             className="inline-flex items-center gap-2 text-primary font-semibold text-base mb-6 hover:underline"
+            onClick={() => setOpenDropdown(null)}
           >
             Industrias <ArrowRight size={16} />
           </Link>
@@ -130,7 +177,7 @@ export function Navbar() {
               <Link
                 key={ind.to}
                 to={ind.to as any}
-                onClick={() => setIndustriesOpen(false)}
+                onClick={() => setOpenDropdown(null)}
                 className="text-sm text-navy/70 hover:text-primary transition-colors duration-200"
               >
                 {ind.label}
