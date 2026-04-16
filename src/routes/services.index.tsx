@@ -519,7 +519,7 @@ function ServicesIndexPage() {
       {/* ══════ HERO ══════ */}
       <section className="relative bg-navy text-white h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end overflow-hidden">
         <PrismBackground />
-        <div className="relative z-10 max-w-5xl mx-auto px-6">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 pb-12">
           <ScrollReveal>
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-4">Nuestros Servicios</p>
             <h1
