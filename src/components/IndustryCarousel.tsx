@@ -136,19 +136,23 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
                     style={{ filter: isActive ? "grayscale(60%)" : "grayscale(100%) brightness(0.8)" }}
                     draggable={false}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <div className="flex items-center gap-2.5 mb-1">
-                      <div className="w-10 h-10 rounded-full bg-mint/20 backdrop-blur-sm flex items-center justify-center">
-                        <card.icon className="text-mint" size={20} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                  <div className={`absolute bottom-0 left-0 right-0 ${isActive ? "p-6" : "p-4"}`}>
+                    <div className="flex items-start gap-3 mb-1">
+                      <div className={`shrink-0 ${isActive ? "w-11 h-11" : "w-9 h-9"} rounded-full bg-mint/20 backdrop-blur-sm flex items-center justify-center`}>
+                        <card.icon className="text-mint" size={isActive ? 22 : 18} />
                       </div>
-                      <div>
-                        <h3 className="text-white font-bold text-base leading-tight">{card.title}</h3>
-                        <p className="text-mint text-[14px] font-medium italic">{card.subtitle}</p>
+                      <div className="min-w-0 flex-1">
+                        <h3 className={`text-white font-bold leading-tight ${isActive ? "text-[17px]" : "text-[14px]"} line-clamp-2`}>
+                          {card.title}
+                        </h3>
+                        <p className={`text-mint font-medium italic mt-0.5 ${isActive ? "text-[13px]" : "text-[12px]"} line-clamp-1`}>
+                          {card.subtitle}
+                        </p>
                       </div>
                     </div>
                     {isActive && (
-                      <p className="text-white/50 text-[14px] mt-2 animate-fade-up">Clic para ver detalles →</p>
+                      <p className="text-white/60 text-[13px] mt-3 animate-fade-up">Clic para ver detalles →</p>
                     )}
                   </div>
                 </div>
@@ -164,29 +168,34 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
                     background: "linear-gradient(135deg, #1D1D1B 0%, #2A2A28 100%)",
                   }}
                 >
-                  <div className="p-5 h-full flex flex-col">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-11 h-11 rounded-full bg-mint/20 flex items-center justify-center">
-                        <card.icon className="text-mint" size={22} />
+                  <div className="px-5 py-5 h-full flex flex-col gap-4">
+                    {/* Header */}
+                    <div className="flex items-start gap-3">
+                      <div className="shrink-0 w-10 h-10 rounded-full bg-mint/20 flex items-center justify-center">
+                        <card.icon className="text-mint" size={20} />
                       </div>
-                      <div>
-                        <h3 className="text-white font-bold text-base">{card.title}</h3>
-                        <p className="text-mint text-[14px] italic">{card.subtitle}</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3 flex-1">
-                      <div>
-                        <span className="text-mint text-[14px] font-bold uppercase tracking-wider">Problema</span>
-                        <p className="text-white/80 text-[15px] leading-relaxed mt-1">{card.problem}</p>
-                      </div>
-                      <div>
-                        <span className="text-mint text-[14px] font-bold uppercase tracking-wider">Solución</span>
-                        <p className="text-white/80 text-[15px] leading-relaxed mt-1">{card.solution}</p>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-white font-bold text-[15px] leading-tight line-clamp-2">{card.title}</h3>
+                        <p className="text-mint text-[12px] italic mt-0.5 line-clamp-1">{card.subtitle}</p>
                       </div>
                     </div>
-                    <div className="bg-mint/10 rounded-xl px-3 py-2.5 mt-2 border border-mint/20">
-                      <span className="text-mint text-[14px] font-bold">Impacto: </span>
-                      <span className="text-white text-[14px] font-medium">{card.impact}</span>
+
+                    {/* Body */}
+                    <div className="flex-1 min-h-0 space-y-3 overflow-hidden">
+                      <div>
+                        <span className="text-mint text-[10px] font-bold uppercase tracking-[0.12em] block mb-1">Problema</span>
+                        <p className="text-white/80 text-[13px] leading-snug line-clamp-3">{card.problem}</p>
+                      </div>
+                      <div>
+                        <span className="text-mint text-[10px] font-bold uppercase tracking-[0.12em] block mb-1">Solución</span>
+                        <p className="text-white/80 text-[13px] leading-snug line-clamp-3">{card.solution}</p>
+                      </div>
+                    </div>
+
+                    {/* Footer pill */}
+                    <div className="bg-mint/10 rounded-lg px-3 py-2.5 border border-mint/25">
+                      <span className="text-mint text-[10px] font-bold uppercase tracking-wider block mb-0.5">Impacto</span>
+                      <span className="text-white text-[12.5px] font-medium leading-snug line-clamp-2 block">{card.impact}</span>
                     </div>
                   </div>
                 </div>
