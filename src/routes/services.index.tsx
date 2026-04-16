@@ -7,6 +7,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { PrismBackground } from "@/components/PrismBackground";
 import { BokehBackground } from "@/components/BokehBackground";
+import { ShaderBackground } from "@/components/ui/shader-background";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 import { CapabilityFlipCard, type CapabilityData } from "@/components/CapabilityFlipCard";
 import { CapabilitySplitView } from "@/components/CapabilitySplitView";
