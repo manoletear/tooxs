@@ -1,10 +1,14 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Brain, Cog, BarChart3, FileText, Factory, ArrowRight, CheckCircle } from "lucide-react";
+import {
+  Brain, Cog, BarChart3, FileText, Factory, ArrowRight, CheckCircle,
+  Database, Workflow, Network, LineChart, Cloud, Target,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PrismBackground } from "@/components/PrismBackground";
 import { BokehBackground } from "@/components/BokehBackground";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
+import { CapabilityFlipCard, type CapabilityData } from "@/components/CapabilityFlipCard";
 
 import heroIa from "@/assets/hero-ia-aplicada.jpg";
 import heroAuto from "@/assets/hero-automatizacion.jpg";
@@ -15,14 +19,14 @@ import heroOpt from "@/assets/hero-optimizacion.jpg";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Servicios — TOOXS | IA, Automatización y Data Analytics" },
-      { name: "description", content: "IA aplicada, automatización de procesos RPA, data analytics, automatización documental y optimización operacional para empresas industriales en Chile y Latinoamérica." },
-      { property: "og:title", content: "Servicios — TOOXS | IA, Automatización y Data Analytics" },
-      { property: "og:description", content: "Plataformas de valor que generan impacto medible: IA aplicada, RPA, data analytics y optimización operacional." },
+      { title: "Capacidades — TOOXS | Sistema de capacidades aplicadas al negocio" },
+      { name: "description", content: "El sistema de capacidades TOOXS: Datos e IA, Automatización, Integración, Analítica Operacional, Nube, Procesos Críticos y Estrategia Aplicada para industrias en Chile y Latinoamérica." },
+      { property: "og:title", content: "Capacidades — TOOXS" },
+      { property: "og:description", content: "Sistema de capacidades TOOXS aplicado donde se genera valor: operación, decisiones y procesos críticos." },
       { property: "og:url", content: "https://www.tooxs.com/services" },
-      { name: "twitter:title", content: "Servicios — TOOXS" },
-      { name: "twitter:description", content: "IA aplicada, automatización, data analytics y optimización operacional para empresas." },
-      { name: "keywords", content: "servicios IA, automatización RPA, data analytics, automatización documental, optimización operacional, consultoría tecnológica, TOOXS" },
+      { name: "twitter:title", content: "Capacidades — TOOXS" },
+      { name: "twitter:description", content: "Sistema de capacidades TOOXS: datos, IA, automatización, integración, analítica, nube y estrategia aplicada." },
+      { name: "keywords", content: "capacidades TOOXS, datos e IA, automatización procesos, integración plataformas, analítica operacional, nube, procesos críticos, estrategia aplicada" },
     ],
     links: [
       { rel: "canonical", href: "https://www.tooxs.com/services" },
@@ -30,6 +34,156 @@ export const Route = createFileRoute("/services/")({
   }),
   component: ServicesIndexPage,
 });
+
+const capabilities: CapabilityData[] = [
+  {
+    icon: Database, emoji: "🧠", number: "01",
+    title: "Datos e IA",
+    shortDescription: "Decisiones basadas en datos dentro del flujo operativo.",
+    appliesIn: "Mantenimiento · Supply chain · Riesgo · Procesos administrativos",
+    accentColor: "#177FC6",
+    back: {
+      whatChanges: "Los datos dejan de usarse para análisis posterior y pasan a ajustar decisiones en el momento en que ocurre la operación.",
+      impacts: [
+        { role: "Finanzas", text: "menor desviación en costos y provisiones" },
+        { role: "Operaciones", text: "decisiones con menor incertidumbre" },
+        { role: "Comercial", text: "mejor timing en decisiones hacia cliente" },
+      ],
+      examples: [
+        { industry: "Minería", text: "ajuste de mantención según condición de equipos" },
+        { industry: "Retail", text: "reposición en función de venta real" },
+        { industry: "Servicios financieros", text: "evaluación de riesgo en línea" },
+        { industry: "Agro", text: "control de calidad en packing en tiempo real" },
+      ],
+    },
+  },
+  {
+    icon: Workflow, emoji: "⚙️", number: "02",
+    title: "Automatización de Procesos",
+    shortDescription: "Ejecución automática de tareas sobre sistemas existentes.",
+    appliesIn: "Backoffice · Operaciones · Postventa",
+    accentColor: "#E08A2B",
+    back: {
+      whatChanges: "Las tareas dejan de depender de intervención manual y se ejecutan directamente en los sistemas, sin reprocesos.",
+      impacts: [
+        { role: "Finanzas", text: "reducción de costos operativos" },
+        { role: "Operaciones", text: "eliminación de cuellos de botella" },
+        { role: "Comercial", text: "menor tiempo de respuesta" },
+      ],
+      examples: [
+        { industry: "Automotriz", text: "gestión de garantías sin carga manual" },
+        { industry: "Salud", text: "registro automático de información clínica" },
+        { industry: "Retail", text: "actualización automática de inventario" },
+        { industry: "Servicios financieros", text: "validaciones automáticas en originación" },
+      ],
+    },
+  },
+  {
+    icon: Network, emoji: "🔗", number: "03",
+    title: "Integración y Plataformas",
+    shortDescription: "Conexión entre sistemas operacionales y de gestión.",
+    appliesIn: "ERP · Sistemas legacy · Operación",
+    accentColor: "#6366F1",
+    back: {
+      whatChanges: "Los sistemas dejan de operar de forma aislada y pasan a compartir información en tiempo real dentro del proceso.",
+      impacts: [
+        { role: "Finanzas", text: "información consistente para control" },
+        { role: "Operaciones", text: "continuidad en los procesos" },
+        { role: "Comercial", text: "visibilidad completa del cliente/operación" },
+      ],
+      examples: [
+        { industry: "Minería", text: "integración entre SCADA y SAP PM" },
+        { industry: "Retail", text: "conexión entre POS, CD y logística" },
+        { industry: "Servicios financieros", text: "integración entre core y canales" },
+        { industry: "Real Estate", text: "consolidación de datos de activos" },
+      ],
+    },
+  },
+  {
+    icon: LineChart, emoji: "📊", number: "04",
+    title: "Analítica Operacional",
+    shortDescription: "Monitoreo y ajuste de procesos en tiempo real.",
+    appliesIn: "Operación · Control · Seguimiento",
+    accentColor: "#20B2AA",
+    back: {
+      whatChanges: "Se pasa de reportes históricos a monitoreo continuo con capacidad de ajuste durante la operación.",
+      impacts: [
+        { role: "Finanzas", text: "control más preciso de desviaciones" },
+        { role: "Operaciones", text: "reacción oportuna ante eventos" },
+        { role: "Comercial", text: "mejor seguimiento de desempeño" },
+      ],
+      examples: [
+        { industry: "Minería", text: "monitoreo de disponibilidad de equipos" },
+        { industry: "Retail", text: "seguimiento de quiebres en tienda" },
+        { industry: "Telecom", text: "control de eventos de red" },
+        { industry: "Agro", text: "seguimiento de producción en packing" },
+      ],
+    },
+  },
+  {
+    icon: Cloud, emoji: "☁️", number: "05",
+    title: "Infraestructura y Nube",
+    shortDescription: "Soporte para ejecución e integración de soluciones.",
+    appliesIn: "Datos · Sistemas · Escalabilidad",
+    accentColor: "#0EA5E9",
+    back: {
+      whatChanges: "Las soluciones dejan de depender de infraestructura local rígida y pasan a operar con mayor disponibilidad e integración.",
+      impacts: [
+        { role: "Finanzas", text: "control de costos tecnológicos" },
+        { role: "Operaciones", text: "mayor continuidad de sistemas" },
+        { role: "Negocio", text: "capacidad de escalar sin fricción" },
+      ],
+      examples: [
+        { industry: "Servicios financieros", text: "procesamiento de datos en tiempo real" },
+        { industry: "Retail", text: "integración de múltiples puntos de venta" },
+        { industry: "Salud", text: "disponibilidad de sistemas clínicos" },
+        { industry: "Telecom", text: "soporte a operación distribuida" },
+      ],
+    },
+  },
+  {
+    icon: Factory, emoji: "🏭", number: "06",
+    title: "Aplicación en Procesos Críticos",
+    shortDescription: "Intervención directa donde se genera impacto económico.",
+    appliesIn: "Operación · Producción · Gestión",
+    accentColor: "#C62D2D",
+    back: {
+      whatChanges: "Se intervienen puntos específicos del proceso donde se generan pérdidas, retrasos o errores.",
+      impacts: [
+        { role: "Finanzas", text: "mejora directa en resultados" },
+        { role: "Operaciones", text: "mayor control del proceso" },
+        { role: "Comercial", text: "mejor cumplimiento de compromisos" },
+      ],
+      examples: [
+        { industry: "Minería", text: "planificación de mantención" },
+        { industry: "Retail", text: "reposición en cadena de suministro" },
+        { industry: "Servicios financieros", text: "gestión de riesgo" },
+        { industry: "Automotriz", text: "postventa" },
+      ],
+    },
+  },
+  {
+    icon: Target, emoji: "🎯", number: "07",
+    title: "Estrategia Aplicada",
+    shortDescription: "Definición de casos de uso con impacto operativo.",
+    appliesIn: "Priorización · Implementación · Escalamiento",
+    accentColor: "#7C3AED",
+    back: {
+      whatChanges: "Se pasa de iniciativas aisladas a una priorización basada en impacto real en operación.",
+      impacts: [
+        { role: "Finanzas", text: "foco en iniciativas con retorno claro" },
+        { role: "Operaciones", text: "implementación alineada a problemas reales" },
+        { role: "Negocio", text: "coherencia en ejecución" },
+      ],
+      examples: [
+        { industry: "Minería", text: "priorización de activos críticos" },
+        { industry: "Retail", text: "foco en categorías de alto impacto" },
+        { industry: "Servicios financieros", text: "priorización de riesgos relevantes" },
+        { industry: "Salud", text: "foco en procesos con mayor carga administrativa" },
+      ],
+    },
+  },
+];
 
 interface ServiceValue { title: string; description: string }
 interface ServiceMetric { value: string; label: string }
