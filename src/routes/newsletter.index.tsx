@@ -51,9 +51,9 @@ const quarterlyArticles = [
 
 function NewsletterPage() {
   return (
-    <div className="min-h-screen bg-background" style={{ fontFamily: "'Inter', var(--font-body)" }}>
+    <div className="min-h-screen bg-background">
       {/* ══════ HERO WITH PRISM ══════ */}
-      <section className="relative bg-navy text-white pt-32 pb-20 overflow-hidden">
+      <section className="relative bg-navy text-white pt-28 pb-16 overflow-hidden">
         <HaloEffect
           count1={4}
           count2={3}
@@ -67,7 +67,7 @@ function NewsletterPage() {
         />
         <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           <Link to="/" className="text-xs text-white/50 mb-4 font-medium tracking-wide inline-block hover:text-white/80 transition-colors">‹ Volver al Inicio</Link>
-          <h1 className="text-4xl md:text-[3.2rem] font-black mb-3 leading-[1.1] tracking-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+          <h1 className="text-4xl md:text-[3.2rem] font-black mb-3 leading-[1.1] tracking-tight">
             Nuestros Insights
           </h1>
           <p className="text-white/70 text-[1.1rem] max-w-[560px] leading-relaxed">
@@ -95,7 +95,7 @@ function NewsletterPage() {
               <img src={highlightMain.image} alt={highlightMain.title} className="w-full aspect-[4/3] object-cover rounded" />
               <div className="flex flex-col justify-center">
                 <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-primary">{highlightMain.category}</span>
-                <h2 className="mt-2 text-xl md:text-2xl font-extrabold leading-tight tracking-tight group-hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <h2 className="mt-2 text-xl md:text-2xl font-extrabold leading-tight tracking-tight group-hover:text-primary transition-colors">
                   {highlightMain.title} <ChevronRight className="inline w-5 h-5 text-primary" />
                 </h2>
                 <p className="text-xs text-muted-foreground mt-2">{highlightMain.date}</p>
@@ -108,7 +108,7 @@ function NewsletterPage() {
               <Link key={i} to="/newsletter/$slug" params={{ slug: a.slug }} className="group block">
                 <img src={a.image} alt={a.title} className="w-full aspect-[16/10] object-cover rounded-sm mb-3" loading="lazy" />
                 <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.category}</span>
-                <h3 className="mt-1 text-base font-bold leading-snug group-hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <h3 className="mt-1 text-base font-bold leading-snug group-hover:text-primary transition-colors">
                   {a.title} <ChevronRight className="inline w-4 h-4 text-primary" />
                 </h3>
                 <p className="text-[0.78rem] text-muted-foreground mt-1">{a.date}</p>
@@ -123,7 +123,7 @@ function NewsletterPage() {
               <Link key={i} to="/newsletter/$slug" params={{ slug: a.slug }} className="group block">
                 <img src={a.image} alt={a.title} className="w-full aspect-[4/3] object-cover rounded-sm mb-3" loading="lazy" />
                 <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{a.category}</span>
-                <h4 className="mt-1 text-[0.95rem] font-bold leading-snug group-hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <h4 className="mt-1 text-[0.95rem] font-bold leading-snug group-hover:text-primary transition-colors">
                   {a.title} <ChevronRight className="inline w-3.5 h-3.5 text-primary" />
                 </h4>
                 <p className="text-[0.8rem] text-foreground/60 leading-relaxed mt-1">{a.excerpt}</p>
@@ -144,7 +144,7 @@ function NewsletterPage() {
 
       {/* ══════ CTA BANNER ══════ */}
       <section className="bg-navy text-white text-center py-14 px-6">
-        <h2 className="text-2xl md:text-3xl font-extrabold mb-2" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+        <h2 className="text-2xl md:text-3xl font-extrabold mb-2">
           Participa en nuestra comunidad
         </h2>
         <p className="text-white/70 text-[0.95rem] mb-6">¿Quieres recibir insights sobre tecnología e IA aplicada a tu industria?</p>
@@ -164,7 +164,7 @@ function NewsletterPage() {
                 <img src={item.image} alt={item.title} className="w-full sm:w-[140px] aspect-square object-cover rounded-sm" loading="lazy" />
                 <div>
                   <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{item.category}</span>
-                  <h3 className="mt-1 text-lg font-bold leading-snug group-hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                  <h3 className="mt-1 text-lg font-bold leading-snug group-hover:text-primary transition-colors">
                     {item.title} <ChevronRight className="inline w-4 h-4 text-primary" />
                   </h3>
                   <p className="text-xs text-primary mt-1 font-medium">{item.date}</p>
@@ -195,7 +195,7 @@ function NewsletterPage() {
               <Mail size={100} className="text-white/20 relative z-10" />
             </div>
             <div>
-              <h2 className="text-2xl font-extrabold mb-2" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+              <h2 className="text-2xl font-extrabold mb-2">
                 The Weekly Brief <span className="text-primary">›</span>
               </h2>
               <p className="text-[0.95rem] text-foreground/60 mb-4 leading-relaxed">
@@ -208,7 +208,7 @@ function NewsletterPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {newsletterCards.map((card, i) => (
               <div key={i}>
-                <h3 className="text-lg font-bold mb-1" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <h3 className="text-lg font-bold mb-1">
                   {card.title} <span className="text-primary">›</span>
                 </h3>
                 <p className="text-sm text-foreground/60 leading-relaxed">{card.desc}</p>
@@ -227,7 +227,7 @@ function NewsletterPage() {
             {quarterlyArticles.map((a, i) => (
               <Link key={i} to="/newsletter/$slug" params={{ slug: a.slug }} className="group block">
                 <img src={a.image} alt={a.title} className="w-full aspect-[16/10] object-cover rounded mb-4" loading="lazy" />
-                <h3 className="text-base font-bold leading-snug mb-2 group-hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                <h3 className="text-base font-bold leading-snug mb-2 group-hover:text-primary transition-colors">
                   {a.title} <ChevronRight className="inline w-4 h-4 text-primary" />
                 </h3>
                 <p className="text-sm text-foreground/60 leading-relaxed">{a.excerpt}</p>

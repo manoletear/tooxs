@@ -40,7 +40,7 @@ export function IndustryPageTemplate({ data }: { data: IndustryPageData }) {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-[75vh] flex items-end">
+      <section className="relative h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${data.hero.image})` }}
