@@ -40,25 +40,27 @@ export function IndustryPageTemplate({ data }: { data: IndustryPageData }) {
   return (
     <div>
       {/* Hero */}
-      <section className="relative h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end">
+      <section className="relative bg-navy text-navy-foreground min-h-[420px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[560px] flex items-end overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${data.hero.image})` }}
           role="img"
           aria-label={`Imagen de industria: ${data.hero.title}`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/50 to-navy/20" />
-        <div className="relative z-10 max-w-5xl mx-auto px-6 pb-16 md:pb-24 w-full">
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/60 to-navy/25" />
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
+          <Link to="/" className="text-xs text-navy-foreground/60 mb-3 sm:mb-4 font-medium tracking-wide inline-block hover:text-navy-foreground transition-colors">‹ Volver al Inicio</Link>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-3 sm:mb-4">Industria</p>
           <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-foreground leading-tight mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black text-navy-foreground leading-[1.1] tracking-tight mb-3 sm:mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {data.hero.title}
           </h1>
-          <p className="text-xl md:text-2xl text-navy-foreground/90 font-medium mb-4 max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl text-navy-foreground/90 font-medium mb-3 sm:mb-4 max-w-[640px] leading-snug">
             {data.hero.subtitle}
           </p>
-          <p className="text-base md:text-lg text-navy-foreground/70 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base md:text-[1.05rem] text-navy-foreground/75 max-w-[640px] leading-relaxed">
             {data.hero.description}
           </p>
         </div>
