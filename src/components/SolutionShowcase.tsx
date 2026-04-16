@@ -79,7 +79,7 @@ const solutions: Solution[] = [
     subtitle: "Ordena, encuentra y controla tu información crítica.",
     image: gestorImg,
     icon: <FolderSearch size={24} />,
-    accentColor: "#17A86A",
+    accentColor: "#177FC6",
     fullDescription: "Centraliza documentos corporativos, controla versiones, organiza permisos y facilita el acceso mediante búsqueda semántica. Su foco es la gobernanza documental y la disponibilidad del conocimiento.",
     problems: [
       "Repositorios dispersos, documentos duplicados y versiones inconsistentes.",
