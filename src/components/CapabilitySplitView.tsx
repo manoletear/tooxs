@@ -30,10 +30,10 @@ export function CapabilitySplitView({ capabilities }: CapabilitySplitViewProps) 
   const illustration = ILLUSTRATIONS[active.number];
 
   return (
-    <div className="relative rounded-2xl bg-[#0B0B0F] text-white overflow-hidden border border-white/5">
+    <div className="relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] min-h-[640px]">
         {/* ── LISTA IZQUIERDA ── */}
-        <div className="px-6 py-10 sm:px-10 sm:py-14 lg:px-14 lg:py-16">
+        <div className="px-2 py-10 sm:px-4 sm:py-14 lg:px-6 lg:py-16">
           <ul className="flex flex-col gap-1.5 sm:gap-2">
             {capabilities.map((cap, i) => {
               const isActive = i === activeIndex;
@@ -58,8 +58,8 @@ export function CapabilitySplitView({ capabilities }: CapabilitySplitViewProps) 
                     <span
                       className={`text-xl sm:text-2xl md:text-[1.7rem] lg:text-[1.85rem] font-semibold leading-[1.25] tracking-tight transition-colors duration-300 ${
                         isActive
-                          ? "text-white"
-                          : "text-white/35 group-hover:text-white/65"
+                          ? "text-foreground"
+                          : "text-foreground/35 group-hover:text-foreground/70"
                       }`}
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
@@ -73,7 +73,7 @@ export function CapabilitySplitView({ capabilities }: CapabilitySplitViewProps) 
         </div>
 
         {/* ── PANEL DERECHO ── */}
-        <div className="relative px-6 py-10 sm:px-10 sm:py-14 lg:px-14 lg:py-16 lg:border-l border-white/5">
+        <div className="relative px-2 py-10 sm:px-4 sm:py-14 lg:px-6 lg:py-16 lg:border-l border-border">
           <AnimatePresence mode="wait">
             <motion.div
               key={active.number}
