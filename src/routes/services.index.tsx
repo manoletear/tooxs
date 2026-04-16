@@ -518,8 +518,11 @@ function ServicesIndexPage() {
   return (
     <div>
       {/* ══════ HERO ══════ */}
-      <section className="relative bg-navy text-white h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end overflow-hidden">
-        <PrismBackground />
+      <section className="relative bg-[#050d1a] text-white h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end overflow-hidden">
+        <BokehBackground
+          colors={["#177FC6", "#20B2AA", "#1e3a5f", "#0e4d92"]}
+          particleCount={45}
+        />
         <div className="relative z-10 max-w-5xl mx-auto px-6 pb-12">
           <ScrollReveal>
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-4">Nuestros Servicios</p>
