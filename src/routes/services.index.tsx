@@ -7,6 +7,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { PrismBackground } from "@/components/PrismBackground";
 import { BokehBackground } from "@/components/BokehBackground";
+import { ShaderBackground } from "@/components/ui/shader-background";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 import { CapabilityFlipCard, type CapabilityData } from "@/components/CapabilityFlipCard";
 import { CapabilitySplitView } from "@/components/CapabilitySplitView";
@@ -674,10 +675,8 @@ function ServicesIndexPage() {
     <div>
       {/* ══════ HERO ══════ */}
       <section className="relative bg-[#050d1a] text-white min-h-[420px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[560px] flex items-end overflow-hidden">
-        <BokehBackground
-          colors={["#177FC6", "#20B2AA", "#1e3a5f", "#0e4d92"]}
-          particleCount={45}
-        />
+        <ShaderBackground />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050d1a]/85 via-[#050d1a]/40 to-transparent pointer-events-none" />
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
           <ScrollReveal>
             <Link to="/" className="text-xs text-white/60 mb-3 sm:mb-4 font-medium tracking-wide inline-block hover:text-white transition-colors">‹ Volver al Inicio</Link>
