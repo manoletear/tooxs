@@ -93,16 +93,16 @@ export function CapabilitySplitView({ capabilities }: CapabilitySplitViewProps) 
 
               {/* Headline */}
               <h3
-                className="text-xl sm:text-2xl md:text-[1.6rem] font-bold text-white leading-[1.25] mb-5 max-w-[28ch]"
+                className="text-xl sm:text-2xl md:text-[1.6rem] font-bold text-foreground leading-[1.25] mb-5 max-w-[28ch]"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {active.back.whatChanges}
               </h3>
 
               {/* Descripción */}
-              <p className="text-white/65 text-sm md:text-[0.95rem] leading-relaxed mb-6 max-w-[42ch]">
+              <p className="text-foreground/70 text-sm md:text-[0.95rem] leading-relaxed mb-6 max-w-[42ch]">
                 {active.shortDescription}{" "}
-                <span className="text-white/45">Aplica en {active.appliesIn}.</span>
+                <span className="text-foreground/50">Aplica en {active.appliesIn}.</span>
               </p>
 
               {/* Ilustración */}
@@ -120,7 +120,6 @@ export function CapabilitySplitView({ capabilities }: CapabilitySplitViewProps) 
                     width={1024}
                     height={768}
                     className="absolute inset-0 w-full h-full object-contain p-4"
-                    style={{ filter: "invert(1) brightness(1.15)" }}
                   />
                 </div>
               </div>
