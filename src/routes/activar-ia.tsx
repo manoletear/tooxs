@@ -16,9 +16,8 @@ import {
   Activity,
   CheckCircle2,
 } from "lucide-react";
-import { GradientProBackground } from "@/components/GradientProBackground";
+import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
-import heroActivate from "@/assets/hero-activate-ai.jpg";
 
 export const Route = createFileRoute("/activar-ia")({
   head: () => ({
@@ -186,23 +185,9 @@ function ActivarIAPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* ══════ HERO ══════ */}
-      <section className="relative bg-black text-white min-h-[420px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[560px] flex items-end overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{ backgroundImage: `url(${heroActivate})` }}
-          aria-hidden="true"
-        />
-        <GradientProBackground
-          primary="#177FC6"
-          secondary="#20B2AA"
-          background="#0A2647"
-          speed={0.25}
-          warpStrength={1}
-          warpDetail={5}
-          warpSpeed={2}
-          contrast={1.5}
-          saturation={1}
-        />
+      <section className="relative bg-[#050d1f] text-white min-h-[420px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[560px] flex items-end overflow-hidden">
+        <NeuralActivationBackground />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050d1f] via-[#050d1f]/40 to-transparent pointer-events-none" aria-hidden="true" />
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
           <Link to="/" className="text-xs text-white/60 mb-3 sm:mb-4 font-medium tracking-wide inline-block hover:text-white transition-colors">
             ‹ Volver al Inicio
