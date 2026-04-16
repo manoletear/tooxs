@@ -9,6 +9,7 @@ import { PrismBackground } from "@/components/PrismBackground";
 import { BokehBackground } from "@/components/BokehBackground";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 import { CapabilityFlipCard, type CapabilityData } from "@/components/CapabilityFlipCard";
+import { CapabilitySplitView } from "@/components/CapabilitySplitView";
 
 import heroIa from "@/assets/hero-ia-aplicada.jpg";
 import heroAuto from "@/assets/hero-automatizacion.jpg";
@@ -704,21 +705,17 @@ function ServicesIndexPage() {
                 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 leading-tight"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Pasa el cursor o toca cada capacidad para ver qué cambia
+                Explora cada capacidad y descubre qué cambia
               </h2>
               <p className="text-muted-foreground text-sm md:text-base">
-                Cada tarjeta describe la capacidad y, al girarla, muestra el impacto por rol y ejemplos por industria.
+                Selecciona una capacidad en la lista para ver su impacto, ejemplos y dónde se aplica en la operación real.
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
-            {capabilities.map((cap, i) => (
-              <ScrollReveal key={cap.number} delay={Math.min(i * 80, 320)}>
-                <CapabilityFlipCard cap={cap} />
-              </ScrollReveal>
-            ))}
-          </div>
+          <ScrollReveal>
+            <CapabilitySplitView capabilities={capabilities} />
+          </ScrollReveal>
         </div>
       </section>
 
