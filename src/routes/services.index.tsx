@@ -131,7 +131,7 @@ const capabilities: CapabilityData[] = [
       impacts: [
         { role: "Finanzas", text: "control de costos tecnológicos" },
         { role: "Operaciones", text: "mayor continuidad de sistemas" },
-        { role: "Negocio", text: "capacidad de escalar sin fricción" },
+        { role: "Negocio", text: "capacidad de escalar sin obstáculos" },
       ],
       examples: [
         { industry: "Servicios financieros", text: "procesamiento de datos en tiempo real" },

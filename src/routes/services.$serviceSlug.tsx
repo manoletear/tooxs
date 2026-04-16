@@ -10,7 +10,7 @@ import heroOpt from "@/assets/hero-optimizacion.jpg";
 
 const SERVICE_SEO: Record<string, { title: string; description: string }> = {
   "ia-aplicada": { title: "IA Aplicada al Negocio — TOOXS", description: "Aplicamos inteligencia artificial en procesos críticos para acelerar decisiones, reducir errores y escalar operaciones empresariales." },
-  "automatizacion": { title: "Automatización de Procesos — TOOXS", description: "Diseñamos y automatizamos procesos end-to-end con RPA e IA para reducir fricción, errores y tiempos operativos." },
+  "automatizacion": { title: "Automatización de Procesos — TOOXS", description: "Diseñamos y automatizamos procesos end-to-end con RPA e IA para reducir trabajo manual, errores y tiempos operativos." },
   "data-analytics": { title: "Data & Analytics — TOOXS", description: "Unificamos, modelamos y activamos datos dispersos para mejorar visibilidad y toma de decisiones ejecutivas." },
   "automatizacion-documental": { title: "Automatización Documental — TOOXS", description: "Extraemos, validamos y gestionamos información desde documentos complejos con IA y OCR inteligente." },
   "optimizacion-operacional": { title: "Optimización Operacional — TOOXS", description: "Optimizamos procesos críticos con mantenimiento predictivo, monitoreo y mejora continua para mayor productividad." },
@@ -80,7 +80,7 @@ const SERVICES: Record<string, ServicePageData> = {
     hero: {
       title: "Automatización de Procesos",
       subtitle: "Elimina tareas manuales. Acelera tu operación.",
-      description: "Diseñamos y automatizamos procesos end-to-end para reducir fricción, errores y tiempos.",
+      description: "Diseñamos y automatizamos procesos end-to-end para reducir trabajo manual, errores y tiempos.",
       image: heroAuto,
     },
     statement: [

@@ -737,7 +737,7 @@ Una fintech en Bogotá contrató 4 personas diferentes, ninguna era la "estrella
 
 ## Pilar 3: Manuales de Operación Detallados
 
-Un equipo de logística tenía caos. Cada persona resolvía problemas de forma diferente. Crearon un manual con procedimientos claros. Nuevas personas operaban sin fricción en 2 semanas vs. 3 meses antes. Inconsistencia bajó 70%.
+Un equipo de logística tenía caos. Cada persona resolvía problemas de forma diferente. Crearon un manual con procedimientos claros. Nuevas personas operaban con fluidez en 2 semanas vs. 3 meses antes. Inconsistencia bajó 70%.
 
 ## Pilar 4: Liderazgo Distribuido (No Heroísmo)
 
@@ -938,7 +938,7 @@ Las empresas que ganan primero definen el modelo organizacional futuro, luego ar
 
 ## La velocidad de adopción es brutal: De 32% a 65% en 12 meses
 
-Hace un año, solo 32% de las organizaciones usaba gen AI regularmente. Hoy, 65% lo hace. Eso no es adopción gradual. Eso es fricción exponencial. Competidores de tu industria ya están experimentando. En Chile, hemos visto esto en retail, telecomunicaciones, y financiero: empresas que hace 18 meses decían "veremos qué pasa" hoy están corriendo para no quedarse atrás. Y muchas descubren que la infraestructura técnica que tenían no está lista.
+Hace un año, solo 32% de las organizaciones usaba gen AI regularmente. Hoy, 65% lo hace. Eso no es adopción gradual. Eso es aceleración exponencial. Competidores de tu industria ya están experimentando. En Chile, hemos visto esto en retail, telecomunicaciones, y financiero: empresas que hace 18 meses decían "veremos qué pasa" hoy están corriendo para no quedarse atrás. Y muchas descubren que la infraestructura técnica que tenían no está lista.
 
 ## Acción 1: Audita tu arquitectura de datos—es el foundation de todo
 
@@ -1449,7 +1449,7 @@ Tu tienda física es punto de recepción/devolución, almacén mini, punto de en
 
 ### Táctica 2: Diferenciación por experiencia, no por producto
 
-Tu competidor online tiene 50x más selección. No puedes competir en catálogo. Compites en experiencia: personalización, servicio (un consultor que arma outfit completo), comunidad (events, talleres), fricción cero.
+Tu competidor online tiene 50x más selección. No puedes competir en catálogo. Compites en experiencia: personalización, servicio (un consultor que arma outfit completo), comunidad (events, talleres), proceso de compra sin obstáculos.
 
 ### Táctica 3: Datos de cliente como fuente de verdad
 
@@ -2140,7 +2140,7 @@ McKinsey encontró que trabajadores que demandan flexibilidad y no la obtienen:
 Sin esto no funciona:
 
 - **Dashboards en tiempo real** accesibles desde cualquier lado.
-- **Videoconferencia integrada** sin fricción.
+- **Videoconferencia integrada** sin pasos extra.
 - **Documentación centralizada** (si está en papeles o emails, remoto no funciona).
 - **Sistemas de soporte remoto** (técnico que diagnostica vía cámara/sensor desde lejos).
 
@@ -2162,7 +2162,7 @@ Las empresas que entienden esto ganan talento. En minería chilena, donde el tal
     date: "16 Abril 2026",
     readTime: "8 min",
     title: "Los silos corporativos te están costando 10-15% de rentabilidad. Literal.",
-    excerpt: "Empresa típica tiene Compras, Operaciones, Logística, Ventas. Cada uno optimiza su parte. Resultado: rentabilidad perdida en las fricciones. Deconstruir silos genera ahorros sin invertir en tecnología nueva.",
+    excerpt: "Empresa típica tiene Compras, Operaciones, Logística, Ventas. Cada uno optimiza su parte. Resultado: rentabilidad perdida en los traspasos entre áreas. Deconstruir silos genera ahorros sin invertir en tecnología nueva.",
     image: articleDeconstruirSilos,
     content: `McKinsey analizó 150+ empresas de manufactura en rango USD 50M-500M revenue. Encontró que empresas donde funciones están integradas (Compras, Operaciones, Logística alineadas en objetivos) logran 10-15% mejor rentabilidad que empresas donde cada función optimiza independientemente.
 
@@ -2202,7 +2202,7 @@ Cambios:
 
 Deconstruir silos requiere cambiar métricas, incentivos y gobernanza. No es tecnología; es decisión de cómo organizar gente.
 
-**Paso 1: Diagnóstico de silos.** Mapear puntos de fricción entre funciones. Típicamente hay 3-5 fricciones mayores.
+**Paso 1: Diagnóstico de silos.** Mapear puntos de quiebre entre funciones. Típicamente hay 3-5 quiebres mayores.
 
 **Paso 2: Definir end-to-end.** Elegir proceso crítico (ej: "Producir y entregar a cliente a tiempo"). Definir métrica única que todos optimicen.
 
@@ -2524,7 +2524,7 @@ Los empleados que crean valor neto positivo tienden a irse primero, especialment
 1. **Medir impacto, no actividad.** En minería: "¿cuántas paradas previno?" En manufactura: "¿cuánto mejoró el rendimiento?" En logística: "¿cuántos km se ahorraron?"
 2. **Diferencia radical en compensación basada en impacto.** Si tu top 20% crea 80% del valor, deberían ganar significativamente más. No es justo—es rentable.
 3. **Visibilidad sobre desvinculación.** Cuando alguien se va, pregunta: "¿qué hubiera tenido que cambiar para que te quedaras?"
-4. **Aceptar el desorden que genera talento fuerte.** Empleados que crean valor cuestionan, generan fricciones. Es el precio de tener gente buena.
+4. **Aceptar el desorden que genera talento fuerte.** Empleados que crean valor cuestionan, generan tensiones. Es el precio de tener gente buena.
 
 ## La perspectiva Tooxs
 

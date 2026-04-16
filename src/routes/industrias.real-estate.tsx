@@ -24,7 +24,7 @@ function RealEstatePage() {
         hero: {
           title: "Real Estate",
           subtitle: "Gestión inmobiliaria más ágil, con datos y automatización.",
-          description: "Acompañamos a desarrolladoras, corredoras y administradoras de activos a digitalizar procesos comerciales, documentales y operativos para acelerar ventas, reducir fricción y mejorar visibilidad.",
+          description: "Acompañamos a desarrolladoras, corredoras y administradoras de activos a digitalizar procesos comerciales, documentales y operativos para acelerar ventas, simplificar trámites y mejorar visibilidad.",
           image: heroImage,
         },
         statement: [
