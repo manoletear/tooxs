@@ -64,6 +64,68 @@ export interface Article {
   content: string;
 }
 
+/* ═══════════ CATEGORY GROUPING ═══════════ */
+/* Mapea las 30+ categorías específicas a 5 grupos macro para filtrado en UI */
+
+export type CategoryGroup =
+  | "Estrategia & Liderazgo"
+  | "AI & Tecnología"
+  | "Operaciones & Industria"
+  | "Talento & Cultura"
+  | "Mercados & Consumo";
+
+export const CATEGORY_GROUPS: CategoryGroup[] = [
+  "Estrategia & Liderazgo",
+  "AI & Tecnología",
+  "Operaciones & Industria",
+  "Talento & Cultura",
+  "Mercados & Consumo",
+];
+
+export function getCategoryGroup(category: string): CategoryGroup {
+  const c = category.toLowerCase();
+  if (
+    c.includes("ai") ||
+    c.includes("ia ") ||
+    c.includes(" ia") ||
+    c === "ia" ||
+    c.includes("tech") ||
+    c.includes("datos") ||
+    c.includes("salud")
+  ) {
+    return "AI & Tecnología";
+  }
+  if (
+    c.includes("talento") ||
+    c.includes("cultura") ||
+    c.includes("equipos") ||
+    c.includes("desarrollo")
+  ) {
+    return "Talento & Cultura";
+  }
+  if (
+    c.includes("consumo") ||
+    c.includes("mercados") ||
+    c.includes("retail") ||
+    c.includes("macroeconomía")
+  ) {
+    return "Mercados & Consumo";
+  }
+  if (
+    c.includes("operaciones") ||
+    c.includes("manufactura") ||
+    c.includes("industria") ||
+    c.includes("logística") ||
+    c.includes("energía") ||
+    c.includes("eficiencia") ||
+    c.includes("casos")
+  ) {
+    return "Operaciones & Industria";
+  }
+  // Estrategia, Liderazgo, CEO, C-Suite, Gobernanza, Org, Insights, Libros, default
+  return "Estrategia & Liderazgo";
+}
+
 export const ARTICLES: Article[] = [
   {
     id: 1,
