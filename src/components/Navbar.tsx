@@ -49,7 +49,7 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
       <div
-        className={`flex items-center justify-between rounded-full px-6 transition-all duration-500 ${
+        className={`flex items-center justify-between rounded-xl px-6 transition-all duration-500 ${
           scrolled
             ? "bg-white shadow-lg h-14 max-w-4xl"
             : "bg-white h-14 max-w-4xl"

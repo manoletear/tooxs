@@ -98,7 +98,9 @@ function HeroStrategic() {
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-end overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
-        <video ref={videoRef} autoPlay muted loop playsInline className="absolute inset-0 w-full h-[120%] object-cover will-change-transform" src="/hero-bg.mp4" style={{ top: "-10%" }} />
+        <video ref={videoRef} autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-[120%] object-cover will-change-transform" style={{ top: "-10%" }}>
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30" />
       </div>
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-20 md:pb-28">
