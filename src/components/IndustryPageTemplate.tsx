@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
+import { FeaturedNewsGrid } from "./FeaturedNewsGrid";
 
 export interface IndustryService {
   title: string;
