@@ -72,7 +72,7 @@ export const Route = createFileRoute("/talleres")({
       {
         name: "description",
         content:
-          "Programa de talleres TOOXS: tres sesiones prácticas de 90 min para que tu equipo detecte, diseñe y active soluciones reales de IA. Formación in-house, contextualizada y SENCE.",
+          "Programa de talleres TOOXS: tres sesiones prácticas de 90 min para que tu equipo detecte, diseñe y active soluciones reales de IA. Formación in-house y contextualizada.",
       },
       { property: "og:title", content: "Talleres TOOXS — Desbloquea tu IA interior" },
       {
@@ -114,8 +114,8 @@ const formato = [
   },
   {
     icon: Award,
-    title: "Compatible con SENCE",
-    desc: "Actividad estructurada para acceder a franquicia tributaria SENCE y maximizar tu inversión en formación.",
+    title: "Formación con impacto",
+    desc: "Actividad estructurada con metodología propia para maximizar el aprendizaje y el retorno de tu inversión en formación.",
   },
 ];
 
@@ -613,7 +613,7 @@ function TalleresPage() {
                 Precios por <span className="text-primary">tamaño de equipo</span>
               </h2>
               <p className="text-muted-foreground text-base md:text-lg">
-                Valor por persona y por taller. Compatible con SENCE.
+                Valor por persona y por taller.
               </p>
             </div>
           </ScrollReveal>

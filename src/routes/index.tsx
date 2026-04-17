@@ -566,7 +566,7 @@ function CapabilityGraph() {
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <span className="text-[0.7rem] text-white/50 tracking-wider uppercase font-semibold md:text-right">
-                    In-house · 90 min · SENCE
+                    In-house · 90 min · Práctico
                   </span>
                 </div>
               </div>
