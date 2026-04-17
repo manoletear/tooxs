@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight, Search, Lightbulb, Rocket, Car, Star, Building2, GraduationCap, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
+import { useMeeting } from "../components/MeetingDialog";
 import CardDeckSpread from "../components/CardDeckSpread";
 import IndustryCarousel from "../components/IndustryCarousel";
 import FluidCardStack from "../components/FluidCardStack";
@@ -71,13 +72,11 @@ function Counter({ end, suffix = "", prefix = "" }: { end: number; suffix?: stri
    ══════════════════════════════════════════ */
 function HeroStrategic() {
   const [visible, setVisible] = useState(false);
+  const { openMeeting } = useMeeting();
   useEffect(() => { const t = setTimeout(() => setVisible(true), 200); return () => clearTimeout(t); }, []);
 
   const scrollToCapabilities = () => {
     document.getElementById("capacidades")?.scrollIntoView({ behavior: "smooth" });
-  };
-  const scrollToForm = () => {
-    document.getElementById("smart-form")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const heroRef = useRef<HTMLDivElement>(null);
@@ -122,7 +121,7 @@ function HeroStrategic() {
             <p className="text-sm md:text-base text-white/80 leading-relaxed mb-8">
               TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa.
             </p>
-            <button onClick={scrollToForm} className="inline-flex items-center gap-3 bg-white text-navy px-7 py-3.5 rounded-full font-semibold hover:bg-white/95 transition-all duration-300 text-sm group shadow-lg">
+            <button onClick={() => openMeeting("Hero — Inicio")} className="inline-flex items-center gap-3 bg-white text-navy px-7 py-3.5 rounded-full font-semibold hover:bg-white/95 transition-all duration-300 text-sm group shadow-lg">
               Agendar una consulta
               <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary text-white group-hover:scale-110 transition-transform">
                 <ArrowRight size={14} />
@@ -1022,16 +1021,14 @@ function AIChatbot() {
    14. CTA FINAL
    ══════════════════════════════════════════ */
 function ConversionCTA() {
-  const scrollToForm = () => {
-    document.getElementById("smart-form")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const { openMeeting } = useMeeting();
   return (
     <section className="py-24 bg-navy text-white">
       <div className="max-w-3xl mx-auto px-4 text-center">
         <ScrollReveal>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Convierte complejidad en ventaja operativa.</h2>
           <p className="text-xl text-white/80 font-semibold mb-8">Trabajemos juntos.</p>
-          <button onClick={scrollToForm} className="inline-flex items-center gap-2 bg-mint text-white px-12 py-4 rounded-full font-semibold text-base hover:opacity-90 hover:shadow-[0_0_30px_rgba(32,178,170,0.4)] hover:scale-[1.02] transition-all duration-300">
+          <button onClick={() => openMeeting("CTA Final — Conversación estratégica")} className="inline-flex items-center gap-2 bg-mint text-white px-12 py-4 rounded-full font-semibold text-base hover:opacity-90 hover:shadow-[0_0_30px_rgba(32,178,170,0.4)] hover:scale-[1.02] transition-all duration-300">
             Agendar conversación estratégica
           </button>
         </ScrollReveal>
