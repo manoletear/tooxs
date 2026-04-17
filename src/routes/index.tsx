@@ -988,7 +988,7 @@ function Index() {
     <div>
       <HeroStrategic />
       <TrustBarDynamic />
-      <TesisStatement />
+      
       <IndustryExplorer />
       <CapabilityGraph />
       <TestimonialFlow />
