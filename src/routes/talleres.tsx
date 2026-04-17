@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
+import { useMeeting } from "@/components/MeetingDialog";
 import {
   Dialog,
   DialogContent,
