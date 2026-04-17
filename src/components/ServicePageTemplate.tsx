@@ -1,8 +1,31 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ChevronRight, CheckCircle } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 import { PrismBackground } from "./PrismBackground";
 import type { LucideIcon } from "lucide-react";
+
+function HubSpotForm() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    el.innerHTML =
+      '<div class="hs-form-frame" data-region="na1" data-form-id="ce71cdbb-2192-4264-af88-8060d3dc013a" data-portal-id="24156430"></div>';
+    const existing = document.querySelector(
+      'script[src*="hsforms.net/forms/embed/24156430"]',
+    );
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src = "https://js.hsforms.net/forms/embed/24156430.js";
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+  }, []);
+
+  return <div ref={containerRef} />;
+}
 
 export interface ServiceValue {
   title: string;
