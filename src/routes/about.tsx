@@ -45,12 +45,11 @@ function IndustriesPage() {
   return (
     <div>
       {/* Hero with animated paper-design mesh-gradient shader */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#06192f]">
+      <section className="relative bg-[#06192f] text-white min-h-[420px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[560px] flex items-end overflow-hidden">
         <PaperShaderBackground />
-        {/* Subtle dark overlay for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#06192f]/30 via-transparent to-[#06192f]/60 pointer-events-none" aria-hidden="true" />
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-foreground leading-tight" style={{ fontFamily: "var(--font-heading)" }}>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06192f] via-[#06192f]/40 to-[#06192f]/10 pointer-events-none" aria-hidden="true" />
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black mb-3 sm:mb-4 leading-[1.1] tracking-tight" style={{ fontFamily: "var(--font-heading)" }}>
             Industrias
           </h1>
         </div>
