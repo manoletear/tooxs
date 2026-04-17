@@ -1,9 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight, ArrowRight, Mail } from "lucide-react";
-import { PageHero } from "../components/PageHero";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
-import { ARTICLES } from "@/data/articles";
 import { PaperShaderBackground } from "@/components/ui/paper-shader-background";
+import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
