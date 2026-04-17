@@ -11,9 +11,6 @@ export function Footer() {
           {/* Brand */}
           <div>
             <img src={tooxsLogo} alt="TOOXS" className="h-8 w-auto mb-4" />
-            <p className="text-sm leading-relaxed">
-              Automatización inteligente para empresas chilenas. RPA, IA y soluciones a medida.
-            </p>
           </div>
 
           {/* Enlaces */}
