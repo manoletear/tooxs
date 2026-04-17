@@ -460,53 +460,6 @@ function ActivarIAPage() {
         </div>
       </section>
 
-      {/* ══════ PROVEN IMPACT - CASES ══════ */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <ScrollReveal>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2">
-              IMPACTO DEMOSTRADO
-            </p>
-            <div className="w-16 h-0.5 bg-primary mb-6" />
-            <h2
-              className="text-3xl md:text-4xl font-bold text-foreground max-w-3xl leading-tight mb-4"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Resultados que se miden en negocio, no en modelos
-            </h2>
-            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mb-12 leading-relaxed">
-              Casos donde la IA dejó de ser experimento y empezó a generar retorno operativo.
-            </p>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-2 gap-6 mb-10">
-            {cases.map((c, i) => (
-              <ScrollReveal key={c.title} delay={i * 120}>
-                <article className="border rounded-2xl overflow-hidden bg-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
-                  <div className="bg-gradient-to-br from-primary/90 to-primary p-8 text-white">
-                    <p className="text-xs font-bold uppercase tracking-wider text-mint mb-4">{c.sector}</p>
-                    <p className="text-4xl md:text-5xl font-black mb-1" style={{ fontFamily: "var(--font-heading)" }}>
-                      {c.metric}
-                    </p>
-                    <p className="text-sm text-white/80">{c.metricLabel}</p>
-                  </div>
-                  <div className="p-8 flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold text-foreground mb-3 leading-tight">{c.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">{c.desc}</p>
-                    <Link
-                      to="/newsletter/$slug"
-                      params={{ slug: c.slug }}
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all self-start"
-                    >
-                      Leer caso <ArrowRight size={14} />
-                    </Link>
-                  </div>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ══════ PROCESS ══════ */}
       <section className="py-16 md:py-24 bg-section-bg">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
