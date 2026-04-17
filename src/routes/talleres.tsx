@@ -671,8 +671,9 @@ function TalleresPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    to="/contact"
+                  <button
+                    type="button"
+                    onClick={() => openQuote(`Plan ${p.range} — ${p.uf} UF/persona/taller`)}
                     className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-bold transition-all ${
                       p.featured
                         ? "bg-mint text-navy hover:brightness-110 shadow-lg shadow-mint/20"
@@ -680,7 +681,7 @@ function TalleresPage() {
                     }`}
                   >
                     <Calculator size={15} /> Cotizar este plan
-                  </Link>
+                  </button>
                 </div>
               </ScrollReveal>
             ))}
