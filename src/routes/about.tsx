@@ -7,14 +7,14 @@ import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Industrias — TOOXS | IA y Automatización por Sector" },
-      { name: "description", content: "Descubre cómo TOOXS aplica inteligencia artificial en minería, retail, banca, salud, telecomunicaciones, agroindustria, automotriz y real estate." },
-      { property: "og:title", content: "Industrias — TOOXS | IA y Automatización por Sector" },
+      { title: "Industrias — Tooxs | IA y Automatización por Sector" },
+      { name: "description", content: "Descubre cómo Tooxs aplica inteligencia artificial en minería, retail, banca, salud, telecomunicaciones, agroindustria, automotriz y real estate." },
+      { property: "og:title", content: "Industrias — Tooxs | IA y Automatización por Sector" },
       { property: "og:description", content: "Soluciones de IA aplicada para más de 8 industrias clave en Chile y Latinoamérica." },
       { property: "og:url", content: "https://www.tooxs.com/about" },
-      { name: "twitter:title", content: "Industrias — TOOXS" },
+      { name: "twitter:title", content: "Industrias — Tooxs" },
       { name: "twitter:description", content: "IA aplicada para minería, retail, banca, salud y más sectores industriales." },
-      { name: "keywords", content: "industrias, IA por sector, automatización minería, retail analytics, banca digital, salud IA, TOOXS" },
+      { name: "keywords", content: "industrias, IA por sector, automatización minería, retail analytics, banca digital, salud IA, Tooxs" },
     ],
     links: [
       { rel: "canonical", href: "https://www.tooxs.com/about" },

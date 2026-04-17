@@ -74,7 +74,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
             {/* LEFT — text */}
             <ScrollReveal>
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-4">
-                Servicios TOOXS
+                Servicios Tooxs
               </p>
               <h1
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-bold text-navy-foreground leading-[1.1] mb-5"

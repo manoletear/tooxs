@@ -7,14 +7,14 @@ import { ScrollReveal } from "../hooks/use-scroll-reveal";
 export const Route = createFileRoute("/faqs")({
   head: () => ({
     meta: [
-      { title: "Preguntas Frecuentes — TOOXS | IA y Automatización" },
-      { name: "description", content: "Respuestas a las preguntas más frecuentes sobre los servicios de consultoría en IA, automatización y transformación digital de TOOXS." },
-      { property: "og:title", content: "Preguntas Frecuentes — TOOXS" },
+      { title: "Preguntas Frecuentes — Tooxs | IA y Automatización" },
+      { name: "description", content: "Respuestas a las preguntas más frecuentes sobre los servicios de consultoría en IA, automatización y transformación digital de Tooxs." },
+      { property: "og:title", content: "Preguntas Frecuentes — Tooxs" },
       { property: "og:description", content: "Resuelve tus dudas sobre nuestros servicios de IA y automatización." },
       { property: "og:url", content: "https://www.tooxs.com/faqs" },
-      { name: "twitter:title", content: "FAQ — TOOXS" },
+      { name: "twitter:title", content: "FAQ — Tooxs" },
       { name: "twitter:description", content: "Preguntas frecuentes sobre IA, automatización y consultoría tecnológica." },
-      { name: "keywords", content: "preguntas frecuentes, FAQ, consultoría IA, automatización, TOOXS" },
+      { name: "keywords", content: "preguntas frecuentes, FAQ, consultoría IA, automatización, Tooxs" },
     ],
     links: [
       { rel: "canonical", href: "https://www.tooxs.com/faqs" },

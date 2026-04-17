@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <img src={tooxsLogo} alt="TOOXS" className="h-8 w-auto mb-4" />
+            <img src={tooxsLogo} alt="Tooxs" className="h-8 w-auto mb-4" />
           </div>
 
           {/* Enlaces */}
@@ -62,7 +62,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-[#1F2937] mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-[#6B7280]">© 2026 TOOXS. Todos los derechos reservados.</p>
+          <p className="text-sm text-[#6B7280]">© 2026 Tooxs. Todos los derechos reservados.</p>
           <div className="flex gap-4">
             <a href="#" className="text-[#6B7280] hover:text-mint text-sm transition-colors">Política de privacidad</a>
             <a href="#" className="text-[#6B7280] hover:text-mint text-sm transition-colors">Términos de uso</a>

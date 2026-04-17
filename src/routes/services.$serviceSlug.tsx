@@ -9,17 +9,17 @@ import heroDoc from "@/assets/hero-documental.jpg";
 import heroOpt from "@/assets/hero-optimizacion.jpg";
 
 const SERVICE_SEO: Record<string, { title: string; description: string }> = {
-  "ia-aplicada": { title: "IA Aplicada al Negocio — TOOXS", description: "Aplicamos inteligencia artificial en procesos críticos para acelerar decisiones, reducir errores y escalar operaciones empresariales." },
-  "automatizacion": { title: "Automatización de Procesos — TOOXS", description: "Diseñamos y automatizamos procesos end-to-end con RPA e IA para reducir trabajo manual, errores y tiempos operativos." },
-  "data-analytics": { title: "Data & Analytics — TOOXS", description: "Unificamos, modelamos y activamos datos dispersos para mejorar visibilidad y toma de decisiones ejecutivas." },
-  "automatizacion-documental": { title: "Automatización Documental — TOOXS", description: "Extraemos, validamos y gestionamos información desde documentos complejos con IA y OCR inteligente." },
-  "optimizacion-operacional": { title: "Optimización Operacional — TOOXS", description: "Optimizamos procesos críticos con mantenimiento predictivo, monitoreo y mejora continua para mayor productividad." },
+  "ia-aplicada": { title: "IA Aplicada al Negocio — Tooxs", description: "Aplicamos inteligencia artificial en procesos críticos para acelerar decisiones, reducir errores y escalar operaciones empresariales." },
+  "automatizacion": { title: "Automatización de Procesos — Tooxs", description: "Diseñamos y automatizamos procesos end-to-end con RPA e IA para reducir trabajo manual, errores y tiempos operativos." },
+  "data-analytics": { title: "Data & Analytics — Tooxs", description: "Unificamos, modelamos y activamos datos dispersos para mejorar visibilidad y toma de decisiones ejecutivas." },
+  "automatizacion-documental": { title: "Automatización Documental — Tooxs", description: "Extraemos, validamos y gestionamos información desde documentos complejos con IA y OCR inteligente." },
+  "optimizacion-operacional": { title: "Optimización Operacional — Tooxs", description: "Optimizamos procesos críticos con mantenimiento predictivo, monitoreo y mejora continua para mayor productividad." },
 };
 
 export const Route = createFileRoute("/services/$serviceSlug")({
   head: ({ params }) => {
     const seo = SERVICE_SEO[params.serviceSlug];
-    if (!seo) return { meta: [{ title: "Servicio — TOOXS" }] };
+    if (!seo) return { meta: [{ title: "Servicio — Tooxs" }] };
     return {
       meta: [
         { title: seo.title },
@@ -56,7 +56,7 @@ const SERVICES: Record<string, ServicePageData> = {
     },
     statement: [
       "La IA no genera valor por sí sola. Genera valor cuando está integrada en decisiones, procesos y flujos reales.",
-      "En TOOXS diseñamos IA que no se queda en modelos, sino que opera dentro del negocio.",
+      "En Tooxs diseñamos IA que no se queda en modelos, sino que opera dentro del negocio.",
     ],
     values: [
       { title: "Decisiones automatizadas", description: "Implementamos modelos que priorizan, recomiendan y ejecutan acciones en tiempo real." },
@@ -114,7 +114,7 @@ const SERVICES: Record<string, ServicePageData> = {
     },
     statement: [
       "El problema no es falta de datos. Es falta de decisiones basadas en ellos.",
-      "TOOXS convierte datos en una capa operativa real.",
+      "Tooxs convierte datos en una capa operativa real.",
     ],
     values: [
       { title: "Integración de datos", description: "Unificamos múltiples fuentes en una sola vista." },

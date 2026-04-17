@@ -5,12 +5,12 @@ import heroImage from "../assets/hero-agro.jpg";
 export const Route = createFileRoute("/industrias/agroindustria")({
   head: () => ({
     meta: [
-      { title: "Agroindustria — TOOXS | Datos y IA para el Campo" },
+      { title: "Agroindustria — Tooxs | Datos y IA para el Campo" },
       { name: "description", content: "Integración de datos productivos, comerciales y operacionales para mejorar rendimiento, trazabilidad y eficiencia en agroindustria." },
-      { property: "og:title", content: "Agroindustria — TOOXS" },
+      { property: "og:title", content: "Agroindustria — Tooxs" },
       { property: "og:description", content: "Más rendimiento agrícola, mejor uso de recursos y decisiones con contexto mediante IA." },
       { property: "og:url", content: "https://www.tooxs.com/industrias/agroindustria" },
-      { name: "keywords", content: "agroindustria IA, trazabilidad agrícola, datos campo, rendimiento cultivos, TOOXS" },
+      { name: "keywords", content: "agroindustria IA, trazabilidad agrícola, datos campo, rendimiento cultivos, Tooxs" },
     ],
     links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/agroindustria" }],
   }),

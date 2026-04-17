@@ -5,14 +5,14 @@ import { useEffect, useRef, useState } from "react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contáctanos — TOOXS | Consultoría en IA y Automatización" },
-      { name: "description", content: "Ponte en contacto con TOOXS. Agenda una consulta gratuita y comienza tu transformación digital con IA, automatización y analítica avanzada." },
-      { property: "og:title", content: "Contáctanos — TOOXS" },
+      { title: "Contáctanos — Tooxs | Consultoría en IA y Automatización" },
+      { name: "description", content: "Ponte en contacto con Tooxs. Agenda una consulta gratuita y comienza tu transformación digital con IA, automatización y analítica avanzada." },
+      { property: "og:title", content: "Contáctanos — Tooxs" },
       { property: "og:description", content: "Agenda una consulta gratuita. Conversemos sobre cómo la IA puede transformar tu operación." },
       { property: "og:url", content: "https://www.tooxs.com/contact" },
-      { name: "twitter:title", content: "Contáctanos — TOOXS" },
+      { name: "twitter:title", content: "Contáctanos — Tooxs" },
       { name: "twitter:description", content: "Agenda una consulta sobre IA y automatización para tu empresa." },
-      { name: "keywords", content: "contacto TOOXS, consultoría IA, agenda consulta, automatización empresas, Santiago Chile" },
+      { name: "keywords", content: "contacto Tooxs, consultoría IA, agenda consulta, automatización empresas, Santiago Chile" },
     ],
     links: [
       { rel: "canonical", href: "https://www.tooxs.com/contact" },

@@ -27,15 +27,15 @@ import ecoBulb from "@/assets/activar-eco-bulb.jpg";
 export const Route = createFileRoute("/activar-ia")({
   head: () => ({
     meta: [
-      { title: "Activar IA — TOOXS | De los datos a decisiones que mueven el negocio" },
+      { title: "Activar IA — Tooxs | De los datos a decisiones que mueven el negocio" },
       { name: "description", content: "Activamos IA dentro de tu operación: convertimos datos complejos en decisiones que reducen costos, aumentan ingresos y mitigan riesgos. Estrategia, implementación y MLOps end-to-end." },
-      { property: "og:title", content: "Activar IA — TOOXS" },
+      { property: "og:title", content: "Activar IA — Tooxs" },
       { property: "og:description", content: "De estrategia a implementación: IA generativa, agentes inteligentes y optimización aplicada al negocio." },
       { property: "og:url", content: "https://www.tooxs.com/activar-ia" },
       { property: "og:image", content: "https://www.tooxs.com/og-activar-ia.jpg" },
-      { name: "twitter:title", content: "Activar IA — TOOXS" },
+      { name: "twitter:title", content: "Activar IA — Tooxs" },
       { name: "twitter:description", content: "Tu socio para llevar la IA del piloto a la producción con impacto medible." },
-      { name: "keywords", content: "activar IA, IA generativa, agentes IA, MLOps, optimización IA, IA empresarial, TOOXS" },
+      { name: "keywords", content: "activar IA, IA generativa, agentes IA, MLOps, optimización IA, IA empresarial, Tooxs" },
     ],
     links: [{ rel: "canonical", href: "https://www.tooxs.com/activar-ia" }],
   }),
@@ -192,11 +192,11 @@ function ActivarIAPage() {
       {/* ══════ FLOATING TALLERES BUTTON ══════ */}
       <Link
         to="/talleres"
-        aria-label="Talleres TOOXS"
+        aria-label="Talleres Tooxs"
         className="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40 flex items-center gap-2 bg-primary text-primary-foreground px-4 py-3 rounded-full shadow-lg hover:shadow-xl hover:brightness-110 transition-all duration-300 [writing-mode:vertical-rl] rotate-180 font-semibold text-sm tracking-wide"
       >
         <Sparkles size={16} className="rotate-180" />
-        TALLERES TOOXS
+        TALLERES Tooxs
       </Link>
 
       {/* ══════ HERO ══════ */}

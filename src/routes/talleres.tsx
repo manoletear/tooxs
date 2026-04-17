@@ -68,13 +68,13 @@ function TalleresHubSpotForm() {
 export const Route = createFileRoute("/talleres")({
   head: () => ({
     meta: [
-      { title: "Talleres TOOXS — Desbloquea tu IA interior | Formación práctica en IA" },
+      { title: "Talleres Tooxs — Desbloquea tu IA interior | Formación práctica en IA" },
       {
         name: "description",
         content:
-          "Programa de talleres TOOXS: tres sesiones prácticas de 90 min para que tu equipo detecte, diseñe y active soluciones reales de IA. Formación in-house y contextualizada.",
+          "Programa de talleres Tooxs: tres sesiones prácticas de 90 min para que tu equipo detecte, diseñe y active soluciones reales de IA. Formación in-house y contextualizada.",
       },
-      { property: "og:title", content: "Talleres TOOXS — Desbloquea tu IA interior" },
+      { property: "og:title", content: "Talleres Tooxs — Desbloquea tu IA interior" },
       {
         property: "og:description",
         content:
@@ -202,7 +202,7 @@ const talleres = [
       {
         titulo: "Hoja de ruta: las 3 iniciativas de mayor impacto",
         desc: "Co-diseñamos las 3 iniciativas prioritarias para los próximos 90 días: ROI, recursos, responsables y propuesta de continuidad.",
-        tags: ["Roadmap 90 días", "ROI definido", "Modelo TOOXS"],
+        tags: ["Roadmap 90 días", "ROI definido", "Modelo Tooxs"],
       },
     ],
     entregable: "Hoja de ruta de transformación IA con 3 iniciativas priorizadas y propuesta de continuidad.",
@@ -278,7 +278,7 @@ function TalleresPage() {
             ‹ Volver a Activar IA
           </Link>
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-mint border border-mint/40 bg-mint/10 px-4 py-2 rounded-full mb-5">
-            <GraduationCap size={14} /> Programa Talleres TOOXS · 2026
+            <GraduationCap size={14} /> Programa Talleres Tooxs · 2026
           </span>
           <h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black mb-4 leading-[1.05] tracking-tight"
@@ -339,7 +339,7 @@ function TalleresPage() {
               </p>
               <p className="mt-6 text-muted-foreground text-base md:text-lg leading-relaxed">
                 Tus equipos ya usan IA todos los días, pero sin criterio, sin método y sin proceso.
-                Los talleres TOOXS resuelven exactamente eso: <strong className="text-foreground">criterio,
+                Los talleres Tooxs resuelven exactamente eso: <strong className="text-foreground">criterio,
                 metodología y contexto</strong> para que la IA deje de ser un experimento individual
                 y se convierta en capacidad organizacional.
               </p>
@@ -391,7 +391,7 @@ function TalleresPage() {
             <div className="lg:col-span-5">
               <ScrollReveal>
                 <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3">
-                  ESTILO TOOXS
+                  ESTILO Tooxs
                 </p>
                 <h2
                   className="text-4xl md:text-5xl font-black text-foreground leading-[1.05] mb-6"
@@ -719,7 +719,7 @@ function TalleresPage() {
                 title: "WhatsApp",
                 desc: "Respuesta en menos de 2 horas hábiles",
                 cta: "Chatear ahora",
-                href: "https://wa.me/56912345678?text=Hola%20TOOXS%2C%20quiero%20cotizar%20los%20Talleres%20IA%20para%20mi%20equipo",
+                href: "https://wa.me/56912345678?text=Hola%20Tooxs%2C%20quiero%20cotizar%20los%20Talleres%20IA%20para%20mi%20equipo",
                 external: true,
                 accent: "bg-emerald-500",
               },
@@ -728,7 +728,7 @@ function TalleresPage() {
                 title: "Correo",
                 desc: "Para propuestas formales y RR.HH.",
                 cta: "hola@tooxs.com",
-                href: "mailto:hola@tooxs.com?subject=Cotización%20Talleres%20TOOXS",
+                href: "mailto:hola@tooxs.com?subject=Cotización%20Talleres%20Tooxs",
                 external: true,
                 accent: "bg-primary",
               },
@@ -818,7 +818,7 @@ function TalleresPage() {
                     <Calculator size={16} /> Solicitar cotización
                   </button>
                   <a
-                    href="https://wa.me/56912345678?text=Hola%20TOOXS%2C%20quiero%20cotizar%20los%20Talleres%20IA"
+                    href="https://wa.me/56912345678?text=Hola%20Tooxs%2C%20quiero%20cotizar%20los%20Talleres%20IA"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/30 text-white px-8 py-4 rounded-full text-sm font-bold hover:bg-white/25 transition-all"
@@ -840,7 +840,7 @@ function TalleresPage() {
               className="text-2xl md:text-3xl font-black text-foreground"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Cotiza los <span className="text-primary">Talleres TOOXS</span>
+              Cotiza los <span className="text-primary">Talleres Tooxs</span>
             </DialogTitle>
             <DialogDescription className="text-sm text-muted-foreground">
               Déjanos tus datos y te contactamos en menos de 48 horas con una propuesta personalizada.
