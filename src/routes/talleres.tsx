@@ -1,12 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   Sparkles,
   Clock,
   Users,
-  MapPin,
   Layers,
-  Target,
   Cog,
   Rocket,
   CheckCircle2,
@@ -17,6 +16,11 @@ import {
   Lightbulb,
   Wrench,
   Zap,
+  MessageCircle,
+  Mail,
+  Calculator,
+  Star,
+  PhoneCall,
 } from "lucide-react";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
