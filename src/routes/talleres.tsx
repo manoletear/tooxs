@@ -1,12 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   Sparkles,
   Clock,
   Users,
-  MapPin,
   Layers,
-  Target,
   Cog,
   Rocket,
   CheckCircle2,
@@ -17,6 +16,11 @@ import {
   Lightbulb,
   Wrench,
   Zap,
+  MessageCircle,
+  Mail,
+  Calculator,
+  Star,
+  PhoneCall,
 } from "lucide-react";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
@@ -181,10 +185,37 @@ const estilo = [
 /* ═══════════ PAGE ═══════════ */
 
 function TalleresPage() {
+  const [showStickyBar, setShowStickyBar] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowStickyBar(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
+      {/* ══════ STICKY COTIZAR BAR ══════ */}
+      <div
+        className={`fixed bottom-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
+          showStickyBar ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
+        }`}
+      >
+        <div className="bg-navy/95 backdrop-blur-md border border-mint/30 rounded-full shadow-2xl shadow-black/30 px-3 py-2 flex items-center gap-2 sm:gap-3">
+          <span className="hidden sm:flex items-center gap-2 text-white text-xs font-semibold pl-3">
+            <Sparkles size={14} className="text-mint" /> ¿Listo para tu equipo?
+          </span>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-1.5 bg-mint text-navy px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold hover:brightness-110 transition-all"
+          >
+            <Calculator size={14} /> Cotizar talleres
+          </Link>
+        </div>
+      </div>
+
       {/* ══════ HERO ══════ */}
-      <section className="relative bg-[#050d1f] text-white min-h-[560px] flex items-end overflow-hidden">
+      <section className="relative bg-[#050d1f] text-white min-h-[600px] flex items-end overflow-hidden">
         <NeuralActivationBackground />
         <div
           className="absolute inset-0 bg-gradient-to-t from-[#050d1f] via-[#050d1f]/60 to-transparent pointer-events-none"
@@ -207,10 +238,28 @@ function TalleresPage() {
             Desbloquea tu<br />
             <span className="text-mint">IA interior</span>
           </h1>
-          <p className="text-white/85 text-base md:text-lg max-w-[680px] leading-relaxed mb-8">
+          <p className="text-white/85 text-base md:text-lg max-w-[680px] leading-relaxed mb-7">
             Formación práctica en Inteligencia Artificial aplicada a las operaciones diarias de tu equipo —
             desde detectar oportunidades hasta activar soluciones reales en 90 días.
           </p>
+
+          {/* HERO CTAs */}
+          <div className="flex flex-wrap items-center gap-3 mb-10">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 bg-mint text-navy px-6 py-3.5 rounded-full text-sm font-bold hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-mint/30 transition-all"
+            >
+              <Calculator size={16} />
+              Cotizar para mi equipo
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <a
+              href="#pricing"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/25 text-white px-6 py-3.5 rounded-full text-sm font-bold hover:bg-white/20 transition-all"
+            >
+              Ver precios
+            </a>
+          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-3xl">
             {heroStats.map((s) => (
@@ -472,18 +521,204 @@ function TalleresPage() {
                         ))}
                       </div>
 
-                      <div className="bg-mint/10 border border-mint/30 rounded-xl p-5 flex items-start gap-3">
-                        <Briefcase className="text-mint flex-shrink-0 mt-0.5" size={20} />
-                        <div>
-                          <p className="text-xs font-bold uppercase tracking-wider text-mint mb-1">
-                            Entregable del taller
-                          </p>
-                          <p className="text-sm text-white/90 leading-relaxed">{t.entregable}</p>
+                      <div className="bg-mint/10 border border-mint/30 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+                        <div className="flex items-start gap-3 flex-1">
+                          <Briefcase className="text-mint flex-shrink-0 mt-0.5" size={20} />
+                          <div>
+                            <p className="text-xs font-bold uppercase tracking-wider text-mint mb-1">
+                              Entregable del taller
+                            </p>
+                            <p className="text-sm text-white/90 leading-relaxed">{t.entregable}</p>
+                          </div>
                         </div>
+                        <Link
+                          to="/contact"
+                          className="flex-shrink-0 inline-flex items-center justify-center gap-1.5 bg-mint text-navy px-4 py-2.5 rounded-full text-xs font-bold hover:brightness-110 transition-all whitespace-nowrap"
+                        >
+                          <Calculator size={14} /> Cotizar Taller {t.numero}
+                        </Link>
                       </div>
                     </div>
                   </div>
                 </ScrollReveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════ PRICING ══════ */}
+      <section id="pricing" className="py-20 md:py-24 bg-section-bg scroll-mt-20">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3">
+                INVERSIÓN
+              </p>
+              <h2
+                className="text-4xl md:text-5xl font-black text-foreground leading-[1.05] mb-4"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Precios por <span className="text-primary">tamaño de equipo</span>
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg">
+                Valor por persona y por taller. Compatible con SENCE.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {[
+              { range: "1 – 5 personas", uf: "14", note: "Equipos pequeños / piloto" },
+              { range: "6 – 18 personas", uf: "17", note: "Más elegido", featured: true },
+              { range: "+18 personas", uf: "21", note: "Equipos extendidos" },
+            ].map((p, i) => (
+              <ScrollReveal key={p.range} delay={i * 100}>
+                <div
+                  className={`relative rounded-2xl p-7 h-full flex flex-col ${
+                    p.featured
+                      ? "bg-navy text-white border-2 border-mint shadow-2xl md:-translate-y-3"
+                      : "bg-card border text-foreground"
+                  }`}
+                >
+                  {p.featured && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-mint text-navy text-[0.65rem] font-bold tracking-wider uppercase px-3 py-1 rounded-full flex items-center gap-1">
+                      <Star size={10} fill="currentColor" /> Más elegido
+                    </div>
+                  )}
+                  <p
+                    className={`text-xs font-bold uppercase tracking-wider mb-3 ${
+                      p.featured ? "text-mint" : "text-primary"
+                    }`}
+                  >
+                    {p.range}
+                  </p>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-5xl font-black">{p.uf}</span>
+                    <span className={`text-sm font-semibold ${p.featured ? "text-white/70" : "text-muted-foreground"}`}>
+                      UF
+                    </span>
+                  </div>
+                  <p className={`text-sm mb-6 ${p.featured ? "text-white/70" : "text-muted-foreground"}`}>
+                    por persona / taller
+                  </p>
+                  <ul className="space-y-2 mb-7 flex-1">
+                    {[
+                      "90 minutos in-house",
+                      "Material y entregable incluidos",
+                      "Casos personalizados a tu rubro",
+                    ].map((f) => (
+                      <li
+                        key={f}
+                        className={`flex items-start gap-2 text-sm ${
+                          p.featured ? "text-white/85" : "text-muted-foreground"
+                        }`}
+                      >
+                        <CheckCircle2
+                          size={16}
+                          className={`flex-shrink-0 mt-0.5 ${p.featured ? "text-mint" : "text-primary"}`}
+                        />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/contact"
+                    className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-bold transition-all ${
+                      p.featured
+                        ? "bg-mint text-navy hover:brightness-110 shadow-lg shadow-mint/20"
+                        : "bg-primary text-primary-foreground hover:brightness-110"
+                    }`}
+                  >
+                    <Calculator size={15} /> Cotizar este plan
+                  </Link>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <p className="text-center text-xs text-muted-foreground mt-8">
+            Descuento al contratar los 3 talleres como programa completo. Consulta condiciones.
+          </p>
+        </div>
+      </section>
+
+      {/* ══════ CONTACTO RÁPIDO (3 vías) ══════ */}
+      <section className="py-20 md:py-24 bg-background">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3">
+                CONTACTO DIRECTO
+              </p>
+              <h2
+                className="text-4xl md:text-5xl font-black text-foreground leading-[1.05]"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Habla con nosotros <span className="text-primary">como prefieras</span>
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {[
+              {
+                icon: MessageCircle,
+                title: "WhatsApp",
+                desc: "Respuesta en menos de 2 horas hábiles",
+                cta: "Chatear ahora",
+                href: "https://wa.me/56912345678?text=Hola%20TOOXS%2C%20quiero%20cotizar%20los%20Talleres%20IA%20para%20mi%20equipo",
+                external: true,
+                accent: "bg-emerald-500",
+              },
+              {
+                icon: Mail,
+                title: "Correo",
+                desc: "Para propuestas formales y RR.HH.",
+                cta: "hola@tooxs.com",
+                href: "mailto:hola@tooxs.com?subject=Cotización%20Talleres%20TOOXS",
+                external: true,
+                accent: "bg-primary",
+              },
+              {
+                icon: PhoneCall,
+                title: "Agenda una llamada",
+                desc: "30 minutos para entender tu caso",
+                cta: "Reservar slot",
+                href: "/contact",
+                external: false,
+                accent: "bg-navy",
+              },
+            ].map((c) => {
+              const Icon = c.icon;
+              const inner = (
+                <div className="bg-card border rounded-2xl p-7 h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                  <div
+                    className={`w-12 h-12 rounded-xl ${c.accent} text-white flex items-center justify-center mb-5`}
+                  >
+                    <Icon size={22} />
+                  </div>
+                  <h3 className="text-lg font-bold mb-1 text-foreground">{c.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
+                    {c.desc}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-bold text-primary group">
+                    {c.cta}
+                    <ArrowRight
+                      size={14}
+                      className="group-hover:translate-x-1 transition-transform"
+                    />
+                  </span>
+                </div>
+              );
+              return c.external ? (
+                <a key={c.title} href={c.href} target="_blank" rel="noopener noreferrer">
+                  {inner}
+                </a>
+              ) : (
+                <Link key={c.title} to={c.href}>
+                  {inner}
+                </Link>
               );
             })}
           </div>
@@ -506,15 +741,25 @@ function TalleresPage() {
                   ¿Listo para desbloquear<br className="hidden md:block" /> la IA de tu equipo?
                 </h2>
                 <p className="text-white/85 text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-                  Diseñamos un programa a medida para tu organización. Conversemos cómo
-                  podemos activar el potencial de tu equipo en los próximos 90 días.
+                  Diseñamos un programa a medida para tu organización. Solicita una cotización
+                  personalizada y recibe propuesta en menos de 48 horas.
                 </p>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 bg-mint text-navy px-8 py-4 rounded-full text-sm font-bold hover:-translate-y-0.5 transition-transform shadow-xl shadow-black/20"
-                >
-                  Solicitar propuesta de talleres <ArrowRight size={16} />
-                </Link>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 bg-mint text-navy px-8 py-4 rounded-full text-sm font-bold hover:-translate-y-0.5 transition-transform shadow-xl shadow-black/20"
+                  >
+                    <Calculator size={16} /> Solicitar cotización
+                  </Link>
+                  <a
+                    href="https://wa.me/56912345678?text=Hola%20TOOXS%2C%20quiero%20cotizar%20los%20Talleres%20IA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/30 text-white px-8 py-4 rounded-full text-sm font-bold hover:bg-white/25 transition-all"
+                  >
+                    <MessageCircle size={16} /> WhatsApp directo
+                  </a>
+                </div>
               </div>
             </div>
           </ScrollReveal>
