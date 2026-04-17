@@ -193,7 +193,7 @@ function ActivarIAPage() {
         <NeuralActivationBackground />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050d1f] via-[#050d1f]/40 to-transparent pointer-events-none" aria-hidden="true" />
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
-          <Link to="/" className="text-xs text-white/60 mb-3 sm:mb-4 font-medium tracking-wide inline-block hover:text-white transition-colors">
+          <Link to="/" className="inline-flex items-center gap-1 mb-4 sm:mb-5 px-3 py-1.5 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 text-white text-xs font-semibold tracking-wide transition-colors">
             ‹ Volver al Inicio
           </Link>
           <h1
