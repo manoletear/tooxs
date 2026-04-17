@@ -125,7 +125,7 @@ const capabilities: CapabilityData[] = [
   },
   {
     icon: Cloud, emoji: "☁️", number: "05",
-    title: "Infraestructura y Nube",
+    title: "Servicios Cloud",
     shortDescription: "Soporte para ejecución e integración de soluciones.",
     appliesIn: "Datos · Sistemas · Escalabilidad",
     accentColor: "#0EA5E9",
