@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Brain, Cog, BarChart3, FileText, Factory, ArrowRight, CheckCircle,
-  Database, Workflow, Network, LineChart, Cloud, Target,
+  Database, Workflow, Network, LineChart, Cloud, Target, BadgeCheck,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PrismBackground } from "@/components/PrismBackground";
@@ -183,6 +183,27 @@ const capabilities: CapabilityData[] = [
         { industry: "Retail", text: "foco en categorías de alto impacto" },
         { industry: "Servicios financieros", text: "priorización de riesgos relevantes" },
         { industry: "Salud", text: "foco en procesos con mayor carga administrativa" },
+      ],
+    },
+  },
+  {
+    icon: BadgeCheck, emoji: "🪟", number: "08",
+    title: "Servicios y Licenciamiento Microsoft",
+    shortDescription: "Licenciamiento, despliegue y soporte del ecosistema Microsoft.",
+    appliesIn: "Microsoft 365 · Azure · Copilot · Power Platform",
+    accentColor: "#0078D4",
+    back: {
+      whatChanges: "Las organizaciones pasan de un uso fragmentado de Microsoft a un ecosistema licenciado, gobernado y aprovechado en toda su capacidad productiva.",
+      impacts: [
+        { role: "Finanzas", text: "optimización de costos de licenciamiento" },
+        { role: "TI", text: "gobierno y cumplimiento del ecosistema" },
+        { role: "Negocio", text: "mayor productividad con Copilot y M365" },
+      ],
+      examples: [
+        { industry: "Servicios financieros", text: "Microsoft 365 + Copilot para productividad" },
+        { industry: "Retail", text: "Azure como plataforma de datos e IA" },
+        { industry: "Salud", text: "Power Platform para automatización clínica" },
+        { industry: "Industria", text: "licenciamiento corporativo y soporte continuo" },
       ],
     },
   },

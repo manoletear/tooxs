@@ -31,6 +31,7 @@ const capabilities = [
   { label: "Servicios Cloud", to: "/services" },
   { label: "Aplicación en Procesos Críticos", to: "/services" },
   { label: "Estrategia Aplicada", to: "/services" },
+  { label: "Servicios y Licenciamiento Microsoft", to: "/services" },
 ];
 
 type DropdownKey = "capabilities" | "industries" | null;
