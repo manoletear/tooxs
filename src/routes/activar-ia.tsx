@@ -189,6 +189,16 @@ const testimonials = [
 function ActivarIAPage() {
   return (
     <div className="min-h-screen bg-background">
+      {/* ══════ FLOATING TALLERES BUTTON ══════ */}
+      <Link
+        to="/contact"
+        aria-label="Talleres TOOXS"
+        className="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40 flex items-center gap-2 bg-primary text-primary-foreground px-4 py-3 rounded-full shadow-lg hover:shadow-xl hover:brightness-110 transition-all duration-300 [writing-mode:vertical-rl] rotate-180 font-semibold text-sm tracking-wide"
+      >
+        <Sparkles size={16} className="rotate-180" />
+        TALLERES TOOXS
+      </Link>
+
       {/* ══════ HERO ══════ */}
       <section className="relative bg-[#050d1f] text-white min-h-[420px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[560px] flex items-end overflow-hidden">
         <NeuralActivationBackground />
