@@ -252,35 +252,75 @@ function NewsletterPage() {
             </div>
           </section>
 
-          {/* ══════ NEWSLETTER FEATURED ══════ */}
+          {/* ══════ NEWSLETTER FEATURED — últimas ediciones publicadas ══════ */}
           <section className="py-16 bg-section-bg">
             <div className="max-w-[1200px] mx-auto px-6">
-              <p className="text-[0.7rem] font-bold tracking-[0.14em] uppercase text-primary mb-8">Newsletter Destacado</p>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
-                <div className="relative w-full aspect-video bg-gradient-to-br from-navy to-[#1e3a5f] rounded-md flex items-center justify-center overflow-hidden">
-                  <PrismBackground />
-                  <Mail size={100} className="text-white/20 relative z-10" />
-                </div>
+              <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
                 <div>
-                  <h2 className="text-2xl font-extrabold mb-2">
-                    The Weekly Brief <span className="text-primary">›</span>
+                  <p className="text-[0.7rem] font-bold tracking-[0.14em] uppercase text-primary mb-2">Newsletter Destacado</p>
+                  <h2 className="text-2xl md:text-3xl font-extrabold leading-tight">
+                    Las últimas ediciones publicadas
                   </h2>
-                  <p className="text-[0.95rem] text-foreground/60 mb-4 leading-relaxed">
-                    Lo mejor de la semana en tecnología, IA y automatización para líderes de negocio. Curado por el equipo de Tooxs.
-                  </p>
-                  <p className="text-sm text-muted-foreground">Cada viernes en tu inbox.</p>
                 </div>
+                <a
+                  href="mailto:contacto@tooxs.com?subject=Suscripci%C3%B3n%20al%20Newsletter%20TOOXS&body=Hola%2C%20quiero%20suscribirme%20al%20newsletter%20de%20TOOXS."
+                  className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:brightness-110 transition-all"
+                >
+                  <Mail size={16} /> Suscríbete por email
+                </a>
               </div>
 
+              {/* Hero edition (más reciente) */}
+              <Link
+                to="/newsletter/$slug"
+                params={{ slug: featuredHero.slug }}
+                className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-8 items-center mb-12 group"
+              >
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+                  <img
+                    src={featuredHero.image}
+                    alt={featuredHero.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-primary">{featuredHero.category}</span>
+                  <h3 className="mt-2 text-xl md:text-2xl font-extrabold leading-tight tracking-tight group-hover:text-primary transition-colors">
+                    {featuredHero.title} <ChevronRight className="inline w-5 h-5 text-primary" />
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-2">{featuredHero.date}</p>
+                  <p className="text-sm text-foreground/70 leading-relaxed mt-3">{featuredHero.excerpt}</p>
+                  <span className="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                    Leer edición <ChevronRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+
+              {/* 3 ediciones siguientes */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                {newsletterCards.map((card, i) => (
-                  <div key={i}>
-                    <h3 className="text-lg font-bold mb-1">
-                      {card.title} <span className="text-primary">›</span>
-                    </h3>
-                    <p className="text-sm text-foreground/60 leading-relaxed">{card.desc}</p>
-                  </div>
+                {featuredRest.map((edition) => (
+                  <Link
+                    key={edition.slug}
+                    to="/newsletter/$slug"
+                    params={{ slug: edition.slug }}
+                    className="group block"
+                  >
+                    <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3">
+                      <img
+                        src={edition.image}
+                        alt={edition.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                    <span className="text-[0.6rem] font-semibold uppercase tracking-wide text-muted-foreground">{edition.category}</span>
+                    <h4 className="mt-1 text-base font-bold leading-snug group-hover:text-primary transition-colors">
+                      {edition.title} <ChevronRight className="inline w-4 h-4 text-primary" />
+                    </h4>
+                    <p className="text-[0.75rem] text-muted-foreground mt-1">{edition.date}</p>
+                    <p className="text-sm text-foreground/60 leading-relaxed mt-2 line-clamp-2">{edition.excerpt}</p>
+                  </Link>
                 ))}
               </div>
             </div>
