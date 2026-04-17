@@ -14,7 +14,6 @@ import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as IndustriasRouteImport } from './routes/industrias'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ActivarIaRouteImport } from './routes/activar-ia'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -54,11 +53,6 @@ const FaqsRoute = FaqsRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CaseStudiesRoute = CaseStudiesRouteImport.update({
-  id: '/case-studies',
-  path: '/case-studies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ActivarIaRoute = ActivarIaRouteImport.update({
@@ -144,7 +138,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/activar-ia': typeof ActivarIaRoute
-  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
@@ -167,7 +160,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/activar-ia': typeof ActivarIaRoute
-  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
@@ -189,7 +181,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/activar-ia': typeof ActivarIaRoute
-  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
@@ -214,7 +205,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/activar-ia'
-    | '/case-studies'
     | '/contact'
     | '/faqs'
     | '/industrias'
@@ -237,7 +227,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/activar-ia'
-    | '/case-studies'
     | '/contact'
     | '/faqs'
     | '/industrias'
@@ -258,7 +247,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/activar-ia'
-    | '/case-studies'
     | '/contact'
     | '/faqs'
     | '/industrias'
@@ -282,7 +270,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ActivarIaRoute: typeof ActivarIaRoute
-  CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   FaqsRoute: typeof FaqsRoute
   IndustriasRoute: typeof IndustriasRouteWithChildren
@@ -325,13 +312,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/case-studies': {
-      id: '/case-studies'
-      path: '/case-studies'
-      fullPath: '/case-studies'
-      preLoaderRoute: typeof CaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/activar-ia': {
@@ -500,7 +480,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ActivarIaRoute: ActivarIaRoute,
-  CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   FaqsRoute: FaqsRoute,
   IndustriasRoute: IndustriasRouteWithChildren,

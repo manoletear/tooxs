@@ -483,16 +483,6 @@ function ActivarIAPage() {
               </ScrollReveal>
             ))}
           </div>
-          <ScrollReveal>
-            <div className="text-center">
-              <Link
-                to="/case-studies"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
-              >
-                Ver todos los casos de éxito <ArrowRight size={16} />
-              </Link>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
