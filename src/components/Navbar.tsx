@@ -28,7 +28,7 @@ const capabilities = [
   { label: "Automatización de Procesos", to: "/services" },
   { label: "Integración y Plataformas", to: "/services" },
   { label: "Analítica Operacional", to: "/services" },
-  { label: "Infraestructura y Nube", to: "/services" },
+  { label: "Servicios Cloud", to: "/services" },
   { label: "Aplicación en Procesos Críticos", to: "/services" },
   { label: "Estrategia Aplicada", to: "/services" },
 ];
