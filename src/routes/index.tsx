@@ -493,25 +493,25 @@ function IndustryExplorer() {
    ══════════════════════════════════════════ */
 const capabilityCards = [
   {
-    title: "01 — Descubrir",
+    title: "01 — Evaluar",
     description: "Nos sumergimos en tu negocio para identificar desafíos clave, descubrir oportunidades y construir una visión clara de lo que realmente importa.",
     image: monkeySeeImg,
     time: "2 semanas",
   },
   {
-    title: "02 — Estrategizar",
+    title: "02 — Diseñar",
     description: "Diseñamos estrategias a medida alineadas con tus objetivos, restricciones y recursos disponibles.",
     image: monkeyHearImg,
     time: "4 semanas",
   },
   {
-    title: "03 — Ejecutar",
+    title: "03 — Implementar",
     description: "Acompañamos la implementación para asegurar que cada solución sea práctica, efectiva y con impacto a largo plazo.",
     image: monkeySpeakImg,
     time: "Variable",
   },
   {
-    title: "04 — Optimizar",
+    title: "04 — Escalar",
     description: "Medimos el desempeño, refinamos procesos y convertimos los datos en resultados de negocio concretos.",
     image: monkeyMeasureImg,
     time: "Continua",
@@ -523,7 +523,7 @@ function CapabilityGraph() {
     <section id="capacidades" className="bg-navy text-white py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-4">
-          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-mint mb-3">Entender → Estrategizar → Implementar → Medir</p>
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-mint mb-3">Evaluar → Diseñar → Implementar → Escalar</p>
           <h2 className="text-3xl md:text-4xl font-bold">Nuestro marco de trabajo para automatización inteligente.</h2>
         </ScrollReveal>
         <TiltedCards cards={capabilityCards} />
