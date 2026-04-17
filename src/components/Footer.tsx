@@ -24,7 +24,7 @@ export function Footer() {
                 { to: "/" as const, label: "Inicio" },
                 { to: "/about" as const, label: "Industrias" },
                 { to: "/services" as const, label: "Servicios" },
-                { to: "/case-studies" as const, label: "Casos de éxito" },
+                
                 { to: "/faqs" as const, label: "Blog" },
                 { to: "/contact" as const, label: "Contacto" },
               ].map((link) => (
