@@ -108,7 +108,7 @@ export function CapabilitySplitView({ capabilities }: CapabilitySplitViewProps) 
               {/* Ilustración */}
               <div className="mt-auto pt-4">
                 <div
-                  className="relative w-full aspect-[4/3] max-w-[460px] rounded-xl overflow-hidden"
+                  className="relative w-full aspect-[4/3] max-w-[640px] rounded-xl overflow-hidden"
                   style={{
                     background: `radial-gradient(circle at 70% 30%, ${active.accentColor}1f 0%, transparent 60%)`,
                   }}
@@ -116,10 +116,11 @@ export function CapabilitySplitView({ capabilities }: CapabilitySplitViewProps) 
                   <img
                     src={illustration}
                     alt={`Ilustración ${active.title}`}
-                    loading="lazy"
-                    width={1024}
-                    height={768}
-                    className="absolute inset-0 w-full h-full object-contain p-4"
+                    loading="eager"
+                    decoding="async"
+                    width={1200}
+                    height={900}
+                    className="absolute inset-0 w-full h-full object-contain p-2"
                   />
                 </div>
               </div>
