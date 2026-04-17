@@ -185,10 +185,37 @@ const estilo = [
 /* ═══════════ PAGE ═══════════ */
 
 function TalleresPage() {
+  const [showStickyBar, setShowStickyBar] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowStickyBar(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
+      {/* ══════ STICKY COTIZAR BAR ══════ */}
+      <div
+        className={`fixed bottom-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
+          showStickyBar ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
+        }`}
+      >
+        <div className="bg-navy/95 backdrop-blur-md border border-mint/30 rounded-full shadow-2xl shadow-black/30 px-3 py-2 flex items-center gap-2 sm:gap-3">
+          <span className="hidden sm:flex items-center gap-2 text-white text-xs font-semibold pl-3">
+            <Sparkles size={14} className="text-mint" /> ¿Listo para tu equipo?
+          </span>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-1.5 bg-mint text-navy px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold hover:brightness-110 transition-all"
+          >
+            <Calculator size={14} /> Cotizar talleres
+          </Link>
+        </div>
+      </div>
+
       {/* ══════ HERO ══════ */}
-      <section className="relative bg-[#050d1f] text-white min-h-[560px] flex items-end overflow-hidden">
+      <section className="relative bg-[#050d1f] text-white min-h-[600px] flex items-end overflow-hidden">
         <NeuralActivationBackground />
         <div
           className="absolute inset-0 bg-gradient-to-t from-[#050d1f] via-[#050d1f]/60 to-transparent pointer-events-none"
@@ -211,10 +238,28 @@ function TalleresPage() {
             Desbloquea tu<br />
             <span className="text-mint">IA interior</span>
           </h1>
-          <p className="text-white/85 text-base md:text-lg max-w-[680px] leading-relaxed mb-8">
+          <p className="text-white/85 text-base md:text-lg max-w-[680px] leading-relaxed mb-7">
             Formación práctica en Inteligencia Artificial aplicada a las operaciones diarias de tu equipo —
             desde detectar oportunidades hasta activar soluciones reales en 90 días.
           </p>
+
+          {/* HERO CTAs */}
+          <div className="flex flex-wrap items-center gap-3 mb-10">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 bg-mint text-navy px-6 py-3.5 rounded-full text-sm font-bold hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-mint/30 transition-all"
+            >
+              <Calculator size={16} />
+              Cotizar para mi equipo
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <a
+              href="#pricing"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/25 text-white px-6 py-3.5 rounded-full text-sm font-bold hover:bg-white/20 transition-all"
+            >
+              Ver precios
+            </a>
+          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-3xl">
             {heroStats.map((s) => (
