@@ -2,13 +2,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { CapabilityData } from "./CapabilityFlipCard";
 
-import illu01 from "@/assets/cap-illustration-01.png";
-import illu02 from "@/assets/cap-illustration-02.png";
-import illu03 from "@/assets/cap-illustration-03.png";
-import illu04 from "@/assets/cap-illustration-04.png";
-import illu05 from "@/assets/cap-illustration-05.png";
-import illu06 from "@/assets/cap-illustration-06.png";
-import illu07 from "@/assets/cap-illustration-07.png";
+import illu01 from "@/assets/cap-illustration-01.webp";
+import illu02 from "@/assets/cap-illustration-02.webp";
+import illu03 from "@/assets/cap-illustration-03.webp";
+import illu04 from "@/assets/cap-illustration-04.webp";
+import illu05 from "@/assets/cap-illustration-05.webp";
+import illu06 from "@/assets/cap-illustration-06.webp";
+import illu07 from "@/assets/cap-illustration-07.webp";
 
 const ILLUSTRATIONS: Record<string, string> = {
   "01": illu01,
