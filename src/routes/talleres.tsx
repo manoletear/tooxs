@@ -579,12 +579,13 @@ function TalleresPage() {
                             <p className="text-sm text-white/90 leading-relaxed">{t.entregable}</p>
                           </div>
                         </div>
-                        <Link
-                          to="/contact"
+                        <button
+                          type="button"
+                          onClick={() => openQuote(`Taller ${t.numero} · ${t.titulo} (${t.subtitulo})`)}
                           className="flex-shrink-0 inline-flex items-center justify-center gap-1.5 bg-mint text-navy px-4 py-2.5 rounded-full text-xs font-bold hover:brightness-110 transition-all whitespace-nowrap"
                         >
                           <Calculator size={14} /> Cotizar Taller {t.numero}
-                        </Link>
+                        </button>
                       </div>
                     </div>
                   </div>
