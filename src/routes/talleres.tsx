@@ -228,6 +228,7 @@ function TalleresPage() {
   const [showStickyBar, setShowStickyBar] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [quoteContext, setQuoteContext] = useState<string>("Cotización general");
+  const { openMeeting } = useMeeting();
 
   const openQuote = (context: string) => {
     setQuoteContext(context);
@@ -768,7 +769,7 @@ function TalleresPage() {
                   <button
                     key={c.title}
                     type="button"
-                    onClick={() => openQuote("Contacto directo — Agenda una llamada")}
+                    onClick={() => openMeeting("Talleres — Agenda una llamada")}
                     className="text-left"
                   >
                     {inner}
