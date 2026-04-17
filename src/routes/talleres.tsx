@@ -225,6 +225,13 @@ const estilo = [
 
 function TalleresPage() {
   const [showStickyBar, setShowStickyBar] = useState(false);
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  const [quoteContext, setQuoteContext] = useState<string>("Cotización general");
+
+  const openQuote = (context: string) => {
+    setQuoteContext(context);
+    setQuoteOpen(true);
+  };
 
   useEffect(() => {
     const onScroll = () => setShowStickyBar(window.scrollY > 600);
