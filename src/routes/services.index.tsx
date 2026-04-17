@@ -11,6 +11,7 @@ import { ShaderBackground } from "@/components/ui/shader-background";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 import { CapabilityFlipCard, type CapabilityData } from "@/components/CapabilityFlipCard";
 import { CapabilitySplitView } from "@/components/CapabilitySplitView";
+import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 
 import heroIa from "@/assets/hero-ia-aplicada.jpg";
 import heroAuto from "@/assets/hero-automatizacion.jpg";
