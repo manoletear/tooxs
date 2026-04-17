@@ -59,34 +59,53 @@ export interface ServicePageData {
 export function ServicePageTemplate({ data }: { data: ServicePageData }) {
   return (
     <div>
-      {/* ══════ HERO ══════ */}
-      <section className="relative h-[45vh] md:h-[50vh] lg:h-[55vh] flex items-end overflow-hidden">
+      {/* ══════ HERO — TWO COLUMNS WITH FORM ══════ */}
+      <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${data.hero.image})` }}
           role="img"
           aria-label={`Imagen de servicio: ${data.hero.title}`}
         />
-        <div className="absolute inset-0 bg-navy/80" />
-        <PrismBackground className="opacity-40" />
-        <div className="relative z-10 max-w-5xl mx-auto px-6 pb-16 md:pb-24 w-full">
-          <ScrollReveal>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-4">
-              Servicios TOOXS
-            </p>
-            <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy-foreground leading-tight mb-4"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              {data.hero.title}
-            </h1>
-            <p className="text-xl md:text-2xl text-navy-foreground/90 font-medium mb-4 max-w-2xl">
-              {data.hero.subtitle}
-            </p>
-            <p className="text-base md:text-lg text-navy-foreground/60 max-w-2xl leading-relaxed">
-              {data.hero.description}
-            </p>
-          </ScrollReveal>
+        <div className="absolute inset-0 bg-navy/85" />
+        <PrismBackground className="opacity-30" />
+        <div className="relative z-10 w-full max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            {/* LEFT — text */}
+            <ScrollReveal>
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-4">
+                Servicios TOOXS
+              </p>
+              <h1
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-bold text-navy-foreground leading-[1.1] mb-5"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                {data.hero.title}
+              </h1>
+              <p className="text-lg md:text-xl text-navy-foreground/90 font-medium mb-4 max-w-xl">
+                {data.hero.subtitle}
+              </p>
+              <p className="text-sm md:text-base text-navy-foreground/70 max-w-xl leading-relaxed">
+                {data.hero.description}
+              </p>
+            </ScrollReveal>
+
+            {/* RIGHT — form card */}
+            <ScrollReveal delay={150}>
+              <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl">
+                <h2
+                  className="text-xl md:text-2xl font-bold text-foreground mb-2"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  Conversemos sobre tu caso
+                </h2>
+                <p className="text-sm text-muted-foreground mb-6">
+                  Cuéntanos tu desafío y te contactamos en menos de 48 horas.
+                </p>
+                <HubSpotForm />
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
