@@ -105,7 +105,7 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
                 >
                   <div className="relative flex items-center justify-center pt-8 pb-4">
                     <div className="relative w-40 h-40 rounded-2xl overflow-hidden">
-                      <img src={card.image} alt={card.title} className="w-full h-full object-contain grayscale" loading="lazy" draggable={false} />
+                      <img src={card.image} alt={card.title} className="w-full h-full object-contain" loading="lazy" draggable={false} />
                     </div>
                   </div>
                   <div className="px-7 pb-2">
@@ -169,32 +169,20 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
                   <div
                     className="relative w-40 h-40 rounded-2xl overflow-hidden"
                     style={{
-                      transition: "transform 0.4s ease",
-                      transform: isHovered ? "scale(1.1)" : "scale(1)",
+                      transition: "transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                      transform: isHovered ? "scale(1.25) translateY(-8px)" : "scale(1)",
+                      filter: isHovered
+                        ? "drop-shadow(0 20px 25px rgba(0,0,0,0.5)) drop-shadow(0 10px 15px rgba(23,127,198,0.4))"
+                        : "drop-shadow(0 4px 6px rgba(0,0,0,0.2))",
                     }}
                   >
                     <img
                       src={card.image}
                       alt={card.title}
-                      className={`w-full h-full object-contain ${isElectric && isHovered ? "" : "grayscale"}`}
+                      className="w-full h-full object-contain"
                       loading="lazy"
                       draggable={false}
-                      style={{
-                        transition: "filter 0.4s ease",
-                        filter: isElectric && isHovered
-                          ? "drop-shadow(0 0 4px #00B7FF) drop-shadow(0 0 10px #00B7FF) drop-shadow(0 0 22px #1E90FF)"
-                          : undefined,
-                      }}
                     />
-                    {!isElectric && (
-                      <div
-                        className="absolute inset-0 rounded-2xl transition-opacity duration-400"
-                        style={{
-                          background: "rgba(23,127,198,0.45)",
-                          opacity: isHovered ? 1 : 0,
-                        }}
-                      />
-                    )}
                   </div>
                 </div>
                 <div className="px-7 pb-2">
