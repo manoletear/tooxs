@@ -207,13 +207,12 @@ function ActivarIAPage() {
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
-        <div className="absolute inset-0 bg-[#050d1f]/40 z-[1] pointer-events-none" aria-hidden="true" />
-        <NeuralActivationBackground />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050d1f] via-[#050d1f]/40 to-transparent pointer-events-none z-[2]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#050d1f]/55 z-[1] pointer-events-none" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050d1f] via-[#050d1f]/30 to-transparent pointer-events-none z-[2]" aria-hidden="true" />
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
           <Link to="/" className="inline-flex items-center gap-1 mb-4 sm:mb-5 px-3 py-1.5 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 text-white text-xs font-semibold tracking-wide transition-colors">
             ‹ Volver al Inicio
