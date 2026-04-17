@@ -284,11 +284,11 @@ function TrustBarDynamic() {
   ));
 
   const partnerItems = partnerLogos.map((logo) => (
-    <div key={logo.alt} className="flex-shrink-0 w-[200px] h-[100px] sm:w-[320px] sm:h-[140px] md:w-[560px] md:h-[240px] flex items-center justify-center">
+    <div key={logo.alt} className="flex-shrink-0 w-[140px] h-[100px] sm:w-[200px] sm:h-[140px] md:w-[300px] md:h-[200px] flex items-center justify-center">
       <img
         src={logo.src}
         alt={logo.alt}
-        className="max-h-[80px] max-w-[180px] sm:max-h-[120px] sm:max-w-[300px] md:max-h-[200px] md:max-w-[520px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+        className="max-h-[80px] max-w-[130px] sm:max-h-[120px] sm:max-w-[190px] md:max-h-[180px] md:max-w-[280px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
       />
     </div>
   ));
