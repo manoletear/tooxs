@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Mail } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 import { ARTICLES } from "@/data/articles";
+import { PaperShaderBackground } from "@/components/ui/paper-shader-background";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
