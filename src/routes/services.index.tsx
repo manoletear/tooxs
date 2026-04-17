@@ -679,7 +679,7 @@ function ServicesIndexPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#050d1a]/85 via-[#050d1a]/40 to-transparent pointer-events-none" />
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
           <ScrollReveal>
-            <Link to="/" className="text-xs text-white/60 mb-3 sm:mb-4 font-medium tracking-wide inline-block hover:text-white transition-colors">‹ Volver al Inicio</Link>
+            <Link to="/" className="inline-flex items-center gap-1 mb-4 sm:mb-5 px-3 py-1.5 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 text-white text-xs font-semibold tracking-wide transition-colors">‹ Volver al Inicio</Link>
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-3 sm:mb-4">Sistema de Capacidades TOOXS</p>
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black mb-3 sm:mb-4 leading-[1.1] tracking-tight"
