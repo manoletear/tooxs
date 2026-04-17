@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { CapabilityData } from "./CapabilityFlipCard";
 
-import illu01 from "@/assets/cap-illustration-01.png";
-import illu02 from "@/assets/cap-illustration-02.png";
-import illu03 from "@/assets/cap-illustration-03.png";
-import illu04 from "@/assets/cap-illustration-04.png";
-import illu05 from "@/assets/cap-illustration-05.png";
-import illu06 from "@/assets/cap-illustration-06.png";
-import illu07 from "@/assets/cap-illustration-07.png";
+import illu01 from "@/assets/cap-illustration-01.webp";
+import illu02 from "@/assets/cap-illustration-02.webp";
+import illu03 from "@/assets/cap-illustration-03.webp";
+import illu04 from "@/assets/cap-illustration-04.webp";
+import illu05 from "@/assets/cap-illustration-05.webp";
+import illu06 from "@/assets/cap-illustration-06.webp";
+import illu07 from "@/assets/cap-illustration-07.webp";
 
 const ILLUSTRATIONS: Record<string, string> = {
   "01": illu01,
@@ -28,6 +28,14 @@ export function CapabilitySplitView({ capabilities }: CapabilitySplitViewProps) 
   const [activeIndex, setActiveIndex] = useState(0);
   const active = capabilities[activeIndex];
   const illustration = ILLUSTRATIONS[active.number];
+
+  // Precarga todas las ilustraciones para evitar latencia al cambiar
+  useEffect(() => {
+    Object.values(ILLUSTRATIONS).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   return (
     <div className="relative overflow-hidden">
@@ -108,7 +116,7 @@ export function CapabilitySplitView({ capabilities }: CapabilitySplitViewProps) 
               {/* Ilustración */}
               <div className="mt-auto pt-4">
                 <div
-                  className="relative w-full aspect-[4/3] max-w-[460px] rounded-xl overflow-hidden"
+                  className="relative w-full aspect-[4/3] max-w-[640px] rounded-xl overflow-hidden"
                   style={{
                     background: `radial-gradient(circle at 70% 30%, ${active.accentColor}1f 0%, transparent 60%)`,
                   }}
@@ -116,10 +124,11 @@ export function CapabilitySplitView({ capabilities }: CapabilitySplitViewProps) 
                   <img
                     src={illustration}
                     alt={`Ilustración ${active.title}`}
-                    loading="lazy"
-                    width={1024}
-                    height={768}
-                    className="absolute inset-0 w-full h-full object-contain p-4"
+                    loading="eager"
+                    decoding="async"
+                    width={1200}
+                    height={900}
+                    className="absolute inset-0 w-full h-full object-contain p-2"
                   />
                 </div>
               </div>
