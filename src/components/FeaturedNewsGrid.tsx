@@ -32,7 +32,7 @@ export function FeaturedNewsGrid({
   count = 3,
 }: FeaturedNewsGridProps) {
   // Memoize so selection is stable while the component is mounted
-  const articles = useMemo(() => pickRandom(ARTICLES, count), [count]);
+  const articles = useMemo(() => pickStable(ARTICLES, count), [count]);
 
   return (
     <section className="py-16 md:py-20 border-t bg-section-bg">
