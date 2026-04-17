@@ -100,7 +100,7 @@ const formato = [
   {
     icon: Building2,
     title: "In-company",
-    desc: "Vamos a tus oficinas o planta. Cero fricción, máxima cercanía con la operación real del equipo.",
+    desc: "Vamos a tus oficinas o planta. Cero barreras, máxima cercanía con la operación real del equipo.",
   },
   {
     icon: Clock,
