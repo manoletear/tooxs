@@ -251,12 +251,13 @@ function TalleresPage() {
           <span className="hidden sm:flex items-center gap-2 text-white text-xs font-semibold pl-3">
             <Sparkles size={14} className="text-mint" /> ¿Listo para tu equipo?
           </span>
-          <Link
-            to="/contact"
+          <button
+            type="button"
+            onClick={() => openQuote("Sticky bar — cotización general")}
             className="inline-flex items-center gap-1.5 bg-mint text-navy px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold hover:brightness-110 transition-all"
           >
             <Calculator size={14} /> Cotizar talleres
-          </Link>
+          </button>
         </div>
       </div>
 
