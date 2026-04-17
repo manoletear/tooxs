@@ -34,12 +34,6 @@ const industries = [
   { title: "Real Estate", description: "Acompañamos a desarrolladoras, corredoras y administradoras de activos a digitalizar procesos comerciales, documentales y operativos para acelerar ventas y mejorar visibilidad.", link: "/industrias/real-estate" },
 ];
 
-const featured = [
-  ARTICLES[2],  // Estado alimentos y bebidas
-  ARTICLES[3],  // IA Soberana
-  ARTICLES[8],  // Rewired 2da edición
-];
-
 function IndustriesPage() {
   return (
     <div>
