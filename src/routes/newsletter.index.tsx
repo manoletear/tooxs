@@ -36,11 +36,10 @@ const secondaryArticles = [ARTICLES[12], ARTICLES[13]];
 const miniArticles = [ARTICLES[14], ARTICLES[15], ARTICLES[16], ARTICLES[17]];
 const interviews = [ARTICLES[18], ARTICLES[19], ARTICLES[0], ARTICLES[5]];
 
-const newsletterCards = [
-  { title: "CEO Briefing", desc: "Las ideas más relevantes para la alta dirección. Resumen ejecutivo semanal." },
-  { title: "Tech Ops", desc: "Para equipos técnicos: herramientas, integraciones y automatizaciones que funcionan." },
-  { title: "Monthly Highlights", desc: "Resumen mensual de los insights más destacados y tendencias del mes." },
-];
+// Últimas 4 ediciones publicadas (orden por aparición en el pool — equivalente a más recientes)
+const featuredEditions = ARTICLES.slice(0, 4);
+const featuredHero = featuredEditions[0];
+const featuredRest = featuredEditions.slice(1);
 
 const quarterlyArticles = [
   { title: "Tooxs Quarterly: Edición Digital", excerpt: "La IA agéntica está transformando la naturaleza misma de las operaciones empresariales. ¿Qué viene después?", image: quarterlyCover, slug: ARTICLES[0].slug },
