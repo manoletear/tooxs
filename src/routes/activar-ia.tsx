@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
+import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 import laptopDashboard from "@/assets/activar-laptop-dashboard.jpg";
 import neuralSphere from "@/assets/activar-neural-sphere.jpg";
 import circuitFlow from "@/assets/activar-circuit-flow.jpg";
@@ -542,6 +543,9 @@ function ActivarIAPage() {
           </div>
         </div>
       </section>
+
+      {/* ══════ FEATURED NEWS ══════ */}
+      <FeaturedNewsGrid />
 
       {/* ══════ CTA ══════ */}
       <section className="bg-navy py-20 md:py-24 relative overflow-hidden">
