@@ -307,7 +307,7 @@ function TalleresPage() {
               href="#pricing"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/25 text-white px-6 py-3.5 rounded-full text-sm font-bold hover:bg-white/20 transition-all"
             >
-              Ver precios
+              Valores
             </a>
           </div>
 
@@ -610,7 +610,7 @@ function TalleresPage() {
                 className="text-4xl md:text-5xl font-black text-foreground leading-[1.05] mb-4"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Precios por <span className="text-primary">tamaño de equipo</span>
+                Valores por <span className="text-primary">tamaño de equipo</span>
               </h2>
               <p className="text-muted-foreground text-base md:text-lg">
                 Valor por persona y por taller.
