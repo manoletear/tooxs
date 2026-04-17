@@ -541,7 +541,7 @@ function CapabilityGraph() {
 
               <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-mint/15 border border-mint/30 text-mint text-[0.7rem] font-bold tracking-[0.2em] uppercase mb-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-mint/15 border border-mint/30 text-mint text-[0.75rem] font-bold tracking-[0.15em] mb-4">
                     <GraduationCap size={14} />
                     Formación Tooxs
                   </div>
