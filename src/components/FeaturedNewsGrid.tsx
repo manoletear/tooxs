@@ -18,11 +18,11 @@ interface FeaturedNewsGridProps {
 }
 
 /**
- * Stable selection of the first N articles from the pool.
+ * Stable selection: take the first N articles from the pool.
  * Avoids Math.random() to prevent SSR/CSR hydration mismatches.
  */
 function pickStable<T>(pool: T[], n: number): T[] {
-  return pool.slice(0, n);
+  return pool.slice(0, Math.max(0, n));
 }
 
 export function FeaturedNewsGrid({
