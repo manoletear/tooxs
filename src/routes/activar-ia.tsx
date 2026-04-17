@@ -544,6 +544,9 @@ function ActivarIAPage() {
         </div>
       </section>
 
+      {/* ══════ FEATURED NEWS ══════ */}
+      <FeaturedNewsGrid />
+
       {/* ══════ CTA ══════ */}
       <section className="bg-navy py-20 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(32,178,170,0.2),transparent_70%)]" />
