@@ -82,36 +82,8 @@ function IndustriesPage() {
         </div>
       </section>
 
-      {/* Featured Section */}
-      <section className="py-16 border-t">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">NEWSLETTER</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Artículos destacados</h2>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-3 gap-8">
-            {featured.map((item, i) => (
-              <ScrollReveal key={item.slug} delay={i * 100}>
-                <Link to="/newsletter/$slug" params={{ slug: item.slug }} className="group block">
-                  <div className="rounded-xl overflow-hidden mb-4 aspect-[5/3]">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                  </div>
-                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">{item.category}</span>
-                  <h3 className="font-bold text-navy text-lg flex items-center gap-1 mb-2 mt-1 group-hover:text-primary transition-colors">
-                    {item.title} <ChevronRight size={16} />
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{item.excerpt}</p>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Featured Newsletter Articles (random pool) */}
+      <FeaturedNewsGrid />
 
       {/* CTA Newsletter */}
       <section className="bg-navy py-20 relative overflow-hidden">
