@@ -29,6 +29,14 @@ export function CapabilitySplitView({ capabilities }: CapabilitySplitViewProps) 
   const active = capabilities[activeIndex];
   const illustration = ILLUSTRATIONS[active.number];
 
+  // Precarga todas las ilustraciones para evitar latencia al cambiar
+  useEffect(() => {
+    Object.values(ILLUSTRATIONS).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   return (
     <div className="relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] min-h-[640px]">
