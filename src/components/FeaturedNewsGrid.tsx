@@ -62,7 +62,7 @@ export function FeaturedNewsGrid({
         </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {articles.map((item, i) => (
+          {articles.map((item: Article, i: number) => (
             <ScrollReveal key={item.slug} delay={i * 100}>
               <Link
                 to="/newsletter/$slug"
