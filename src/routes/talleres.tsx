@@ -735,8 +735,9 @@ function TalleresPage() {
                 title: "Agenda una llamada",
                 desc: "30 minutos para entender tu caso",
                 cta: "Reservar slot",
-                href: "/contact",
+                href: "#",
                 external: false,
+                modal: true,
                 accent: "bg-navy",
               },
             ].map((c) => {
@@ -761,6 +762,18 @@ function TalleresPage() {
                   </span>
                 </div>
               );
+              if (c.modal) {
+                return (
+                  <button
+                    key={c.title}
+                    type="button"
+                    onClick={() => openQuote("Contacto directo — Agenda una llamada")}
+                    className="text-left"
+                  >
+                    {inner}
+                  </button>
+                );
+              }
               return c.external ? (
                 <a key={c.title} href={c.href} target="_blank" rel="noopener noreferrer">
                   {inner}
