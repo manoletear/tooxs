@@ -17,7 +17,6 @@ interface IndustryCarouselProps {
 
 export default function IndustryCarousel({ cards, className = "" }: IndustryCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -33,25 +32,22 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
   }, []);
 
   useEffect(() => {
-    if (!isAutoPlaying || !isVisible || flippedIndex !== null) return;
-    const id = setInterval(() => setActiveIndex(prev => (prev + 1) % n), 3500);
+    if (!isAutoPlaying || !isVisible) return;
+    const id = setInterval(() => setActiveIndex(prev => (prev + 1) % n), 2500);
     return () => clearInterval(id);
-  }, [isAutoPlaying, isVisible, n, flippedIndex]);
+  }, [isAutoPlaying, isVisible, n]);
 
   const goTo = useCallback((index: number) => {
     setIsAutoPlaying(false);
-    setFlippedIndex(null);
     setActiveIndex(index);
   }, []);
 
   const handleCardClick = useCallback((index: number) => {
-    if (index !== activeIndex) { goTo(index); return; }
-    setIsAutoPlaying(false);
-    setFlippedIndex(prev => prev === index ? null : index);
+    if (index !== activeIndex) { goTo(index); }
   }, [activeIndex, goTo]);
 
-  const next = useCallback(() => { setIsAutoPlaying(false); setFlippedIndex(null); setActiveIndex(prev => (prev + 1) % n); }, [n]);
-  const prev = useCallback(() => { setIsAutoPlaying(false); setFlippedIndex(null); setActiveIndex(prev => (prev - 1 + n) % n); }, [n]);
+  const next = useCallback(() => { setIsAutoPlaying(false); setActiveIndex(prev => (prev + 1) % n); }, [n]);
+  const prev = useCallback(() => { setIsAutoPlaying(false); setActiveIndex(prev => (prev - 1 + n) % n); }, [n]);
 
   /* Touch swipe */
   const touchStartX = useRef<number | null>(null);
