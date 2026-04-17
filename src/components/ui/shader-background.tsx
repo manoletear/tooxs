@@ -11,7 +11,7 @@ const vsSource = `
   }
 `;
 
-// Adapted with TOOXS brand palette: deep navy base + brand blue (#177FC6) lines
+// Adapted with Tooxs brand palette: deep navy base + brand blue (#177FC6) lines
 const fsSource = `
   precision highp float;
   uniform vec2 iResolution;
@@ -20,7 +20,7 @@ const fsSource = `
   const float overallSpeed = 0.2;
   const float gridSmoothWidth = 0.015;
   const float scale = 5.0;
-  // TOOXS brand blue (#177FC6) ≈ vec3(0.09, 0.498, 0.776)
+  // Tooxs brand blue (#177FC6) ≈ vec3(0.09, 0.498, 0.776)
   const vec4 lineColor = vec4(0.09, 0.498, 0.776, 1.0);
   const float minLineWidth = 0.01;
   const float maxLineWidth = 0.2;
@@ -61,7 +61,7 @@ const fsSource = `
     space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
 
     vec4 lines = vec4(0.0);
-    // Deep navy gradient that matches TOOXS hero (#050d1a → #0a2647)
+    // Deep navy gradient that matches Tooxs hero (#050d1a → #0a2647)
     vec4 bgColor1 = vec4(0.020, 0.051, 0.102, 1.0);
     vec4 bgColor2 = vec4(0.039, 0.149, 0.278, 1.0);
 

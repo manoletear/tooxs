@@ -20,14 +20,14 @@ import monkeyMeasureImg from "../assets/monkey-measure.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TOOXS — Inteligencia Aplicada para Organizaciones" },
-      { name: "description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa. IA, RPA y analítica para empresas en Chile y Latinoamérica." },
-      { property: "og:title", content: "TOOXS — Inteligencia Aplicada para Organizaciones" },
+      { title: "Tooxs — Inteligencia Aplicada para Organizaciones" },
+      { name: "description", content: "Tooxs diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa. IA, RPA y analítica para empresas en Chile y Latinoamérica." },
+      { property: "og:title", content: "Tooxs — Inteligencia Aplicada para Organizaciones" },
       { property: "og:description", content: "Automatización inteligente, RPA, IA y analítica avanzada para empresas industriales en Chile y Latinoamérica." },
       { property: "og:url", content: "https://www.tooxs.com" },
-      { name: "twitter:title", content: "TOOXS — Inteligencia Aplicada para Organizaciones" },
+      { name: "twitter:title", content: "Tooxs — Inteligencia Aplicada para Organizaciones" },
       { name: "twitter:description", content: "Automatización inteligente, RPA, IA y analítica avanzada para empresas industriales." },
-      { name: "keywords", content: "inteligencia artificial, automatización, RPA, data analytics, transformación digital, Chile, consultoría tecnológica, TOOXS" },
+      { name: "keywords", content: "inteligencia artificial, automatización, RPA, data analytics, transformación digital, Chile, consultoría tecnológica, Tooxs" },
     ],
     links: [
       { rel: "canonical", href: "https://www.tooxs.com" },
@@ -119,7 +119,7 @@ function HeroStrategic() {
           {/* Right: Subtitle + CTA */}
           <div className={`lg:max-w-[32%] transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
             <p className="text-sm md:text-base text-white/80 leading-relaxed mb-8">
-              TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa.
+              Tooxs diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa.
             </p>
             <button onClick={() => openMeeting("Hero — Inicio")} className="inline-flex items-center gap-3 bg-white text-navy px-7 py-3.5 rounded-full font-semibold hover:bg-white/95 transition-all duration-300 text-sm group shadow-lg">
               Agendar una consulta
@@ -320,7 +320,7 @@ function TrustBarDynamic() {
             <div className="bg-card rounded-xl p-4 shadow-sm border border-border/50 w-full h-full flex items-stretch justify-center gap-3">
               <img
                 src={mapLatamPresence}
-                alt="Presencia regional de TOOXS en Chile, Perú, Colombia, Costa Rica y Panamá"
+                alt="Presencia regional de Tooxs en Chile, Perú, Colombia, Costa Rica y Panamá"
                 className="flex-1 min-w-0 h-auto max-h-[320px] object-contain"
                 loading="lazy"
                 width={640}
@@ -528,7 +528,7 @@ function CapabilityGraph() {
         </ScrollReveal>
         <TiltedCards cards={capabilityCards} />
 
-        {/* ── CTA Talleres TOOXS ── */}
+        {/* ── CTA Talleres Tooxs ── */}
         <ScrollReveal>
           <div className="mt-16 md:mt-20 relative max-w-5xl mx-auto">
             {/* glow background */}
@@ -543,7 +543,7 @@ function CapabilityGraph() {
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-mint/15 border border-mint/30 text-mint text-[0.7rem] font-bold tracking-[0.2em] uppercase mb-4">
                     <GraduationCap size={14} />
-                    Formación TOOXS
+                    Formación Tooxs
                   </div>
                   <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-[1.15] mb-3">
                     ¿Quieres que tu equipo<br className="hidden md:block" />
@@ -562,7 +562,7 @@ function CapabilityGraph() {
                     className="group inline-flex items-center gap-2 bg-mint text-navy px-6 py-3.5 rounded-full text-sm font-bold hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-mint/30 transition-all duration-300 whitespace-nowrap"
                   >
                     <Sparkles size={16} className="group-hover:rotate-12 transition-transform" />
-                    Conoce los Talleres TOOXS
+                    Conoce los Talleres Tooxs
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <span className="text-[0.7rem] text-white/50 tracking-wider uppercase font-semibold md:text-right">
@@ -733,7 +733,7 @@ function InsightLayer() {
 const testimonials = [
   {
     company: "Trek Rental",
-    quote: "TOOXS nos ayudó a fortalecer la gestión documental en procesos operacionales vinculados a garantías y mantenimiento, donde el orden y la disponibilidad de la información son claves. La solución permitió dar mayor trazabilidad a los documentos, reducir tareas manuales y facilitar el seguimiento de antecedentes relevantes para la operación. Eso nos permitió avanzar hacia un proceso más ágil, claro y controlado.",
+    quote: "Tooxs nos ayudó a fortalecer la gestión documental en procesos operacionales vinculados a garantías y mantenimiento, donde el orden y la disponibilidad de la información son claves. La solución permitió dar mayor trazabilidad a los documentos, reducir tareas manuales y facilitar el seguimiento de antecedentes relevantes para la operación. Eso nos permitió avanzar hacia un proceso más ágil, claro y controlado.",
     initials: "JV",
     name: "Jean Vogth",
     title: "Gerente de Desarrollo Corporativo",
@@ -747,7 +747,7 @@ const testimonials = [
   },
   {
     company: "GPS7000",
-    quote: "En una industria como la nuestra, donde la trazabilidad de la información, la rapidez de respuesta y el control operativo son fundamentales, TOOXS nos permitió mejorar de manera concreta la gestión documental en procesos administrativos y comerciales. La solución nos ayudó a ordenar información, reducir trabajo manual e interpretar documentos de forma más ágil y confiable. Para GPS7000, eso se traduce en una mejor capacidad de gestión interna y en una operación más consistente de cara a nuestros clientes.",
+    quote: "En una industria como la nuestra, donde la trazabilidad de la información, la rapidez de respuesta y el control operativo son fundamentales, Tooxs nos permitió mejorar de manera concreta la gestión documental en procesos administrativos y comerciales. La solución nos ayudó a ordenar información, reducir trabajo manual e interpretar documentos de forma más ágil y confiable. Para GPS7000, eso se traduce en una mejor capacidad de gestión interna y en una operación más consistente de cara a nuestros clientes.",
     initials: "AM",
     name: "Angelo Mosso",
     title: "Gerente General",
@@ -933,7 +933,7 @@ function AIChatbot() {
 
   useEffect(() => {
     if (open && messages.length === 0) {
-      setMessages([{ role: "bot", text: "Hola, soy el asistente de TOOXS. ¿En qué industria trabajas?" }]);
+      setMessages([{ role: "bot", text: "Hola, soy el asistente de Tooxs. ¿En qué industria trabajas?" }]);
       setStep(1);
     }
   }, [open]);
@@ -983,7 +983,7 @@ function AIChatbot() {
       {open && (
         <div className="fixed bottom-6 right-6 z-50 w-80 sm:w-96 bg-card rounded-2xl shadow-2xl border flex flex-col overflow-hidden animate-scale-in" style={{ maxHeight: "480px" }}>
           <div className="bg-mint text-white px-5 py-3 flex items-center justify-between">
-            <span className="font-semibold text-sm">TOOXS Assistant</span>
+            <span className="font-semibold text-sm">Tooxs Assistant</span>
             <button onClick={() => setOpen(false)} className="hover:opacity-70"><X size={18} /></button>
           </div>
           <div className="flex-1 overflow-y-auto p-4 space-y-3" style={{ minHeight: "200px" }}>

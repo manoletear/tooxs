@@ -13,14 +13,14 @@ import heroAiAgents from "@/assets/newsletter/hero-ai-agents.jpg";
 export const Route = createFileRoute("/newsletter/")({
   head: () => ({
     meta: [
-      { title: "Newsletter — TOOXS Insights | Tendencias IA y Tecnología" },
+      { title: "Newsletter — Tooxs Insights | Tendencias IA y Tecnología" },
       { name: "description", content: "Tendencias, datos y perspectivas sobre tecnología, automatización e IA aplicada a la industria y los negocios en Latinoamérica. Artículos semanales para líderes." },
-      { property: "og:title", content: "Newsletter — TOOXS Insights" },
+      { property: "og:title", content: "Newsletter — Tooxs Insights" },
       { property: "og:description", content: "Tendencias, datos y perspectivas sobre tecnología, automatización e IA aplicada a la industria." },
       { property: "og:url", content: "https://www.tooxs.com/newsletter" },
-      { name: "twitter:title", content: "TOOXS Insights — Newsletter" },
+      { name: "twitter:title", content: "Tooxs Insights — Newsletter" },
       { name: "twitter:description", content: "Artículos semanales sobre IA, automatización y transformación digital para líderes de industria." },
-      { name: "keywords", content: "newsletter IA, tendencias tecnología, automatización industrial, insights negocio, TOOXS" },
+      { name: "keywords", content: "newsletter IA, tendencias tecnología, automatización industrial, insights negocio, Tooxs" },
     ],
     links: [
       { rel: "canonical", href: "https://www.tooxs.com/newsletter" },
@@ -263,7 +263,7 @@ function NewsletterPage() {
                   </h2>
                 </div>
                 <a
-                  href="mailto:contacto@tooxs.com?subject=Suscripci%C3%B3n%20al%20Newsletter%20TOOXS&body=Hola%2C%20quiero%20suscribirme%20al%20newsletter%20de%20TOOXS."
+                  href="mailto:contacto@tooxs.com?subject=Suscripci%C3%B3n%20al%20Newsletter%20Tooxs&body=Hola%2C%20quiero%20suscribirme%20al%20newsletter%20de%20Tooxs."
                   className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:brightness-110 transition-all"
                 >
                   <Mail size={16} /> Suscríbete a Insights 2026

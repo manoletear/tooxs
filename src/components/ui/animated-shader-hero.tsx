@@ -9,7 +9,7 @@ precision highp float;
 in vec4 position;
 void main(){gl_Position=position;}`;
 
-// Original by Matthias Hurrle (@atzedent), color-tuned to TOOXS brand
+// Original by Matthias Hurrle (@atzedent), color-tuned to Tooxs brand
 // (deep navy + brand blue #177FC6 highlights).
 const FRAGMENT_SRC = `#version 300 es
 precision highp float;
@@ -64,7 +64,7 @@ void main(void) {
   float bg = clouds(vec2(st.x + T * .5, -st.y));
   uv *= 1. - .3 * (sin(T * .2) * .5 + .5);
 
-  // TOOXS brand-tinted starfield
+  // Tooxs brand-tinted starfield
   for (float i = 1.; i < 12.; i++) {
     uv += .1 * cos(i * vec2(.1 + .01 * i, .8) + i * i + T * .5 + .1 * uv.x);
     vec2 p = uv;

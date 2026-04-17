@@ -7,10 +7,10 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/newsletter/$slug")({
   head: ({ params }) => {
     const article = getArticleBySlug(params.slug);
-    if (!article) return { meta: [{ title: "Artículo no encontrado — TOOXS" }] };
+    if (!article) return { meta: [{ title: "Artículo no encontrado — Tooxs" }] };
     return {
       meta: [
-        { title: `${article.title} — TOOXS Insights` },
+        { title: `${article.title} — Tooxs Insights` },
         { name: "description", content: article.excerpt },
         { property: "og:title", content: article.title },
         { property: "og:description", content: article.excerpt },
@@ -21,8 +21,8 @@ export const Route = createFileRoute("/newsletter/$slug")({
         { name: "twitter:description", content: article.excerpt },
         { name: "twitter:image", content: article.image },
         { name: "article:published_time", content: article.date },
-        { name: "article:author", content: "TOOXS" },
-        { name: "keywords", content: `${article.category}, IA, automatización, TOOXS, ${article.title.split(' ').slice(0, 3).join(', ')}` },
+        { name: "article:author", content: "Tooxs" },
+        { name: "keywords", content: `${article.category}, IA, automatización, Tooxs, ${article.title.split(' ').slice(0, 3).join(', ')}` },
       ],
       links: [
         { rel: "canonical", href: `https://www.tooxs.com/newsletter/${article.slug}` },
@@ -37,10 +37,10 @@ export const Route = createFileRoute("/newsletter/$slug")({
             "description": article.excerpt,
             "image": article.image,
             "datePublished": article.date,
-            "author": { "@type": "Organization", "name": "TOOXS" },
+            "author": { "@type": "Organization", "name": "Tooxs" },
             "publisher": {
               "@type": "Organization",
-              "name": "TOOXS",
+              "name": "Tooxs",
               "url": "https://www.tooxs.com"
             },
             "mainEntityOfPage": `https://www.tooxs.com/newsletter/${article.slug}`
@@ -108,7 +108,7 @@ function ArticlePage() {
   const related = getRelatedArticles(slug, 5);
 
   const articleUrl = `https://tooxs.lovable.app/newsletter/${slug}`;
-  const shareText = `${article.title} — TOOXS Insights`;
+  const shareText = `${article.title} — Tooxs Insights`;
 
   const shareLinkedIn = () => {
     window.open(

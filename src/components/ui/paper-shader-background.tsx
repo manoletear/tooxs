@@ -5,7 +5,7 @@ interface PaperShaderBackgroundProps {
 }
 
 /**
- * Animated mesh-gradient background tuned to TOOXS brand palette
+ * Animated mesh-gradient background tuned to Tooxs brand palette
  * (deep navy + brand blue #177FC6 + soft mint accents).
  * Uses @paper-design/shaders-react MeshGradient with two stacked layers
  * for depth and an organic, slowly evolving look.

@@ -22,14 +22,14 @@ import heroOpt from "@/assets/hero-optimizacion.jpg";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Capacidades — TOOXS | Sistema de capacidades aplicadas al negocio" },
-      { name: "description", content: "El sistema de capacidades TOOXS: Datos e IA, Automatización, Integración, Analítica Operacional, Nube, Procesos Críticos y Estrategia Aplicada para industrias en Chile y Latinoamérica." },
-      { property: "og:title", content: "Capacidades — TOOXS" },
-      { property: "og:description", content: "Sistema de capacidades TOOXS aplicado donde se genera valor: operación, decisiones y procesos críticos." },
+      { title: "Capacidades — Tooxs | Sistema de capacidades aplicadas al negocio" },
+      { name: "description", content: "El sistema de capacidades Tooxs: Datos e IA, Automatización, Integración, Analítica Operacional, Nube, Procesos Críticos y Estrategia Aplicada para industrias en Chile y Latinoamérica." },
+      { property: "og:title", content: "Capacidades — Tooxs" },
+      { property: "og:description", content: "Sistema de capacidades Tooxs aplicado donde se genera valor: operación, decisiones y procesos críticos." },
       { property: "og:url", content: "https://www.tooxs.com/services" },
-      { name: "twitter:title", content: "Capacidades — TOOXS" },
-      { name: "twitter:description", content: "Sistema de capacidades TOOXS: datos, IA, automatización, integración, analítica, nube y estrategia aplicada." },
-      { name: "keywords", content: "capacidades TOOXS, datos e IA, automatización procesos, integración plataformas, analítica operacional, nube, procesos críticos, estrategia aplicada" },
+      { name: "twitter:title", content: "Capacidades — Tooxs" },
+      { name: "twitter:description", content: "Sistema de capacidades Tooxs: datos, IA, automatización, integración, analítica, nube y estrategia aplicada." },
+      { name: "keywords", content: "capacidades Tooxs, datos e IA, automatización procesos, integración plataformas, analítica operacional, nube, procesos críticos, estrategia aplicada" },
     ],
     links: [
       { rel: "canonical", href: "https://www.tooxs.com/services" },
@@ -239,7 +239,7 @@ const services: ServiceData[] = [
     accentColor: "#177FC6",
     statement: [
       "La IA no genera valor por sí sola. Genera valor cuando está integrada en decisiones, procesos y flujos reales.",
-      "En TOOXS diseñamos IA que no se queda en modelos, sino que opera dentro del negocio.",
+      "En Tooxs diseñamos IA que no se queda en modelos, sino que opera dentro del negocio.",
     ],
     values: [
       { title: "Decisiones automatizadas", description: "Implementamos modelos que priorizan, recomiendan y ejecutan acciones en tiempo real." },
@@ -293,7 +293,7 @@ const services: ServiceData[] = [
     accentColor: "#6366F1",
     statement: [
       "El problema no es falta de datos. Es falta de decisiones basadas en ellos.",
-      "TOOXS convierte datos en una capa operativa real.",
+      "Tooxs convierte datos en una capa operativa real.",
     ],
     values: [
       { title: "Integración de datos", description: "Unificamos múltiples fuentes en una sola vista." },
@@ -702,7 +702,7 @@ function ServicesIndexPage() {
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-20 pb-8 sm:pb-10 md:pb-12">
           <ScrollReveal>
             <Link to="/" className="inline-flex items-center gap-1 mb-4 sm:mb-5 px-3 py-1.5 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 text-white text-xs font-semibold tracking-wide transition-colors">‹ Volver al Inicio</Link>
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-3 sm:mb-4">Sistema de Capacidades TOOXS</p>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-mint mb-3 sm:mb-4">Sistema de Capacidades Tooxs</p>
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black mb-3 sm:mb-4 leading-[1.1] tracking-tight"
               style={{ fontFamily: "var(--font-heading)" }}

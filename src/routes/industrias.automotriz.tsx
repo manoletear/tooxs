@@ -5,12 +5,12 @@ import heroImage from "../assets/hero-automotive.jpg";
 export const Route = createFileRoute("/industrias/automotriz")({
   head: () => ({
     meta: [
-      { title: "Automotriz — TOOXS | IA para Producción y Distribución" },
+      { title: "Automotriz — Tooxs | IA para Producción y Distribución" },
       { name: "description", content: "IA y automatización para fabricantes, importadores y distribuidores automotrices. Más productividad, calidad consistente y supply chain visible." },
-      { property: "og:title", content: "Automotriz — TOOXS" },
+      { property: "og:title", content: "Automotriz — Tooxs" },
       { property: "og:description", content: "Producción más inteligente, calidad más consistente y supply chain más visible con IA." },
       { property: "og:url", content: "https://www.tooxs.com/industrias/automotriz" },
-      { name: "keywords", content: "automotriz IA, producción inteligente, supply chain automotriz, calidad, TOOXS" },
+      { name: "keywords", content: "automotriz IA, producción inteligente, supply chain automotriz, calidad, Tooxs" },
     ],
     links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/automotriz" }],
   }),
