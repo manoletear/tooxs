@@ -71,8 +71,12 @@ export function Navbar() {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) =>
-            "dropdown" in link && link.dropdown ? (
+          {navLinks.map((link) => {
+            const isActive =
+              location.pathname === link.to ||
+              (link.to === "/about" && location.pathname.startsWith("/industrias")) ||
+              (link.to === "/services" && location.pathname.startsWith("/services"));
+            return "dropdown" in link && link.dropdown ? (
               <div
                 key={link.to}
                 className="relative"
@@ -81,10 +85,8 @@ export function Navbar() {
               >
                 <Link
                   to={link.to}
-                  className={`inline-flex items-center gap-1 text-sm font-medium transition-all duration-300 ${
-                    location.pathname === link.to
-                      ? "text-navy"
-                      : "text-navy/60 hover:text-navy"
+                  className={`relative inline-flex items-center gap-1 text-sm font-medium pb-1 transition-all duration-300 ${
+                    isActive ? "text-navy" : "text-navy/60 hover:text-navy"
                   }`}
                 >
                   {link.label}
@@ -94,22 +96,26 @@ export function Navbar() {
                       openDropdown === link.dropdown ? "rotate-180" : ""
                     }`}
                   />
+                  {isActive && (
+                    <span className="absolute left-0 right-4 -bottom-0.5 h-[2px] rounded-full bg-primary" />
+                  )}
                 </Link>
               </div>
             ) : (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-sm font-medium transition-all duration-300 ${
-                  location.pathname === link.to
-                    ? "text-navy"
-                    : "text-navy/60 hover:text-navy"
+                className={`relative text-sm font-medium pb-1 transition-all duration-300 ${
+                  isActive ? "text-navy" : "text-navy/60 hover:text-navy"
                 }`}
               >
                 {link.label}
+                {isActive && (
+                  <span className="absolute left-0 right-0 -bottom-0.5 h-[2px] rounded-full bg-primary" />
+                )}
               </Link>
-            )
-          )}
+            );
+          })}
         </div>
 
         <Link
