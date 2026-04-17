@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight, Search, Lightbulb, Rocket, Car, Star, Building2 } from "lucide-react";
+import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight, Search, Lightbulb, Rocket, Car, Star, Building2, GraduationCap, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 import CardDeckSpread from "../components/CardDeckSpread";
@@ -514,6 +514,52 @@ function CapabilityGraph() {
           <h2 className="text-3xl md:text-4xl font-bold">Nuestro marco de trabajo para automatización inteligente.</h2>
         </ScrollReveal>
         <TiltedCards cards={capabilityCards} />
+
+        {/* ── CTA Talleres TOOXS ── */}
+        <ScrollReveal>
+          <div className="mt-16 md:mt-20 relative max-w-5xl mx-auto">
+            {/* glow background */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-mint/40 via-mint/10 to-mint/40 rounded-3xl blur-2xl opacity-60" aria-hidden="true" />
+
+            <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-sm border border-mint/30 rounded-3xl p-8 md:p-12 overflow-hidden">
+              {/* decorative corner sparkle */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-mint/20 rounded-full blur-3xl" aria-hidden="true" />
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-mint/10 rounded-full blur-3xl" aria-hidden="true" />
+
+              <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-mint/15 border border-mint/30 text-mint text-[0.7rem] font-bold tracking-[0.2em] uppercase mb-4">
+                    <GraduationCap size={14} />
+                    Formación TOOXS
+                  </div>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-[1.15] mb-3">
+                    ¿Quieres que tu equipo<br className="hidden md:block" />
+                    <span className="text-mint">desbloquee su IA interior?</span>
+                  </h3>
+                  <p className="text-white/75 text-sm md:text-base leading-relaxed max-w-xl">
+                    Tres talleres prácticos de 90 minutos para que tu equipo aprenda a{" "}
+                    <span className="text-white font-semibold">detectar, diseñar y activar</span>{" "}
+                    soluciones reales de IA en su propia operación.
+                  </p>
+                </div>
+
+                <div className="flex md:flex-col gap-3 md:items-end">
+                  <Link
+                    to="/talleres"
+                    className="group inline-flex items-center gap-2 bg-mint text-navy px-6 py-3.5 rounded-full text-sm font-bold hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-mint/30 transition-all duration-300 whitespace-nowrap"
+                  >
+                    <Sparkles size={16} className="group-hover:rotate-12 transition-transform" />
+                    Conoce los Talleres TOOXS
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  <span className="text-[0.7rem] text-white/50 tracking-wider uppercase font-semibold md:text-right">
+                    In-house · 90 min · SENCE
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
