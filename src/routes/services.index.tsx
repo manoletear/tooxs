@@ -733,6 +733,9 @@ function ServicesIndexPage() {
       </div>
 
 
+      {/* ══════ FEATURED NEWS ══════ */}
+      <FeaturedNewsGrid />
+
       {/* ══════ CTA ══════ */}
       <section className="bg-navy py-20 relative overflow-hidden">
         <PrismBackground className="opacity-30" />
