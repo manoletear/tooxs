@@ -17,7 +17,6 @@ interface IndustryCarouselProps {
 
 export default function IndustryCarousel({ cards, className = "" }: IndustryCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -33,25 +32,22 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
   }, []);
 
   useEffect(() => {
-    if (!isAutoPlaying || !isVisible || flippedIndex !== null) return;
-    const id = setInterval(() => setActiveIndex(prev => (prev + 1) % n), 3500);
+    if (!isAutoPlaying || !isVisible) return;
+    const id = setInterval(() => setActiveIndex(prev => (prev + 1) % n), 2500);
     return () => clearInterval(id);
-  }, [isAutoPlaying, isVisible, n, flippedIndex]);
+  }, [isAutoPlaying, isVisible, n]);
 
   const goTo = useCallback((index: number) => {
     setIsAutoPlaying(false);
-    setFlippedIndex(null);
     setActiveIndex(index);
   }, []);
 
   const handleCardClick = useCallback((index: number) => {
-    if (index !== activeIndex) { goTo(index); return; }
-    setIsAutoPlaying(false);
-    setFlippedIndex(prev => prev === index ? null : index);
+    if (index !== activeIndex) { goTo(index); }
   }, [activeIndex, goTo]);
 
-  const next = useCallback(() => { setIsAutoPlaying(false); setFlippedIndex(null); setActiveIndex(prev => (prev + 1) % n); }, [n]);
-  const prev = useCallback(() => { setIsAutoPlaying(false); setFlippedIndex(null); setActiveIndex(prev => (prev - 1 + n) % n); }, [n]);
+  const next = useCallback(() => { setIsAutoPlaying(false); setActiveIndex(prev => (prev + 1) % n); }, [n]);
+  const prev = useCallback(() => { setIsAutoPlaying(false); setActiveIndex(prev => (prev - 1 + n) % n); }, [n]);
 
   /* Touch swipe */
   const touchStartX = useRef<number | null>(null);
@@ -79,16 +75,15 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
           if (offset < -n / 2) offset += n;
 
           const isActive = offset === 0;
-          const isFlipped = flippedIndex === i && isActive;
           const absOffset = Math.abs(offset);
 
           if (absOffset > 3) return null;
 
           // Fan spread: cards distributed horizontally with rotation
-          const spacing = 190; // horizontal gap between cards
+          const spacing = 190;
           const translateX = offset * spacing;
           const translateY = isActive ? -20 : absOffset * 15 + 10;
-          const rotateZ = offset * -5; // tilt outward
+          const rotateZ = offset * -5;
           const scale = isActive ? 1 : 0.85 - absOffset * 0.03;
           const zIndex = 10 - absOffset;
           const opacity = absOffset > 3 ? 0 : 1;
@@ -108,94 +103,36 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
                 transform: `translateX(${translateX}px) translateY(${translateY}px) rotate(${rotateZ}deg) scale(${scale})`,
                 opacity,
                 transition: "all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)",
-                perspective: 1000,
               }}
               onClick={() => handleCardClick(i)}
             >
               <div
-                className="relative w-full h-full"
+                className="absolute inset-0 overflow-hidden shadow-2xl"
                 style={{
-                  transformStyle: "preserve-3d",
-                  transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-                  transition: "transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                  borderRadius: isActive ? 24 : 18,
+                  border: isActive ? "3px solid rgba(255,255,255,0.3)" : "1px solid rgba(255,255,255,0.1)",
                 }}
               >
-                {/* FRONT */}
-                <div
-                  className="absolute inset-0 overflow-hidden shadow-2xl"
-                  style={{
-                    backfaceVisibility: "hidden",
-                    borderRadius: isActive ? 24 : 18,
-                    border: isActive ? "3px solid rgba(255,255,255,0.3)" : "1px solid rgba(255,255,255,0.1)",
-                  }}
-                >
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="w-full h-full object-cover"
-                    style={{ filter: isActive ? "grayscale(60%)" : "grayscale(100%) brightness(0.8)" }}
-                    draggable={false}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  <div className={`absolute bottom-0 left-0 right-0 ${isActive ? "p-6" : "p-4"}`}>
-                    <div className="flex items-start gap-3 mb-1">
-                      <div className={`shrink-0 ${isActive ? "w-11 h-11" : "w-9 h-9"} rounded-full bg-mint/20 backdrop-blur-sm flex items-center justify-center`}>
-                        <card.icon className="text-mint" size={isActive ? 22 : 18} />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <h3 className={`text-white font-bold leading-tight ${isActive ? "text-[17px]" : "text-[14px]"} line-clamp-2`}>
-                          {card.title}
-                        </h3>
-                        <p className={`text-mint font-medium italic mt-0.5 ${isActive ? "text-[13px]" : "text-[12px]"} line-clamp-1`}>
-                          {card.subtitle}
-                        </p>
-                      </div>
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="w-full h-full object-cover"
+                  style={{ filter: isActive ? "grayscale(60%)" : "grayscale(100%) brightness(0.8)" }}
+                  draggable={false}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className={`absolute bottom-0 left-0 right-0 ${isActive ? "p-6" : "p-4"}`}>
+                  <div className="flex items-start gap-3 mb-1">
+                    <div className={`shrink-0 ${isActive ? "w-14 h-14" : "w-11 h-11"} rounded-full bg-mint/20 backdrop-blur-sm flex items-center justify-center`}>
+                      <card.icon className="text-mint" size={isActive ? 28 : 22} />
                     </div>
-                    {isActive && (
-                      <p className="text-white/60 text-[13px] mt-3 animate-fade-up">Clic para ver detalles →</p>
-                    )}
-                  </div>
-                </div>
-
-                {/* BACK */}
-                <div
-                  className="absolute inset-0 overflow-hidden shadow-2xl"
-                  style={{
-                    backfaceVisibility: "hidden",
-                    transform: "rotateY(180deg)",
-                    borderRadius: 24,
-                    border: "2px solid rgba(23,127,198,0.3)",
-                    background: "linear-gradient(135deg, #1D1D1B 0%, #2A2A28 100%)",
-                  }}
-                >
-                  <div className="px-5 py-5 h-full flex flex-col gap-4">
-                    {/* Header */}
-                    <div className="flex items-start gap-3">
-                      <div className="shrink-0 w-10 h-10 rounded-full bg-mint/20 flex items-center justify-center">
-                        <card.icon className="text-mint" size={20} />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <h3 className="text-white font-bold text-[15px] leading-tight line-clamp-2">{card.title}</h3>
-                        <p className="text-mint text-[12px] italic mt-0.5 line-clamp-1">{card.subtitle}</p>
-                      </div>
-                    </div>
-
-                    {/* Body */}
-                    <div className="flex-1 min-h-0 space-y-3 overflow-hidden">
-                      <div>
-                        <span className="text-mint text-[10px] font-bold uppercase tracking-[0.12em] block mb-1">Problema</span>
-                        <p className="text-white/80 text-[13px] leading-snug line-clamp-3">{card.problem}</p>
-                      </div>
-                      <div>
-                        <span className="text-mint text-[10px] font-bold uppercase tracking-[0.12em] block mb-1">Solución</span>
-                        <p className="text-white/80 text-[13px] leading-snug line-clamp-3">{card.solution}</p>
-                      </div>
-                    </div>
-
-                    {/* Footer pill */}
-                    <div className="bg-mint/10 rounded-lg px-3 py-2.5 border border-mint/25">
-                      <span className="text-mint text-[10px] font-bold uppercase tracking-wider block mb-0.5">Impacto</span>
-                      <span className="text-white text-[12.5px] font-medium leading-snug line-clamp-2 block">{card.impact}</span>
+                    <div className="min-w-0 flex-1">
+                      <h3 className={`text-white font-bold leading-tight ${isActive ? "text-[20px]" : "text-[16px]"} line-clamp-2`}>
+                        {card.title}
+                      </h3>
+                      <p className={`text-mint font-medium italic mt-0.5 ${isActive ? "text-[15px]" : "text-[13px]"} line-clamp-1`}>
+                        {card.subtitle}
+                      </p>
                     </div>
                   </div>
                 </div>
