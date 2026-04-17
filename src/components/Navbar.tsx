@@ -195,20 +195,27 @@ export function Navbar() {
 
       {mobileOpen && (
         <div className="lg:hidden absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-xl px-6 py-4 space-y-3 animate-fade-in">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              onClick={() => setMobileOpen(false)}
-              className={`block text-sm font-medium py-2 transition-colors duration-300 ${
-                location.pathname === link.to
-                  ? "text-navy"
-                  : "text-navy/60 hover:text-navy"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive =
+              location.pathname === link.to ||
+              (link.to === "/about" && location.pathname.startsWith("/industrias")) ||
+              (link.to === "/services" && location.pathname.startsWith("/services"));
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={() => setMobileOpen(false)}
+                className={`relative block text-sm font-medium py-2 pl-3 transition-colors duration-300 ${
+                  isActive ? "text-navy" : "text-navy/60 hover:text-navy"
+                }`}
+              >
+                {isActive && (
+                  <span className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-[2px] rounded-full bg-primary" />
+                )}
+                {link.label}
+              </Link>
+            );
+          })}
           <Link
             to="/contact"
             onClick={() => setMobileOpen(false)}
