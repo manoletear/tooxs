@@ -41,6 +41,12 @@ export const Route = createRootRoute({
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "author", content: "TOOXS" },
       { name: "theme-color", content: "#0A2647" },
+      { property: "og:title", content: "TOOXS — Inteligencia Aplicada para Organizaciones" },
+      { name: "twitter:title", content: "TOOXS — Inteligencia Aplicada para Organizaciones" },
+      { property: "og:description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa." },
+      { name: "twitter:description", content: "TOOXS diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51bbc6a5-8645-4ae1-91ef-a87096f3567e/id-preview-e54ed6b9--f2b0cd74-d6eb-43c0-b984-e6424c9ab13f.lovable.app-1776441484363.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51bbc6a5-8645-4ae1-91ef-a87096f3567e/id-preview-e54ed6b9--f2b0cd74-d6eb-43c0-b984-e6424c9ab13f.lovable.app-1776441484363.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
