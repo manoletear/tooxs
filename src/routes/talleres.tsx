@@ -521,14 +521,22 @@ function TalleresPage() {
                         ))}
                       </div>
 
-                      <div className="bg-mint/10 border border-mint/30 rounded-xl p-5 flex items-start gap-3">
-                        <Briefcase className="text-mint flex-shrink-0 mt-0.5" size={20} />
-                        <div>
-                          <p className="text-xs font-bold uppercase tracking-wider text-mint mb-1">
-                            Entregable del taller
-                          </p>
-                          <p className="text-sm text-white/90 leading-relaxed">{t.entregable}</p>
+                      <div className="bg-mint/10 border border-mint/30 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+                        <div className="flex items-start gap-3 flex-1">
+                          <Briefcase className="text-mint flex-shrink-0 mt-0.5" size={20} />
+                          <div>
+                            <p className="text-xs font-bold uppercase tracking-wider text-mint mb-1">
+                              Entregable del taller
+                            </p>
+                            <p className="text-sm text-white/90 leading-relaxed">{t.entregable}</p>
+                          </div>
                         </div>
+                        <Link
+                          to="/contact"
+                          className="flex-shrink-0 inline-flex items-center justify-center gap-1.5 bg-mint text-navy px-4 py-2.5 rounded-full text-xs font-bold hover:brightness-110 transition-all whitespace-nowrap"
+                        >
+                          <Calculator size={14} /> Cotizar Taller {t.numero}
+                        </Link>
                       </div>
                     </div>
                   </div>
