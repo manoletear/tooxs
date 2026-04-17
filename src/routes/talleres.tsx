@@ -808,12 +808,13 @@ function TalleresPage() {
                   personalizada y recibe propuesta en menos de 48 horas.
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-3">
-                  <Link
-                    to="/contact"
+                  <button
+                    type="button"
+                    onClick={() => openQuote("CTA final — Solicitar cotización")}
                     className="inline-flex items-center gap-2 bg-mint text-navy px-8 py-4 rounded-full text-sm font-bold hover:-translate-y-0.5 transition-transform shadow-xl shadow-black/20"
                   >
                     <Calculator size={16} /> Solicitar cotización
-                  </Link>
+                  </button>
                   <a
                     href="https://wa.me/56912345678?text=Hola%20TOOXS%2C%20quiero%20cotizar%20los%20Talleres%20IA"
                     target="_blank"
@@ -828,6 +829,29 @@ function TalleresPage() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ══════ MODAL COTIZACIÓN ══════ */}
+      <Dialog open={quoteOpen} onOpenChange={setQuoteOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle
+              className="text-2xl md:text-3xl font-black text-foreground"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Cotiza los <span className="text-primary">Talleres TOOXS</span>
+            </DialogTitle>
+            <DialogDescription className="text-sm text-muted-foreground">
+              Déjanos tus datos y te contactamos en menos de 48 horas con una propuesta personalizada.
+              <span className="block mt-2 text-xs font-semibold text-primary">
+                Contexto: {quoteContext}
+              </span>
+            </DialogDescription>
+          </DialogHeader>
+          <div className="mt-2">
+            {quoteOpen && <TalleresHubSpotForm key={quoteContext} />}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
