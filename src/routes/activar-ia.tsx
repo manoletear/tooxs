@@ -191,7 +191,7 @@ function ActivarIAPage() {
     <div className="min-h-screen bg-background">
       {/* ══════ FLOATING TALLERES BUTTON ══════ */}
       <Link
-        to="/contact"
+        to="/talleres"
         aria-label="Talleres TOOXS"
         className="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40 flex items-center gap-2 bg-primary text-primary-foreground px-4 py-3 rounded-full shadow-lg hover:shadow-xl hover:brightness-110 transition-all duration-300 [writing-mode:vertical-rl] rotate-180 font-semibold text-sm tracking-wide"
       >

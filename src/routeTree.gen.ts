@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TalleresRouteImport } from './routes/talleres'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as IndustriasRouteImport } from './routes/industrias'
@@ -30,6 +31,11 @@ import { Route as IndustriasBancaFinanzasRouteImport } from './routes/industrias
 import { Route as IndustriasAutomotrizRouteImport } from './routes/industrias.automotriz'
 import { Route as IndustriasAgroindustriaRouteImport } from './routes/industrias.agroindustria'
 
+const TalleresRoute = TalleresRouteImport.update({
+  id: '/talleres',
+  path: '/talleres',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -143,6 +149,7 @@ export interface FileRoutesByFullPath {
   '/industrias': typeof IndustriasRouteWithChildren
   '/newsletter': typeof NewsletterRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/talleres': typeof TalleresRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
@@ -163,6 +170,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
+  '/talleres': typeof TalleresRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
@@ -186,6 +194,7 @@ export interface FileRoutesById {
   '/industrias': typeof IndustriasRouteWithChildren
   '/newsletter': typeof NewsletterRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/talleres': typeof TalleresRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
   '/industrias/banca-finanzas': typeof IndustriasBancaFinanzasRoute
@@ -210,6 +219,7 @@ export interface FileRouteTypes {
     | '/industrias'
     | '/newsletter'
     | '/services'
+    | '/talleres'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
     | '/industrias/banca-finanzas'
@@ -230,6 +240,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faqs'
     | '/industrias'
+    | '/talleres'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
     | '/industrias/banca-finanzas'
@@ -252,6 +263,7 @@ export interface FileRouteTypes {
     | '/industrias'
     | '/newsletter'
     | '/services'
+    | '/talleres'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
     | '/industrias/banca-finanzas'
@@ -275,10 +287,18 @@ export interface RootRouteChildren {
   IndustriasRoute: typeof IndustriasRouteWithChildren
   NewsletterRoute: typeof NewsletterRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
+  TalleresRoute: typeof TalleresRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/talleres': {
+      id: '/talleres'
+      path: '/talleres'
+      fullPath: '/talleres'
+      preLoaderRoute: typeof TalleresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -485,6 +505,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriasRoute: IndustriasRouteWithChildren,
   NewsletterRoute: NewsletterRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
+  TalleresRoute: TalleresRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
