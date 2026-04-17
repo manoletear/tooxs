@@ -292,14 +292,15 @@ function TalleresPage() {
 
           {/* HERO CTAs */}
           <div className="flex flex-wrap items-center gap-3 mb-10">
-            <Link
-              to="/contact"
+            <button
+              type="button"
+              onClick={() => openQuote("Hero — cotización para mi equipo")}
               className="group inline-flex items-center gap-2 bg-mint text-navy px-6 py-3.5 rounded-full text-sm font-bold hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-mint/30 transition-all"
             >
               <Calculator size={16} />
               Cotizar para mi equipo
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </button>
             <a
               href="#pricing"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/25 text-white px-6 py-3.5 rounded-full text-sm font-bold hover:bg-white/20 transition-all"
