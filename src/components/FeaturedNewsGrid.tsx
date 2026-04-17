@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, ArrowRight } from "lucide-react";
-import { ARTICLES } from "@/data/articles";
+import { ARTICLES, type Article } from "@/data/articles";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 
 interface FeaturedNewsGridProps {
@@ -18,17 +18,11 @@ interface FeaturedNewsGridProps {
 }
 
 /**
- * Random selection of N articles from the full pool.
- * Uses a stable seed per mount so the grid doesn't reshuffle on every render.
+ * Stable selection of the first N articles from the pool.
+ * Avoids Math.random() to prevent SSR/CSR hydration mismatches.
  */
-function pickRandom<T>(pool: T[], n: number): T[] {
-  if (pool.length <= n) return [...pool];
-  const arr = [...pool];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr.slice(0, n);
+function pickStable<T>(pool: T[], n: number): T[] {
+  return pool.slice(0, n);
 }
 
 export function FeaturedNewsGrid({
@@ -38,7 +32,7 @@ export function FeaturedNewsGrid({
   count = 3,
 }: FeaturedNewsGridProps) {
   // Memoize so selection is stable while the component is mounted
-  const articles = useMemo(() => pickRandom(ARTICLES, count), [count]);
+  const articles = useMemo(() => pickStable(ARTICLES, count), [count]);
 
   return (
     <section className="py-16 md:py-20 border-t bg-section-bg">
@@ -68,7 +62,7 @@ export function FeaturedNewsGrid({
         </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {articles.map((item, i) => (
+          {articles.map((item: Article, i: number) => (
             <ScrollReveal key={item.slug} delay={i * 100}>
               <Link
                 to="/newsletter/$slug"
