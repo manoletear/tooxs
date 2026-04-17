@@ -176,25 +176,18 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
                     <img
                       src={card.image}
                       alt={card.title}
-                      className={`w-full h-full object-contain ${isElectric && isHovered ? "" : "grayscale"}`}
+                      className="w-full h-full object-contain"
                       loading="lazy"
                       draggable={false}
                       style={{
-                        transition: "filter 0.4s ease",
-                        filter: isElectric && isHovered
-                          ? "drop-shadow(0 0 4px #00B7FF) drop-shadow(0 0 10px #00B7FF) drop-shadow(0 0 22px #1E90FF)"
-                          : undefined,
+                        transition: "filter 0.5s ease",
+                        filter: isHovered
+                          ? isElectric
+                            ? "grayscale(0) drop-shadow(0 0 4px #00B7FF) drop-shadow(0 0 10px #00B7FF) drop-shadow(0 0 22px #1E90FF)"
+                            : "grayscale(0)"
+                          : "grayscale(1) contrast(1.05)",
                       }}
                     />
-                    {!isElectric && (
-                      <div
-                        className="absolute inset-0 rounded-2xl transition-opacity duration-400"
-                        style={{
-                          background: "rgba(23,127,198,0.45)",
-                          opacity: isHovered ? 1 : 0,
-                        }}
-                      />
-                    )}
                   </div>
                 </div>
                 <div className="px-7 pb-2">
