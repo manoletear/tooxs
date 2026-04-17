@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   Sparkles,
@@ -24,6 +24,45 @@ import {
 } from "lucide-react";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+/* ═══════════ HubSpot Form (Talleres) ═══════════ */
+function TalleresHubSpotForm() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    el.innerHTML =
+      '<div class="hs-form-frame" data-region="na1" data-form-id="ab0e26ae-df87-4d16-bd80-dc741120c8c0" data-portal-id="24156430"></div>';
+    const existing = document.querySelector(
+      'script[src*="hsforms.net/forms/embed/24156430"]',
+    );
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src = "https://js.hsforms.net/forms/embed/24156430.js";
+      script.defer = true;
+      document.head.appendChild(script);
+    } else {
+      // re-trigger HubSpot to render newly inserted frame
+      // @ts-expect-error - HubSpot global
+      window.hbspt?.forms?.create?.({
+        region: "na1",
+        portalId: "24156430",
+        formId: "ab0e26ae-df87-4d16-bd80-dc741120c8c0",
+        target: ".hs-form-frame[data-form-id='ab0e26ae-df87-4d16-bd80-dc741120c8c0']",
+      });
+    }
+  }, []);
+
+  return <div ref={containerRef} />;
+}
 
 export const Route = createFileRoute("/talleres")({
   head: () => ({
