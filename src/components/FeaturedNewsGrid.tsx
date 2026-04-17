@@ -18,17 +18,11 @@ interface FeaturedNewsGridProps {
 }
 
 /**
- * Random selection of N articles from the full pool.
- * Uses a stable seed per mount so the grid doesn't reshuffle on every render.
+ * Stable selection of the first N articles from the pool.
+ * Avoids Math.random() to prevent SSR/CSR hydration mismatches.
  */
-function pickRandom<T>(pool: T[], n: number): T[] {
-  if (pool.length <= n) return [...pool];
-  const arr = [...pool];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr.slice(0, n);
+function pickStable<T>(pool: T[], n: number): T[] {
+  return pool.slice(0, n);
 }
 
 export function FeaturedNewsGrid({
