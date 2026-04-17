@@ -36,7 +36,7 @@ const secondaryArticles = [ARTICLES[12], ARTICLES[13]];
 const miniArticles = [ARTICLES[14], ARTICLES[15], ARTICLES[16], ARTICLES[17]];
 const interviews = [ARTICLES[18], ARTICLES[19], ARTICLES[0], ARTICLES[5]];
 
-// Últimas 4 ediciones publicadas (orden por aparición en el pool — equivalente a más recientes)
+// Newsletter Destacado: últimas 4 ediciones publicadas
 const featuredEditions = ARTICLES.slice(0, 4);
 const featuredHero = featuredEditions[0];
 const featuredRest = featuredEditions.slice(1);
