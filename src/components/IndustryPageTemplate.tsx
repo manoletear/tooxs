@@ -167,6 +167,9 @@ export function IndustryPageTemplate({ data }: { data: IndustryPageData }) {
         </div>
       </section>
 
+      {/* Featured Newsletter (random) */}
+      <FeaturedNewsGrid />
+
       {/* CTA */}
       <section className="bg-navy py-20 md:py-24">
         <div className="max-w-4xl mx-auto px-6 text-center">
