@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, ArrowRight } from "lucide-react";
-import { ARTICLES } from "@/data/articles";
+import { ARTICLES, type Article } from "@/data/articles";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 
 interface FeaturedNewsGridProps {
