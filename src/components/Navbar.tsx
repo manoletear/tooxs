@@ -9,7 +9,7 @@ const navLinks = [
   { to: "/about" as const, label: "Industrias", dropdown: "industries" as const },
   
   { to: "/activar-ia" as const, label: "Activar IA" },
-  { to: "/newsletter" as const, label: "Newsletter" },
+  { to: "/newsletter" as const, label: "Insights 2026" },
 ];
 
 const industries = [
