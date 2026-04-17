@@ -55,7 +55,7 @@ export const Route = createFileRoute("/newsletter/$slug")({
       <div className="text-center">
         <h1 className="text-2xl font-bold mb-4">Artículo no encontrado</h1>
         <Link to="/newsletter" className="text-primary hover:underline">
-          Volver a Newsletter
+          Volver a Insights 2026
         </Link>
       </div>
     </div>

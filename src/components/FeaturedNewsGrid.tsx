@@ -26,7 +26,7 @@ function pickStable<T>(pool: T[], n: number): T[] {
 }
 
 export function FeaturedNewsGrid({
-  eyebrow = "NEWSLETTER",
+  eyebrow = "INSIGHTS 2026",
   title = "Artículos destacados",
   showCta = true,
   count = 3,
@@ -55,7 +55,7 @@ export function FeaturedNewsGrid({
                 to="/newsletter"
                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all"
               >
-                Ver todo el newsletter <ArrowRight size={16} />
+                Ver todo Insights 2026 <ArrowRight size={16} />
               </Link>
             )}
           </div>

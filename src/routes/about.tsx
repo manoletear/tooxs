@@ -102,7 +102,7 @@ function IndustriesPage() {
               to="/newsletter"
               className="inline-flex items-center gap-2 bg-mint text-navy px-8 py-3.5 rounded-lg font-semibold hover:brightness-110 hover:-translate-y-0.5 transition-all duration-300 text-base mt-4"
             >
-              Suscríbete al newsletter <ArrowRight size={18} />
+              Suscríbete a Insights 2026 <ArrowRight size={18} />
             </Link>
           </ScrollReveal>
         </div>

@@ -225,7 +225,7 @@ function NewsletterPage() {
             </h2>
             <p className="text-white/70 text-[0.95rem] mb-6">¿Quieres recibir insights sobre tecnología e IA aplicada a tu industria?</p>
             <a href="#subscribe" className="inline-block bg-white text-navy px-8 py-3 rounded font-semibold text-sm border-2 border-white hover:bg-transparent hover:text-white transition-all duration-200 hover:-translate-y-0.5">
-              Suscríbete al newsletter
+              Suscríbete a Insights 2026
             </a>
           </section>
 
@@ -257,7 +257,7 @@ function NewsletterPage() {
             <div className="max-w-[1200px] mx-auto px-6">
               <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
                 <div>
-                  <p className="text-[0.7rem] font-bold tracking-[0.14em] uppercase text-primary mb-2">Newsletter Destacado</p>
+                  <p className="text-[0.7rem] font-bold tracking-[0.14em] uppercase text-primary mb-2">Insights 2026 Destacado</p>
                   <h2 className="text-2xl md:text-3xl font-extrabold leading-tight">
                     Las últimas ediciones publicadas
                   </h2>
@@ -266,7 +266,7 @@ function NewsletterPage() {
                   href="mailto:contacto@tooxs.com?subject=Suscripci%C3%B3n%20al%20Newsletter%20TOOXS&body=Hola%2C%20quiero%20suscribirme%20al%20newsletter%20de%20TOOXS."
                   className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:brightness-110 transition-all"
                 >
-                  <Mail size={16} /> Suscríbete por email
+                  <Mail size={16} /> Suscríbete a Insights 2026
                 </a>
               </div>
 
