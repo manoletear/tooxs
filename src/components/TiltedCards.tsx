@@ -134,6 +134,7 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
         {cards.map((card, i) => {
           const tilt = baseTilts[i] || baseTilts[0];
           const isHovered = hoveredIndex === i;
+          const isElectric = /ejecutar/i.test(card.title);
 
           return (
             <div
@@ -175,17 +176,25 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
                     <img
                       src={card.image}
                       alt={card.title}
-                      className="w-full h-full object-contain grayscale"
+                      className={`w-full h-full object-contain ${isElectric && isHovered ? "" : "grayscale"}`}
                       loading="lazy"
                       draggable={false}
-                    />
-                    <div
-                      className="absolute inset-0 rounded-2xl transition-opacity duration-400"
                       style={{
-                        background: "rgba(23,127,198,0.45)",
-                        opacity: isHovered ? 1 : 0,
+                        transition: "filter 0.4s ease",
+                        filter: isElectric && isHovered
+                          ? "drop-shadow(0 0 4px #00B7FF) drop-shadow(0 0 10px #00B7FF) drop-shadow(0 0 22px #1E90FF)"
+                          : undefined,
                       }}
                     />
+                    {!isElectric && (
+                      <div
+                        className="absolute inset-0 rounded-2xl transition-opacity duration-400"
+                        style={{
+                          background: "rgba(23,127,198,0.45)",
+                          opacity: isHovered ? 1 : 0,
+                        }}
+                      />
+                    )}
                   </div>
                 </div>
                 <div className="px-7 pb-2">
