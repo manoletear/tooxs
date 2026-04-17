@@ -48,7 +48,7 @@ function AgroPage() {
         capabilities: [
           { title: "Agri Analytics", description: "Tableros y modelos para rendimiento, planificación y control productivo." },
           { title: "Trazabilidad inteligente", description: "Consolidación de datos de origen, proceso, calidad y despacho." },
-          { title: "DocAI para agroindustria", description: "Lectura y consulta de documentación técnica, calidad, procesos y cumplimiento." },
+          { title: "DocuEngine para agroindustria", description: "Lectura y consulta de documentación técnica, calidad, procesos y cumplimiento." },
         ],
         cta: {
           title: "Convierte datos dispersos en decisiones de alto impacto",

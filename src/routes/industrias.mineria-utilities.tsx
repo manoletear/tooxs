@@ -47,7 +47,7 @@ function MineriaPage() {
         benchmark: "Benchmarks de referencia: McKinsey señala que el mantenimiento predictivo suele reducir el downtime entre 30% y 50% y aumentar la vida útil de los equipos entre 20% y 40%.",
         capabilities: [
           { title: "Predictive Maintenance Suite", description: "Predicción de fallas, priorización de intervención y alertas tempranas para equipos críticos." },
-          { title: "DocAI para operación técnica", description: "Consulta inteligente de procedimientos, manuales, informes y documentación operativa." },
+          { title: "DocuEngine para operación técnica", description: "Consulta inteligente de procedimientos, manuales, informes y documentación operativa." },
           { title: "Process Orchestrator", description: "Automatización de alertas, inspecciones, reportes y flujos de aprobación entre terreno, mantenimiento y supervisión." },
         ],
         cta: {
