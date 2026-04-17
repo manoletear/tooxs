@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   Sparkles,
@@ -24,6 +24,45 @@ import {
 } from "lucide-react";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+/* ═══════════ HubSpot Form (Talleres) ═══════════ */
+function TalleresHubSpotForm() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    el.innerHTML =
+      '<div class="hs-form-frame" data-region="na1" data-form-id="ab0e26ae-df87-4d16-bd80-dc741120c8c0" data-portal-id="24156430"></div>';
+    const existing = document.querySelector(
+      'script[src*="hsforms.net/forms/embed/24156430"]',
+    );
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src = "https://js.hsforms.net/forms/embed/24156430.js";
+      script.defer = true;
+      document.head.appendChild(script);
+    } else {
+      // re-trigger HubSpot to render newly inserted frame
+      // @ts-expect-error - HubSpot global
+      window.hbspt?.forms?.create?.({
+        region: "na1",
+        portalId: "24156430",
+        formId: "ab0e26ae-df87-4d16-bd80-dc741120c8c0",
+        target: ".hs-form-frame[data-form-id='ab0e26ae-df87-4d16-bd80-dc741120c8c0']",
+      });
+    }
+  }, []);
+
+  return <div ref={containerRef} />;
+}
 
 export const Route = createFileRoute("/talleres")({
   head: () => ({
@@ -186,6 +225,13 @@ const estilo = [
 
 function TalleresPage() {
   const [showStickyBar, setShowStickyBar] = useState(false);
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  const [quoteContext, setQuoteContext] = useState<string>("Cotización general");
+
+  const openQuote = (context: string) => {
+    setQuoteContext(context);
+    setQuoteOpen(true);
+  };
 
   useEffect(() => {
     const onScroll = () => setShowStickyBar(window.scrollY > 600);
@@ -205,12 +251,13 @@ function TalleresPage() {
           <span className="hidden sm:flex items-center gap-2 text-white text-xs font-semibold pl-3">
             <Sparkles size={14} className="text-mint" /> ¿Listo para tu equipo?
           </span>
-          <Link
-            to="/contact"
+          <button
+            type="button"
+            onClick={() => openQuote("Sticky bar — cotización general")}
             className="inline-flex items-center gap-1.5 bg-mint text-navy px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold hover:brightness-110 transition-all"
           >
             <Calculator size={14} /> Cotizar talleres
-          </Link>
+          </button>
         </div>
       </div>
 
@@ -245,14 +292,15 @@ function TalleresPage() {
 
           {/* HERO CTAs */}
           <div className="flex flex-wrap items-center gap-3 mb-10">
-            <Link
-              to="/contact"
+            <button
+              type="button"
+              onClick={() => openQuote("Hero — cotización para mi equipo")}
               className="group inline-flex items-center gap-2 bg-mint text-navy px-6 py-3.5 rounded-full text-sm font-bold hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-mint/30 transition-all"
             >
               <Calculator size={16} />
               Cotizar para mi equipo
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </button>
             <a
               href="#pricing"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/25 text-white px-6 py-3.5 rounded-full text-sm font-bold hover:bg-white/20 transition-all"
@@ -531,12 +579,13 @@ function TalleresPage() {
                             <p className="text-sm text-white/90 leading-relaxed">{t.entregable}</p>
                           </div>
                         </div>
-                        <Link
-                          to="/contact"
+                        <button
+                          type="button"
+                          onClick={() => openQuote(`Taller ${t.numero} · ${t.titulo} (${t.subtitulo})`)}
                           className="flex-shrink-0 inline-flex items-center justify-center gap-1.5 bg-mint text-navy px-4 py-2.5 rounded-full text-xs font-bold hover:brightness-110 transition-all whitespace-nowrap"
                         >
                           <Calculator size={14} /> Cotizar Taller {t.numero}
-                        </Link>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -622,8 +671,9 @@ function TalleresPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    to="/contact"
+                  <button
+                    type="button"
+                    onClick={() => openQuote(`Plan ${p.range} — ${p.uf} UF/persona/taller`)}
                     className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-bold transition-all ${
                       p.featured
                         ? "bg-mint text-navy hover:brightness-110 shadow-lg shadow-mint/20"
@@ -631,7 +681,7 @@ function TalleresPage() {
                     }`}
                   >
                     <Calculator size={15} /> Cotizar este plan
-                  </Link>
+                  </button>
                 </div>
               </ScrollReveal>
             ))}
@@ -685,8 +735,9 @@ function TalleresPage() {
                 title: "Agenda una llamada",
                 desc: "30 minutos para entender tu caso",
                 cta: "Reservar slot",
-                href: "/contact",
+                href: "#",
                 external: false,
+                modal: true,
                 accent: "bg-navy",
               },
             ].map((c) => {
@@ -711,6 +762,18 @@ function TalleresPage() {
                   </span>
                 </div>
               );
+              if (c.modal) {
+                return (
+                  <button
+                    key={c.title}
+                    type="button"
+                    onClick={() => openQuote("Contacto directo — Agenda una llamada")}
+                    className="text-left"
+                  >
+                    {inner}
+                  </button>
+                );
+              }
               return c.external ? (
                 <a key={c.title} href={c.href} target="_blank" rel="noopener noreferrer">
                   {inner}
@@ -745,12 +808,13 @@ function TalleresPage() {
                   personalizada y recibe propuesta en menos de 48 horas.
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-3">
-                  <Link
-                    to="/contact"
+                  <button
+                    type="button"
+                    onClick={() => openQuote("CTA final — Solicitar cotización")}
                     className="inline-flex items-center gap-2 bg-mint text-navy px-8 py-4 rounded-full text-sm font-bold hover:-translate-y-0.5 transition-transform shadow-xl shadow-black/20"
                   >
                     <Calculator size={16} /> Solicitar cotización
-                  </Link>
+                  </button>
                   <a
                     href="https://wa.me/56912345678?text=Hola%20TOOXS%2C%20quiero%20cotizar%20los%20Talleres%20IA"
                     target="_blank"
@@ -765,6 +829,29 @@ function TalleresPage() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ══════ MODAL COTIZACIÓN ══════ */}
+      <Dialog open={quoteOpen} onOpenChange={setQuoteOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle
+              className="text-2xl md:text-3xl font-black text-foreground"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Cotiza los <span className="text-primary">Talleres TOOXS</span>
+            </DialogTitle>
+            <DialogDescription className="text-sm text-muted-foreground">
+              Déjanos tus datos y te contactamos en menos de 48 horas con una propuesta personalizada.
+              <span className="block mt-2 text-xs font-semibold text-primary">
+                Contexto: {quoteContext}
+              </span>
+            </DialogDescription>
+          </DialogHeader>
+          <div className="mt-2">
+            {quoteOpen && <TalleresHubSpotForm key={quoteContext} />}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
