@@ -106,7 +106,7 @@ function HeroStrategic() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-20">
           {/* Left: Heading */}
           <div className="lg:max-w-[58%]">
-            <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.08] tracking-tight transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ fontFamily: "var(--font-heading)" }}>
+            <h1 className={`text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-[1.08] tracking-tight transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ fontFamily: "var(--font-heading)" }}>
               No es la tecnología.{" "}
               <br className="hidden sm:block" />
               Es cómo{" "}
