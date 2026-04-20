@@ -446,7 +446,8 @@ function ActivarIAPage() {
                       </div>
                       <p className="text-sm text-white/70 leading-relaxed mb-6 flex-1">{s.desc}</p>
                       <Link
-                        to={s.to}
+                        to="/services/$serviceSlug"
+                        params={{ serviceSlug: s.slug }}
                         className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-mint border border-mint/40 hover:bg-mint hover:text-navy rounded-full px-5 py-2.5 transition-all self-start"
                       >
                         {s.cta} <ArrowRight size={14} />
