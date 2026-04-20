@@ -109,7 +109,7 @@ const formato = [
   },
   {
     icon: Users,
-    title: "Grupos hasta 18 personas",
+    title: "Grupos hasta 8 personas",
     desc: "Tamaño óptimo para discusión, ejercicios y aplicación inmediata a casos del propio equipo.",
   },
   {
