@@ -610,19 +610,47 @@ function TalleresPage() {
                 className="text-4xl md:text-5xl font-black text-foreground leading-[1.05] mb-4"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Valores por <span className="text-primary">tamaño de equipo</span>
+                Valores por <span className="text-primary">taller y programa</span>
               </h2>
               <p className="text-muted-foreground text-base md:text-lg">
-                Valor por persona y por taller.
+                Valor por taller, por grupo (no por persona).
               </p>
             </div>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
             {[
-              { range: "1 – 5 personas", uf: "14", note: "Equipos pequeños / piloto" },
-              { range: "6 – 18 personas", uf: "17", note: "Más elegido", featured: true },
-              { range: "+18 personas", uf: "21", note: "Equipos extendidos" },
+              {
+                range: "Taller Individual",
+                uf: "25",
+                note: "1,5 horas",
+                features: [
+                  "1 taller in-house de 1,5 horas",
+                  "Material y entregable incluidos",
+                  "Casos personalizados a tu rubro",
+                ],
+              },
+              {
+                range: "Programa Completo",
+                uf: "65",
+                note: "3 talleres / 4,5 horas totales",
+                featured: true,
+                features: [
+                  "3 talleres in-house (4,5 horas totales)",
+                  "Material y entregables incluidos",
+                  "Casos personalizados a tu rubro",
+                ],
+              },
+              {
+                range: "Programa + Consultoría",
+                uf: "90",
+                note: "3 talleres + 2 sesiones de seguimiento",
+                features: [
+                  "3 talleres in-house (4,5 horas)",
+                  "2 sesiones de consultoría de seguimiento",
+                  "Acompañamiento personalizado",
+                ],
+              },
             ].map((p, i) => (
               <ScrollReveal key={p.range} delay={i * 100}>
                 <div
@@ -651,14 +679,10 @@ function TalleresPage() {
                     </span>
                   </div>
                   <p className={`text-sm mb-6 ${p.featured ? "text-white/70" : "text-muted-foreground"}`}>
-                    por persona / taller
+                    {p.note}
                   </p>
                   <ul className="space-y-2 mb-7 flex-1">
-                    {[
-                      "90 minutos in-house",
-                      "Material y entregable incluidos",
-                      "Casos personalizados a tu rubro",
-                    ].map((f) => (
+                    {p.features.map((f) => (
                       <li
                         key={f}
                         className={`flex items-start gap-2 text-sm ${
@@ -675,7 +699,7 @@ function TalleresPage() {
                   </ul>
                   <button
                     type="button"
-                    onClick={() => openQuote(`Plan ${p.range} — ${p.uf} UF/persona/taller`)}
+                    onClick={() => openQuote(`Plan ${p.range} — ${p.uf} UF`)}
                     className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-bold transition-all ${
                       p.featured
                         ? "bg-mint text-navy hover:brightness-110 shadow-lg shadow-mint/20"
@@ -690,7 +714,7 @@ function TalleresPage() {
           </div>
 
           <p className="text-center text-xs text-muted-foreground mt-8">
-            Descuento al contratar los 3 talleres como programa completo. Consulta condiciones.
+            Valores por taller/programa, no por persona. Consulta condiciones.
           </p>
         </div>
       </section>
