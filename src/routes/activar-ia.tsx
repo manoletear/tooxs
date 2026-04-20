@@ -123,7 +123,7 @@ const solutions = [
     title: "IA Generativa",
     desc: "Mejoramos engagement y productividad con copilotos, asistentes y generación de contenido conectados a tus datos reales.",
     cta: "Ver capacidades",
-    to: "/services/ia-aplicada" as const,
+    slug: "ia-aplicada",
   },
   {
     icon: Bot,
@@ -131,7 +131,7 @@ const solutions = [
     title: "AI Agents",
     desc: "Agentes que automatizan procesos completos, ejecutan acciones y toman decisiones operacionales con contexto de negocio.",
     cta: "Ver capacidades",
-    to: "/services/automatizacion" as const,
+    slug: "automatizacion",
   },
   {
     icon: Activity,
@@ -139,7 +139,7 @@ const solutions = [
     title: "Optimización & Eficiencia",
     desc: "Modelos que reducen consumo, costos y desperdicio en cadenas industriales, energéticas y logísticas.",
     cta: "Ver capacidades",
-    to: "/services/optimizacion-operacional" as const,
+    slug: "optimizacion-operacional",
   },
 ];
 
@@ -446,7 +446,8 @@ function ActivarIAPage() {
                       </div>
                       <p className="text-sm text-white/70 leading-relaxed mb-6 flex-1">{s.desc}</p>
                       <Link
-                        to={s.to}
+                        to="/services/$serviceSlug"
+                        params={{ serviceSlug: s.slug }}
                         className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-mint border border-mint/40 hover:bg-mint hover:text-navy rounded-full px-5 py-2.5 transition-all self-start"
                       >
                         {s.cta} <ArrowRight size={14} />
