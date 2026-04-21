@@ -621,7 +621,7 @@ function TalleresPage() {
           <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
             {[
               {
-                range: "Taller Individual",
+                range: "Taller Tooxs",
                 uf: "25",
                 note: "1,5 horas",
                 features: [
