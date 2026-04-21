@@ -625,6 +625,7 @@ function TalleresPage() {
                 uf: "25",
                 note: "1,5 horas",
                 features: [
+                  "Taller grupal 1-5 personas",
                   "1 taller in-house de 1,5 horas",
                   "Material y entregable incluidos",
                   "Casos personalizados a tu rubro",
