@@ -210,3 +210,55 @@
 .animate-line-grow {
   animation: line-grow 1s ease-out forwards;
 }
+
+/* ============================================================
+   Visual lightening pass — sutil
+   - Reduce un escalón los headings en breakpoints md+
+   - Aumenta ~20% el padding vertical de secciones
+   - Mejora line-height de párrafos largos
+   Excepciones:
+   - .keep-large  → preserva tamaño original (hero principal Home)
+   - elementos con font-black (métricas/números) no se tocan
+   ============================================================ */
+@layer utilities {
+  /* Headings: bajar un escalón en md+ sin afectar mobile */
+  @media (min-width: 768px) {
+    h1.text-6xl:not(.keep-large),
+    h2.text-6xl:not(.keep-large) {
+      font-size: 3rem; /* text-5xl */
+      line-height: 1.1;
+    }
+    h1.md\:text-6xl:not(.keep-large),
+    h2.md\:text-6xl:not(.keep-large),
+    .md\:text-6xl:not(.keep-large):not(.font-black) {
+      font-size: 3rem;
+      line-height: 1.1;
+    }
+    .md\:text-5xl:not(.keep-large):not(.font-black) {
+      font-size: 2.25rem; /* text-4xl */
+      line-height: 1.15;
+    }
+    .lg\:text-6xl:not(.keep-large):not(.font-black) {
+      font-size: 3rem;
+      line-height: 1.1;
+    }
+    .lg\:text-7xl:not(.keep-large):not(.font-black) {
+      font-size: 3.75rem; /* text-6xl */
+      line-height: 1.05;
+    }
+  }
+
+  /* Section breathing room: +20% vertical padding en md+ */
+  @media (min-width: 768px) {
+    section.py-16:not(.keep-tight) { padding-top: 5rem; padding-bottom: 5rem; }
+    section.py-20:not(.keep-tight) { padding-top: 6rem; padding-bottom: 6rem; }
+    section.md\:py-20:not(.keep-tight) { padding-top: 6rem; padding-bottom: 6rem; }
+    section.md\:py-24:not(.keep-tight) { padding-top: 7rem; padding-bottom: 7rem; }
+    section.md\:py-28:not(.keep-tight) { padding-top: 8rem; padding-bottom: 8rem; }
+  }
+
+  /* Párrafos largos: line-height más generoso */
+  p.text-lg, p.text-xl, p.md\:text-lg, p.md\:text-xl {
+    line-height: 1.7;
+  }
+}
