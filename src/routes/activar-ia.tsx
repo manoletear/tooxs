@@ -171,16 +171,20 @@ const process = [
 
 const testimonials = [
   {
-    quote: "Equipo muy sólido con conocimiento serio en data science, algoritmos y escalabilidad de modelos. Operan con un alto nivel de mejores prácticas.",
-    role: "CTO, empresa de Retail",
+    quote: "Tooxs fortaleció nuestra gestión documental en garantías y mantenimiento, dando trazabilidad, reduciendo tareas manuales y logrando un proceso más ágil y controlado.",
+    role: "Jean Vogth · Gerente de Desarrollo Corporativo, Trek Rental",
   },
   {
-    quote: "Profesionalismo impecable y conocimiento de mercado. Un partner ideal para proyectos estratégicos.",
-    role: "Data Insight Lead, Travel & Tourism",
+    quote: "El motor de gestión documental inteligente nos permitió ingresar información a SAP de forma más ágil, ordenada y trazable, reduciendo revisión manual.",
+    role: "Carlos Lillo · Jefe de Proyectos, Kaufmann",
   },
   {
-    quote: "Servicio de muy alto valor basado en calidad y conocimiento. Sus consultores conocen cloud en profundidad.",
-    role: "Global Head of Data, Banca",
+    quote: "Tooxs mejoró la trazabilidad y el control operativo en nuestros procesos administrativos y comerciales, ordenando información e interpretando documentos con mayor confiabilidad.",
+    role: "Angelo Mosso · Gerente General, GPS7000",
+  },
+  {
+    quote: "Su enfoque práctico y experiencia en soluciones Microsoft optimizó nuestros procesos industriales, con cercanía, flexibilidad y resultados consistentes en cada paso.",
+    role: "Pablo Sepúlveda · Jefe de Modernización de Procesos Industriales, Empresas Volcan",
   },
 ];
 
@@ -416,7 +420,7 @@ function ActivarIAPage() {
               </p>
             </div>
           </ScrollReveal>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {solutions.map((s, i) => {
               const Icon = s.icon;
               const heroImg = [neuralSphere, circuitFlow, ecoBulb][i];
