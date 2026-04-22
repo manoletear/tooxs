@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight, Search, Lightbulb, Rocket, Car, Star, Building2, GraduationCap, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
@@ -73,7 +73,6 @@ function Counter({ end, suffix = "", prefix = "" }: { end: number; suffix?: stri
 function HeroStrategic() {
   const [visible, setVisible] = useState(false);
   const { openMeeting } = useMeeting();
-  const navigate = useNavigate();
   useEffect(() => { const t = setTimeout(() => setVisible(true), 200); return () => clearTimeout(t); }, []);
 
   const scrollToCapabilities = () => {
@@ -136,15 +135,15 @@ function HeroStrategic() {
                     <ArrowRight size={11} />
                   </span>
                 </button>
-                <button
-                  onClick={() => navigate({ to: "/talleres" })}
+                <Link
+                  to="/talleres"
                   className="inline-flex items-center gap-2 bg-mint text-navy px-5 py-2.5 rounded-full font-semibold hover:bg-mint/90 transition-all duration-300 text-xs group shadow-lg"
                 >
                   Taller
                   <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-navy text-white group-hover:scale-110 transition-transform">
                     <ArrowRight size={11} />
                   </span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
