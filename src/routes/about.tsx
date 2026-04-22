@@ -3,6 +3,7 @@ import { ChevronRight, ArrowRight, Mail } from "lucide-react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 import { PaperShaderBackground } from "@/components/ui/paper-shader-background";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
+import { useNewsletter } from "@/components/NewsletterDialog";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -98,12 +99,7 @@ function IndustriesPage() {
             >
               ¿Quieres recibir insights sobre tecnología e IA aplicada a tu industria?
             </h2>
-            <Link
-              to="/newsletter"
-              className="inline-flex items-center gap-2 bg-mint text-navy px-8 py-3.5 rounded-lg font-semibold hover:brightness-110 hover:-translate-y-0.5 transition-all duration-300 text-base mt-4"
-            >
-              Suscríbete a Insights 2026 <ArrowRight size={18} />
-            </Link>
+            <SubscribeCTA />
           </ScrollReveal>
         </div>
       </section>
@@ -126,5 +122,18 @@ function IndustriesPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+function SubscribeCTA() {
+  const { openNewsletter } = useNewsletter();
+  return (
+    <button
+      type="button"
+      onClick={() => openNewsletter("About — CTA Newsletter")}
+      className="inline-flex items-center gap-2 bg-mint text-navy px-8 py-3.5 rounded-lg font-semibold hover:brightness-110 hover:-translate-y-0.5 transition-all duration-300 text-base mt-4"
+    >
+      Suscríbete a Insights 2026 <ArrowRight size={18} />
+    </button>
   );
 }
