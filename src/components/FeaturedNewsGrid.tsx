@@ -78,43 +78,41 @@ export function FeaturedNewsGrid({
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
 
-                {/* Permanent gradient for legibility */}
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent"
-                />
-
-                {/* Front content (label + title) */}
-                <div className="absolute inset-x-0 bottom-0 p-6 z-10 transition-transform duration-500 ease-out group-hover:-translate-y-2">
-                  <span className="inline-block text-[11px] font-semibold tracking-widest uppercase text-white/80 mb-2">
+                {/* Top-left category label (always visible, like Accenture) */}
+                <div className="absolute top-5 left-5 right-5 z-20">
+                  <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-white">
                     {item.category}
                   </span>
+                </div>
+
+                {/* Default state: title at top under category — fades out on hover */}
+                <div className="absolute top-14 left-5 right-5 z-10 transition-opacity duration-300 ease-out group-hover:opacity-0">
                   <h3
-                    className="font-bold text-white text-xl leading-snug"
+                    className="font-bold text-white text-xl md:text-2xl leading-tight"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {item.title}
                   </h3>
                 </div>
 
-                {/* Sliding back content (excerpt + CTA) */}
+                {/* Hover overlay: white panel sliding up with summary + CTA */}
                 <div
-                  className="absolute inset-x-0 bottom-0 z-20 bg-navy/95 backdrop-blur-sm p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
+                  className="absolute inset-x-0 bottom-0 z-30 bg-white p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
                 >
-                  <span className="inline-block text-[11px] font-semibold tracking-widest uppercase text-primary mb-2">
-                    {item.category}
-                  </span>
+                  <p className="text-xs text-muted-foreground mb-2">
+                    {item.date} · {item.readTime}
+                  </p>
                   <h3
-                    className="font-bold text-white text-xl leading-snug mb-3"
+                    className="font-bold text-foreground text-base leading-snug mb-3 line-clamp-2"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {item.title}
                   </h3>
-                  <p className="text-sm text-white/75 leading-relaxed line-clamp-3 mb-4">
+                  <p className="text-sm text-foreground/70 leading-relaxed line-clamp-3 mb-4">
                     {item.excerpt}
                   </p>
-                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-white border-b border-white/40 pb-0.5 group-hover:gap-2.5 transition-all">
-                    Ampliar <ChevronRight size={16} />
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-2.5 transition-all">
+                    Leer más <ArrowRight size={16} />
                   </span>
                 </div>
               </Link>
