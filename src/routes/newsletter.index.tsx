@@ -5,6 +5,7 @@ import { AnimatedShaderBackground } from "@/components/ui/animated-shader-hero";
 import { PrismBackground } from "@/components/PrismBackground";
 import { NewsletterFilters, type NewsletterFilterState } from "@/components/NewsletterFilters";
 import { ARTICLES, CATEGORY_GROUPS, getCategoryGroup, getIndustry, getContentType } from "@/data/articles";
+import { useNewsletter } from "@/components/NewsletterDialog";
 
 import quarterlyCover from "@/assets/newsletter/quarterly-cover.jpg";
 import quarterlyArchive from "@/assets/newsletter/quarterly-archive.jpg";
@@ -50,6 +51,7 @@ const quarterlyArticles = [
 /* ═══════════ PAGE ═══════════ */
 
 function NewsletterPage() {
+  const { openNewsletter } = useNewsletter();
   const [filters, setFilters] = useState<NewsletterFilterState>({
     themes: [],
     industries: [],
@@ -224,9 +226,13 @@ function NewsletterPage() {
               Participa en nuestra comunidad
             </h2>
             <p className="text-white/70 text-[0.95rem] mb-6">¿Quieres recibir insights sobre tecnología e IA aplicada a tu industria?</p>
-            <a href="#subscribe" className="inline-block bg-white text-navy px-8 py-3 rounded font-semibold text-sm border-2 border-white hover:bg-transparent hover:text-white transition-all duration-200 hover:-translate-y-0.5">
+            <button
+              type="button"
+              onClick={() => openNewsletter("Newsletter — Banner comunidad")}
+              className="inline-block bg-white text-navy px-8 py-3 rounded font-semibold text-sm border-2 border-white hover:bg-transparent hover:text-white transition-all duration-200 hover:-translate-y-0.5"
+            >
               Suscríbete a Insights 2026
-            </a>
+            </button>
           </section>
 
           {/* ══════ INTERVIEWS ══════ */}
@@ -262,12 +268,13 @@ function NewsletterPage() {
                     Las últimas ediciones publicadas
                   </h2>
                 </div>
-                <a
-                  href="mailto:contacto@tooxs.com?subject=Suscripci%C3%B3n%20al%20Newsletter%20Tooxs&body=Hola%2C%20quiero%20suscribirme%20al%20newsletter%20de%20Tooxs."
+                <button
+                  type="button"
+                  onClick={() => openNewsletter("Newsletter — Sección Destacado")}
                   className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:brightness-110 transition-all"
                 >
                   <Mail size={16} /> Suscríbete a Insights 2026
-                </a>
+                </button>
               </div>
 
               {/* Hero edition (más reciente) */}
