@@ -288,7 +288,7 @@ function TalleresPage() {
             <span className="text-mint">IA interior</span>
           </h1>
           <p className="text-white/85 text-base md:text-lg max-w-[680px] leading-relaxed mb-7">
-            Este es un espacio para entender qué significa realmente reinventarse y cómo empezar a migrar desde un modelo tradicional a uno impulsado por inteligencia artificial.
+            Formación práctica en Inteligencia Artificial aplicada a las operaciones diarias de tu equipo. Este es un espacio para entender qué significa realmente reinventarse y cómo empezar a migrar desde un modelo tradicional a uno impulsado por inteligencia artificial.
           </p>
 
           {/* HERO CTAs */}
