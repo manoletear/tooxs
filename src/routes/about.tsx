@@ -99,7 +99,7 @@ function IndustriesPage() {
             >
               ¿Quieres recibir insights sobre tecnología e IA aplicada a tu industria?
             </h2>
-            <SubscribeButton context="About — CTA Newsletter" />
+            <SubscribeCTA />
           </ScrollReveal>
         </div>
       </section>
