@@ -67,26 +67,56 @@ export function FeaturedNewsGrid({
               <Link
                 to="/newsletter/$slug"
                 params={{ slug: item.slug }}
-                className="group block"
+                aria-label={`Ampliar: ${item.title}`}
+                className="group relative block rounded-xl overflow-hidden bg-navy aspect-[5/7] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
-                <div className="rounded-xl overflow-hidden mb-4 aspect-[5/3] bg-muted">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                {/* Background image */}
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+
+                {/* Permanent gradient for legibility */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent"
+                />
+
+                {/* Front content (label + title) */}
+                <div className="absolute inset-x-0 bottom-0 p-6 z-10 transition-transform duration-500 ease-out group-hover:-translate-y-2">
+                  <span className="inline-block text-[11px] font-semibold tracking-widest uppercase text-white/80 mb-2">
+                    {item.category}
+                  </span>
+                  <h3
+                    className="font-bold text-white text-xl leading-snug"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {item.title}
+                  </h3>
                 </div>
-                <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-                  {item.category}
-                </span>
-                <h3 className="font-bold text-navy text-lg flex items-center gap-1 mb-2 mt-1 group-hover:text-primary transition-colors">
-                  {item.title}
-                  <ChevronRight size={16} className="flex-shrink-0" />
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                  {item.excerpt}
-                </p>
+
+                {/* Sliding back content (excerpt + CTA) */}
+                <div
+                  className="absolute inset-x-0 bottom-0 z-20 bg-navy/95 backdrop-blur-sm p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
+                >
+                  <span className="inline-block text-[11px] font-semibold tracking-widest uppercase text-primary mb-2">
+                    {item.category}
+                  </span>
+                  <h3
+                    className="font-bold text-white text-xl leading-snug mb-3"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-white/75 leading-relaxed line-clamp-3 mb-4">
+                    {item.excerpt}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-white border-b border-white/40 pb-0.5 group-hover:gap-2.5 transition-all">
+                    Ampliar <ChevronRight size={16} />
+                  </span>
+                </div>
               </Link>
             </ScrollReveal>
           ))}
