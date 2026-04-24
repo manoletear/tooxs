@@ -117,11 +117,14 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
                   src={card.image}
                   alt={card.title}
                   className="w-full h-full object-cover"
-                  style={{ filter: isActive ? "grayscale(60%)" : "grayscale(100%) brightness(0.8)" }}
                   draggable={false}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                {/* Subtle metallic sheen — no dark overlay */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 mix-blend-overlay" />
                 <div className={`absolute bottom-0 left-0 right-0 ${isActive ? "p-6" : "p-4"}`}>
+                  {/* Local gradient behind text for legibility, only on the text band */}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/70 via-black/30 to-transparent -z-0" />
+                  <div className="relative">
                   <div className="flex items-start gap-3 mb-1">
                     <div className={`shrink-0 ${isActive ? "w-14 h-14" : "w-11 h-11"} rounded-full bg-mint/20 backdrop-blur-sm flex items-center justify-center`}>
                       <card.icon className="text-mint" size={isActive ? 28 : 22} />
@@ -134,6 +137,7 @@ export default function IndustryCarousel({ cards, className = "" }: IndustryCaro
                         {card.subtitle}
                       </p>
                     </div>
+                  </div>
                   </div>
                 </div>
               </div>
