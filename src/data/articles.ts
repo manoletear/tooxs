@@ -51,6 +51,10 @@ import articleEmpleadosValor from "@/assets/newsletter/article-empleados-valor.j
 import articleCadenaSostenible from "@/assets/newsletter/article-cadena-sostenible.jpg";
 import article4irSostenibilidad from "@/assets/newsletter/article-4ir-sostenibilidad.jpg";
 import articleGeopoliticaCorporativa from "@/assets/newsletter/article-geopolitica-corporativa.jpg";
+import articleImplementacionImpacto from "@/assets/newsletter/article-implementacion-impacto.jpg";
+import articleCompetitividadEeuu from "@/assets/newsletter/article-competitividad-eeuu.jpg";
+import articleRewiredLibro from "@/assets/newsletter/article-rewired-libro.jpg";
+import articlePersonalizarSalud from "@/assets/newsletter/article-personalizar-salud.jpg";
 
 export interface Article {
   id: number;
@@ -339,7 +343,7 @@ En Tooxs diseñamos arquitecturas de IA que permiten a nuestros clientes usar lo
     readTime: "6 min",
     title: "De implementación a impacto: qué hacen bien las organizaciones que realmente ganan con IA",
     excerpt: "El caso Reckitt y otras empresas líderes muestra que el gap entre 'tener IA' y 'generar valor con IA' se cierra con cambios organizacionales, no solo tecnológicos.",
-    image: articleDigitalTransform,
+    image: articleImplementacionImpacto,
     content: `Hay un patrón que vemos una y otra vez: empresas que invierten en IA, hacen pilotos exitosos... y nunca escalan. El POC funciona, el board se entusiasma, pero 12 meses después el impacto real en el P&L es marginal. ¿Qué está pasando?
 
 ## El caso Reckitt: de pilot hell a revenue growth
@@ -401,7 +405,7 @@ Esto es exactamente nuestra experiencia con clientes. Cuando implementamos agent
     readTime: "5 min",
     title: "¿Puede EEUU mantener su ventaja competitiva? Lo que AI, talento y deuda revelan sobre el futuro",
     excerpt: "Un nuevo estudio examina cómo la convergencia de IA, talento, infraestructura y deuda está reconfigurando la competitividad estadounidense — con lecciones para LATAM.",
-    image: podcastInterview,
+    image: articleCompetitividadEeuu,
     content: `El McKinsey Global Institute acaba de publicar un análisis profundo sobre la competitividad de Estados Unidos. La pregunta central es directa: ¿puede EEUU mantener la ventaja que ha tenido en las últimas décadas?
 
 ## Las cuatro fuerzas en juego
@@ -461,7 +465,7 @@ Ya estamos construyendo agentes de este tipo para clientes industriales: agentes
     readTime: "4 min",
     title: "Rewired 2da edición: el playbook actualizado para ganar con tecnología e IA",
     excerpt: "McKinsey actualiza su libro más influyente sobre transformación digital con nuevos capítulos sobre IA generativa, agentes y lo que hacen diferente las empresas que realmente transforman.",
-    image: articleAutomation,
+    image: articleRewiredLibro,
     content: `"Rewired" de McKinsey se convirtió en el libro de referencia para líderes que querían entender cómo las empresas realmente se transforman con tecnología. La segunda edición llega en un momento perfecto.
 
 ## Qué hay de nuevo
@@ -515,7 +519,7 @@ Aunque no operamos directamente en healthcare, el patrón es universal: la digit
     readTime: "3 min",
     title: "Personalizar la atención para restaurar la confianza del consumidor",
     excerpt: "La atención de salud es profundamente personal — pero para muchos consumidores se siente distante, costosa y confusa, erosionando una confianza ya frágil.",
-    image: articleHealthcareAi,
+    image: articlePersonalizarSalud,
     content: `Los datos semanales revelan una tensión creciente en healthcare: los consumidores quieren atención personalizada pero reciben experiencias genéricas y frustrantes.
 
 ## Los números que importan
