@@ -553,38 +553,38 @@ function CapabilityGraph() {
             {/* glow background */}
             <div className="absolute -inset-1 bg-gradient-to-r from-mint/40 via-mint/10 to-mint/40 rounded-3xl blur-2xl opacity-60" aria-hidden="true" />
 
-            <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-sm border border-mint/30 rounded-3xl p-8 md:p-12 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-sm border border-mint/30 rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 overflow-hidden">
               {/* decorative corner sparkle */}
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-mint/20 rounded-full blur-3xl" aria-hidden="true" />
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-mint/10 rounded-full blur-3xl" aria-hidden="true" />
 
-              <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
+              <div className="relative grid md:grid-cols-[1fr_auto] gap-6 md:gap-8 items-center">
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-mint/15 border border-mint/30 text-mint text-[0.75rem] font-bold tracking-[0.15em] mb-4">
                     <GraduationCap size={14} />
                     Formación Tooxs
                   </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-[1.15] mb-3">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white leading-[1.15] mb-3">
                     ¿Quieres que tu equipo<br className="hidden md:block" />
                     <span className="text-mint">desbloquee su IA interior?</span>
                   </h3>
-                  <p className="text-white/75 text-sm md:text-base leading-relaxed max-w-xl">
+                  <p className="text-white/75 text-[0.85rem] sm:text-sm md:text-base leading-relaxed max-w-xl">
                     Tres talleres prácticos de 90 minutos para que tu equipo aprenda a{" "}
                     <span className="text-white font-semibold">detectar, diseñar y activar</span>{" "}
                     soluciones reales de IA en su propia operación.
                   </p>
                 </div>
 
-                <div className="flex md:flex-col gap-3 md:items-end">
+                <div className="flex flex-col md:flex-col gap-3 md:items-end w-full md:w-auto">
                   <Link
                     to="/talleres"
-                    className="group inline-flex items-center gap-2 bg-mint text-navy px-6 py-3.5 rounded-full text-sm font-bold hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-mint/30 transition-all duration-300 whitespace-nowrap"
+                    className="group inline-flex items-center justify-center gap-2 bg-mint text-navy px-5 sm:px-6 py-3 sm:py-3.5 rounded-full text-[0.8rem] sm:text-sm font-bold hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-mint/30 transition-all duration-300 text-center w-full md:w-auto"
                   >
-                    <Sparkles size={16} className="group-hover:rotate-12 transition-transform" />
-                    Conoce los Talleres Tooxs
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    <Sparkles size={16} className="shrink-0 group-hover:rotate-12 transition-transform" />
+                    <span>Conoce los Talleres Tooxs</span>
+                    <ArrowRight size={16} className="shrink-0 group-hover:translate-x-1 transition-transform" />
                   </Link>
-                  <span className="text-[0.7rem] text-white/50 tracking-wider uppercase font-semibold md:text-right">
+                  <span className="text-[0.65rem] sm:text-[0.7rem] text-white/50 tracking-wider uppercase font-semibold text-center md:text-right">
                     In-house · 90 min · Práctico
                   </span>
                 </div>
