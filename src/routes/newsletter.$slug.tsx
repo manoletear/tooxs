@@ -3,6 +3,49 @@ import { ArrowLeft, Clock, ChevronRight, Linkedin, Instagram, Share2 } from "luc
 import { getArticleBySlug, getRelatedArticles } from "@/data/articles";
 import { PrismBackground } from "@/components/PrismBackground";
 import { toast } from "sonner";
+import { useEffect, useState } from "react";
+
+function ArticleRating({ slug }: { slug: string }) {
+  const storageKey = `tooxs:article-rating:${slug}`;
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const saved = window.localStorage.getItem(storageKey);
+    if (saved) setRating(Number(saved) || 0);
+  }, [storageKey]);
+
+  const handleRate = (n: number) => {
+    setRating(n);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(storageKey, String(n));
+    }
+    toast.success(`¡Gracias por tu valoración de ${n} estrella${n > 1 ? "s" : ""}!`);
+  };
+
+  const active = hover || rating;
+
+  return (
+    <div className="flex gap-1" onMouseLeave={() => setHover(0)}>
+      {[1, 2, 3, 4, 5].map((n) => (
+        <button
+          key={n}
+          type="button"
+          onClick={() => handleRate(n)}
+          onMouseEnter={() => setHover(n)}
+          aria-label={`Valorar con ${n} ${n === 1 ? "estrella" : "estrellas"}`}
+          aria-pressed={rating === n}
+          className={`text-xl leading-none transition-colors cursor-pointer ${
+            n <= active ? "text-primary" : "text-muted-foreground/40 hover:text-primary/70"
+          }`}
+        >
+          ★
+        </button>
+      ))}
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/newsletter/$slug")({
   head: ({ params }) => {
@@ -226,11 +269,7 @@ function ArticlePage() {
             <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-3">
               ¿Te resultó útil este artículo?
             </p>
-            <div className="flex gap-1">
-              {[1, 2, 3, 4, 5].map((n) => (
-                <button key={n} className="text-muted-foreground/40 hover:text-primary transition-colors text-xl">★</button>
-              ))}
-            </div>
+            <ArticleRating slug={slug} />
           </div>
 
           {/* Related */}
