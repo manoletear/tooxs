@@ -312,13 +312,13 @@ function TrustBarDynamic() {
   ));
 
   return (
-    <section className="py-16 bg-section-bg">
+    <section className="pt-12 pb-12 md:pt-14 md:pb-14 bg-section-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="text-center mb-10">
+        <ScrollReveal className="text-center mb-6 md:mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-navy">Empresas que confían en Tooxs</h2>
         </ScrollReveal>
         {/* Logo marquee - draggable */}
-        <DraggableMarquee speed={30} className="mb-12">
+        <DraggableMarquee speed={30} className="mb-8 md:mb-10">
           {trustItems}
         </DraggableMarquee>
         {/* Metrics + Map */}
@@ -364,8 +364,8 @@ function TrustBarDynamic() {
         </div>
 
         {/* Partners marquee - draggable */}
-        <div className="mt-16">
-          <DraggableMarquee reverse speed={25} className="mb-6">
+        <div className="mt-10 md:mt-12">
+          <DraggableMarquee reverse speed={25} className="mb-4 md:mb-5">
             {partnerItems}
           </DraggableMarquee>
           <ScrollReveal className="text-center">
