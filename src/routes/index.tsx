@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Tooxs — Inteligencia Aplicada para Organizaciones" },
-      { name: "description", content: "Tooxs diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa. IA, RPA y analítica para empresas en Chile y Latinoamérica." },
+      { name: "description", content: "Tooxs diseña e implementa inteligencia aplicada para optimizar flujos y procesos de negocios en decisiones, eficiencia y ventaja operativa. IA, RPA y analítica para empresas en Chile y Latinoamérica." },
       { property: "og:title", content: "Tooxs — Inteligencia Aplicada para Organizaciones" },
       { property: "og:description", content: "Automatización inteligente, RPA, IA y analítica avanzada para empresas industriales en Chile y Latinoamérica." },
       { property: "og:url", content: "https://www.tooxs.com" },
@@ -119,7 +119,7 @@ function HeroStrategic() {
           {/* Right: Subtitle + CTA */}
           <div className={`lg:max-w-[32%] transition-all duration-1000 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
             <p className="text-sm md:text-base text-white/80 leading-relaxed mb-8">
-              Tooxs diseña e implementa inteligencia aplicada para transformar procesos complejos en decisiones, eficiencia y ventaja operativa.
+              Tooxs diseña e implementa inteligencia aplicada para optimizar flujos y procesos de negocios en decisiones, eficiencia y ventaja operativa.
             </p>
             <div className="flex flex-col gap-3">
               <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70">
