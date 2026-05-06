@@ -232,7 +232,7 @@ function ActivarIAPage() {
           <p className="text-white/85 text-sm sm:text-base md:text-[1.05rem] lg:text-[1.1rem] max-w-[640px] leading-relaxed mb-5 sm:mb-7">
             Transformamos datos complejos en decisiones accionables que aceleran el crecimiento, reducen costos operacionales y mitigan riesgos. De la estrategia a la producción.
           </p>
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 pr-14 sm:pr-0">
             <button
               type="button"
               onClick={() => openMeeting("Activar IA — Hero")}
