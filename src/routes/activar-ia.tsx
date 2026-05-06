@@ -192,6 +192,7 @@ const testimonials = [
 /* ═══════════ PAGE ═══════════ */
 
 function ActivarIAPage() {
+  const { openMeeting } = useMeeting();
   return (
     <div className="min-h-screen bg-background">
       {/* ══════ FLOATING TALLERES BUTTON ══════ */}
