@@ -19,15 +19,30 @@ export function Footer() {
             <div className="space-y-2">
               {[
                 { to: "/" as const, label: "Inicio" },
-                { to: "/about" as const, label: "Industrias" },
                 { to: "/services" as const, label: "Servicios" },
-                
-                { to: "/faqs" as const, label: "Blog" },
+                { to: "/about" as const, label: "Industrias" },
+                { to: "/activar-ia" as const, label: "Activar IA" },
+                { to: "/newsletter" as const, label: "Insights 2026" },
                 { to: "/contact" as const, label: "Contacto" },
               ].map((link) => (
                 <Link key={link.to} to={link.to} className="block text-sm hover:text-mint transition-colors">
                   {link.label}
                 </Link>
+              ))}
+              {[
+                { href: "https://docuengine.tooxs.com/", label: "DocuEngine" },
+                { href: "https://safevision.tooxs.com/", label: "SafeVision" },
+                { href: "https://xpertooxs.tooxs.com/", label: "Xpertooxs" },
+              ].map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-sm hover:text-mint transition-colors"
+                >
+                  {link.label}
+                </a>
               ))}
             </div>
           </div>
