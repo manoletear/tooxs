@@ -362,10 +362,6 @@ function TalleresPage() {
             backgroundSize: "auto 80%",
           }}
         />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background/90 pointer-events-none"
-        />
         <div className="relative max-w-[1240px] mx-auto px-4 sm:px-6">
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-14">
