@@ -16,6 +16,7 @@ import monkeySeeImg from "../assets/monkey-see.png";
 import monkeyHearImg from "../assets/monkey-hear.png";
 import monkeySpeakImg from "../assets/monkey-speak.png";
 import monkeyMeasureImg from "../assets/monkey-measure.png";
+import capabilityBgMonkey from "../assets/capability-bg-monkey.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
