@@ -541,15 +541,19 @@ const capabilityCards = [
 function CapabilityGraph() {
   return (
     <section id="capacidades" className="relative bg-navy text-white py-20 overflow-hidden">
-      {/* Background monkey image */}
+      {/* Background monkey image — always visible, right-anchored, proportional */}
       <div
-        className="absolute inset-0 bg-no-repeat bg-right bg-cover md:bg-contain opacity-40 md:opacity-60 pointer-events-none"
-        style={{ backgroundImage: `url(${capabilityBgMonkey})` }}
+        className="absolute inset-0 bg-no-repeat pointer-events-none opacity-50 md:opacity-70"
+        style={{
+          backgroundImage: `url(${capabilityBgMonkey})`,
+          backgroundPosition: "right center",
+          backgroundSize: "auto 100%",
+        }}
         aria-hidden="true"
       />
       {/* Left-to-right navy gradient for text contrast */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/30 pointer-events-none"
+        className="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 md:via-navy/90 to-navy/40 pointer-events-none"
         aria-hidden="true"
       />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
