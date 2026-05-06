@@ -19,6 +19,7 @@ import {
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
+import { useMeeting } from "@/components/MeetingDialog";
 import laptopDashboard from "@/assets/activar-laptop-dashboard.jpg";
 import neuralSphere from "@/assets/activar-neural-sphere.jpg";
 import circuitFlow from "@/assets/activar-circuit-flow.jpg";
@@ -231,12 +232,13 @@ function ActivarIAPage() {
             Transformamos datos complejos en decisiones accionables que aceleran el crecimiento, reducen costos operacionales y mitigan riesgos. De la estrategia a la producción.
           </p>
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-            <Link
-              to="/contact"
+            <button
+              type="button"
+              onClick={() => openMeeting("Activar IA — Hero")}
               className="inline-flex items-center gap-2 bg-mint text-navy px-6 py-3 rounded-full text-sm font-bold hover:-translate-y-0.5 transition-transform shadow-lg shadow-mint/20"
             >
               Conversemos <ArrowRight size={16} />
-            </Link>
+            </button>
             <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-mint border border-mint/40 bg-mint/10 px-4 py-2.5 rounded-full">
               <Sparkles size={14} /> Activar IA
             </span>
