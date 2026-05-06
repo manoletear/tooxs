@@ -498,7 +498,7 @@ function IndustryExplorer() {
     <section className="py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Industrias que transformamos</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">Fabricamos soluciones para tu negocio</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">Soluciones de automatización adaptadas a los desafíos únicos de cada sector en Chile.</p>
         </ScrollReveal>
 
