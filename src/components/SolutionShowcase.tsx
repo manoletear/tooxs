@@ -1,11 +1,12 @@
 import { useState, useRef, useCallback, type ReactNode } from "react";
-import { X, FileText, Shield, FolderSearch, Receipt } from "lucide-react";
+import { X, FileText, Shield, FolderSearch, Receipt, Wrench } from "lucide-react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 import docuengineImg from "../assets/solution-docuengine.jpg";
 import safevisionImg from "../assets/solution-safevision.jpg";
 import gestorImg from "../assets/solution-gestor.jpg";
 import facturasImg from "../assets/solution-facturas.jpg";
+import xpertooxsImg from "../assets/solution-xpertooxs.jpg";
 
 /* ── Types ── */
 interface SolutionStep { title: string; description: string }
@@ -119,6 +120,34 @@ const solutions: Solution[] = [
       { title: "Gestión de excepciones", description: "Deriva diferencias y faltantes para revisión con trazabilidad." },
     ],
     integrations: ["ERP", "Correo", "OC / Compras", "Aduanas / logística", "Flujos de aprobación"],
+  },
+  {
+    id: "xpertooxs",
+    category: "Mantenimiento industrial",
+    title: "Xpertooxs",
+    subtitle: "Donde el mantenimiento impulsa la producción.",
+    image: xpertooxsImg,
+    icon: <Wrench size={24} />,
+    accentColor: "#20B2AA",
+    fullDescription: "Xpertooxs conecta mantenimiento y operación en una sola plataforma. Planifica intervenciones, anticipa fallas y convierte la confiabilidad de los activos en mayor disponibilidad y producción.",
+    problems: [
+      "Mantenimientos reactivos que detienen la producción.",
+      "Falta de visibilidad sobre el estado real de los activos.",
+      "Información dispersa entre planillas, bitácoras y sistemas aislados.",
+    ],
+    benefits: [
+      "Mayor disponibilidad de equipos.",
+      "Menos paradas no planificadas.",
+      "Decisiones basadas en datos de operación.",
+      "Trazabilidad completa de intervenciones y costos.",
+    ],
+    steps: [
+      { title: "Captura", description: "Registra activos, intervenciones y eventos desde terreno y sistemas conectados." },
+      { title: "Planificación", description: "Programa mantenimientos preventivos y predictivos según criticidad." },
+      { title: "Ejecución", description: "Coordina equipos, repuestos y órdenes de trabajo con trazabilidad en línea." },
+      { title: "Análisis", description: "Mide KPIs de confiabilidad y productividad para mejorar continuamente." },
+    ],
+    integrations: ["ERP", "SCADA", "IoT / Sensores", "CMMS", "Bases de datos"],
   },
 ];
 
