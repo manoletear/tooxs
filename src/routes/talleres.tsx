@@ -756,7 +756,7 @@ function TalleresPage() {
                 title: "WhatsApp",
                 desc: "Respuesta en menos de 2 horas hábiles",
                 cta: "Chatear ahora",
-                href: "https://wa.me/56912345678?text=Hola%20Tooxs%2C%20quiero%20cotizar%20los%20Talleres%20IA%20para%20mi%20equipo",
+                href: "https://wa.me/56224356262?text=Hola%20Tooxs%2C%20quiero%20cotizar%20los%20Talleres%20IA%20para%20mi%20equipo",
                 external: true,
                 accent: "bg-emerald-500",
               },
@@ -855,7 +855,7 @@ function TalleresPage() {
                     <Calculator size={16} /> Solicitar cotización
                   </button>
                   <a
-                    href="https://wa.me/56912345678?text=Hola%20Tooxs%2C%20quiero%20cotizar%20los%20Talleres%20IA"
+                    href="https://wa.me/56224356262?text=Hola%20Tooxs%2C%20quiero%20cotizar%20los%20Talleres%20IA"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/30 text-white px-8 py-4 rounded-full text-sm font-bold hover:bg-white/25 transition-all"
