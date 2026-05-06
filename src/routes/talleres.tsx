@@ -359,7 +359,7 @@ function TalleresPage() {
           style={{
             backgroundImage: `url(${talleresFormatoBg})`,
             backgroundPosition: "center bottom",
-            backgroundSize: "auto 80%",
+            backgroundSize: "auto 130%",
           }}
         />
         <div className="relative max-w-[1240px] mx-auto px-4 sm:px-6">
