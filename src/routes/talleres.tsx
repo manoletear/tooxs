@@ -25,6 +25,7 @@ import {
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
 import { useMeeting } from "@/components/MeetingDialog";
+import talleresFormatoBg from "@/assets/talleres-formato-bg.png";
 import {
   Dialog,
   DialogContent,
@@ -351,8 +352,21 @@ function TalleresPage() {
       </section>
 
       {/* ══════ FORMATO ══════ */}
-      <section className="py-20 md:py-24 bg-background">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+      <section className="relative py-20 md:py-24 bg-background overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-no-repeat opacity-20 md:opacity-25 pointer-events-none"
+          style={{
+            backgroundImage: `url(${talleresFormatoBg})`,
+            backgroundPosition: "center bottom",
+            backgroundSize: "auto 80%",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background/90 pointer-events-none"
+        />
+        <div className="relative max-w-[1240px] mx-auto px-4 sm:px-6">
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-14">
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3">
