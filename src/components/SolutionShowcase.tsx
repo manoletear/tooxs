@@ -148,6 +148,7 @@ const solutions: Solution[] = [
       { title: "Análisis", description: "Mide KPIs de confiabilidad y productividad para mejorar continuamente." },
     ],
     integrations: ["ERP", "SCADA", "IoT / Sensores", "CMMS", "Bases de datos"],
+    websiteUrl: "https://xpertooxs.tooxs.com/",
   },
 ];
 
