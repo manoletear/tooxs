@@ -540,8 +540,19 @@ const capabilityCards = [
 
 function CapabilityGraph() {
   return (
-    <section id="capacidades" className="bg-navy text-white py-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="capacidades" className="relative bg-navy text-white py-20 overflow-hidden">
+      {/* Background monkey image */}
+      <div
+        className="absolute inset-0 bg-no-repeat bg-right bg-cover md:bg-contain opacity-40 md:opacity-60 pointer-events-none"
+        style={{ backgroundImage: `url(${capabilityBgMonkey})` }}
+        aria-hidden="true"
+      />
+      {/* Left-to-right navy gradient for text contrast */}
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/30 pointer-events-none"
+        aria-hidden="true"
+      />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-4">
           <p className="text-sm font-semibold tracking-[0.2em] uppercase text-mint mb-3">Evaluar → Diseñar → Implementar → Escalar</p>
           <h2 className="text-3xl md:text-4xl font-bold">Nuestro marco de trabajo para automatización inteligente.</h2>
