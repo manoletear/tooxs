@@ -58,13 +58,18 @@ export function Navbar() {
     dropdownTimeout.current = setTimeout(() => setOpenDropdown(null), 200);
   };
 
+  const onDark = !scrolled;
+  const textBase = onDark ? "text-white/70 hover:text-white" : "text-navy/60 hover:text-navy";
+  const textActive = onDark ? "text-white" : "text-navy";
+  const iconColor = onDark ? "text-white" : "text-navy";
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
       <div
         className={`flex items-center justify-between rounded-xl px-6 transition-all duration-500 ${
           scrolled
-            ? "bg-white shadow-lg h-14 max-w-4xl"
-            : "bg-white h-14 max-w-4xl"
+            ? "bg-white/10 backdrop-blur-xl border border-white/15 shadow-lg h-14 max-w-4xl"
+            : "bg-white/5 backdrop-blur-md border border-white/10 h-14 max-w-4xl"
         } w-full`}
       >
         <Link to="/" className="flex items-center justify-center group flex-shrink-0 self-stretch">
@@ -87,7 +92,7 @@ export function Navbar() {
                 <Link
                   to={link.to}
                   className={`relative inline-flex items-center gap-1 text-sm font-medium pb-1 transition-all duration-300 ${
-                    isActive ? "text-navy" : "text-navy/60 hover:text-navy"
+                    isActive ? textActive : textBase
                   }`}
                 >
                   {link.label}
@@ -107,7 +112,7 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={`relative text-sm font-medium pb-1 transition-all duration-300 ${
-                  isActive ? "text-navy" : "text-navy/60 hover:text-navy"
+                  isActive ? textActive : textBase
                 }`}
               >
                 {link.label}
@@ -128,7 +133,7 @@ export function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-navy hover:text-navy/70 transition-colors duration-300"
+          className={`lg:hidden ${iconColor} hover:opacity-70 transition-opacity duration-300`}
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
