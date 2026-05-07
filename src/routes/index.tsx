@@ -543,8 +543,8 @@ function CapabilityGraph() {
     <section id="capacidades" className="relative bg-navy text-white py-20 overflow-hidden">
       {/* Background image — full image visible, contained */}
       <div
-        className="absolute inset-0 bg-no-repeat bg-center bg-contain pointer-events-none opacity-60 md:opacity-80"
-        style={{ backgroundImage: `url(${methodBgImg})` }}
+        className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none opacity-70 md:opacity-85"
+        style={{ backgroundImage: `url(${methodBgImg})`, backgroundColor: "hsl(var(--navy))" }}
         aria-hidden="true"
       />
       {/* Subtle vertical gradient to preserve text contrast on top/bottom */}
