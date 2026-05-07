@@ -66,7 +66,9 @@ export function Navbar() {
         const bg = getComputedStyle(node).backgroundColor;
         const m = bg.match(/rgba?\(([^)]+)\)/);
         if (m) {
-          const [r, g, b, a = "1"] = m[1].split(",").map((v) => parseFloat(v));
+          const parts = m[1].split(",").map((v) => parseFloat(v));
+          const [r, g, b] = parts;
+          const a = parts[3] ?? 1;
           if (a > 0.1) {
             const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
             setTheme(luminance < 0.6 ? "dark" : "light");
