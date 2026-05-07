@@ -98,9 +98,9 @@ export function Navbar() {
   };
 
   const onDark = theme === "dark";
-  const textBase = onDark ? "text-white/70 hover:text-white" : "text-navy/60 hover:text-navy";
+  const textBase = onDark ? "text-white/90 hover:text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]" : "text-navy/85 hover:text-navy";
   const textActive = onDark ? "text-white" : "text-navy";
-  const iconColor = onDark ? "text-white" : "text-navy";
+  const iconColor = onDark ? "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]" : "text-navy";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
