@@ -180,7 +180,7 @@ function CardSurface({ card, index, hovered = false }: { card: TiltedCard; index
         className="absolute font-black leading-none select-none pointer-events-none"
         style={{
           top: "-1.6rem",
-          right: "-0.6rem",
+          left: "-0.6rem",
           fontFamily: "var(--font-heading)",
           fontSize: "6.5rem",
           color: "rgba(255,255,255,0.85)",
