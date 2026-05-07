@@ -96,28 +96,7 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
           {cards.map((card, i) => (
             <div key={i} className="w-full shrink-0 px-4 flex justify-center">
               <div className="relative w-[280px]" style={{ height: 380 }}>
-                <div
-                  className="w-full h-full rounded-3xl overflow-hidden shadow-2xl flex flex-col"
-                  style={{
-                    background: "linear-gradient(145deg, rgba(23,127,198,0.15) 0%, rgba(29,29,27,0.97) 40%)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                  }}
-                >
-                  <div className="relative flex items-center justify-center pt-8 pb-4">
-                    <div className="relative w-40 h-40 rounded-2xl overflow-hidden">
-                      <img src={card.image} alt={card.title} className="w-full h-full object-contain" loading="lazy" draggable={false} />
-                    </div>
-                  </div>
-                  <div className="px-7 pb-2">
-                    <h3 className="text-2xl font-bold text-white mb-1" style={{ fontFamily: "var(--font-heading)" }}>{card.title}</h3>
-                    {card.time && (
-                      <span className="inline-block text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full mt-1" style={{ background: "rgba(23,127,198,0.2)", color: "rgba(23,127,198,1)", border: "1px solid rgba(23,127,198,0.3)" }}>⏱ {card.time}</span>
-                    )}
-                  </div>
-                  <div className="px-7 pb-6 flex-1 overflow-hidden">
-                    <p className="text-xs leading-relaxed text-white/70">{card.description}</p>
-                  </div>
-                </div>
+                <CardSurface card={card} index={i} />
               </div>
             </div>
           ))}
@@ -153,61 +132,94 @@ export default function TiltedCards({ cards, className = "" }: TiltedCardsProps)
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div
-                className="w-full h-full rounded-3xl overflow-hidden shadow-2xl flex flex-col"
-                style={{
-                  background: "linear-gradient(145deg, rgba(23,127,198,0.15) 0%, rgba(29,29,27,0.97) 40%)",
-                  border: isHovered
-                    ? "2px solid rgba(23,127,198,0.5)"
-                    : "1px solid rgba(255,255,255,0.08)",
-                  boxShadow: isHovered
-                    ? "0 25px 60px -12px rgba(23,127,198,0.3), 0 10px 30px -10px rgba(0,0,0,0.5)"
-                    : "0 15px 40px -10px rgba(0,0,0,0.4)",
-                }}
-              >
-                <div className="relative flex items-center justify-center pt-8 pb-4">
-                  <div
-                    className="relative w-40 h-40 rounded-2xl overflow-hidden"
-                    style={{
-                      transition: "transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)",
-                      transform: isHovered ? "scale(1.25) translateY(-8px)" : "scale(1)",
-                      filter: isHovered
-                        ? "drop-shadow(0 20px 25px rgba(0,0,0,0.5)) drop-shadow(0 10px 15px rgba(23,127,198,0.4))"
-                        : "drop-shadow(0 4px 6px rgba(0,0,0,0.2))",
-                    }}
-                  >
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="w-full h-full object-contain"
-                      loading="lazy"
-                      draggable={false}
-                    />
-                  </div>
-                </div>
-                <div className="px-7 pb-2">
-                  <h3
-                    className="text-2xl font-bold text-white mb-1"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    {card.title}
-                  </h3>
-                  {card.time && (
-                    <span className="inline-block text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full mt-1"
-                      style={{ background: "rgba(23,127,198,0.2)", color: "rgba(23,127,198,1)", border: "1px solid rgba(23,127,198,0.3)" }}>
-                      ⏱ {card.time}
-                    </span>
-                  )}
-                </div>
-                <div className="px-7 pb-6 flex-1 overflow-hidden">
-                  <p className="text-xs leading-relaxed text-white/70">
-                    {card.description}
-                  </p>
-                </div>
-              </div>
+              <CardSurface card={card} index={i} hovered={isHovered} />
             </div>
           );
         })}
+      </div>
+    </div>
+  );
+}
+
+function CardSurface({ card, index, hovered = false }: { card: TiltedCard; index: number; hovered?: boolean }) {
+  return (
+    <div
+      className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl"
+      style={{
+        border: hovered ? "2px solid rgba(23,127,198,0.5)" : "1px solid rgba(255,255,255,0.08)",
+        boxShadow: hovered
+          ? "0 25px 60px -12px rgba(23,127,198,0.35), 0 10px 30px -10px rgba(0,0,0,0.5)"
+          : "0 15px 40px -10px rgba(0,0,0,0.4)",
+      }}
+    >
+      {/* Background image — fills the entire card, zoomed in */}
+      <img
+        src={card.image}
+        alt={card.title}
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{
+          transform: hovered ? "scale(1.18)" : "scale(1.1)",
+          transition: "transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1)",
+        }}
+        loading="lazy"
+        draggable={false}
+      />
+
+      {/* Blue overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(23,127,198,0.45) 0%, rgba(23,127,198,0.35) 40%, rgba(15,40,70,0.85) 100%)",
+          mixBlendMode: "multiply",
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(23,127,198,0.25) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%)",
+        }}
+      />
+
+      {/* Number — top-right corner */}
+      <span
+        className="absolute top-4 right-5 font-black leading-none select-none"
+        style={{
+          fontFamily: "var(--font-heading)",
+          fontSize: "5.5rem",
+          color: "rgba(255,255,255,0.95)",
+          textShadow: "0 4px 24px rgba(0,0,0,0.4)",
+          letterSpacing: "-0.04em",
+        }}
+      >
+        {String(index + 1).padStart(2, "0")}
+      </span>
+
+      {/* Text — bottom */}
+      <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col gap-2">
+        <h3
+          className="text-2xl font-bold text-white leading-tight"
+          style={{ fontFamily: "var(--font-heading)", textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}
+        >
+          {card.title}
+        </h3>
+        {card.time && (
+          <span
+            className="inline-block self-start text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-full"
+            style={{
+              background: "rgba(255,255,255,0.18)",
+              color: "#fff",
+              border: "1px solid rgba(255,255,255,0.3)",
+              backdropFilter: "blur(4px)",
+            }}
+          >
+            ⏱ {card.time}
+          </span>
+        )}
+        <p className="text-xs leading-relaxed text-white/85" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.5)" }}>
+          {card.description}
+        </p>
       </div>
     </div>
   );
