@@ -16,7 +16,7 @@ import methodEvaluateImg from "../assets/method-evaluate.jpg";
 import methodDesignImg from "../assets/method-design.jpg";
 import methodImplementImg from "../assets/method-implement.jpg";
 import methodScaleImg from "../assets/method-scale.jpg";
-import methodBgImg from "../assets/method-bg.jpg";
+import methodBgImg from "../assets/methodology-bg.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
