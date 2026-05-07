@@ -40,14 +40,51 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<DropdownKey>(null);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const location = useLocation();
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const detect = () => {
+      setScrolled(window.scrollY > 50);
+      // Probe a point just below the navbar to find the section behind it
+      const probeY = 80;
+      const probeX = window.innerWidth / 2;
+      const el = document.elementFromPoint(probeX, probeY) as HTMLElement | null;
+      if (!el) return;
+      const themed = el.closest<HTMLElement>("[data-nav-theme]");
+      if (themed) {
+        const t = themed.dataset.navTheme;
+        if (t === "dark" || t === "light") {
+          setTheme(t);
+          return;
+        }
+      }
+      // Fallback: sample background color brightness
+      let node: HTMLElement | null = el;
+      while (node) {
+        const bg = getComputedStyle(node).backgroundColor;
+        const m = bg.match(/rgba?\(([^)]+)\)/);
+        if (m) {
+          const [r, g, b, a = "1"] = m[1].split(",").map((v) => parseFloat(v));
+          if (a > 0.1) {
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            setTheme(luminance < 0.6 ? "dark" : "light");
+            return;
+          }
+        }
+        node = node.parentElement;
+      }
+      setTheme("light");
+    };
+    detect();
+    window.addEventListener("scroll", detect, { passive: true });
+    window.addEventListener("resize", detect);
+    return () => {
+      window.removeEventListener("scroll", detect);
+      window.removeEventListener("resize", detect);
+    };
+  }, [location.pathname]);
 
   const handleMouseEnter = (key: DropdownKey) => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
@@ -58,7 +95,7 @@ export function Navbar() {
     dropdownTimeout.current = setTimeout(() => setOpenDropdown(null), 200);
   };
 
-  const onDark = !scrolled;
+  const onDark = theme === "dark";
   const textBase = onDark ? "text-white/70 hover:text-white" : "text-navy/60 hover:text-navy";
   const textActive = onDark ? "text-white" : "text-navy";
   const iconColor = onDark ? "text-white" : "text-navy";
@@ -68,8 +105,12 @@ export function Navbar() {
       <div
         className={`flex items-center justify-between rounded-xl px-6 transition-all duration-500 ${
           scrolled
-            ? "bg-white/10 backdrop-blur-xl border border-white/15 shadow-lg h-14 max-w-4xl"
-            : "bg-white/5 backdrop-blur-md border border-white/10 h-14 max-w-4xl"
+            ? onDark
+              ? "bg-white/10 backdrop-blur-xl border border-white/15 shadow-lg h-14 max-w-4xl"
+              : "bg-white/60 backdrop-blur-xl border border-navy/10 shadow-lg h-14 max-w-4xl"
+            : onDark
+              ? "bg-white/5 backdrop-blur-md border border-white/10 h-14 max-w-4xl"
+              : "bg-white/40 backdrop-blur-md border border-navy/10 h-14 max-w-4xl"
         } w-full`}
       >
         <Link to="/" className="flex items-center justify-center group flex-shrink-0 self-stretch">
