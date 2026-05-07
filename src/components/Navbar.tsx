@@ -108,11 +108,11 @@ export function Navbar() {
         className={`flex items-center justify-between rounded-xl px-6 transition-all duration-500 ${
           scrolled
             ? onDark
-              ? "bg-white/10 backdrop-blur-xl border border-white/15 shadow-lg h-14 max-w-4xl"
-              : "bg-white/60 backdrop-blur-xl border border-navy/10 shadow-lg h-14 max-w-4xl"
+              ? "bg-white/5 backdrop-blur-md border border-white/10 shadow-md h-14 max-w-4xl"
+              : "bg-white/25 backdrop-blur-md border border-navy/5 shadow-md h-14 max-w-4xl"
             : onDark
-              ? "bg-white/5 backdrop-blur-md border border-white/10 h-14 max-w-4xl"
-              : "bg-white/40 backdrop-blur-md border border-navy/10 h-14 max-w-4xl"
+              ? "bg-white/[0.02] backdrop-blur-sm border border-white/5 h-14 max-w-4xl"
+              : "bg-white/10 backdrop-blur-sm border border-navy/5 h-14 max-w-4xl"
         } w-full`}
       >
         <Link to="/" className="flex items-center justify-center group flex-shrink-0 self-stretch">
