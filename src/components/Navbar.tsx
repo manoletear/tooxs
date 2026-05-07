@@ -63,8 +63,8 @@ export function Navbar() {
       <div
         className={`flex items-center justify-between rounded-xl px-6 transition-all duration-500 ${
           scrolled
-            ? "bg-white shadow-lg h-14 max-w-4xl"
-            : "bg-white h-14 max-w-4xl"
+            ? "bg-white/10 backdrop-blur-xl border border-white/15 shadow-lg h-14 max-w-4xl"
+            : "bg-white/5 backdrop-blur-md border border-white/10 h-14 max-w-4xl"
         } w-full`}
       >
         <Link to="/" className="flex items-center justify-center group flex-shrink-0 self-stretch">
