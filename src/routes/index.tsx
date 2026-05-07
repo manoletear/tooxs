@@ -515,19 +515,19 @@ const capabilityCards = [
   {
     title: "01 — Evaluar",
     description: "Nos sumergimos en tu negocio para identificar desafíos clave, descubrir oportunidades y construir una visión clara de lo que realmente importa.",
-    image: methodEvaluateImg,
+    image: methodImplementImg,
     time: "2 semanas",
   },
   {
     title: "02 — Diseñar",
     description: "Diseñamos estrategias a medida alineadas con tus objetivos, restricciones y recursos disponibles.",
-    image: methodDesignImg,
+    image: methodEvaluateImg,
     time: "4 semanas",
   },
   {
     title: "03 — Implementar",
     description: "Acompañamos la implementación para asegurar que cada solución sea práctica, efectiva y con impacto a largo plazo.",
-    image: methodImplementImg,
+    image: methodDesignImg,
     time: "Variable",
   },
   {
