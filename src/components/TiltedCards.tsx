@@ -166,31 +166,27 @@ function CardSurface({ card, index, hovered = false }: { card: TiltedCard; index
       />
 
       {/* Blue overlay */}
+      {/* Soft bottom gradient — only to keep text readable */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(23,127,198,0.45) 0%, rgba(23,127,198,0.35) 40%, rgba(15,40,70,0.85) 100%)",
-          mixBlendMode: "multiply",
-        }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(23,127,198,0.25) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%)",
+            "linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(10,30,60,0.65) 100%)",
         }}
       />
 
-      {/* Number — top-right corner */}
+      {/* Number — overflowing top-right corner as a design gesture */}
       <span
-        className="absolute top-4 right-5 font-black leading-none select-none"
+        className="absolute font-black leading-none select-none pointer-events-none"
         style={{
+          top: "-1.6rem",
+          right: "-0.6rem",
           fontFamily: "var(--font-heading)",
-          fontSize: "5.5rem",
-          color: "rgba(255,255,255,0.95)",
-          textShadow: "0 4px 24px rgba(0,0,0,0.4)",
-          letterSpacing: "-0.04em",
+          fontSize: "6.5rem",
+          color: "rgba(255,255,255,0.85)",
+          letterSpacing: "-0.05em",
+          mixBlendMode: "overlay",
+          textShadow: "0 2px 18px rgba(0,0,0,0.25)",
         }}
       >
         {String(index + 1).padStart(2, "0")}
