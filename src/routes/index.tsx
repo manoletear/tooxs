@@ -12,11 +12,11 @@ import mapLatamPresence from "../assets/map-latam-presence.png";
 import { ARTICLES } from "../data/articles";
 import TiltedCards from "../components/TiltedCards";
 import SolutionShowcase from "../components/SolutionShowcase";
-import monkeySeeImg from "../assets/monkey-see.png";
-import monkeyHearImg from "../assets/monkey-hear.png";
-import monkeySpeakImg from "../assets/monkey-speak.png";
-import monkeyMeasureImg from "../assets/monkey-measure.png";
-import capabilityBgMonkey from "../assets/capability-bg-monkey.jpg";
+import methodEvaluateImg from "../assets/method-evaluate.jpg";
+import methodDesignImg from "../assets/method-design.jpg";
+import methodImplementImg from "../assets/method-implement.jpg";
+import methodScaleImg from "../assets/method-scale.jpg";
+import methodBgImg from "../assets/method-bg.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -515,25 +515,25 @@ const capabilityCards = [
   {
     title: "01 — Evaluar",
     description: "Nos sumergimos en tu negocio para identificar desafíos clave, descubrir oportunidades y construir una visión clara de lo que realmente importa.",
-    image: monkeySeeImg,
+    image: methodEvaluateImg,
     time: "2 semanas",
   },
   {
     title: "02 — Diseñar",
     description: "Diseñamos estrategias a medida alineadas con tus objetivos, restricciones y recursos disponibles.",
-    image: monkeyHearImg,
+    image: methodDesignImg,
     time: "4 semanas",
   },
   {
     title: "03 — Implementar",
     description: "Acompañamos la implementación para asegurar que cada solución sea práctica, efectiva y con impacto a largo plazo.",
-    image: monkeySpeakImg,
+    image: methodImplementImg,
     time: "Variable",
   },
   {
     title: "04 — Escalar",
     description: "Medimos el desempeño, refinamos procesos y convertimos los datos en resultados de negocio concretos.",
-    image: monkeyMeasureImg,
+    image: methodScaleImg,
     time: "Continua",
   },
 ];
@@ -541,13 +541,13 @@ const capabilityCards = [
 function CapabilityGraph() {
   return (
     <section id="capacidades" className="relative bg-navy text-white py-20 overflow-hidden">
-      {/* Background monkey image — always visible, right-anchored, proportional */}
+      {/* Background — abstract data lines, right-anchored */}
       <div
         className="absolute inset-0 bg-no-repeat pointer-events-none opacity-50 md:opacity-70"
         style={{
-          backgroundImage: `url(${capabilityBgMonkey})`,
+          backgroundImage: `url(${methodBgImg})`,
           backgroundPosition: "right center",
-          backgroundSize: "auto 100%",
+          backgroundSize: "cover",
         }}
         aria-hidden="true"
       />
