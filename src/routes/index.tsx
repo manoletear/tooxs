@@ -513,25 +513,25 @@ function IndustryExplorer() {
    ══════════════════════════════════════════ */
 const capabilityCards = [
   {
-    title: "01 — Evaluar",
+    title: "Evaluar",
     description: "Nos sumergimos en tu negocio para identificar desafíos clave, descubrir oportunidades y construir una visión clara de lo que realmente importa.",
     image: methodImplementImg,
     time: "2 semanas",
   },
   {
-    title: "02 — Diseñar",
+    title: "Diseñar",
     description: "Diseñamos estrategias a medida alineadas con tus objetivos, restricciones y recursos disponibles.",
     image: methodEvaluateImg,
     time: "4 semanas",
   },
   {
-    title: "03 — Implementar",
+    title: "Implementar",
     description: "Acompañamos la implementación para asegurar que cada solución sea práctica, efectiva y con impacto a largo plazo.",
     image: methodDesignImg,
     time: "Variable",
   },
   {
-    title: "04 — Escalar",
+    title: "Escalar",
     description: "Medimos el desempeño, refinamos procesos y convertimos los datos en resultados de negocio concretos.",
     image: methodScaleImg,
     time: "Continua",
