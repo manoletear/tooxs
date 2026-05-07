@@ -183,10 +183,10 @@ function CardSurface({ card, index, hovered = false }: { card: TiltedCard; index
           left: "-0.6rem",
           fontFamily: "var(--font-heading)",
           fontSize: "6.5rem",
-          color: "rgba(255,255,255,0.85)",
+          color: "rgba(255,255,255,0.95)",
           letterSpacing: "-0.05em",
-          mixBlendMode: "overlay",
-          textShadow: "0 2px 18px rgba(0,0,0,0.25)",
+          WebkitTextStroke: "1px rgba(10,30,60,0.35)",
+          textShadow: "0 4px 20px rgba(0,0,0,0.55), 0 2px 6px rgba(0,0,0,0.4)",
         }}
       >
         {String(index + 1).padStart(2, "0")}
