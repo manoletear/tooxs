@@ -618,6 +618,7 @@ const services = [
   { icon: BarChart3, title: "Analítica aumentada", desc: "Dashboards y alertas que anticipan problemas.", detail: "BI en tiempo real con alertas predictivas.", tech: "Power BI, Looker, BigQuery", time: "3-4 semanas" },
   { icon: Code2, title: "Desarrollo ágil", desc: "Apps a medida en semanas, no meses.", detail: "MVPs y aplicaciones internas con metodología ágil.", tech: "React, Node.js, Cloud Functions", time: "4-8 semanas" },
   { icon: Link2, title: "Integración continua", desc: "Conectamos tus sistemas legacy con tecnología moderna.", detail: "APIs, middleware y conectores personalizados.", tech: "MuleSoft, REST APIs, Webhooks", time: "3-5 semanas" },
+  { icon: Building2, title: "Experiencia SAP", desc: "Integraciones, automatización y analítica sobre SAP.", detail: "Conectamos SAP (ECC, S/4HANA, PM/EAM) con IA, RPA y motores documentales para acelerar procesos comerciales, financieros y de mantención.", tech: "SAP S/4HANA, SAP PM/EAM, BAPIs, OData, BTP", time: "4-8 semanas" },
 ];
 
 function ServiceSystem() {
@@ -629,7 +630,7 @@ function ServiceSystem() {
           <p className="text-lg text-muted-foreground mb-1" style={{ fontFamily: "var(--font-emphasis)" }}>No ofrecemos servicios.</p>
           <h2 className="text-3xl md:text-4xl font-bold text-navy">Diseñamos capacidades operacionales.</h2>
         </ScrollReveal>
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {services.map((s, i) => (
             <ScrollReveal key={s.title} delay={i * 80}>
               <div
