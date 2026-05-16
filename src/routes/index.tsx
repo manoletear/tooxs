@@ -307,9 +307,9 @@ function TrustBarDynamic() {
           <img
             src={logo.src}
             alt={logo.alt}
-            className="h-[28px] w-[28px] sm:h-[40px] sm:w-[40px] md:h-[56px] md:w-[56px] object-contain"
+            className="h-[22px] w-[22px] sm:h-[32px] sm:w-[32px] md:h-[44px] md:w-[44px] object-contain"
           />
-          <span className="font-semibold text-navy text-xl sm:text-2xl md:text-4xl tracking-tight">Anthropic</span>
+          <span className="font-semibold text-navy text-base sm:text-lg md:text-2xl tracking-tight">Anthropic</span>
         </div>
       ) : (
         <img
