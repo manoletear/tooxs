@@ -301,12 +301,23 @@ function TrustBarDynamic() {
   ));
 
   const partnerItems = partnerLogos.map((logo) => (
-    <div key={logo.alt} className="flex-shrink-0 w-[140px] h-[100px] sm:w-[200px] sm:h-[140px] md:w-[300px] md:h-[200px] flex items-center justify-center">
-      <img
-        src={logo.src}
-        alt={logo.alt}
-        className="max-h-[80px] max-w-[130px] sm:max-h-[120px] sm:max-w-[190px] md:max-h-[180px] md:max-w-[280px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
-      />
+    <div key={logo.alt} className="flex-shrink-0 w-[140px] h-[100px] sm:w-[200px] sm:h-[140px] md:w-[300px] md:h-[200px] flex items-center justify-center px-4">
+      {logo.alt === "Anthropic" ? (
+        <div className="flex items-center gap-2 sm:gap-3 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500">
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            className="h-[28px] w-[28px] sm:h-[40px] sm:w-[40px] md:h-[56px] md:w-[56px] object-contain"
+          />
+          <span className="font-semibold text-navy text-xl sm:text-2xl md:text-4xl tracking-tight">Anthropic</span>
+        </div>
+      ) : (
+        <img
+          src={logo.src}
+          alt={logo.alt}
+          className="max-h-[40px] max-w-[120px] sm:max-h-[56px] sm:max-w-[170px] md:max-h-[80px] md:max-w-[240px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+        />
+      )}
     </div>
   ));
 
