@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, type ReactNode } from "react";
-import { X, FileText, Shield, FolderSearch, Receipt, Wrench } from "lucide-react";
+import { X, FileText, Shield, Receipt, Wrench } from "lucide-react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 import docuengineImg from "../assets/solution-docuengine.jpg";
