@@ -601,9 +601,7 @@ function CapabilityGraph() {
                     to="/talleres"
                     className="group inline-flex items-center justify-center gap-2 bg-mint text-navy px-5 sm:px-6 py-3 sm:py-3.5 rounded-full text-[0.8rem] sm:text-sm font-bold hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-mint/30 transition-all duration-300 text-center w-full md:w-auto"
                   >
-                    <Sparkles size={16} className="shrink-0 group-hover:rotate-12 transition-transform" />
                     <span>Conoce los Talleres Tooxs</span>
-                    <ArrowRight size={16} className="shrink-0 group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <span className="text-[0.65rem] sm:text-[0.7rem] text-white/50 tracking-wider uppercase font-semibold text-center md:text-right">
                     In-house · 90 min · Práctico
