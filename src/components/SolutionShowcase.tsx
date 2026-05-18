@@ -55,7 +55,7 @@ const solutions: Solution[] = [
   {
     id: "safevision",
     category: "Seguridad operacional",
-    title: "SafeVision",
+    title: "XpertVision",
     subtitle: "Detecta riesgos antes de que se conviertan en accidentes.",
     image: safevisionImg,
     icon: <Shield size={24} />,
