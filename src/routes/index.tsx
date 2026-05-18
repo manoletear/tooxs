@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight, Search, Lightbulb, Rocket, Car, Star, Building2, GraduationCap, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowLeft, Quote, ChevronDown, Send, X, MessageCircle, Pickaxe, ShoppingCart, Landmark, Wheat, Radio, HeartPulse, Brain, Bot, BarChart3, Code2, Link2, ChevronRight, Search, Lightbulb, Rocket, Car, Star, Building2, GraduationCap } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 import { useMeeting } from "../components/MeetingDialog";
@@ -601,9 +601,7 @@ function CapabilityGraph() {
                     to="/talleres"
                     className="group inline-flex items-center justify-center gap-2 bg-mint text-navy px-5 sm:px-6 py-3 sm:py-3.5 rounded-full text-[0.8rem] sm:text-sm font-bold hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-mint/30 transition-all duration-300 text-center w-full md:w-auto"
                   >
-                    <Sparkles size={16} className="shrink-0 group-hover:rotate-12 transition-transform" />
                     <span>Conoce los Talleres Tooxs</span>
-                    <ArrowRight size={16} className="shrink-0 group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <span className="text-[0.65rem] sm:text-[0.7rem] text-white/50 tracking-wider uppercase font-semibold text-center md:text-right">
                     In-house · 90 min · Práctico
