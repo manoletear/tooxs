@@ -1,10 +1,9 @@
 import { useState, useRef, useCallback, type ReactNode } from "react";
-import { X, FileText, Shield, FolderSearch, Receipt, Wrench } from "lucide-react";
+import { X, FileText, Shield, Receipt, Wrench } from "lucide-react";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 import docuengineImg from "../assets/solution-docuengine.jpg";
 import safevisionImg from "../assets/solution-safevision.jpg";
-import gestorImg from "../assets/solution-gestor.jpg";
 import facturasImg from "../assets/solution-facturas.jpg";
 import xpertooxsImg from "../assets/solution-xpertooxs.jpg";
 
@@ -55,7 +54,7 @@ const solutions: Solution[] = [
   {
     id: "safevision",
     category: "Seguridad operacional",
-    title: "SafeVision",
+    title: "XpertVision",
     subtitle: "Detecta riesgos antes de que se conviertan en accidentes.",
     image: safevisionImg,
     icon: <Shield size={24} />,
@@ -74,29 +73,6 @@ const solutions: Solution[] = [
       { title: "Registro", description: "Conserva evidencia y trazabilidad para análisis posterior." },
     ],
     useCases: ["Monitoreo de zonas restringidas.", "Control de conductas inseguras.", "Verificación de protocolos en terreno.", "Apoyo a comités de seguridad."],
-  },
-  {
-    id: "gestor",
-    category: "Gestión de conocimiento",
-    title: "Gestor Documental",
-    subtitle: "Ordena, encuentra y controla tu información crítica.",
-    image: gestorImg,
-    icon: <FolderSearch size={24} />,
-    accentColor: "#177FC6",
-    fullDescription: "Centraliza documentos corporativos, controla versiones, organiza permisos y facilita el acceso mediante búsqueda semántica. Su foco es la gobernanza documental y la disponibilidad del conocimiento.",
-    problems: [
-      "Repositorios dispersos, documentos duplicados y versiones inconsistentes.",
-      "Dificultad para encontrar información crítica por nombre o ubicación.",
-      "Pérdida de conocimiento por dependencia de personas o carpetas aisladas.",
-    ],
-    benefits: ["Mayor gobernanza documental.", "Acceso más rápido a información clave.", "Control de permisos y versiones.", "Menor pérdida de conocimiento corporativo."],
-    steps: [
-      { title: "Centralización", description: "Reúne documentos desde distintas fuentes en un entorno organizado." },
-      { title: "Estructuración", description: "Aplica taxonomías, categorías, metadatos y lógica de versionado." },
-      { title: "Acceso inteligente", description: "Permite encontrar información por contenido, tema o contexto." },
-      { title: "Gobernanza", description: "Controla permisos, vigencia documental y reglas de acceso." },
-    ],
-    integrations: ["SharePoint", "Google Drive", "OneDrive", "Repositorios internos", "Bases de datos"],
   },
   {
     id: "facturas",
