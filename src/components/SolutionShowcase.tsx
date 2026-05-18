@@ -4,7 +4,6 @@ import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
 import docuengineImg from "../assets/solution-docuengine.jpg";
 import safevisionImg from "../assets/solution-safevision.jpg";
-import gestorImg from "../assets/solution-gestor.jpg";
 import facturasImg from "../assets/solution-facturas.jpg";
 import xpertooxsImg from "../assets/solution-xpertooxs.jpg";
 
