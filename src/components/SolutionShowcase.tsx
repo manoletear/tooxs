@@ -77,7 +77,7 @@ const solutions: Solution[] = [
   {
     id: "facturas",
     category: "Finanzas y abastecimiento",
-    title: "Facturas Import.",
+    title: "ImportEngine",
     subtitle: "Automatiza la recepción y validación de facturas de importación.",
     image: facturasImg,
     icon: <Receipt size={24} />,
