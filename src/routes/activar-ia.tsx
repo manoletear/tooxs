@@ -28,8 +28,8 @@ import ecoBulb from "@/assets/activar-eco-bulb.jpg";
 export const Route = createFileRoute("/activar-ia")({
   head: () => ({
     meta: [
-      { title: "Activar IA — Tooxs | De los datos a decisiones que mueven el negocio" },
-      { name: "description", content: "Activamos IA dentro de tu operación: convertimos datos complejos en decisiones que reducen costos, aumentan ingresos y mitigan riesgos. Estrategia, implementación y MLOps end-to-end." },
+      { title: "Activar IA — De los datos a decisiones | Tooxs" },
+      { name: "description", content: "Convertimos datos complejos en decisiones que reducen costos, aumentan ingresos y mitigan riesgos. Estrategia, implementación y MLOps." },
       { property: "og:title", content: "Activar IA — Tooxs" },
       { property: "og:description", content: "De estrategia a implementación: IA generativa, agentes inteligentes y optimización aplicada al negocio." },
       { property: "og:url", content: "https://www.tooxs.com/activar-ia" },

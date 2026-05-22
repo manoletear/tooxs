@@ -8,9 +8,9 @@ import { useNewsletter } from "@/components/NewsletterDialog";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Industrias — Tooxs | IA y Automatización por Sector" },
+      { title: "Industrias — IA aplicada por sector | Tooxs" },
       { name: "description", content: "Descubre cómo Tooxs aplica inteligencia artificial en minería, retail, banca, salud, telecomunicaciones, agroindustria, automotriz y real estate." },
-      { property: "og:title", content: "Industrias — Tooxs | IA y Automatización por Sector" },
+      { property: "og:title", content: "Industrias — IA aplicada por sector | Tooxs" },
       { property: "og:description", content: "Soluciones de IA aplicada para más de 8 industrias clave en Chile y Latinoamérica." },
       { property: "og:url", content: "https://www.tooxs.com/about" },
       { name: "twitter:title", content: "Industrias — Tooxs" },

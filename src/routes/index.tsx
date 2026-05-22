@@ -21,13 +21,13 @@ import methodBgImg from "../assets/methodology-bg.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tooxs — Inteligencia Aplicada para Organizaciones" },
-      { name: "description", content: "Tooxs diseña e implementa inteligencia aplicada para optimizar flujos y procesos de negocios en decisiones, eficiencia y ventaja operativa. IA, RPA y analítica para empresas en Chile y Latinoamérica." },
-      { property: "og:title", content: "Tooxs — Inteligencia Aplicada para Organizaciones" },
-      { property: "og:description", content: "Automatización inteligente, RPA, IA y analítica avanzada para empresas industriales en Chile y Latinoamérica." },
+      { title: "Tooxs — Inteligencia Aplicada al Negocio" },
+      { name: "description", content: "Tooxs implementa IA, RPA y analítica avanzada para optimizar procesos y decisiones en empresas industriales de Chile y Latinoamérica." },
+      { property: "og:title", content: "Tooxs — Inteligencia Aplicada al Negocio" },
+      { property: "og:description", content: "IA, RPA y analítica avanzada para empresas industriales en Chile y Latinoamérica." },
       { property: "og:url", content: "https://www.tooxs.com" },
-      { name: "twitter:title", content: "Tooxs — Inteligencia Aplicada para Organizaciones" },
-      { name: "twitter:description", content: "Automatización inteligente, RPA, IA y analítica avanzada para empresas industriales." },
+      { name: "twitter:title", content: "Tooxs — Inteligencia Aplicada al Negocio" },
+      { name: "twitter:description", content: "IA, RPA y analítica avanzada para empresas industriales." },
       { name: "keywords", content: "inteligencia artificial, automatización, RPA, data analytics, transformación digital, Chile, consultoría tecnológica, Tooxs" },
     ],
     links: [
