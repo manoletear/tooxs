@@ -1,0 +1,25 @@
+# Tooxs
+
+> Tooxs diseña e implementa inteligencia aplicada (IA, RPA y analítica avanzada) para optimizar procesos y decisiones en empresas industriales de Chile y Latinoamérica.
+
+## Pages
+
+- [Inicio](/): Visión general de servicios, industrias y propuesta de valor.
+- [Activar IA](/activar-ia): Cómo activamos IA generativa, agentes y optimización end-to-end.
+- [Industrias](/about): Soluciones por sector (minería, retail, banca, salud, agro, telco, automotriz, real estate).
+- [Servicios](/services): Catálogo de servicios de consultoría e implementación.
+- [Talleres](/talleres): Programa de formación práctica en IA aplicada.
+- [Newsletter](/newsletter): Artículos e insights sobre IA aplicada al negocio.
+- [Contacto](/contact): Cómo iniciar una conversación con Tooxs.
+- [FAQs](/faqs): Preguntas frecuentes sobre nuestros servicios.
+
+## Optional
+
+- [Minería y Utilities](/industrias/mineria-utilities)
+- [Retail y Logística](/industrias/retail-logistica)
+- [Banca y Finanzas](/industrias/banca-finanzas)
+- [Salud](/industrias/salud)
+- [Telecomunicaciones](/industrias/telecomunicaciones)
+- [Agroindustria](/industrias/agroindustria)
+- [Automotriz](/industrias/automotriz)
+- [Real Estate](/industrias/real-estate)
