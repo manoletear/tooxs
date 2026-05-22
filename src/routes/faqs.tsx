@@ -4,6 +4,19 @@ import { CTASection } from "../components/CTASection";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/ui/accordion";
 import { ScrollReveal } from "../hooks/use-scroll-reveal";
 
+const faqs = [
+  { q: "¿Qué industrias atiende Tooxs?", a: "Trabajamos con empresas de minería, retail y logística, banca y finanzas, salud, telecomunicaciones, agroindustria, automotriz y real estate. Nuestra metodología se adapta a sectores intensivos en datos y procesos." },
+  { q: "¿Cuánto dura un proyecto típico con Tooxs?", a: "Depende del alcance. Un diagnóstico o piloto de IA toma entre 6 y 12 semanas. Programas de transformación end-to-end (estrategia + implementación + MLOps) van de 6 a 18 meses." },
+  { q: "¿Qué diferencia a Tooxs de otras consultoras?", a: "Combinamos consultoría estratégica con capacidad de implementación técnica real (IA, RPA, analítica avanzada). No entregamos solo recomendaciones: dejamos soluciones en producción con métricas medibles." },
+  { q: "¿Cómo miden el éxito de cada proyecto?", a: "Definimos KPIs y ROI desde el inicio (reducción de costos, aumento de ingresos, tiempos de ciclo). Monitoreamos continuamente con dashboards y revisiones de impacto." },
+  { q: "¿Trabajan con startups o solo con grandes empresas?", a: "Atendemos principalmente a empresas medianas y grandes en Chile y Latinoamérica, pero también acompañamos a startups de alto crecimiento que necesitan escalar operaciones con IA y automatización." },
+  { q: "¿Cuál es la estructura de precios?", a: "Cada propuesta se ajusta al alcance, duración y complejidad. Ofrecemos modelos por proyecto, retainer mensual y esquemas basados en resultados. Contáctanos para una propuesta personalizada." },
+  { q: "¿Pueden integrarse con nuestro equipo interno?", a: "Sí. Trabajamos como extensión de tu equipo, con transferencia de conocimiento y capacitación incluida. La meta es que tu organización quede autónoma." },
+  { q: "¿Ofrecen servicios remotos o presenciales?", a: "Ambos. Operamos con modelos híbridos: presencia en terreno para diagnóstico e implementación crítica, y trabajo remoto para desarrollo continuo. Tenemos presencia en Chile y atendemos toda Latinoamérica." },
+  { q: "¿Cuál es el primer paso para trabajar con Tooxs?", a: "Una conversación inicial sin costo donde entendemos tu contexto, retos y objetivos. Agenda una reunión desde nuestra página de contacto y exploramos juntos cómo aportar valor." },
+  { q: "¿Ofrecen soporte continuo después del proyecto?", a: "Sí. Ofrecemos retainers de soporte, MLOps y mejora continua para que las soluciones implementadas sigan generando valor en el tiempo." },
+];
+
 export const Route = createFileRoute("/faqs")({
   head: () => ({
     meta: [
@@ -19,29 +32,30 @@ export const Route = createFileRoute("/faqs")({
     links: [
       { rel: "canonical", href: "https://www.tooxs.com/faqs" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: FAQsPage,
 });
-
-const faqs = [
-  { q: "What industries does Stratwell Consulting serve?", a: "We serve a wide range of industries including technology, healthcare, manufacturing, retail, financial services, and more. Our methodology is adaptable to any industry, and our team brings deep expertise across multiple sectors." },
-  { q: "How long does a typical consulting engagement last?", a: "Engagement duration varies based on scope and complexity. Strategy projects typically run 8-12 weeks, while comprehensive transformation programs can span 6-18 months. We tailor every engagement to your specific needs." },
-  { q: "What makes Stratwell different from other consulting firms?", a: "We combine the strategic depth of large firms with the personalized attention of a boutique practice. Our 92% client retention rate speaks to our commitment to building lasting partnerships and delivering measurable results." },
-  { q: "How do you measure the success of your engagements?", a: "We establish clear KPIs at the outset of every engagement and track progress continuously. Our Measure phase ensures that strategies translate into tangible business outcomes that can be quantified." },
-  { q: "Do you work with startups or only established businesses?", a: "We work with businesses at all stages — from early-stage startups seeking growth strategies to established enterprises looking to optimize operations or undergo digital transformation." },
-  { q: "What is your pricing structure?", a: "Our pricing is tailored to each engagement based on scope, duration, and complexity. We offer project-based fees, retainer arrangements, and performance-based models. Contact us for a customized proposal." },
-  { q: "Can you work with our existing internal teams?", a: "Absolutely. We believe in collaborative engagement and often work as an extension of your team. Knowledge transfer and capability building are integral to our approach." },
-  { q: "Do you offer virtual or remote consulting services?", a: "Yes, we offer flexible engagement models including fully remote, hybrid, and on-site consulting. Our digital collaboration tools ensure seamless communication regardless of location." },
-  { q: "What is the first step in working with Stratwell?", a: "The first step is a complimentary consultation where we learn about your business, discuss your challenges and goals, and explore how we can help. Book a consultation through our contact page to get started." },
-  { q: "Do you provide ongoing support after an engagement ends?", a: "Yes, we offer ongoing advisory retainers and check-in programs to ensure strategies continue to deliver results. Many of our clients maintain long-term relationships with us." },
-];
 
 function FAQsPage() {
   return (
     <div>
       <PageHero
-        title="Frequently Asked Questions"
-        subtitle="Everything you need to know about working with Stratwell Consulting."
+        title="Preguntas Frecuentes"
+        subtitle="Todo lo que necesitas saber sobre trabajar con Tooxs."
         backgroundImage="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&q=80"
       />
 
@@ -65,9 +79,9 @@ function FAQsPage() {
       </section>
 
       <CTASection
-        title="Still Have Questions?"
-        subtitle="Our team is ready to help. Reach out and let's start a conversation."
-        buttonText="Contact Us"
+        title="¿Aún tienes preguntas?"
+        subtitle="Nuestro equipo está listo para ayudarte. Conversemos."
+        buttonText="Contáctanos"
       />
     </div>
   );

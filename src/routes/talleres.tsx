@@ -69,11 +69,11 @@ function TalleresHubSpotForm() {
 export const Route = createFileRoute("/talleres")({
   head: () => ({
     meta: [
-      { title: "Talleres Tooxs — Desbloquea tu IA interior | Formación práctica en IA" },
+      { title: "Talleres Tooxs — Formación práctica en IA aplicada" },
       {
         name: "description",
         content:
-          "Programa de talleres Tooxs: tres sesiones prácticas de 90 min para que tu equipo detecte, diseñe y active soluciones reales de IA. Formación in-house y contextualizada.",
+          "Tres sesiones prácticas de 90 min para que tu equipo detecte, diseñe y active soluciones reales de IA. Formación in-house contextualizada.",
       },
       { property: "og:title", content: "Talleres Tooxs — Desbloquea tu IA interior" },
       {

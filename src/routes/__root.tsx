@@ -42,10 +42,6 @@ export const Route = createRootRoute({
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "author", content: "Tooxs" },
       { name: "theme-color", content: "#0A2647" },
-      { property: "og:title", content: "Tooxs — Inteligencia Aplicada para Organizaciones" },
-      { name: "twitter:title", content: "Tooxs — Inteligencia Aplicada para Organizaciones" },
-      { property: "og:description", content: "Tooxs diseña e implementa inteligencia aplicada para optimizar flujos y procesos de negocios en decisiones, eficiencia y ventaja operativa." },
-      { name: "twitter:description", content: "Tooxs diseña e implementa inteligencia aplicada para optimizar flujos y procesos de negocios en decisiones, eficiencia y ventaja operativa." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51bbc6a5-8645-4ae1-91ef-a87096f3567e/id-preview-e54ed6b9--f2b0cd74-d6eb-43c0-b984-e6424c9ab13f.lovable.app-1776441484363.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51bbc6a5-8645-4ae1-91ef-a87096f3567e/id-preview-e54ed6b9--f2b0cd74-d6eb-43c0-b984-e6424c9ab13f.lovable.app-1776441484363.png" },
     ],
@@ -54,7 +50,6 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" as const },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" },
-      { rel: "canonical", href: "https://www.tooxs.com" },
     ],
     scripts: [
       {

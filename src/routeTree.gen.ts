@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TalleresRouteImport } from './routes/talleres'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as IndustriasRouteImport } from './routes/industrias'
@@ -34,6 +35,11 @@ import { Route as IndustriasAgroindustriaRouteImport } from './routes/industrias
 const TalleresRoute = TalleresRouteImport.update({
   id: '/talleres',
   path: '/talleres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -149,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/industrias': typeof IndustriasRouteWithChildren
   '/newsletter': typeof NewsletterRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/talleres': typeof TalleresRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
@@ -170,6 +177,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/faqs': typeof FaqsRoute
   '/industrias': typeof IndustriasRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/talleres': typeof TalleresRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
@@ -194,6 +202,7 @@ export interface FileRoutesById {
   '/industrias': typeof IndustriasRouteWithChildren
   '/newsletter': typeof NewsletterRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/talleres': typeof TalleresRoute
   '/industrias/agroindustria': typeof IndustriasAgroindustriaRoute
   '/industrias/automotriz': typeof IndustriasAutomotrizRoute
@@ -219,6 +228,7 @@ export interface FileRouteTypes {
     | '/industrias'
     | '/newsletter'
     | '/services'
+    | '/sitemap.xml'
     | '/talleres'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
@@ -240,6 +250,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faqs'
     | '/industrias'
+    | '/sitemap.xml'
     | '/talleres'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
@@ -263,6 +274,7 @@ export interface FileRouteTypes {
     | '/industrias'
     | '/newsletter'
     | '/services'
+    | '/sitemap.xml'
     | '/talleres'
     | '/industrias/agroindustria'
     | '/industrias/automotriz'
@@ -287,6 +299,7 @@ export interface RootRouteChildren {
   IndustriasRoute: typeof IndustriasRouteWithChildren
   NewsletterRoute: typeof NewsletterRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TalleresRoute: typeof TalleresRoute
 }
 
@@ -297,6 +310,13 @@ declare module '@tanstack/react-router' {
       path: '/talleres'
       fullPath: '/talleres'
       preLoaderRoute: typeof TalleresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -505,17 +525,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriasRoute: IndustriasRouteWithChildren,
   NewsletterRoute: NewsletterRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TalleresRoute: TalleresRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
