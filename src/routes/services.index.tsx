@@ -22,10 +22,10 @@ import heroOpt from "@/assets/hero-optimizacion.jpg";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Capacidades — Tooxs | Sistema de capacidades aplicadas al negocio" },
-      { name: "description", content: "El sistema de capacidades Tooxs: Datos e IA, Automatización, Integración, Analítica Operacional, Nube, Procesos Críticos y Estrategia Aplicada para industrias en Chile y Latinoamérica." },
+      { title: "Capacidades — Tooxs" },
+      { name: "description", content: "Sistema de capacidades Tooxs: datos e IA, automatización, integración, analítica, nube y estrategia aplicada a la operación." },
       { property: "og:title", content: "Capacidades — Tooxs" },
-      { property: "og:description", content: "Sistema de capacidades Tooxs aplicado donde se genera valor: operación, decisiones y procesos críticos." },
+      { property: "og:description", content: "Sistema de capacidades Tooxs: datos e IA, automatización, integración, analítica, nube y estrategia aplicada a la operación." },
       { property: "og:url", content: "https://tooxs.lovable.app/services" },
       { name: "twitter:title", content: "Capacidades — Tooxs" },
       { name: "twitter:description", content: "Sistema de capacidades Tooxs: datos, IA, automatización, integración, analítica, nube y estrategia aplicada." },
