@@ -51,24 +51,26 @@ export const Route = createFileRoute("/newsletter/$slug")({
   head: ({ params }) => {
     const article = getArticleBySlug(params.slug);
     if (!article) return { meta: [{ title: "Artículo no encontrado — Tooxs" }] };
+    const raw = (article.excerpt ?? "").replace(/\s+/g, " ").trim();
+    const description = raw.length > 160 ? raw.slice(0, 157).replace(/\s+\S*$/, "") + "…" : raw;
     return {
       meta: [
         { title: `${article.title} — Tooxs Insights` },
-        { name: "description", content: article.excerpt },
+        { name: "description", content: description },
         { property: "og:title", content: article.title },
-        { property: "og:description", content: article.excerpt },
-        { property: "og:url", content: `https://www.tooxs.com/newsletter/${article.slug}` },
+        { property: "og:description", content: description },
+        { property: "og:url", content: `https://tooxs.lovable.app/newsletter/${article.slug}` },
         { property: "og:type", content: "article" },
         { property: "og:image", content: article.image },
         { name: "twitter:title", content: article.title },
-        { name: "twitter:description", content: article.excerpt },
+        { name: "twitter:description", content: description },
         { name: "twitter:image", content: article.image },
         { name: "article:published_time", content: article.date },
         { name: "article:author", content: "Tooxs" },
         { name: "keywords", content: `${article.category}, IA, automatización, Tooxs, ${article.title.split(' ').slice(0, 3).join(', ')}` },
       ],
       links: [
-        { rel: "canonical", href: `https://www.tooxs.com/newsletter/${article.slug}` },
+        { rel: "canonical", href: `https://tooxs.lovable.app/newsletter/${article.slug}` },
       ],
       scripts: [
         {
@@ -84,9 +86,9 @@ export const Route = createFileRoute("/newsletter/$slug")({
             "publisher": {
               "@type": "Organization",
               "name": "Tooxs",
-              "url": "https://www.tooxs.com"
+              "url": "https://tooxs.lovable.app"
             },
-            "mainEntityOfPage": `https://www.tooxs.com/newsletter/${article.slug}`
+            "mainEntityOfPage": `https://tooxs.lovable.app/newsletter/${article.slug}`
           }),
         },
       ],

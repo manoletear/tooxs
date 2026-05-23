@@ -9,10 +9,10 @@ export const Route = createFileRoute("/industrias/agroindustria")({
       { name: "description", content: "Integración de datos productivos, comerciales y operacionales para mejorar rendimiento, trazabilidad y eficiencia en agroindustria." },
       { property: "og:title", content: "Agroindustria — Tooxs" },
       { property: "og:description", content: "Más rendimiento agrícola, mejor uso de recursos y decisiones con contexto mediante IA." },
-      { property: "og:url", content: "https://www.tooxs.com/industrias/agroindustria" },
+      { property: "og:url", content: "https://tooxs.lovable.app/industrias/agroindustria" },
       { name: "keywords", content: "agroindustria IA, trazabilidad agrícola, datos campo, rendimiento cultivos, Tooxs" },
     ],
-    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/agroindustria" }],
+    links: [{ rel: "canonical", href: "https://tooxs.lovable.app/industrias/agroindustria" }],
   }),
   component: AgroPage,
 });

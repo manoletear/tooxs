@@ -9,10 +9,10 @@ export const Route = createFileRoute("/industrias/real-estate")({
       { name: "description", content: "Automatización y analítica para desarrolladoras inmobiliarias, corredoras y administradoras de activos. Más velocidad comercial y mejor gestión operativa." },
       { property: "og:title", content: "Real Estate — Tooxs" },
       { property: "og:description", content: "Gestión inmobiliaria más ágil con datos, IA y automatización de procesos." },
-      { property: "og:url", content: "https://www.tooxs.com/industrias/real-estate" },
+      { property: "og:url", content: "https://tooxs.lovable.app/industrias/real-estate" },
       { name: "keywords", content: "real estate IA, automatización inmobiliaria, gestión activos, Tooxs" },
     ],
-    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/real-estate" }],
+    links: [{ rel: "canonical", href: "https://tooxs.lovable.app/industrias/real-estate" }],
   }),
   component: RealEstatePage,
 });

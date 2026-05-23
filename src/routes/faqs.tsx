@@ -24,13 +24,13 @@ export const Route = createFileRoute("/faqs")({
       { name: "description", content: "Respuestas a las preguntas más frecuentes sobre los servicios de consultoría en IA, automatización y transformación digital de Tooxs." },
       { property: "og:title", content: "Preguntas Frecuentes — Tooxs" },
       { property: "og:description", content: "Resuelve tus dudas sobre nuestros servicios de IA y automatización." },
-      { property: "og:url", content: "https://www.tooxs.com/faqs" },
+      { property: "og:url", content: "https://tooxs.lovable.app/faqs" },
       { name: "twitter:title", content: "FAQ — Tooxs" },
       { name: "twitter:description", content: "Preguntas frecuentes sobre IA, automatización y consultoría tecnológica." },
       { name: "keywords", content: "preguntas frecuentes, FAQ, consultoría IA, automatización, Tooxs" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.tooxs.com/faqs" },
+      { rel: "canonical", href: "https://tooxs.lovable.app/faqs" },
     ],
     scripts: [
       {

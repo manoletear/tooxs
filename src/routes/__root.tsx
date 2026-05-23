@@ -32,8 +32,6 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Tooxs — Inteligencia Aplicada para Organizaciones" },
-      { name: "description", content: "Tooxs diseña e implementa inteligencia aplicada para optimizar flujos y procesos de negocios en decisiones, eficiencia y ventaja operativa." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Tooxs" },
       { property: "og:locale", content: "es_CL" },
@@ -42,8 +40,6 @@ export const Route = createRootRoute({
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "author", content: "Tooxs" },
       { name: "theme-color", content: "#0A2647" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51bbc6a5-8645-4ae1-91ef-a87096f3567e/id-preview-e54ed6b9--f2b0cd74-d6eb-43c0-b984-e6424c9ab13f.lovable.app-1776441484363.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51bbc6a5-8645-4ae1-91ef-a87096f3567e/id-preview-e54ed6b9--f2b0cd74-d6eb-43c0-b984-e6424c9ab13f.lovable.app-1776441484363.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -58,8 +54,8 @@ export const Route = createRootRoute({
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Tooxs",
-          "url": "https://www.tooxs.com",
-          "logo": "https://www.tooxs.com/tooxs-logo.png",
+          "url": "https://tooxs.lovable.app",
+          "logo": "https://tooxs.lovable.app/tooxs-logo.png",
           "description": "Tooxs diseña e implementa inteligencia aplicada para optimizar flujos y procesos de negocios en decisiones, eficiencia y ventaja operativa.",
           "address": {
             "@type": "PostalAddress",
@@ -83,10 +79,10 @@ export const Route = createRootRoute({
           "@context": "https://schema.org",
           "@type": "WebSite",
           "name": "Tooxs",
-          "url": "https://www.tooxs.com",
+          "url": "https://tooxs.lovable.app",
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://www.tooxs.com/newsletter?q={search_term_string}",
+            "target": "https://tooxs.lovable.app/newsletter?q={search_term_string}",
             "query-input": "required name=search_term_string"
           }
         }),

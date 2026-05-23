@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.tooxs.com/sitemap.xml
+Sitemap: https://tooxs.lovable.app/sitemap.xml
 
 Crawl-delay: 1

@@ -9,10 +9,10 @@ export const Route = createFileRoute("/industrias/banca-finanzas")({
       { name: "description", content: "Aceleramos evaluación crediticia, originación, cumplimiento y servicio financiero con automatización, IA y flujos auditables para banca y finanzas." },
       { property: "og:title", content: "Banca y Finanzas — Tooxs" },
       { property: "og:description", content: "Decisiones más rápidas, riesgo mejor gestionado y operación financiera más eficiente con IA." },
-      { property: "og:url", content: "https://www.tooxs.com/industrias/banca-finanzas" },
+      { property: "og:url", content: "https://tooxs.lovable.app/industrias/banca-finanzas" },
       { name: "keywords", content: "banca IA, finanzas automatización, riesgo crediticio, compliance, Tooxs" },
     ],
-    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/banca-finanzas" }],
+    links: [{ rel: "canonical", href: "https://tooxs.lovable.app/industrias/banca-finanzas" }],
   }),
   component: BancaPage,
 });

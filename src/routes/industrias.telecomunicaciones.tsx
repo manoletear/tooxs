@@ -9,10 +9,10 @@ export const Route = createFileRoute("/industrias/telecomunicaciones")({
       { name: "description", content: "Integración de IA en redes, atención al cliente, experiencia y operación para operadores de telecomunicaciones." },
       { property: "og:title", content: "Telecomunicaciones — Tooxs" },
       { property: "og:description", content: "Redes más eficientes, clientes mejor entendidos y operaciones más inteligentes con IA." },
-      { property: "og:url", content: "https://www.tooxs.com/industrias/telecomunicaciones" },
+      { property: "og:url", content: "https://tooxs.lovable.app/industrias/telecomunicaciones" },
       { name: "keywords", content: "telecomunicaciones IA, redes inteligentes, experiencia cliente telco, Tooxs" },
     ],
-    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/telecomunicaciones" }],
+    links: [{ rel: "canonical", href: "https://tooxs.lovable.app/industrias/telecomunicaciones" }],
   }),
   component: TelecomPage,
 });
