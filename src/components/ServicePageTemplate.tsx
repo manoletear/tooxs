@@ -179,7 +179,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
             ))}
           </div>
           <ScrollReveal delay={400}>
-            <p className="text-xs text-muted-foreground/60 text-center max-w-3xl mx-auto italic leading-relaxed">
+            <p className="text-xs text-muted-foreground text-center max-w-3xl mx-auto italic leading-relaxed">
               {data.metricsSource}
             </p>
           </ScrollReveal>
