@@ -646,7 +646,7 @@ function ServiceDetailPanel({ svc, onClose }: { svc: ServiceData; onClose: () =>
               </div>
             ))}
           </div>
-          <p className="text-xs text-center italic text-white/40">{svc.metricsSource}</p>
+          <p className="text-xs text-center italic text-white/75">{svc.metricsSource}</p>
         </div>
 
         {/* ── Section 4: Capabilities ── */}

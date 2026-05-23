@@ -573,7 +573,7 @@ function TalleresPage() {
                               {b.tags.map((tag) => (
                                 <span
                                   key={tag}
-                                  className="text-[0.65rem] font-semibold uppercase tracking-wider bg-white/5 border border-white/10 text-white/60 px-2 py-0.5 rounded"
+                                  className="text-[0.65rem] font-semibold uppercase tracking-wider bg-white/10 border border-white/20 text-white/85 px-2 py-0.5 rounded"
                                 >
                                   {tag}
                                 </span>
