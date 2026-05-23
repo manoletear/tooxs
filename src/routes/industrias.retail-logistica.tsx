@@ -9,10 +9,10 @@ export const Route = createFileRoute("/industrias/retail-logistica")({
       { name: "description", content: "Optimización de inventario, disponibilidad y cadena de suministro con IA y automatización para retailers y operadores logísticos." },
       { property: "og:title", content: "Retail y Logística — Tooxs" },
       { property: "og:description", content: "Inventario inteligente, ejecución más rápida y cadena de suministro como ventaja competitiva." },
-      { property: "og:url", content: "https://www.tooxs.com/industrias/retail-logistica" },
+      { property: "og:url", content: "https://tooxs.lovable.app/industrias/retail-logistica" },
       { name: "keywords", content: "retail IA, logística automatización, inventario inteligente, supply chain, Tooxs" },
     ],
-    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/retail-logistica" }],
+    links: [{ rel: "canonical", href: "https://tooxs.lovable.app/industrias/retail-logistica" }],
   }),
   component: RetailPage,
 });

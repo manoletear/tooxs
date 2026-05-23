@@ -9,10 +9,10 @@ export const Route = createFileRoute("/industrias/automotriz")({
       { name: "description", content: "IA y automatización para fabricantes, importadores y distribuidores automotrices. Más productividad, calidad consistente y supply chain visible." },
       { property: "og:title", content: "Automotriz — Tooxs" },
       { property: "og:description", content: "Producción más inteligente, calidad más consistente y supply chain más visible con IA." },
-      { property: "og:url", content: "https://www.tooxs.com/industrias/automotriz" },
+      { property: "og:url", content: "https://tooxs.lovable.app/industrias/automotriz" },
       { name: "keywords", content: "automotriz IA, producción inteligente, supply chain automotriz, calidad, Tooxs" },
     ],
-    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/automotriz" }],
+    links: [{ rel: "canonical", href: "https://tooxs.lovable.app/industrias/automotriz" }],
   }),
   component: AutomotrizPage,
 });

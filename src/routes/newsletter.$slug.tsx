@@ -57,7 +57,7 @@ export const Route = createFileRoute("/newsletter/$slug")({
         { name: "description", content: article.excerpt },
         { property: "og:title", content: article.title },
         { property: "og:description", content: article.excerpt },
-        { property: "og:url", content: `https://www.tooxs.com/newsletter/${article.slug}` },
+        { property: "og:url", content: `https://tooxs.lovable.app/newsletter/${article.slug}` },
         { property: "og:type", content: "article" },
         { property: "og:image", content: article.image },
         { name: "twitter:title", content: article.title },
@@ -68,7 +68,7 @@ export const Route = createFileRoute("/newsletter/$slug")({
         { name: "keywords", content: `${article.category}, IA, automatización, Tooxs, ${article.title.split(' ').slice(0, 3).join(', ')}` },
       ],
       links: [
-        { rel: "canonical", href: `https://www.tooxs.com/newsletter/${article.slug}` },
+        { rel: "canonical", href: `https://tooxs.lovable.app/newsletter/${article.slug}` },
       ],
       scripts: [
         {
@@ -84,9 +84,9 @@ export const Route = createFileRoute("/newsletter/$slug")({
             "publisher": {
               "@type": "Organization",
               "name": "Tooxs",
-              "url": "https://www.tooxs.com"
+              "url": "https://tooxs.lovable.app"
             },
-            "mainEntityOfPage": `https://www.tooxs.com/newsletter/${article.slug}`
+            "mainEntityOfPage": `https://tooxs.lovable.app/newsletter/${article.slug}`
           }),
         },
       ],

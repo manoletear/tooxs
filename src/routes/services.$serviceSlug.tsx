@@ -26,12 +26,12 @@ export const Route = createFileRoute("/services/$serviceSlug")({
         { name: "description", content: seo.description },
         { property: "og:title", content: seo.title },
         { property: "og:description", content: seo.description },
-        { property: "og:url", content: `https://www.tooxs.com/services/${params.serviceSlug}` },
+        { property: "og:url", content: `https://tooxs.lovable.app/services/${params.serviceSlug}` },
         { name: "twitter:title", content: seo.title },
         { name: "twitter:description", content: seo.description },
       ],
       links: [
-        { rel: "canonical", href: `https://www.tooxs.com/services/${params.serviceSlug}` },
+        { rel: "canonical", href: `https://tooxs.lovable.app/services/${params.serviceSlug}` },
       ],
     };
   },

@@ -9,10 +9,10 @@ export const Route = createFileRoute("/industrias/mineria-utilities")({
       { name: "description", content: "Ayudamos a compañías mineras y de utilities a reducir pérdidas operativas, anticipar fallas y mejorar la continuidad operacional con IA y automatización." },
       { property: "og:title", content: "Minería y Utilities — Tooxs" },
       { property: "og:description", content: "IA para operaciones críticas: decisiones en tiempo real, mantenimiento predictivo y optimización de activos." },
-      { property: "og:url", content: "https://www.tooxs.com/industrias/mineria-utilities" },
+      { property: "og:url", content: "https://tooxs.lovable.app/industrias/mineria-utilities" },
       { name: "keywords", content: "minería IA, utilities automatización, mantenimiento predictivo, optimización activos, Tooxs" },
     ],
-    links: [{ rel: "canonical", href: "https://www.tooxs.com/industrias/mineria-utilities" }],
+    links: [{ rel: "canonical", href: "https://tooxs.lovable.app/industrias/mineria-utilities" }],
   }),
   component: MineriaPage,
 });

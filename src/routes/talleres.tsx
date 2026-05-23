@@ -81,9 +81,9 @@ export const Route = createFileRoute("/talleres")({
         content:
           "Tres talleres de IA aplicada para equipos: Fundamentos, Operaciones e Implementación. Aprende haciendo, con casos de tu propio rubro.",
       },
-      { property: "og:url", content: "https://www.tooxs.com/talleres" },
+      { property: "og:url", content: "https://tooxs.lovable.app/talleres" },
     ],
-    links: [{ rel: "canonical", href: "https://www.tooxs.com/talleres" }],
+    links: [{ rel: "canonical", href: "https://tooxs.lovable.app/talleres" }],
   }),
   component: TalleresPage,
 });

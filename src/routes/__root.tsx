@@ -58,8 +58,8 @@ export const Route = createRootRoute({
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Tooxs",
-          "url": "https://www.tooxs.com",
-          "logo": "https://www.tooxs.com/tooxs-logo.png",
+          "url": "https://tooxs.lovable.app",
+          "logo": "https://tooxs.lovable.app/tooxs-logo.png",
           "description": "Tooxs diseña e implementa inteligencia aplicada para optimizar flujos y procesos de negocios en decisiones, eficiencia y ventaja operativa.",
           "address": {
             "@type": "PostalAddress",
@@ -83,10 +83,10 @@ export const Route = createRootRoute({
           "@context": "https://schema.org",
           "@type": "WebSite",
           "name": "Tooxs",
-          "url": "https://www.tooxs.com",
+          "url": "https://tooxs.lovable.app",
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://www.tooxs.com/newsletter?q={search_term_string}",
+            "target": "https://tooxs.lovable.app/newsletter?q={search_term_string}",
             "query-input": "required name=search_term_string"
           }
         }),
