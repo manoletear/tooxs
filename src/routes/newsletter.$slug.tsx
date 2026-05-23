@@ -37,7 +37,7 @@ function ArticleRating({ slug }: { slug: string }) {
           aria-label={`Valorar con ${n} ${n === 1 ? "estrella" : "estrellas"}`}
           aria-pressed={rating === n}
           className={`text-xl leading-none transition-colors cursor-pointer ${
-            n <= active ? "text-primary" : "text-muted-foreground/40 hover:text-primary/70"
+            n <= active ? "text-primary" : "text-muted-foreground hover:text-primary/70"
           }`}
         >
           ★

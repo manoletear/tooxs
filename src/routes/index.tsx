@@ -603,7 +603,7 @@ function CapabilityGraph() {
                   >
                     <span>Conoce los Talleres Tooxs</span>
                   </Link>
-                  <span className="text-[0.65rem] sm:text-[0.7rem] text-white/50 tracking-wider uppercase font-semibold text-center md:text-right">
+                  <span className="text-[0.65rem] sm:text-[0.7rem] text-white/75 tracking-wider uppercase font-semibold text-center md:text-right">
                     In-house · 90 min · Práctico
                   </span>
                 </div>

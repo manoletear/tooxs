@@ -40,18 +40,18 @@ export function NewsletterFilters({ state, onChange, resultsCount }: Props) {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-6">
         {/* Search bar */}
         <div className="relative w-full mb-5">
-          <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50" />
+          <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/75" />
           <input
             type="text"
             value={state.query}
             onChange={(e) => onChange({ ...state, query: e.target.value })}
             placeholder="Buscar artículos por nombre…"
-            className="w-full h-11 pl-11 pr-10 rounded-full border border-white/20 bg-white/5 text-sm text-white placeholder:text-white/50 focus:outline-none focus:border-primary transition-colors"
+            className="w-full h-11 pl-11 pr-10 rounded-full border border-white/30 bg-white/5 text-sm text-white placeholder:text-white/75 focus:outline-none focus:border-primary transition-colors"
           />
           {state.query && (
             <button
               onClick={() => onChange({ ...state, query: "" })}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/75 hover:text-white"
               aria-label="Limpiar búsqueda"
             >
               <X size={16} />
