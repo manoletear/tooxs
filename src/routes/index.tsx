@@ -183,6 +183,10 @@ const trustLogos = [
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BUPA-1.png", alt: "Bupa" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-DIVEMOTOR-1.png", alt: "Divemotor" },
   { src: "https://tooxs.com/wp-content/uploads/2025/08/logo-vik.png", alt: "Vik" },
+  { src: "/placeholder.svg", alt: "Resiter" },
+  { src: "/placeholder.svg", alt: "Inmobiliaria Maquehue" },
+  { src: "/placeholder.svg", alt: "Inmobiliaria Maestra" },
+  { src: "/placeholder.svg", alt: "Inmobiliaria Brick" },
 ];
 const metrics = [
   { value: 8, suffix: "+", label: "Años desarrollando soluciones digitales" },
