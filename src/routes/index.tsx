@@ -304,7 +304,7 @@ function DraggableMarquee({ children, reverse = false, speed = 30, className = "
 }
 
 function TrustBarDynamic() {
-  const trustItems = trustLogos.map((logo) => (
+  const renderTrustItem = (logo: { src: string; alt: string }) => (
     <div key={logo.alt} className="flex-shrink-0 w-[140px] h-[60px] sm:w-[180px] sm:h-[80px] md:w-[280px] md:h-[120px] flex items-center justify-center">
       <img
         src={logo.src}
@@ -312,7 +312,10 @@ function TrustBarDynamic() {
         className="max-h-[50px] max-w-[130px] sm:max-h-[70px] sm:max-w-[170px] md:max-h-[100px] md:max-w-[260px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
       />
     </div>
-  ));
+  );
+  const half = Math.ceil(trustLogos.length / 2);
+  const trustItemsRow1 = trustLogos.slice(0, half).map(renderTrustItem);
+  const trustItemsRow2 = trustLogos.slice(half).map(renderTrustItem);
 
   const partnerItems = partnerLogos.map((logo) => (
     <div key={logo.alt} className="flex-shrink-0 w-[140px] h-[100px] sm:w-[200px] sm:h-[140px] md:w-[300px] md:h-[200px] flex items-center justify-center px-4">
@@ -341,9 +344,12 @@ function TrustBarDynamic() {
         <ScrollReveal className="text-center mb-6 md:mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-navy">Empresas que confían en Tooxs</h2>
         </ScrollReveal>
-        {/* Logo marquee - draggable */}
-        <DraggableMarquee speed={30} className="mb-8 md:mb-10">
-          {trustItems}
+        {/* Logo marquees - two rows, draggable */}
+        <DraggableMarquee speed={30} className="mb-4 md:mb-5">
+          {trustItemsRow1}
+        </DraggableMarquee>
+        <DraggableMarquee reverse speed={30} className="mb-8 md:mb-10">
+          {trustItemsRow2}
         </DraggableMarquee>
         {/* Metrics + Map */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-center">
