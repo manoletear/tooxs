@@ -17,6 +17,12 @@ import methodDesignImg from "../assets/method-design.jpg";
 import methodImplementImg from "../assets/method-implement.jpg";
 import methodScaleImg from "../assets/method-scale.jpg";
 import methodBgImg from "../assets/methodology-bg.jpg";
+import logoResiter from "../assets/logos/resiter.png";
+import logoManquehue from "../assets/logos/manquehue.png";
+import logoMaestra from "../assets/logos/maestra.jpeg";
+import logoTepille from "../assets/logos/tepille.jpeg";
+import logoReutter from "../assets/logos/reutter.png";
+import logoLegalChile from "../assets/logos/legalchile.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -183,10 +189,12 @@ const trustLogos = [
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BUPA-1.png", alt: "Bupa" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-DIVEMOTOR-1.png", alt: "Divemotor" },
   { src: "https://tooxs.com/wp-content/uploads/2025/08/logo-vik.png", alt: "Vik" },
-  { src: "/placeholder.svg", alt: "Resiter" },
-  { src: "/placeholder.svg", alt: "Inmobiliaria Maquehue" },
-  { src: "/placeholder.svg", alt: "Inmobiliaria Maestra" },
-  { src: "/placeholder.svg", alt: "Inmobiliaria Brick" },
+  { src: logoResiter, alt: "Resiter" },
+  { src: logoManquehue, alt: "Inmobiliaria Manquehue" },
+  { src: logoMaestra, alt: "Inmobiliaria Maestra" },
+  { src: logoTepille, alt: "Te Pille" },
+  { src: logoReutter, alt: "Reutter" },
+  { src: logoLegalChile, alt: "Legal Chile" },
 ];
 const metrics = [
   { value: 8, suffix: "+", label: "Años desarrollando soluciones digitales" },
