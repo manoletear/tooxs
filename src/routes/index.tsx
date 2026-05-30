@@ -23,6 +23,7 @@ import logoMaestra from "../assets/logos/maestra.jpeg";
 import logoTepille from "../assets/logos/tepille.jpeg";
 import logoReutter from "../assets/logos/reutter.png";
 import logoLegalChile from "../assets/logos/legalchile.png";
+import logoMatrix from "../assets/logos/matrix.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -195,6 +196,7 @@ const trustLogos = [
   { src: logoTepille, alt: "Te Pille" },
   { src: logoReutter, alt: "Reutter" },
   { src: logoLegalChile, alt: "Legal Chile" },
+  { src: logoMatrix, alt: "Matrix Consulting" },
 ];
 const metrics = [
   { value: 8, suffix: "+", label: "Años desarrollando soluciones digitales" },
