@@ -59,7 +59,7 @@ const solutions: Solution[] = [
     image: safevisionImg,
     icon: <Shield size={24} />,
     accentColor: "#C62D2D",
-    fullDescription: "SafeVision utiliza análisis de video para identificar conductas, condiciones o eventos de riesgo en tiempo real. Fortalece la prevención, genera alertas tempranas y apoya decisiones de seguridad.",
+    fullDescription: "XpertVision utiliza análisis de video para identificar conductas, condiciones o eventos de riesgo en tiempo real. Fortalece la prevención, genera alertas tempranas y apoya decisiones de seguridad.",
     problems: [
       "Dependencia excesiva de supervisión humana para detectar eventos de riesgo.",
       "Baja capacidad de reacción ante condiciones inseguras en tiempo real.",
