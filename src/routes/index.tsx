@@ -305,11 +305,12 @@ function DraggableMarquee({ children, reverse = false, speed = 30, className = "
 
 function TrustBarDynamic() {
   const renderTrustItem = (logo: { src: string; alt: string }) => (
-    <div key={logo.alt} className="flex-shrink-0 w-[140px] h-[60px] sm:w-[180px] sm:h-[80px] md:w-[280px] md:h-[120px] flex items-center justify-center">
+    <div key={logo.alt} className="flex-shrink-0 w-[130px] h-[64px] sm:w-[160px] sm:h-[72px] md:w-[200px] md:h-[88px] flex items-center justify-center px-3 sm:px-5 md:px-6">
       <img
         src={logo.src}
         alt={logo.alt}
-        className="max-h-[50px] max-w-[130px] sm:max-h-[70px] sm:max-w-[170px] md:max-h-[100px] md:max-w-[260px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+        className="max-h-[40px] max-w-full sm:max-h-[48px] md:max-h-[56px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+        loading="lazy"
       />
     </div>
   );
