@@ -31,7 +31,7 @@ export function Footer() {
               ))}
               {[
                 { href: "https://docuengine.tooxs.com/", label: "DocuEngine" },
-                { href: "https://safevision.tooxs.com/", label: "SafeVision" },
+                { href: "https://safevision.tooxs.com/", label: "XpertVision" },
                 { href: "https://xpertooxs.tooxs.com/", label: "Xpertooxs" },
               ].map((link) => (
                 <a
