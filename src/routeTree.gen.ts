@@ -9,67 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TalleresRouteImport } from './routes/talleres'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as NewsletterRouteImport } from './routes/newsletter'
-import { Route as IndustriasRouteImport } from './routes/industrias'
-import { Route as FaqsRouteImport } from './routes/faqs'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ActivarIaRouteImport } from './routes/activar-ia'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicesIndexRouteImport } from './routes/services.index'
-import { Route as NewsletterIndexRouteImport } from './routes/newsletter.index'
-import { Route as ServicesServiceSlugRouteImport } from './routes/services.$serviceSlug'
-import { Route as NewsletterSlugRouteImport } from './routes/newsletter.$slug'
-import { Route as IndustriasTelecomunicacionesRouteImport } from './routes/industrias.telecomunicaciones'
-import { Route as IndustriasSaludRouteImport } from './routes/industrias.salud'
-import { Route as IndustriasRetailLogisticaRouteImport } from './routes/industrias.retail-logistica'
-import { Route as IndustriasRealEstateRouteImport } from './routes/industrias.real-estate'
-import { Route as IndustriasMineriaUtilitiesRouteImport } from './routes/industrias.mineria-utilities'
-import { Route as IndustriasBancaFinanzasRouteImport } from './routes/industrias.banca-finanzas'
-import { Route as IndustriasAutomotrizRouteImport } from './routes/industrias.automotriz'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ActivarIaRouteImport } from './routes/activar-ia'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqsRouteImport } from './routes/faqs'
+import { Route as IndustriasRouteImport } from './routes/industrias'
+import { Route as NewsletterRouteImport } from './routes/newsletter'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TalleresRouteImport } from './routes/talleres'
 import { Route as IndustriasAgroindustriaRouteImport } from './routes/industrias.agroindustria'
+import { Route as IndustriasAutomotrizRouteImport } from './routes/industrias.automotriz'
+import { Route as IndustriasBancaFinanzasRouteImport } from './routes/industrias.banca-finanzas'
+import { Route as IndustriasMineriaUtilitiesRouteImport } from './routes/industrias.mineria-utilities'
+import { Route as IndustriasRealEstateRouteImport } from './routes/industrias.real-estate'
+import { Route as IndustriasRetailLogisticaRouteImport } from './routes/industrias.retail-logistica'
+import { Route as IndustriasSaludRouteImport } from './routes/industrias.salud'
+import { Route as IndustriasTelecomunicacionesRouteImport } from './routes/industrias.telecomunicaciones'
+import { Route as NewsletterIndexRouteImport } from './routes/newsletter.index'
+import { Route as NewsletterSlugRouteImport } from './routes/newsletter.$slug'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesServiceSlugRouteImport } from './routes/services.$serviceSlug'
 
-const TalleresRoute = TalleresRouteImport.update({
-  id: '/talleres',
-  path: '/talleres',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NewsletterRoute = NewsletterRouteImport.update({
-  id: '/newsletter',
-  path: '/newsletter',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriasRoute = IndustriasRouteImport.update({
-  id: '/industrias',
-  path: '/industrias',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqsRoute = FaqsRouteImport.update({
-  id: '/faqs',
-  path: '/faqs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ActivarIaRoute = ActivarIaRouteImport.update({
-  id: '/activar-ia',
-  path: '/activar-ia',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -77,51 +42,59 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ActivarIaRoute = ActivarIaRouteImport.update({
+  id: '/activar-ia',
+  path: '/activar-ia',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesIndexRoute = ServicesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ServicesRoute,
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const NewsletterIndexRoute = NewsletterIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => NewsletterRoute,
+const FaqsRoute = FaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesServiceSlugRoute = ServicesServiceSlugRouteImport.update({
-  id: '/$serviceSlug',
-  path: '/$serviceSlug',
-  getParentRoute: () => ServicesRoute,
+const IndustriasRoute = IndustriasRouteImport.update({
+  id: '/industrias',
+  path: '/industrias',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const NewsletterSlugRoute = NewsletterSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => NewsletterRoute,
+const NewsletterRoute = NewsletterRouteImport.update({
+  id: '/newsletter',
+  path: '/newsletter',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const IndustriasTelecomunicacionesRoute =
-  IndustriasTelecomunicacionesRouteImport.update({
-    id: '/telecomunicaciones',
-    path: '/telecomunicaciones',
-    getParentRoute: () => IndustriasRoute,
-  } as any)
-const IndustriasSaludRoute = IndustriasSaludRouteImport.update({
-  id: '/salud',
-  path: '/salud',
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TalleresRoute = TalleresRouteImport.update({
+  id: '/talleres',
+  path: '/talleres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriasAgroindustriaRoute = IndustriasAgroindustriaRouteImport.update({
+  id: '/agroindustria',
+  path: '/agroindustria',
   getParentRoute: () => IndustriasRoute,
 } as any)
-const IndustriasRetailLogisticaRoute =
-  IndustriasRetailLogisticaRouteImport.update({
-    id: '/retail-logistica',
-    path: '/retail-logistica',
-    getParentRoute: () => IndustriasRoute,
-  } as any)
-const IndustriasRealEstateRoute = IndustriasRealEstateRouteImport.update({
-  id: '/real-estate',
-  path: '/real-estate',
+const IndustriasAutomotrizRoute = IndustriasAutomotrizRouteImport.update({
+  id: '/automotriz',
+  path: '/automotriz',
+  getParentRoute: () => IndustriasRoute,
+} as any)
+const IndustriasBancaFinanzasRoute = IndustriasBancaFinanzasRouteImport.update({
+  id: '/banca-finanzas',
+  path: '/banca-finanzas',
   getParentRoute: () => IndustriasRoute,
 } as any)
 const IndustriasMineriaUtilitiesRoute =
@@ -130,20 +103,47 @@ const IndustriasMineriaUtilitiesRoute =
     path: '/mineria-utilities',
     getParentRoute: () => IndustriasRoute,
   } as any)
-const IndustriasBancaFinanzasRoute = IndustriasBancaFinanzasRouteImport.update({
-  id: '/banca-finanzas',
-  path: '/banca-finanzas',
+const IndustriasRealEstateRoute = IndustriasRealEstateRouteImport.update({
+  id: '/real-estate',
+  path: '/real-estate',
   getParentRoute: () => IndustriasRoute,
 } as any)
-const IndustriasAutomotrizRoute = IndustriasAutomotrizRouteImport.update({
-  id: '/automotriz',
-  path: '/automotriz',
+const IndustriasRetailLogisticaRoute =
+  IndustriasRetailLogisticaRouteImport.update({
+    id: '/retail-logistica',
+    path: '/retail-logistica',
+    getParentRoute: () => IndustriasRoute,
+  } as any)
+const IndustriasSaludRoute = IndustriasSaludRouteImport.update({
+  id: '/salud',
+  path: '/salud',
   getParentRoute: () => IndustriasRoute,
 } as any)
-const IndustriasAgroindustriaRoute = IndustriasAgroindustriaRouteImport.update({
-  id: '/agroindustria',
-  path: '/agroindustria',
-  getParentRoute: () => IndustriasRoute,
+const IndustriasTelecomunicacionesRoute =
+  IndustriasTelecomunicacionesRouteImport.update({
+    id: '/telecomunicaciones',
+    path: '/telecomunicaciones',
+    getParentRoute: () => IndustriasRoute,
+  } as any)
+const NewsletterIndexRoute = NewsletterIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => NewsletterRoute,
+} as any)
+const NewsletterSlugRoute = NewsletterSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => NewsletterRoute,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesServiceSlugRoute = ServicesServiceSlugRouteImport.update({
+  id: '/$serviceSlug',
+  path: '/$serviceSlug',
+  getParentRoute: () => ServicesRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -305,60 +305,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/talleres': {
-      id: '/talleres'
-      path: '/talleres'
-      fullPath: '/talleres'
-      preLoaderRoute: typeof TalleresRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/newsletter': {
-      id: '/newsletter'
-      path: '/newsletter'
-      fullPath: '/newsletter'
-      preLoaderRoute: typeof NewsletterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industrias': {
-      id: '/industrias'
-      path: '/industrias'
-      fullPath: '/industrias'
-      preLoaderRoute: typeof IndustriasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faqs': {
-      id: '/faqs'
-      path: '/faqs'
-      fullPath: '/faqs'
-      preLoaderRoute: typeof FaqsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/activar-ia': {
-      id: '/activar-ia'
-      path: '/activar-ia'
-      fullPath: '/activar-ia'
-      preLoaderRoute: typeof ActivarIaRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -368,81 +319,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/activar-ia': {
+      id: '/activar-ia'
+      path: '/activar-ia'
+      fullPath: '/activar-ia'
+      preLoaderRoute: typeof ActivarIaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/': {
-      id: '/services/'
-      path: '/'
-      fullPath: '/services/'
-      preLoaderRoute: typeof ServicesIndexRouteImport
-      parentRoute: typeof ServicesRoute
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/newsletter/': {
-      id: '/newsletter/'
-      path: '/'
-      fullPath: '/newsletter/'
-      preLoaderRoute: typeof NewsletterIndexRouteImport
-      parentRoute: typeof NewsletterRoute
+    '/faqs': {
+      id: '/faqs'
+      path: '/faqs'
+      fullPath: '/faqs'
+      preLoaderRoute: typeof FaqsRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/services/$serviceSlug': {
-      id: '/services/$serviceSlug'
-      path: '/$serviceSlug'
-      fullPath: '/services/$serviceSlug'
-      preLoaderRoute: typeof ServicesServiceSlugRouteImport
-      parentRoute: typeof ServicesRoute
+    '/industrias': {
+      id: '/industrias'
+      path: '/industrias'
+      fullPath: '/industrias'
+      preLoaderRoute: typeof IndustriasRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/newsletter/$slug': {
-      id: '/newsletter/$slug'
-      path: '/$slug'
-      fullPath: '/newsletter/$slug'
-      preLoaderRoute: typeof NewsletterSlugRouteImport
-      parentRoute: typeof NewsletterRoute
+    '/newsletter': {
+      id: '/newsletter'
+      path: '/newsletter'
+      fullPath: '/newsletter'
+      preLoaderRoute: typeof NewsletterRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/industrias/telecomunicaciones': {
-      id: '/industrias/telecomunicaciones'
-      path: '/telecomunicaciones'
-      fullPath: '/industrias/telecomunicaciones'
-      preLoaderRoute: typeof IndustriasTelecomunicacionesRouteImport
-      parentRoute: typeof IndustriasRoute
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/industrias/salud': {
-      id: '/industrias/salud'
-      path: '/salud'
-      fullPath: '/industrias/salud'
-      preLoaderRoute: typeof IndustriasSaludRouteImport
-      parentRoute: typeof IndustriasRoute
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/industrias/retail-logistica': {
-      id: '/industrias/retail-logistica'
-      path: '/retail-logistica'
-      fullPath: '/industrias/retail-logistica'
-      preLoaderRoute: typeof IndustriasRetailLogisticaRouteImport
-      parentRoute: typeof IndustriasRoute
+    '/talleres': {
+      id: '/talleres'
+      path: '/talleres'
+      fullPath: '/talleres'
+      preLoaderRoute: typeof TalleresRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/industrias/real-estate': {
-      id: '/industrias/real-estate'
-      path: '/real-estate'
-      fullPath: '/industrias/real-estate'
-      preLoaderRoute: typeof IndustriasRealEstateRouteImport
-      parentRoute: typeof IndustriasRoute
-    }
-    '/industrias/mineria-utilities': {
-      id: '/industrias/mineria-utilities'
-      path: '/mineria-utilities'
-      fullPath: '/industrias/mineria-utilities'
-      preLoaderRoute: typeof IndustriasMineriaUtilitiesRouteImport
-      parentRoute: typeof IndustriasRoute
-    }
-    '/industrias/banca-finanzas': {
-      id: '/industrias/banca-finanzas'
-      path: '/banca-finanzas'
-      fullPath: '/industrias/banca-finanzas'
-      preLoaderRoute: typeof IndustriasBancaFinanzasRouteImport
+    '/industrias/agroindustria': {
+      id: '/industrias/agroindustria'
+      path: '/agroindustria'
+      fullPath: '/industrias/agroindustria'
+      preLoaderRoute: typeof IndustriasAgroindustriaRouteImport
       parentRoute: typeof IndustriasRoute
     }
     '/industrias/automotriz': {
@@ -452,12 +389,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriasAutomotrizRouteImport
       parentRoute: typeof IndustriasRoute
     }
-    '/industrias/agroindustria': {
-      id: '/industrias/agroindustria'
-      path: '/agroindustria'
-      fullPath: '/industrias/agroindustria'
-      preLoaderRoute: typeof IndustriasAgroindustriaRouteImport
+    '/industrias/banca-finanzas': {
+      id: '/industrias/banca-finanzas'
+      path: '/banca-finanzas'
+      fullPath: '/industrias/banca-finanzas'
+      preLoaderRoute: typeof IndustriasBancaFinanzasRouteImport
       parentRoute: typeof IndustriasRoute
+    }
+    '/industrias/mineria-utilities': {
+      id: '/industrias/mineria-utilities'
+      path: '/mineria-utilities'
+      fullPath: '/industrias/mineria-utilities'
+      preLoaderRoute: typeof IndustriasMineriaUtilitiesRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
+    '/industrias/real-estate': {
+      id: '/industrias/real-estate'
+      path: '/real-estate'
+      fullPath: '/industrias/real-estate'
+      preLoaderRoute: typeof IndustriasRealEstateRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
+    '/industrias/retail-logistica': {
+      id: '/industrias/retail-logistica'
+      path: '/retail-logistica'
+      fullPath: '/industrias/retail-logistica'
+      preLoaderRoute: typeof IndustriasRetailLogisticaRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
+    '/industrias/salud': {
+      id: '/industrias/salud'
+      path: '/salud'
+      fullPath: '/industrias/salud'
+      preLoaderRoute: typeof IndustriasSaludRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
+    '/industrias/telecomunicaciones': {
+      id: '/industrias/telecomunicaciones'
+      path: '/telecomunicaciones'
+      fullPath: '/industrias/telecomunicaciones'
+      preLoaderRoute: typeof IndustriasTelecomunicacionesRouteImport
+      parentRoute: typeof IndustriasRoute
+    }
+    '/newsletter/': {
+      id: '/newsletter/'
+      path: '/'
+      fullPath: '/newsletter/'
+      preLoaderRoute: typeof NewsletterIndexRouteImport
+      parentRoute: typeof NewsletterRoute
+    }
+    '/newsletter/$slug': {
+      id: '/newsletter/$slug'
+      path: '/$slug'
+      fullPath: '/newsletter/$slug'
+      preLoaderRoute: typeof NewsletterSlugRouteImport
+      parentRoute: typeof NewsletterRoute
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/$serviceSlug': {
+      id: '/services/$serviceSlug'
+      path: '/$serviceSlug'
+      fullPath: '/services/$serviceSlug'
+      preLoaderRoute: typeof ServicesServiceSlugRouteImport
+      parentRoute: typeof ServicesRoute
     }
   }
 }
@@ -531,12 +531,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
