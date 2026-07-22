@@ -170,7 +170,7 @@ const trustLogos = [
   { src: logoKaufmann, alt: "Kaufmann" },
   { src: "/__l5e/assets-v1/8cdb2438-964d-45bf-bb04-d6aa04572dbe/candelaria.png", alt: "Candelaria" },
   { src: "/__l5e/assets-v1/cb684fbb-bf31-4ef3-928c-0ded8b1c3615/volcan.png", alt: "Volcán" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-TRANSELEC-1.png", alt: "Transelec" },
+  { src: "/__l5e/assets-v1/63b80f1c-8892-4a1f-8793-be0efd8d33e2/transelec.png", alt: "Transelec" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-DIVEMOTOR.png", alt: "Divemotor" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-SANTANDER-2.png", alt: "Santander" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-PUC-1.png", alt: "PUC" },
