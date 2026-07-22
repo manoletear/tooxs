@@ -173,7 +173,7 @@ const trustLogos = [
   { src: "/__l5e/assets-v1/cb684fbb-bf31-4ef3-928c-0ded8b1c3615/volcan.png", alt: "Volcán" },
   { src: "/__l5e/assets-v1/63b80f1c-8892-4a1f-8793-be0efd8d33e2/transelec.png", alt: "Transelec" },
   { src: "/__l5e/assets-v1/2398031d-52d8-458f-ab9d-672fe4c21461/divemotor.png", alt: "Divemotor" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-SANTANDER-2.png", alt: "Santander" },
+  { src: logoSantander.url, alt: "Santander" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-PUC-1.png", alt: "PUC" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-GPS7000-1.png", alt: "GPS7000" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BCI.png", alt: "BCI" },
