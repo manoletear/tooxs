@@ -29,6 +29,7 @@ import logoSantander from "../assets/logos/santander.png.asset.json";
 import logoGps7000 from "../assets/logos/gps7000.png.asset.json";
 import logoPuc from "../assets/logos/puc.png.asset.json";
 import logoSaesa from "../assets/logos/saesa.png.asset.json";
+import logoFinning from "../assets/logos/finning.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
