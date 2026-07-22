@@ -166,7 +166,7 @@ function HeroStrategic() {
    2. TRUST BAR
    ══════════════════════════════════════════ */
 const trustLogos = [
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-KAUFMANN.png", alt: "Kaufmann" },
+  { src: logoKaufmann, alt: "Kaufmann" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-CANDELARIA.png", alt: "Candelaria" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-VOLCAN.png", alt: "Volcán" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-TRANSELEC-1.png", alt: "Transelec" },
