@@ -25,7 +25,7 @@ import logoReutter from "../assets/logos/reutter.png";
 import logoLegalChile from "../assets/logos/legalchile.png";
 import logoMatrix from "../assets/logos/matrix.jpeg";
 import logoKaufmann from "../assets/logos/kaufmann.png";
-import logoVolcan from "../assets/logos/volcan.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -169,7 +169,7 @@ function HeroStrategic() {
 const trustLogos = [
   { src: logoKaufmann, alt: "Kaufmann" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-CANDELARIA.png", alt: "Candelaria" },
-  { src: logoVolcan.url, alt: "Volcán" },
+  { src: "/__l5e/assets-v1/cb684fbb-bf31-4ef3-928c-0ded8b1c3615/volcan.png", alt: "Volcán" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-TRANSELEC-1.png", alt: "Transelec" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-DIVEMOTOR.png", alt: "Divemotor" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-SANTANDER-2.png", alt: "Santander" },
