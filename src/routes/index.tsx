@@ -168,7 +168,7 @@ function HeroStrategic() {
    ══════════════════════════════════════════ */
 const trustLogos = [
   { src: logoKaufmann, alt: "Kaufmann" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-CANDELARIA.png", alt: "Candelaria" },
+  { src: "/__l5e/assets-v1/8cdb2438-964d-45bf-bb04-d6aa04572dbe/candelaria.png", alt: "Candelaria" },
   { src: "/__l5e/assets-v1/cb684fbb-bf31-4ef3-928c-0ded8b1c3615/volcan.png", alt: "Volcán" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-TRANSELEC-1.png", alt: "Transelec" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-DIVEMOTOR.png", alt: "Divemotor" },
