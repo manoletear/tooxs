@@ -36,6 +36,7 @@ import logoBupa from "../assets/logos/bupa.png.asset.json";
 import logoHenkel from "../assets/logos/henkel.png.asset.json";
 import logoAutostar from "../assets/logos/autostar.png.asset.json";
 import logoBci from "../assets/logos/bci.png.asset.json";
+import logoVik from "../assets/logos/vina-vik.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -203,7 +204,7 @@ const trustLogos = [
   { src: logoLapolar.url, alt: "La Polar" },
   { src: logoBupa.url, alt: "Bupa" },
   { src: "/__l5e/assets-v1/2398031d-52d8-458f-ab9d-672fe4c21461/divemotor.png", alt: "Divemotor" },
-  { src: "https://tooxs.com/wp-content/uploads/2025/08/logo-vik.png", alt: "Vik" },
+  { src: logoVik.url, alt: "Viña Vik" },
   { src: logoResiter, alt: "Resiter" },
   { src: logoManquehue, alt: "Inmobiliaria Manquehue" },
   { src: logoMaestra, alt: "Inmobiliaria Maestra" },
