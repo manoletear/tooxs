@@ -24,6 +24,7 @@ import logoTepille from "../assets/logos/tepille.jpeg";
 import logoReutter from "../assets/logos/reutter.png";
 import logoLegalChile from "../assets/logos/legalchile.png";
 import logoMatrix from "../assets/logos/matrix.jpeg";
+import logoKaufmann from "../assets/logos/kaufmann.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
