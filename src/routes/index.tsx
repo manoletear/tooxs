@@ -190,7 +190,7 @@ const trustLogos = [
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-ITALFRENOS.png", alt: "Italfrenos" },
   { src: logoSaesa.url, alt: "Saesa" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-ROMA.png", alt: "Roma" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/Loho-FINNING.png", alt: "Finning" },
+  { src: logoFinning.url, alt: "Finning" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-AUTOSTAR.png", alt: "Autostar" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-HENKEL.png", alt: "Henkel" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-LAPOLAR.png", alt: "La Polar" },
