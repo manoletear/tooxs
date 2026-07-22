@@ -34,6 +34,7 @@ import logoTrekrental from "../assets/logos/trekrental.png.asset.json";
 import logoLapolar from "../assets/logos/lapolar.png.asset.json";
 import logoBupa from "../assets/logos/bupa.png.asset.json";
 import logoHenkel from "../assets/logos/henkel.png.asset.json";
+import logoAutostar from "../assets/logos/autostar.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -195,7 +196,7 @@ const trustLogos = [
   { src: logoSaesa.url, alt: "Saesa" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-ROMA.png", alt: "Roma" },
   { src: logoFinning.url, alt: "Finning" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-AUTOSTAR.png", alt: "Autostar" },
+  { src: logoAutostar.url, alt: "Autostar" },
   { src: logoHenkel.url, alt: "Henkel" },
   { src: logoLapolar.url, alt: "La Polar" },
   { src: logoBupa.url, alt: "Bupa" },
