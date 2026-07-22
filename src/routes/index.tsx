@@ -34,6 +34,7 @@ import logoTrekrental from "../assets/logos/trekrental.png.asset.json";
 import logoLapolar from "../assets/logos/lapolar.png.asset.json";
 import logoBupa from "../assets/logos/bupa.png.asset.json";
 import logoHenkel from "../assets/logos/henkel.png.asset.json";
+import logoAutostar from "../assets/logos/autostar.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
