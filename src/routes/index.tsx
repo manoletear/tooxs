@@ -26,6 +26,7 @@ import logoLegalChile from "../assets/logos/legalchile.png";
 import logoMatrix from "../assets/logos/matrix.jpeg";
 import logoKaufmann from "../assets/logos/kaufmann.png";
 import logoSantander from "../assets/logos/santander.png.asset.json";
+import logoGps7000 from "../assets/logos/gps7000.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
