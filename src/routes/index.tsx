@@ -28,6 +28,7 @@ import logoKaufmann from "../assets/logos/kaufmann.png";
 import logoSantander from "../assets/logos/santander.png.asset.json";
 import logoGps7000 from "../assets/logos/gps7000.png.asset.json";
 import logoPuc from "../assets/logos/puc.png.asset.json";
+import logoSaesa from "../assets/logos/saesa.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -186,7 +187,7 @@ const trustLogos = [
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-PATRIA.png", alt: "Patria" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-UNIFRUTTI.png", alt: "Unifrutti" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-ITALFRENOS.png", alt: "Italfrenos" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-SAESA.png", alt: "Saesa" },
+  { src: logoSaesa.url, alt: "Saesa" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-ROMA.png", alt: "Roma" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Loho-FINNING.png", alt: "Finning" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-AUTOSTAR.png", alt: "Autostar" },
