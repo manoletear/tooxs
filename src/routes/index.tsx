@@ -199,6 +199,7 @@ const trustLogos = [
   { src: logoFinning.url, alt: "Finning" },
   { src: logoAutostar.url, alt: "Autostar" },
   { src: logoHenkel.url, alt: "Henkel" },
+  { src: logoBci.url, alt: "BCI" },
   { src: logoLapolar.url, alt: "La Polar" },
   { src: logoBupa.url, alt: "Bupa" },
   { src: "/__l5e/assets-v1/2398031d-52d8-458f-ab9d-672fe4c21461/divemotor.png", alt: "Divemotor" },
