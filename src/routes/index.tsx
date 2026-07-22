@@ -31,6 +31,8 @@ import logoPuc from "../assets/logos/puc.png.asset.json";
 import logoSaesa from "../assets/logos/saesa.png.asset.json";
 import logoFinning from "../assets/logos/finning.png.asset.json";
 import logoTrekrental from "../assets/logos/trekrental.png.asset.json";
+import logoLapolar from "../assets/logos/lapolar.png.asset.json";
+import logoBupa from "../assets/logos/bupa.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -194,8 +196,8 @@ const trustLogos = [
   { src: logoFinning.url, alt: "Finning" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-AUTOSTAR.png", alt: "Autostar" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-HENKEL.png", alt: "Henkel" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-LAPOLAR.png", alt: "La Polar" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BUPA-1.png", alt: "Bupa" },
+  { src: logoLapolar.url, alt: "La Polar" },
+  { src: logoBupa.url, alt: "Bupa" },
   { src: "/__l5e/assets-v1/2398031d-52d8-458f-ab9d-672fe4c21461/divemotor.png", alt: "Divemotor" },
   { src: "https://tooxs.com/wp-content/uploads/2025/08/logo-vik.png", alt: "Vik" },
   { src: logoResiter, alt: "Resiter" },
