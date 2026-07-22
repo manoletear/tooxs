@@ -182,7 +182,7 @@ const trustLogos = [
   { src: logoPuc.url, alt: "PUC" },
   { src: logoGps7000.url, alt: "GPS7000" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BCI.png", alt: "BCI" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-TREKRENTAL-1.png", alt: "TrekRental" },
+  { src: logoTrekrental.url, alt: "TrekRental" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BESITER.png", alt: "Besiter" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-AGUAS-ANTOFAGASTA.png", alt: "Aguas Antofagasta" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-CApital-advisors.png", alt: "Capital Advisors" },
