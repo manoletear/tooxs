@@ -24,6 +24,7 @@ import logoTepille from "../assets/logos/tepille.jpeg";
 import logoReutter from "../assets/logos/reutter.png";
 import logoLegalChile from "../assets/logos/legalchile.png";
 import logoMatrix from "../assets/logos/matrix.jpeg";
+import logoKaufmann from "../assets/logos/kaufmann.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -165,7 +166,7 @@ function HeroStrategic() {
    2. TRUST BAR
    ══════════════════════════════════════════ */
 const trustLogos = [
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-KAUFMANN.png", alt: "Kaufmann" },
+  { src: logoKaufmann, alt: "Kaufmann" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-CANDELARIA.png", alt: "Candelaria" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-VOLCAN.png", alt: "Volcán" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-TRANSELEC-1.png", alt: "Transelec" },
