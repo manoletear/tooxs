@@ -176,7 +176,7 @@ const trustLogos = [
   { src: "/__l5e/assets-v1/63b80f1c-8892-4a1f-8793-be0efd8d33e2/transelec.png", alt: "Transelec" },
   { src: "/__l5e/assets-v1/2398031d-52d8-458f-ab9d-672fe4c21461/divemotor.png", alt: "Divemotor" },
   { src: logoSantander.url, alt: "Santander" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-PUC-1.png", alt: "PUC" },
+  { src: logoPuc.url, alt: "PUC" },
   { src: logoGps7000.url, alt: "GPS7000" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-BCI.png", alt: "BCI" },
   { src: "https://tooxs.com/wp-content/uploads/2024/09/LOGO-TREKRENTAL-1.png", alt: "TrekRental" },
