@@ -15,6 +15,7 @@ import {
   Wand2,
   Activity,
   CheckCircle2,
+  BadgeCheck,
 } from "lucide-react";
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
@@ -223,6 +224,9 @@ function ActivarIAPage() {
           <Link to="/" className="inline-flex items-center gap-1 mb-4 sm:mb-5 px-3 py-1.5 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 text-white text-xs font-semibold tracking-wide transition-colors">
             ‹ Volver al Inicio
           </Link>
+          <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-4 sm:mb-5">
+            <BadgeCheck size={14} className="text-mint" /> Partner Claude
+          </span>
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black mb-3 sm:mb-4 leading-[1.1] tracking-tight"
             style={{ fontFamily: "var(--font-heading)" }}
