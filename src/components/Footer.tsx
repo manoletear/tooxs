@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Mail, Phone, MapPin, BadgeCheck } from "lucide-react";
 import tooxsLogo from "@/assets/tooxs-logo.png";
 
 export function Footer() {
