@@ -11,6 +11,9 @@ export function Footer() {
           {/* Brand */}
           <div>
             <img src={tooxsLogo} alt="Tooxs" className="h-8 w-auto mb-4" />
+            <span className="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-mint text-xs font-semibold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full">
+              <BadgeCheck size={14} /> Partner Claude
+            </span>
           </div>
 
           {/* Enlaces */}
