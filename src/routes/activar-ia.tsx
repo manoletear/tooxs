@@ -15,6 +15,7 @@ import {
   Wand2,
   Activity,
   CheckCircle2,
+  BadgeCheck,
 } from "lucide-react";
 import { NeuralActivationBackground } from "@/components/NeuralActivationBackground";
 import { ScrollReveal } from "@/hooks/use-scroll-reveal";
