@@ -4,7 +4,6 @@ import {
   Brain, Cog, BarChart3, FileText, Factory, ArrowRight, CheckCircle,
   Database, Workflow, Network, LineChart, Cloud, Target, BadgeCheck,
 } from "lucide-react";
-import { BadgeCheck } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PrismBackground } from "@/components/PrismBackground";
 import { BokehBackground } from "@/components/BokehBackground";
