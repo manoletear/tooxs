@@ -128,6 +128,9 @@ function HeroStrategic() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-20">
           {/* Left: Heading */}
           <div className="lg:max-w-[58%]">
+            <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-5 sm:mb-6">
+              <BadgeCheck size={14} className="text-mint" /> Partner Claude
+            </span>
             <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-[1.08] tracking-tight" style={{ fontFamily: "var(--font-heading)" }}>
               No es la tecnología.{" "}
               <br className="hidden sm:block" />
