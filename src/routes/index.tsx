@@ -229,11 +229,10 @@ const metrics = [
 ];
 
 const partnerLogos = [
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/logos_webtooxs_empresas_path.png", alt: "Path" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/logos_webtooxs_empresas_microsoft.png", alt: "Microsoft" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/logos_webtooxs_empresas_googlecloud.png", alt: "Google Cloud" },
-  { src: "https://tooxs.com/wp-content/uploads/2024/09/Logo-SONDA.png", alt: "Sonda" },
-  { src: "https://cdn.simpleicons.org/anthropic/000000", alt: "Anthropic" },
+  { src: "https://cdn.simpleicons.org/uipath/FA4616", alt: "UiPath" },
+  { src: "https://cdn.simpleicons.org/microsoft/0A2647", alt: "Microsoft" },
+  { src: "https://cdn.simpleicons.org/googlecloud/0A2647", alt: "Google Cloud" },
+  { src: "https://cdn.simpleicons.org/anthropic/0A2647", alt: "Anthropic" },
 ];
 
 function DraggableMarquee({ children, reverse = false, speed = 30, className = "" }: { children: React.ReactNode; reverse?: boolean; speed?: number; className?: string }) {
@@ -341,22 +340,15 @@ function TrustBarDynamic() {
 
   const partnerItems = partnerLogos.map((logo) => (
     <div key={logo.alt} className="flex-shrink-0 w-[140px] h-[100px] sm:w-[200px] sm:h-[140px] md:w-[300px] md:h-[200px] flex items-center justify-center px-4">
-      {logo.alt === "Anthropic" ? (
-        <div className="flex items-center gap-2 sm:gap-3 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500">
-          <img
-            src={logo.src}
-            alt={logo.alt}
-            className="h-[22px] w-[22px] sm:h-[32px] sm:w-[32px] md:h-[44px] md:w-[44px] object-contain"
-          />
-          <span className="font-semibold text-navy text-base sm:text-lg md:text-2xl tracking-tight">Anthropic</span>
-        </div>
-      ) : (
+      <div className="flex items-center gap-2 sm:gap-3 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500">
         <img
           src={logo.src}
           alt={logo.alt}
-          className="max-h-[40px] max-w-[120px] sm:max-h-[56px] sm:max-w-[170px] md:max-h-[80px] md:max-w-[240px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+          className="h-[24px] w-[24px] sm:h-[34px] sm:w-[34px] md:h-[46px] md:w-[46px] object-contain"
+          loading="lazy"
         />
-      )}
+        <span className="font-semibold text-navy text-base sm:text-lg md:text-2xl tracking-tight">{logo.alt}</span>
+      </div>
     </div>
   ));
 
