@@ -37,6 +37,10 @@ import logoHenkel from "../assets/logos/henkel.png.asset.json";
 import logoAutostar from "../assets/logos/autostar.png.asset.json";
 import logoBci from "../assets/logos/bci.png.asset.json";
 import logoVik from "../assets/logos/vina-vik.png.asset.json";
+import logoCandelaria from "../assets/logos/candelaria.png.asset.json";
+import logoVolcan from "../assets/logos/volcan.png.asset.json";
+import logoTranselec from "../assets/logos/transelec.png.asset.json";
+import logoDivemotor from "../assets/logos/divemotor.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -183,10 +187,10 @@ function HeroStrategic() {
    ══════════════════════════════════════════ */
 const trustLogos = [
   { src: logoKaufmann, alt: "Kaufmann" },
-  { src: "/__l5e/assets-v1/8cdb2438-964d-45bf-bb04-d6aa04572dbe/candelaria.png", alt: "Candelaria" },
-  { src: "/__l5e/assets-v1/cb684fbb-bf31-4ef3-928c-0ded8b1c3615/volcan.png", alt: "Volcán" },
-  { src: "/__l5e/assets-v1/63b80f1c-8892-4a1f-8793-be0efd8d33e2/transelec.png", alt: "Transelec" },
-  { src: "/__l5e/assets-v1/2398031d-52d8-458f-ab9d-672fe4c21461/divemotor.png", alt: "Divemotor" },
+  { src: logoCandelaria.url, alt: "Candelaria" },
+  { src: logoVolcan.url, alt: "Volcán" },
+  { src: logoTranselec.url, alt: "Transelec" },
+  { src: logoDivemotor.url, alt: "Divemotor" },
   { src: logoSantander.url, alt: "Santander" },
   { src: logoPuc.url, alt: "PUC" },
   { src: logoGps7000.url, alt: "GPS7000" },
@@ -206,7 +210,6 @@ const trustLogos = [
   { src: logoBci.url, alt: "BCI" },
   { src: logoLapolar.url, alt: "La Polar" },
   { src: logoBupa.url, alt: "Bupa" },
-  { src: "/__l5e/assets-v1/2398031d-52d8-458f-ab9d-672fe4c21461/divemotor.png", alt: "Divemotor" },
   { src: logoVik.url, alt: "Viña Vik" },
   { src: logoResiter, alt: "Resiter" },
   { src: logoManquehue, alt: "Inmobiliaria Manquehue" },
